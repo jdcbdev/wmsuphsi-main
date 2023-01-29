@@ -10,6 +10,7 @@
 </section>
 
 <!-- teachers section starts  -->
+<!-- teachers section starts  -->
 
 <section class="administration">
    <div class="swiper administration-slider">
