@@ -132,6 +132,7 @@ section {
       -ms-flex-align: center;
           align-items: center;
   z-index: 1000;
+
 }
 
 .header .logo {
@@ -149,6 +150,7 @@ section {
 
 .header .navbar {
   position: relative;
+
 }
 
 .header .navbar #close-navbar {
@@ -376,7 +378,9 @@ section {
 .account-form .buttons .btn.active {
   background: var(--color-green);
   color: #fff;
+
 }
+
 
 /*-----------LOGIN ACCOUNT FORM END----------*/
 

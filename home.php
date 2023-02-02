@@ -1,6 +1,8 @@
 <?php
-    //we start session since we need to use session values
+    //resume session here to fetch session values
     session_start();
+
+
 ?>
 
 
@@ -74,45 +76,71 @@
     //creating an array for list of users can login to the system
     $accounts = array(
         "user1" => array(
-            "firstname" => 'Jaydee',
-            "lastname" => 'Ballaho',
-            "email" => 'jaydee@gmail.com',
-            "type" => 'admin',
-            "username" => 'jaydee',
-            "password" => 'jaydee'
-        ),
-        "user2" => array(
-            "firstname" => 'Flower',
-            "lastname" => 'Violet',
-            "email" => 'flower@gmail.com',
-            "type" => 'staff',
-            "username" => 'flower',
-            "password" => 'flower'
-        ),
-        "user3" => array(
             "firstname" => 'Arjay',
+            "middlename" => 'Lumibot',
             "lastname" => 'Malaga',
             "email" => 'arjay@gmail.com',
-            "type" => 'admin',
+            "address" => 'Guiwan, Zamboanga City',
+            "gender" => 'Male',
+            "role" => 'admin',
             "username" => 'arjay',
             "password" => 'arjay'
         ),
+        "user2" => array(
+            "firstname" => 'Jericho',
+            "middlename" => 'Bello',
+            "lastname" => 'Sagdi',
+            "email" => 'jericho@gmail.com',
+            "address" => 'San Roque, Zamboanga City',
+            "gender" => 'Male',
+            "role" => 'admin',
+            "username" => 'jericho',
+            "password" => 'jericho'
+        ),
+        "user3" => array(
+            "firstname" => 'Kaitlyn June',
+            "middlename" => 'Quimbo',
+            "lastname" => 'Mira',
+            "email" => 'kaitlyn@gmail.com',
+            "address" => 'Pasonance, Zamboanga City',
+            "gender" => 'Female',
+            "role" => 'admin',
+            "username" => 'kaitlyn',
+            "password" => 'kaitlyn'
+        ),
         "user4" => array(
-            "firstname" => 'Marlon',
-            "lastname" => 'Grande',
-            "email" => 'marlon@gmail.com',
-            "type" => 'admin',
-            "username" => 'marlon',
-            "password" => 'marlon'
+            "firstname" => 'Bennett',
+            "middlename" => 'Gelacio',
+            "lastname" => 'Chan',
+            "email" => 'bennett@gmail.com',
+            "address" => 'Curuan, Zamboanga City',
+            "gender" => 'Male',
+            "role" => 'admin',
+            "username" => 'ben',
+            "password" => 'ben'
         ),
         "user5" => array(
-            "firstname" => 'Lucy',
-            "lastname" => 'Felix',
-            "email" => 'lucy@gmail.com',
-            "type" => 'staff',
-            "username" => 'lucy',
-            "password" => 'lucy'
-        )
+            "firstname" => 'Hadzramar',
+            "middlename" => 'Iblao',
+            "lastname" => 'Jaafar',
+            "email" => 'hadzramar@gmail.com',
+            "address" => 'Mampang, Zamboanga City',
+            "gender" => 'Male',
+            "role" => 'normal_user',
+            "username" => 'hadz',
+            "password" => 'hadz'
+        ),
+        "user6" => array(
+            "firstname" => 'Angelica',
+            "middlename" => 'Deoric',
+            "lastname" => 'Deoric',
+            "email" => 'angelica@gmail.com',
+            "address" => 'Town, Zamboanga City',
+            "gender" => 'Female',
+            "role" => 'normal_user',
+            "username" => 'angelica',
+            "password" => 'angelica'
+        )    
     );
     if(isset($_POST['username']) && isset($_POST['password'])){
         //Sanitizing the inputs of the users. Mandatory to prevent injections!
@@ -124,9 +152,9 @@
                 //if match then save username, fullname and type as session to be reused somewhere else
                 $_SESSION['logged-in'] = $value['username'];
                 $_SESSION['fullname'] = $value['firstname'] . ' ' . $value['lastname'];
-                $_SESSION['user_type'] = $value['type'];
+                $_SESSION['user_role'] = $value['role'];
                 //display the appropriate dashboard page for user
-                if($value['type'] == 'admin'){
+                if($value['role'] == 'admin'){
                     header('location: admin/dashboard.php');
                 }else{
                     header('location: admin/dashboard1.php');
@@ -134,7 +162,7 @@
             }
         }
         //set the error message if account is invalid
-        $error = 'Invalid username/password. Try again.';
+        $error = 'Incorrect Account Credentials! Try again.';
     }
 ?>
 
@@ -143,10 +171,10 @@
    <div id="close-form" class="fas fa-times"></div>
    <div class="buttons">
       <span class="btn active login-btn">Login</span>
-      <span class="btn register-btn">Register</span>
+      <span class="btn register-btn">Sign Up</span>
    </div>
    <div class="forms-container" style="justify-content: center;display: grid; ">
-   <form class="login-form active" action="home.php" method="post">
+   <form class="login-form active" id="login-form" action="home.php" method="post">
 
       <h3>Login now</h3>
 
@@ -167,22 +195,43 @@
       <?php
       //Display the error message if there is any. 
       if(isset($error)){
-         echo '<div><p class="error">'.$error.'</p></div>';
+         echo '<div><p class="error" style="color: red;font-size: 16px;margin-top: 15px;">'.$error.'</p></div>';
+      
       }
       ?>
 
    </form>
 
    <form class="register-form" action="">
-      <h3>Register now</h3>
-      <input type="email" placeholder="Enter your email" class="box">
-      <input type="password" placeholder="Enter your password" class="box">
-      <input type="password" placeholder="Confirm your password" class="box">
-      <input type="submit" value="Register now" name="register" class="btn">
+      <h3>Sign Up</h3>
+      <input type="text" placeholder="Enter your Firstname" class="box">
+      <input type="text" placeholder="Enter your Middlename" class="box">
+      <input type="text" placeholder="Enter your Lastname" class="box">
+      <input type="email" placeholder="Enter your Email" class="box">
+      <input type="text" placeholder="Enter your Address" class="box">
+      <div class="gender" style="display: flex; font-size: initial;gap: 12px;padding: 10px;">Gender:
+         <input type="radio" id="male" name="gender" value="male">
+         <label for="male">Male</label><br>
+         <input type="radio" id="female" name="gender" value="female">
+         <label for="female">Female</label><br>
+      </div>
+      <input type="submit" value="Next" name="register" class="btn">
    </form>
+   
+
+
+
 </div>
 </div>
 <!-- Account Form Section End  -->
+
+
+
+
+
+
+
+
 
 <!-- Home Section Start  -->
 <section class="home">
