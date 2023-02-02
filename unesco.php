@@ -22,12 +22,5 @@
    <title>WMSU Youth Peace Mediators - UNESCO Club</title>
 
 </head>
-<body>
-   
-   <p>pututul!</p>
-   <p>How to save a life</p>
 
-
-
-</body>
 </html>  
