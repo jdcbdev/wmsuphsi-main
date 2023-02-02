@@ -26,22 +26,88 @@ USE `phsi`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `admins` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `middleename` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `middlename` varchar(100),
+  `lastname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `username` int(11) NOT NULL,
-  `password` int(11) NOT NULL,
-  `admission_role` varchar(100) NOT NULL,
-  `status` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `gender` varchar(100) NOT NULL,
+  `role` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstname`, `middlename`, `lastname`, `email`, `address`, `role`, `gender`, `username`, `password`, `created_at`, `updated_at`) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--
+--
+-- Table structure for table `carousel`
+--
+
+CREATE TABLE `carousel` (
+  `id` int(11) NOT NULL,
+  `carousel` varchar(100) NOT NULL,
+  `carousel_title` varchar(100),
+  `carousel_desc` varchar(100),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `carousel`
+--
+
+INSERT INTO `carousel` (`id`, `announcement_title`, `description`, `created_at`, `updated_at`) VALUES
+(1,  'Peace Human and Security Institute', 'Lorem ipsum odor amet, consectetuer adipiscing elit. 
+Fusce risus fermentum vestibulum tellus integer tortor; libero cras. In sit finibus mollis feugiat primis; 
+mi malesuada. Porttitor iaculis tellus sed proin aptent sem', '2022-11-03 15:10:55', '2022-11-13 14:19:15'),
+(2, ' Western Mindanao State University', 'Lorem ipsum odor amet, consectetuer adipiscing elit.
+Fusce risus fermentum vestibulum tellus integer tortor; libero cras. In sit finibus mollis feugiat primis; 
+mi malesuada. Porttitor iaculis tellus sed proin aptent sem', '2022-11-03 15:17:36', '2022-11-13 23:07:49');
+
+--
+-- Indexes for table `carousel`
+--
+ALTER TABLE `carousel`
+  ADD PRIMARY KEY (`id`); 
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `carousel`
+--
+ALTER TABLE `carousel
+`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+
 
 
 

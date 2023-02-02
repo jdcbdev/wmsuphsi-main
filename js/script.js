@@ -25,6 +25,19 @@ loginBtn.onclick = () =>{
   document.querySelector('.account-form .register-form').classList.remove('active');
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 let accountForm = document.querySelector('.account-form')
 
 document.querySelector('#account-btn').onclick = () =>{
