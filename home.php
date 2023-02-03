@@ -28,7 +28,7 @@
 
    <!-- Title and Logo in tab -->
    <link rel="icon" type="image/png" href="images/logos/phsi.png">
-   <title>Home | WMSU - Peace and Human Security Institute</title>
+   <title>Home | WMSU - Peace and Human Security Instituted</title>
 
 </head>
 <body>
