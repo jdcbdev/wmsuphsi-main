@@ -44,7 +44,7 @@
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 <!-- Custom Js file link  -->
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

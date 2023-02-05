@@ -8,7 +8,7 @@ document.querySelector('#close-navbar').onclick = () =>{
   navbar.classList.remove('active');
 };
 
-let registerBtn = document.querySelector('.account-form .register-btn');
+/*let registerBtn = document.querySelector('.account-form .register-btn');
 let loginBtn = document.querySelector('.account-form .login-btn');
 
 registerBtn.onclick = () =>{
@@ -33,7 +33,7 @@ document.querySelector('#account-btn').onclick = () =>{
 
 document.querySelector('#close-form').onclick = () =>{
   accountForm.classList.remove('active');
-};
+}; */
 
 var swiper = new Swiper(".home-slider", {
   pagination: {

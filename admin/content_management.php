@@ -11,13 +11,17 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
-    $page_title = 'Dashboard1 | WMSU - Peace and Human Security Institute';
-
+    $content_management = 'active';
+    require_once '../includes/admin-header.php';
+    require_once '../includes/sidebar.php';
+    require_once '../includes/topnav.php';
 ?>
+    
+
+            
 
 
-<p>Welcome to Dashboard - Admin1</p>
 
 <?php
-
+    require_once '../includes/admin-footer.php';
 ?>

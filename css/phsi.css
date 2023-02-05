@@ -115,6 +115,8 @@ section {
 }
 
 /*-----------HEADER START----------*/
+
+
 .header {
   position: -webkit-sticky;
   position: sticky;
@@ -132,6 +134,10 @@ section {
       -ms-flex-align: center;
           align-items: center;
   z-index: 1000;
+
+
+
+
 }
 
 .header .logo {
@@ -149,6 +155,7 @@ section {
 
 .header .navbar {
   position: relative;
+
 }
 
 .header .navbar #close-navbar {
@@ -181,7 +188,7 @@ section {
   
 }
 
-.header .navbar a:hover {
+.header .navbar a:hover { 
   color: #0eb582;
 }
 
@@ -191,6 +198,7 @@ section {
   font-weight: 400;
   color:  #107869;
   margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 .header .icons div a {
@@ -266,78 +274,104 @@ section {
 
 
 /*-----------LOGIN ACCOUNT FORM START----------*/
-.account-form {
-  position: fixed;
-  top: 0;
-  right: -105%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  gap: 6rem;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 100%;
-  z-index: 1200;
-  padding: 2rem;
-  text-align: center;
+.login-container{
+    width: 100%;
+    height: calc(100vh);
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+    background-color: none;
+    background-image: url('../images/carousel-images/phsi-carousel.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 14px;
+    
 }
 
-.account-form.active {
-  right: 0;
-  -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
-          box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+.login-form .divider{
+    color: black;
 }
 
-.account-form #close-form {
-  position: absolute;
-  top: 1.5rem;
-  right: 2.5rem;
-  font-size: 2.5rem;
-  cursor: pointer;
+.login-form .button{
+    margin-top: 25px;
+    line-height: 18px;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--color-green);
+
+    
+}
+
+.login-form .button:hover{
+  background: var(--color-green);
   color: white;
+  
 }
 
-.account-form #close-form:hover {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+.login-form a {
+    text-decoration: none;
+
+
 }
 
-.account-form form {
-  border: 0.1rem solid #0eb582;
-  padding: 2rem;
-  display: none;
+.login-form a {
+    text-align: center;
+    color: #107869;
+
+
 }
 
-.account-form form.active {
-  display: block;
-  width: 40rem;
-  background: var(--color-white);
+.login-form{
+    max-width: 350px;
+    padding: 20px;
+    margin: 0 auto;
+    /*background-color: white;*/
+    border-radius: 6px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0.25, 0.25);
+    /*opacity: 0.9;*/
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(9px);
+    font-size: 12px;
+
 }
 
-.account-form form h3 {
-  font-size: 2.5rem;
-  text-transform: capitalize;
-  color: #444;
-  padding-bottom: .5rem;
-  text-transform: uppercase;
+.login-form .logo-details{
+    height: none;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: grid;
+    margin-bottom: 15px;
 }
 
-.account-form form .box {
-  width: 100%;
-  padding: 1.2rem 1.4rem;
-  border: 0.1rem solid #0eb582;
-  font-size: 1.6rem;
-  margin: .7rem 0;
+.login-form .logo-details i{
+    font-size: 40px;
+    font-weight: 800;
+    color: #107869;
+    text-align: center;
+    padding-right: 5px;
 }
 
-.account-form form .flex {
+.login-form .logo-details img {
+    display: flex;
+    height: 120px;
+    width: 130px;
+    margin-left: 35px;
+    margin-bottom: 10px;
+}
+
+.login-form .logo-details .logo-name{
+    color: #107869;
+    font-size: 35px;
+    font-weight: 500;
+    font-family: Montserrat;
+    text-align: center;
+    
+}
+
+.login-container .login-form .remember-me{
   padding: 1rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -348,34 +382,21 @@ section {
   gap: .5rem;
 }
 
-.account-form form .flex label {
-  font-size: 1.5rem;
-  color: #777;
-  cursor: pointer;
+.login-container .login-form .error{
+  color: red;
+  justify-content: center;
+  display: flex;
+  padding-top: 12px;
 }
 
-.account-form form .flex a {
-  font-size: 1.5rem;
-  color: var(--color-green);
-  margin-left: auto;
-}
-
-.account-form form .flex a:hover {
-  text-decoration: underline;
-  color: var(--color-light-green);
-}
-
-.account-form form .btn {
-  width: 100%;
-}
-
-.account-form .buttons .btn {
-  margin: 0 .5rem;
-}
-
-.account-form .buttons .btn.active {
-  background: var(--color-green);
-  color: #fff;
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    border: 1px solid #a5a5a5;
+    background-color: white;
 }
 
 /*-----------LOGIN ACCOUNT FORM END----------*/
@@ -843,6 +864,9 @@ section {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 3rem;
+  max-width: 1700px;
+  justify-content: center;
+  align-items: center;
 }
 
 .history .image {
@@ -1269,6 +1293,8 @@ section {
 
 
 /*---------------- MEDIA QUERY : RESPONSIVENESS START  -------------------*/
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
 @media (max-width: 1200px) {
   .header {
     padding: 2rem 5%;
@@ -1278,7 +1304,8 @@ section {
   }
 }
 
-@media (max-width: 991px) {
+/* Large devices (laptops/desktops, 992px and up) */
+@media (max-width: 992px) {
   html {
     font-size: 55%;
   }
@@ -1288,18 +1315,30 @@ section {
   section {
     padding: 3rem 2rem;
   }
+  
 }
 
+/* Medium devices (landscape tablets, 768px and up) */
 @media (max-width: 768px) {
+
+  .header .icons{
+    display: ruby;
+
+  }
   .header #menu-btn {
     display: inline-block;
-    display: none;
+    display: contents;
   }
+
+  .header{
+    padding: 1.5rem;
+  }
+
   .header .navbar {
     position: fixed;
     top: 0;
     right: -105%;
-    width: 30rem;
+    width: 50rem;
     background: #fff;
     height: 100%;
     display: -webkit-box;
@@ -1313,7 +1352,9 @@ section {
         -ms-flex-pack: center;
             justify-content: center;
     z-index: 1200;
+    font-size: 3rem;
   }
+  
   .header .navbar #close-navbar {
     display: block;
   }
@@ -1321,6 +1362,8 @@ section {
     -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
             box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
     right: 0;
+    justify-content: center;
+    align-items: center;
   }
   .header .navbar a {
     display: block;
@@ -1328,11 +1371,127 @@ section {
     text-align: center;
     font-size: 3rem;
   }
+
+  .header .navbar .dropbtn{
+    display: block;
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 3rem;
+    justify-content: center;
+  }
   .home .slide .content h3 {
     font-size: 3rem;
   }
+
+  .events-container {
+  display: flex;
+	justify-content: center;
+  margin: 50px;
 }
 
+.event {
+	background-color: #fff;
+	/*border-radius: 10px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); */
+	display: block;
+	max-width: 100%;
+	margin: 15px;
+	overflow: hidden;
+	width: 1000px;
+}
+
+.event h6 {
+	opacity: 0.6;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.event h2 {
+	letter-spacing: 1px;
+	margin: 10px 0;
+}
+
+.event-image-container {
+  justify-content: center;
+  align-items: center;
+  display: grid;
+	background-color: transparent;
+	color: #fff;
+	/*padding: ; */
+	max-width: 250px;
+  margin: auto;
+
+
+}
+
+.event-image-container img {
+  height: 20rem;
+  border-radius: 50%;
+  width: 25rem;
+}
+
+
+.event-info {
+	padding: 30px;
+	position: relative;
+	width: 100%;
+}
+
+
+.event-info h6 {
+  font-size: 12px;
+  justify-content: center;
+  display: flex;
+}
+
+.event-info span {
+  color: var(--color-green);
+}
+
+.event-info h2 {
+  font-size: 20px;
+  justify-content: center;
+  display: flex;
+}
+
+.event-info .event-content {
+  padding-bottom: 10px;
+}
+
+.event-info .event-content p {
+  font-size: 14px;
+}
+
+.btn {
+  justify-content: center;
+  display: flex;
+}
+
+
+
+  .footer .box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    gap: 1rem;
+  }
+  
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 600px) {
+  .footer .box-container {
+    display: -ms-grid;
+    display: block;
+    -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 450px and up) */
 @media (max-width: 450px) {
   html {
     font-size: 50%;
@@ -1343,8 +1502,289 @@ section {
   .about .content .about-title {
     font-size: 4rem;
   }
-}
+
+  .footer .box-container {
+    display: -ms-grid;
+    display: block;
+    -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    gap: 1rem;
+    align-items: center;
+    
+  }
+
+  .events-container {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+  }
+  
+  .event {
+    background-color: #fff;
+    /*border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); */
+    display: block;
+    max-width: 100%;
+    margin: 15px;
+    overflow: hidden;
+    width: 1000px;
+  }
+  
+  .event h6 {
+    opacity: 0.6;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .event h2 {
+    letter-spacing: 1px;
+    margin: 10px 0;
+  }
+  
+  .event-image-container {
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    background-color: transparent;
+    color: #fff;
+    /*padding: ; */
+    max-width: 250px;
+    margin: auto;
+  
+  
+  }
+  
+  .event-image-container img {
+    height: 20rem;
+    border-radius: 50%;
+    width: 25rem;
+  }
+  
+  
+  .event-info {
+    padding: 30px;
+    position: relative;
+    width: 100%;
+  }
+  
+  
+  .event-info h6 {
+    font-size: 12px;
+    justify-content: center;
+    display: inherit;
+  }
+  
+  .event-info span {
+    color: var(--color-green);
+  }
+  
+  .event-info h2 {
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .event-info .event-content {
+    padding-bottom: 10px;
+  }
+  
+  .event-info .event-content p {
+    font-size: 14px;
+  }
+  
+  .btn {
+    justify-content: center;
+    display: flex;
+  }
+  }
+
 /*---------------- MEDIA QUERY : RESPONSIVENESS END  -------------------*/
 
+.signup{
+  background-image: url('../images/carousel-images/phsi-carousel.jpg'); 
+  background-size: cover;
+  width: 100%;
+  
+
+}
+
+.container{
+  max-width: 700px;
+  width: 100%;
+  padding: 25px 50px;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.113);
+}
+
+.container .content{
+  margin: 30px;
+}
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+  justify-content: center;
+  display: flex;
+}
+
+.container .sub-title{
+  font-size: 25px;
+  font-weight: 400;
+  position: relative;
+  padding-left: 29px;
+  margin-top: 3.5rem;
+}
 
 
+/*.container .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+} */
+.content form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+form .input-box span.details::after{
+  content: " *";
+  color: red;
+  float: ;
+}
+
+  form .input-box #middlename::after{
+    content: " *";
+    color: red;
+    display: none;
+  }
+
+
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: var(--color-green);
+}
+ form .gender-details .gender-title{
+  font-size: 14px;
+  font-weight: 500;
+ }
+ form .category{
+   display: flex;
+   width: 47%;
+   margin: 14px 0 ;
+   justify-content: space-between;
+
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+  
+}
+
+form .category .gender{
+  font-size: 14px;
+}
+
+.have-account{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  height: 0;
+}
+
+.have-account span a{
+  color: var(--color-green);
+}
+
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two,
+ #dot-3:checked ~ .category label .three{
+   background: var(--color-green);
+   border-color: #d9d9d9;
+ }
+ form input[type="radio"]{
+   display: none;
+ }
+ form .button{
+   margin: 35px 0
+ }
+ form .button input{
+   height: 100%;
+   width: 100%;
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background: linear-gradient(135deg, var(--color-green), var(--color-light-green));
+ }
+ form .button input:hover{
+  /* transform: scale(0.99); */
+  background: linear-gradient(-135deg, var(--color-green), var(--color-light-green));
+  }
+ @media(max-width: 584px){
+ .container{
+  max-width: 100%;
+}
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category{
+    width: 100%;
+  }
+  .content form .user-details{
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+  }
+  @media(max-width: 459px){
+  .container .content .category{
+    flex-direction: column;
+  }
+}

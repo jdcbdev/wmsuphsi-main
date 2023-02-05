@@ -1,12 +1,12 @@
 <?php
     $page_title = 'Administration | WMSU - Peace and Human Security Institute';
-    require_once 'includes/head.php';
-    require_once 'includes/header.php';
+    require_once '../includes/head.php';
+    require_once '../includes/header.php';
 ?>
 
 <section class="heading-link">
    <h3>Administration</h3>
-   <p> <a href="home.php">Home</a> / Administration </p>
+   <p> <a href="../home.php">Home</a> / Administration </p>
 </section>
 
 <!-- teachers section starts  -->
@@ -17,7 +17,7 @@
 
          <div class="swiper-slide slide">
             <div class="image">
-               <img src="images/administration-profile/phsi-carla.png" alt="">
+               <img src="../images/administration-profile/phsi-carla.png" alt="">
                <div class="share">
                   <a href="#" class="fab fa-facebook-f"></a>
                   <a href="#" class="fab fa-twitter"></a>
@@ -33,7 +33,7 @@
 
          <div class="swiper-slide slide">
             <div class="image">
-               <img src="images/administration-profile/phsi-ludi.png" alt="">
+               <img src="../images/administration-profile/phsi-ludi.png" alt="">
                <div class="share">
                   <a href="#" class="fab fa-facebook-f"></a>
                   <a href="#" class="fab fa-twitter"></a>
@@ -49,7 +49,7 @@
 
          <div class="swiper-slide slide">
             <div class="image">
-               <img src="images/administration-profile/phsi-marlon.png" alt="">
+               <img src="../images/administration-profile/phsi-marlon.png" alt="">
                <div class="share">
                   <a href="#" class="fab fa-facebook-f"></a>
                   <a href="#" class="fab fa-twitter"></a>
@@ -69,5 +69,5 @@
 <!-- Administration Section Ends -->
 
 <?php
-    require_once 'includes/footer.php';
+    require_once '../includes/footer.php';
 ?>            

@@ -1,18 +1,18 @@
 <?php
     $page_title = 'Upcoming Events | WMSU - Peace and Human Security Institute';
-    require_once 'includes/head.php';
-    require_once 'includes/header.php';
+    require_once '../includes/head.php';
+    require_once '../includes/header.php';
 ?>
 
 <section class="heading-link">
    <h3>Upcoming Events</h3>
-   <p> <a href="home.php">Home</a> / Upcoming Events</p>
+   <p> <a href="../home.php">Home</a> / Upcoming Events</p>
 </section>
 
 <div class="events-container">
 	<div class="event">
 		<div class="event-image-container">
-            <img src="images/content-images/unesco-ncm.png" alt="">
+            <img src="../images/content-images/unesco-ncm.png" alt="">
 
 		</div>
 		<div class="event-info">
@@ -30,7 +30,7 @@
 <div class="events-container">
 	<div class="event">
 		<div class="event-image-container">
-            <img src="images/content-images/unesco-dialogue.jpg" alt="">
+            <img src="../images/content-images/unesco-dialogue.jpg" alt="">
 	
 		</div>
 		<div class="event-info">
@@ -48,7 +48,7 @@
 <div class="events-container">
 	<div class="event">
 		<div class="event-image-container">
-            <img src="images/content-images/unesco-peacte.jpg" alt="">
+            <img src="../images/content-images/unesco-peacte.jpg" alt="">
 
 		</div>
 		<div class="event-info">
@@ -69,5 +69,5 @@
 
 
 <?php
-    require_once 'includes/footer.php';
+    require_once '../includes/footer.php';
 ?>

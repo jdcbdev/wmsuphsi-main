@@ -16,10 +16,16 @@
    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
    
    <!-- Custom css file link  -->
-   <link rel="stylesheet" href="css/phsi.css">
+   <link rel="stylesheet" href="../css/phsi.css">
+
+   <!-- Bootstrap CSS -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" >
+   <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.3.1/css/fixedHeader.bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap.min.css">
 
    <!-- Title and Logo in tab -->
-   <link rel="icon" type="image/png" href="images/logos/phsi.png">
+   <link rel="icon" type="image/png" href="../images/logos/phsi.png">
    <title><?php echo $page_title; ?></title>
 
 </head>

@@ -1,12 +1,12 @@
 <?php
     $page_title = 'Mission and Vision | WMSU - Peace and Human Security Institute';
-    require_once 'includes/head.php';
-    require_once 'includes/header.php';
+    require_once '../includes/head.php';
+    require_once '../includes/header.php';
 ?>
 
 <section class="heading-link">
    <h3>Mission & Vision</h3>
-   <p> <a href="home.php">Home</a> / Mission & Vision </p>
+   <p> <a href="../home.php">Home</a> / Mission & Vision </p>
 </section>
 
 <!-- Mission and Vission Section starts  -->
@@ -22,7 +22,7 @@ peace studies, integration of peace education, and other peace and
 development initiatives.</p>
    </div>
    <div class="image">
-      <img src="images/content-images/phsi-p6.png" alt="">
+      <img src="../images/content-images/phsi-p6.png" alt="">
    </div>
    
    <div class="misvis-content">
@@ -34,7 +34,7 @@ spaces that facilitate the development and expression of the potentials,
 capabilities, and talents of the people of Mindanao and the country.</p>
     </div>
    <div class="image">
-   <img src="images/content-images/phsi-p5.png" alt="">
+   <img src="../images/content-images/phsi-p5.png" alt="">
    </div>
 
    
@@ -45,5 +45,5 @@ capabilities, and talents of the people of Mindanao and the country.</p>
 
 
 <?php
-    require_once 'includes/footer.php';
+    require_once '../includes/footer.php';
 ?>
