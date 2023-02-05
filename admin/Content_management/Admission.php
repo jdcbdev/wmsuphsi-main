@@ -1,28 +1,22 @@
 <?php 
-     require_once("dbconfig.php");
+    require_once("classes/admission.classes.php");
 
-    if(isset($post['insert'])){
-         $name=$_POST['Name'];
-         $horifics=$_POST['Honorifics'];
-         $position=$_POST['Position'];
+    if(isset($_POST['submit'])) {
+        // print_r($_POST['Name']);
 
-         $sql= "INSERT INTO tbladmission(Name,Honorifics, Position)VALUES(:name,:honorifics,:position)";
-         $query = $dbh->prepare($sql);
+            $users = new admission;
+            $users->name = $_POST['Name'];
+            $users->honorific = $_POST['Honorifics'];
+            $users->position = $_POST['Position'];
+            $res = $users->insertData();
 
-         $query->bindParam(':name',$name,PDO::PARAM_STR);
-         $query->bindParam(':honorifics',$honorifics,PDO::PARAM_STR);
-         $query->bindParam(':position',$position,PDO::PARAM_STR);
-
-         $query->execute();
-         $lastInserted = $dbh->LastInserted();
-
-         if($lastInserted){
+            if($res){
                 echo"<script>Alert('Record inserted successfully') </script>>";
-                echo"<script>window.location.href='insert.php'</script>>";
+               
          }else{
             echo"<script>Alert('Something went wrong with the insertion of the records') </script>>";
-                echo"<script>window.location.href='insert.php'</script>>";
-
+               
+        
             }
     }
     
@@ -39,7 +33,7 @@
                     <h3>ADMISSIONS</h3>
                 </div>  
             </div>       
-            <forms name="insertrecord" method="POST">
+            <form action='admission.php'   name="insertrecord" method="POST">
                 <div class="column">
                     <div class="col-md-4">
                         <b> Name</b>
@@ -55,11 +49,13 @@
                     </div>  
                     <div class="column">
                         <div class="col-md-8">
-                            <input type="button" name="insert" class="btn btn-success" value="submit" >
+                            <button type="submit" name="submit" class="btn btn-success"  value="submit" >submit</button>
                             <a href="index.php" class="btn btn-danger">Back</a>
                         </div> 
                     </div> 
                  </div>  
+            </form>
+
         </body>
 </html>
 

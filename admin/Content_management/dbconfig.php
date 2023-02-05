@@ -1,12 +1,22 @@
-<?php 
-    define ('DB_HOST','localhost');
-    define ('DB_USER','root');
-    define ('DB_PASS','');
-    define ('DB_NAME','admission');
+<?php
 
-            try{
-                    $dbh = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,DB_USER,DB_PASS);
-            }catch(PDOExeption $e){
-                    exit ("ERROR". $E->get_error_message());
-            }
-?>
+class Database{
+    private $host = 'localhost';
+    private $username = 'root';
+    private $password = '';
+    private $database = 'admission';
+    protected $connection;
+
+    function connect(){
+        try 
+			{
+				$this->connection = new PDO("mysql:host=$this->host;dbname=$this->database", 
+											$this->username, $this->password);
+			} 
+			catch (PDOException $e) 
+			{
+				echo "Connection error " . $e->getMessage();
+			}
+        return $this->connection;
+    }
+}
