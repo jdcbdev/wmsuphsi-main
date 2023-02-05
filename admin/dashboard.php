@@ -85,7 +85,7 @@
                 </div>
 
 
-                <!--<div class="records table-responsive">
+                <div class="records table-responsive">
 
                     <div class="record-header">
                         <div class="add">

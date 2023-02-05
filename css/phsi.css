@@ -82,7 +82,7 @@ section {
 }
   
 .heading-link p a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
   
 .heading {
@@ -1271,7 +1271,7 @@ input, select, textarea {
 
 .footer .box-container .box .link:hover {
   color: #0eb582;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .footer .credit {
@@ -1605,12 +1605,15 @@ input, select, textarea {
   background-image: url('../images/carousel-images/phsi-carousel.jpg'); 
   background-size: cover;
   width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   
 
 }
 
 .container{
-  max-width: 700px;
+  max-width: 7  00px;
   width: 100%;
   padding: 25px 50px;
   border-radius: 5px;
@@ -1668,7 +1671,6 @@ form .input-box span.details{
 form .input-box span.details::after{
   content: " *";
   color: red;
-  float: ;
 }
 
   form .input-box #middlename::after{

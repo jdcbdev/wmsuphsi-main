@@ -58,7 +58,7 @@
           </div>
         </div>
         <div class="button">
-          <input type="submit" value="Register">
+          <input type="submit" value="Sign Up">
         </div>
         <div class="have-account">
         <p>ALREADY HAVE AN ACCOUNT?<span> <a href="login.php">LOG IN</a></span></p>
@@ -68,3 +68,4 @@
     </div>
   </div>
   </section>
+

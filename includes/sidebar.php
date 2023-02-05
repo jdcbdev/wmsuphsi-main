@@ -6,9 +6,9 @@
         
         <div class="side-content">
             <div class="profile">
-                <div class="profile-img bg-img" style="background-image: url(../images/administration-profile/mycv.png)"></div>
-                <h4>Arjay Malaga</h4>
-                <small>Super Admin</small>
+                <div class="profile-img bg-img" style="background-image: url(../images/student-profile/user-icon.png)"></div>
+                <h4><?php echo $_SESSION['fullname']; ?></h4>
+                <small><?php echo $_SESSION['user_role']; ?></small>
             </div>
 
             <div class="side-menu">

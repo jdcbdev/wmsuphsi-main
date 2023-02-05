@@ -16,8 +16,10 @@
     require_once '../includes/sidebar.php';
     require_once '../includes/topnav.php';
 ?>
-    
 
+<main>
+
+</main>
             
 
 
