@@ -29,8 +29,29 @@
    </nav>
 
    <div class="icons">
+<<<<<<< Updated upstream
       <div id="account-btn">Login</div>
       <div id="menu-btn" class="fas fa-bars">Menu</div>
+=======
+      <!--If user is not ye logged in, notification bell, user icon and logout will now show-->
+      <?php  if(isset($_SESSION['logged-in'])) { 
+      ?>
+      <div class="uil uil-bell"><a href=""></a></div>
+      <div class="user">
+         <div class="bg-img" style="background-image: url(../images/student-profile/user-icon.png)"></div>
+      </div>
+      <div class="uil uil-signout"><a href="../home.php">Logout</a></div>
+      <?php
+      }
+      ?>
+      <?php  if(!isset($_SESSION['logged-in'])) { 
+      ?>
+      <div id="account-btn"><a href="../login/login.php">Login</a></div>
+      <?php
+      }
+      ?>
+      <div id="menu-btn">Menu</div>
+>>>>>>> Stashed changes
    </div>
 </header>
 <!-- Header Section End -->
