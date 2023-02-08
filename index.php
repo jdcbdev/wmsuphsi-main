@@ -10,7 +10,7 @@
         header('location: admin/dashboard.php');
     }
     else if (isset($_SESSION['user_role']) == 'normal_user'){
-        header('location: admin/dashboard1.php');
+        header('location: user/user-profile.php');
     }
     else{
         header('location: home.php');

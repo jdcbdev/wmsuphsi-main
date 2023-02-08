@@ -17,13 +17,83 @@
     require_once '../includes/topnav.php';
 ?>
 
-<main>
+<div class="table-container">
+            <div class="table-heading">
+                <h3 class="table-title">Manage Carousel</h3>
+                    <a href="../carousel/add-carousel.php" class="button">Add New Carousel</a>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th class="carousel-image">Image</th>
+                        <th>Carousel Title</th>
+                        <th>Description</th>
+                        <th class="action">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <!-- always use echo to output PHP values -->
+                            <td>1</td>
+                            <td><img src="../images/carousel-images/phsi-carousel.jpg" alt=""></td>
+                            <td>Peace and Human Security Institute</td>
+                            <td>Peace is more than 
+                                the absence of war, 
+                                it is living together 
+                                with our differences – 
+                                of sex, race, language, 
+                                religion or culture – while 
+                                furthering universal respect 
+                                for justice and human rights 
+                                on which such coexistence depends.</td>
+                            <td>
+                                <div class="action">
+                                <a class="action-edit" href="../carousel/edit-carousel.php">Edit</a>
+                                    <a class="action-delete" href="../carousel/delete-carousel.php">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
 
-</main>
-            
+                        <tr>
+                            <!-- always use echo to output PHP values -->
+                            <td>2</td>
+                            <td><img src="../images/carousel-images/unesco-carousel.png" alt=""></td>
+                            <td>Peace and Human Security Institute</td>
+                            <td>Peace is more than 
+                                the absence of war, 
+                                it is living together 
+                                with our differences – 
+                                of sex, race, language, 
+                                religion or culture – while 
+                                furthering universal respect 
+                                for justice and human rights 
+                                on which such coexistence depends.
+                                Peace is more than 
+                                the absence of war, 
+                                it is living together 
+                                with our differences – 
+                                of sex, race, language, 
+                                religion or culture – while 
+                                furthering universal respect 
+                                for justice and human rights 
+                                on which such coexistence dependss</td>
+                            <td>
+                                <div class="action">
+                                    <a class="action-edit" href="../carousel/edit-carousel.php">Edit</a>
+                                    <a class="action-delete" href="../carousel/delete-carousel.php">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
 
 
 
-<?php
-    require_once '../includes/admin-footer.php';
-?>
+       
+</body>
+</html> 
+
+
+
