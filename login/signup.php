@@ -5,12 +5,14 @@
     require_once '../includes/head.php';
 ?>
 
-<section class="signup">
-<div class="container">
+
+<div class="signup-container">
     <div class="title">Sign Up Form</div>
-    <div class="sub-title">Personal Information</div>
     <div class="content">
-      <form action="#">
+
+    <!--PERSONAL INFORMATION-->
+    <div class="sub-title">Personal Information</div>
+      <form action="login.php">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Firstname</span>
@@ -25,15 +27,31 @@
             <input type="text" placeholder="" required>
           </div>
           <div class="input-box">
+            <span class="details" id="middlename">Extension Name</span>
+            <input type="text" placeholder="" required>
+          </div>
+          <div class="input-box">
             <span class="details">Email</span>
             <input type="text" placeholder="" required>
           </div>
           <div class="input-box">
-            <span class="details">Address</span>
+            <span class="details">Street Address</span>
             <input type="text" placeholder="" required>
           </div>
           <div class="input-box">
-            <span class="details">Contact</span>
+            <span class="details">Barangay</span>
+            <input type="text" placeholder="" required>
+          </div>
+          <div class="input-box">
+            <span class="details">City/town</span>
+            <input type="text" placeholder="" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Country</span>
+            <input type="text" placeholder="" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Contact number</span>
             <input type="text" placeholder="" required>
           </div>
         </div>
@@ -56,7 +74,50 @@
             <span class="gender">Prefer not to say</span>
             </label>
           </div>
+
+        <!--WMSU STATUS-->
+          <div class="sub-title">WMSU Status (Optional) </div><br>
+          <p style="COLOR: red;margin-bottom: 10px;">Please skip this part if it does not apply to you!
+          </p>
+          <label class="wmsu-status">WMSU Alumni
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+          <label class="wmsu-status">WMSU Employee
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="wmsu-status">WMSU Student
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="wmsu-status">WMSU Youth Peace Mediators - UNESCO Club 
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <label class="wmsu-status">WMSU Biosafety and Biosecurity Committee
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+
+
+           <!--ACCOUNT CREDENTIALS-->
+          <div class="sub-title">Account Credentials</div><br>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="" required>
+          </div>
+          <div class="input-box">
+            <span class="details">New Password</span>
+            <input type="password" placeholder="">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="" required>
+          </div>
         </div>
+        
+         <!--SIGN UP BUTTON-->
         <div class="button">
           <input type="submit" value="Sign Up">
         </div>
