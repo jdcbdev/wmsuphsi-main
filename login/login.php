@@ -1,4 +1,5 @@
 <?php
+     require_once '../classes/user.class.php';
     //resume session here to fetch session values
     session_start();
     $page_title = 'Login | WMSU - Peace and Human Security Institute';
@@ -78,25 +79,27 @@
     );
     if(isset($_POST['username']) && isset($_POST['password'])){
         //Sanitizing the inputs of the users. Mandatory to prevent injections!
-        $username = htmlentities($_POST['username']);
-        $password = htmlentities($_POST['password']);
-        foreach($accounts as $keys => $value){
-            //check if the username and password match in the array
-            if($username == $value['username'] && $password == $value['password']){
-                //if match then save username, fullname and type as session to be reused somewhere else
-                $_SESSION['logged-in'] = $value['username'];
-                $_SESSION['fullname'] = $value['firstname'] . ' ' . $value['lastname'];
-                $_SESSION['user_role'] = $value['role'];
-                //display the appropriate dashboard page for user
-                if($value['role'] == 'admin'){
+        $user= new users;
+        $user -> email = htmlentities($_POST['username']); 
+        $user -> password = htmlentities($_POST['password']); 
+
+        $output= $user -> login();
+
+        if ($output) {
+            // CREATE -- COLUMN "firstname" "lastname" "role"
+            $_SESSION['logged-in'] = $output['user_name'];
+            $_SESSION['fullname'] = $output['firstname'] . ' ' . $output['lastname'];
+            $_SESSION['user_role'] = $output['role'];
+
+            //display the appropriate dashboard page for user
+                if($output['role'] == 'admin'){
                     header('location: ../admin/dashboard.php');
                 }else{
-                    header('location: ../user/user-profile.php');
+                     header('location: ../admin/dashboard1.php');
                 }
-            }
+           
         }
-        //set the error message if account is invalid
-        $error = 'Incorrect Account Credentials! Try again.';
+         $error = 'Incorrect Account Credentials! Try again.';
     }
 ?>
 
