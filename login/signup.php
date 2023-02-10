@@ -16,7 +16,7 @@
         <div class="user-details">
           <div class="input-box">
             <span class="details">Firstname</span>
-            <input type="text" placeholder="" required>
+            <input type="text" placeholder="" required> 
           </div>
           <div class="input-box">
             <span class="details" id="middlename">Middlename</span>

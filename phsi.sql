@@ -25,31 +25,29 @@ USE `phsi`;
 
 -- --------------------------------------------------------
 
+--
+--
+-- Table structure for table `misvis`
+--
 
---
---
--- Table structure for table `carousel`
---
-
-CREATE TABLE `carousel` (
+CREATE TABLE `misvis` (
   `id` int(11) NOT NULL,
-  `carousel_image` varchar(255) NOT NULL,
-  `carousel_title` varchar(255) NOT NULL,
-  `carousel_description` varchar(255) NOT NULL
+  `misvis_title` varchar(255) NOT NULL,
+  `misvis_description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `carousel`
+-- Dumping data for table `misvis`
 --
 
-INSERT INTO `carousel` (`id`, `carousel_image`, `carousel_title`, `carousel_description`) VALUES
-(1, 'ccslogo1.jpg', 'Peace and Human Security Institute', 'Peace is more than the absence of war, it is living together with our differences – of sex, race, language, religion or culture – while furthering universal respect for justice and human rights on which such coexistence depends.'),
-(2, 'sad.jpg', 'Peace and Human Security Institute', 'Peace is more than the absence of war, it is living together with our differences – of sex, race, language, religion or culture – while furthering universal respect for justice and human rights on which such coexistence depends.');
+INSERT INTO `misvis` (`id`, `misvis_title`, `misvis_description`) VALUES
+(1, 'Mission', 'The WMSU-PHSI seeks to expand and deepen the commitment, engagement, and involvement of individuals and groups inside and outside the university not only within the region but even in the national and international community, thru the offering of peace studies, integration of peace education, and other peace and development initiatives.'),
+(2, 'Vission', 'A group of men and women in WMSU working in the field of instruction, research, and extension, towards the promotion of a Culture of Peace and the provision of the opportunities and caring spaces that facilitate the development and expression of the potentials, capabilities, and talents of the people of Mindanao and the country.');
 
 --
--- Indexes for table `carousel`
+-- Indexes for table `misvis`
 --
-ALTER TABLE `carousel`
+ALTER TABLE `misvis`
   ADD PRIMARY KEY (`id`); 
   
 --
@@ -57,13 +55,11 @@ ALTER TABLE `carousel`
 --
 --
 --
--- AUTO_INCREMENT for table `carousel`
+-- AUTO_INCREMENT for table `misvis`
 --
-ALTER TABLE `carousel`
+ALTER TABLE `misvis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
-
-
 
 
 -- --------------------------------------------------------

@@ -782,7 +782,6 @@ form .user-details .input-box{
   padding: 3rem 2rem;
   text-align: center;
   border: 0.1rem solid #ffffff;
-  cursor: pointer;
 }
 
 .organization .box-container #unesco {
@@ -820,7 +819,6 @@ form .user-details .input-box{
 
 .organization .box-container .box h3 {
   font-size: 1.7rem;
-  text-transform: capitalize;
   color: white;
   padding: .5rem 0;
 }

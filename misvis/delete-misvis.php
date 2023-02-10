@@ -1,6 +1,6 @@
 <?php 
 
-     require_once '../classes/announcement.class.php';
+     require_once '../classes/misvis.class.php';
 
      //resume session here to fetch session values
      session_start();
@@ -13,11 +13,11 @@
          header('location: ../login/login.php');
      }
      //if the above code is false then code and html below will be executed
-     $announcement = new Announcement;
+     $misvis = new MisVis;
      if(isset($_GET['id'])){
-         if($announcement->delete($_GET['id'])){
+         if($misvis->delete($_GET['id'])){
              //redirect user to faculty page after delete.
-             header('location: announcement.php');
+             header('location: ../admin/content_management.php');
          }
      }
     

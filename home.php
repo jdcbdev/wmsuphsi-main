@@ -141,8 +141,9 @@
    <div class="box-container">
 
       <div class="box" id="unesco">
-         <img src="./images/logos/unesco.png" alt="">
-         <h3>WMSU Youth Peace Mediators - UNESCO Club</h3>
+      <a href="organizations/unesco.php">
+         <img src="./images/logos/new-unesco.png" alt="">
+         <h3>WMSU Youth Peace Mediators - UNESCO Club</h3></a>
          <!--<p>Lorem ipsum</p>-->
       </div>
 
