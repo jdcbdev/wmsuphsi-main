@@ -122,6 +122,7 @@
                                 <div class="action">
                                     <a class="action-edit" href="../misvis/edit-misvis.php?id=<?php echo $value['id'] ?>">Edit</a>
                                     <a class="action-delete" href="../misvis/delete-misvis.php?id=<?php echo $value['id'] ?>">Delete</a>
+                                    <a class="action-view" href="../misvis/misvis.php">View</a>
                                 </div>
                             </td>
                         </tr>
@@ -142,9 +143,43 @@
 <!-- Custom Js file link  -->
 <script src="js/script.js"></script>    
 
+
        
 </body>
 </html> 
 
+<!--DELETE ANNOUNCEMENT WARNING BOX-->
+<div id="delete-dialog" class="dialog" title="Delete Content">
+    <p><span>Are you sure you want to delete the selected record?</span></p>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#delete-dialog").dialog({
+            resizable: false,
+            draggable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            autoOpen: false
+        });
+        $(".action-delete").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#delete-dialog").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#delete-dialog").dialog("open");
+        });
+    });   
+</script>
 
 
+    

@@ -22,7 +22,7 @@
     //if add misvis is submitted
     if(isset($_POST['save'])){
         
-        $misvis = new Misvis();
+        $misvis = new MisVis();
 
         //sanitize user inputs
         $misvis->misvis_title = htmlentities($_POST['misvis_title']);
@@ -51,12 +51,22 @@
                 <form class="add-form" action="add-misvis.php" enctype='multipart/form-data' method="post">
 
                 <label for="misvis_title">Content Title</label>
-                <input type="text" id="misvis_title" name="misvis_title" placeholder="Enter misvis Title" value="">
+                <input type="text" id="misvis_title" name="misvis_title" placeholder="Enter Content Title" value="">
 
                 <label for="misvis_description">Content Description</label>
-                <input type="text" id="misvis_description" name="misvis_description" placeholder="Enter misvis Description" value="">
+                <input type="text" id="misvis_description" name="misvis_description" placeholder="Enter Content Description" value="">
                     
                 <input type="submit" class="button" value="Add misvis" name="save" id="save">
                 </form>
             </div>
 </div>
+
+ <!-- Swiper Js link  -->
+ <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- Custom Js file link  -->
+<script src="js/script.js"></script>    
+
+       
+</body>
+</html> 
