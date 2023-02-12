@@ -29,6 +29,16 @@ Class users{
         }
         return $data;
     }
+    function login(){
+        $sql = "SELECT * FROM user_acc_data WHERE user_name = :email and user_pass = :password" ;
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':email', $this->email);
+        $query->bindParam(':password', $this->password);
+        if($query->execute()){
+           $data = $query->fetch();
+        }
+     	return $data;
+    }
 }
 
 ?>
