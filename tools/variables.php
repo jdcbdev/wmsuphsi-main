@@ -6,6 +6,7 @@
     $organizations = "";
     $feedback_management =  "";
     $user_management = "";
-    $settings = ;
+    $settings = "";
+    $carousel = "";
 
 ?>

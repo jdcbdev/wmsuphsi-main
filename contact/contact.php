@@ -1,12 +1,12 @@
 <?php
     $page_title = 'Contact | WMSU - Peace and Human Security Institute';
-    require_once 'includes/head.php';
-    require_once 'includes/header.php';
+    require_once '../includes/head.php';
+    require_once '../includes/header.php';
 ?>
 
 <section class="heading-link">
    <h3>Contact</h3>
-   <p> <a href="home.php">Home</a> / Contact </p>
+   <p> <a href="../home.php">Home</a> / Contact </p>
 </section>
 
 <!-- contact section starts  -->
@@ -70,5 +70,5 @@
 
 
 <?php
-    require_once 'includes/footer.php';
+    require_once '../includes/footer.php';
 ?>

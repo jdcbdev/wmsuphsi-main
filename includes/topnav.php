@@ -13,7 +13,7 @@
             </div>
             
             <div class="user">
-                <div class="bg-img" style="background-image: url(../images/administration-profile/mycv.png)"></div>
+                <div class="bg-img" style="background-image: url(../images/student-profile/user-icon.png)"></div>
                 <span class="uil uil-signout"></span>
                 <a href="../logout/logout.php">Logout</a>
             </div>

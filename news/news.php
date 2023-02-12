@@ -1,19 +1,19 @@
 <?php
     $page_title = 'News & Features | WMSU - Peace and Human Security Institute';
-    require_once 'includes/head.php';
-    require_once 'includes/header.php';
+    require_once '../includes/head.php';
+    require_once '../includes/header.php';
 ?>
 
 <section class="heading-link">
    <h3>News & Feature</h3>
-   <p> <a href="home.php">Home</a> / News & Features</p>
+   <p> <a href="../home.php">Home</a> / News & Features</p>
 </section>
 
 <section class="announcements">
    <div class="box-container">
       <div class="box">
          <div class="image">
-            <img src="images/content-images/unesco-canton.jpg" alt="">
+            <img src="../images/content-images/unesco-canton.jpg" alt="">
             <h3>Jan 16, 2023</h3>
          </div>
          <div class="content">
@@ -25,7 +25,7 @@
 
       <div class="box">
          <div class="image">
-            <img src="images/content-images/phsi-dialogue.jpg"  alt="">
+            <img src="../images/content-images/phsi-dialogue.jpg"  alt="">
             <h3>Nov 26, 2022</h3>
          </div>
          <div class="content">
@@ -37,7 +37,7 @@
 
       <div class="box">
          <div class="image">
-            <img src="images/content-images/unesco-youthleader.png"  alt="">
+            <img src="../images/content-images/unesco-youthleader.png"  alt="">
             <h3>Nov 12, 2022</h3>
          </div>
          <div class="content">
@@ -50,7 +50,7 @@
 
    <div class="box">
       <div class="image">
-         <img src="images/content-images/phsi-p4.jpg" alt="">
+         <img src="../images/content-images/phsi-p4.jpg" alt="">
          <h3>Date posted</h3>
       </div>
       <div class="content">
@@ -63,7 +63,7 @@
 
    <div class="box">
       <div class="image">
-         <img src="images/content-images/unesco-p1.jpg" alt="">
+         <img src="../images/content-images/unesco-p1.jpg" alt="">
          <h3>Date posted</h3>
       </div>
       <div class="content">
@@ -75,7 +75,7 @@
 
    <div class="box">
       <div class="image">
-         <img src="images/content-images/unesco-p2.jpg" alt="">
+         <img src="../images/content-images/unesco-p2.jpg" alt="">
          <h3>Date posted</h3>
       </div>
       <div class="content">
@@ -87,7 +87,7 @@
 
    <div class="box">
       <div class="image">
-         <img src="images/content-images/unesco-p3.jpg" alt="">
+         <img src="../images/content-images/unesco-p3.jpg" alt="">
          <h3>Date posted</h3>
       </div>
       <div class="content">
@@ -99,7 +99,7 @@
 
    <div class="box">
       <div class="image">
-         <img src="images/content-images/unesco-p4.jpg" alt="">
+         <img src="../images/content-images/unesco-p4.jpg" alt="">
          <h3>Date posted</h3>
       </div>
       <div class="content">
@@ -112,7 +112,7 @@
 
    <div class="box">
       <div class="image">
-         <img src="images/content-images/unesco-p5.jpg" alt="">
+         <img src="../images/content-images/unesco-p5.jpg" alt="">
          <h3>Date posted</h3>
       </div>
       <div class="content">
@@ -125,7 +125,7 @@
 
    <div class="box hide">
       <div class="image">
-         <img src="images/content-images/phsi-p7.png" alt="">
+         <img src="../images/content-images/phsi-p7.png" alt="">
          <h3>Date posted</h3>
       </div>
       <div class="content">
@@ -138,7 +138,7 @@
 
    <div class="box hide">
       <div class="image">
-         <img src="images/content-images/phsi-p8.png" alt="">
+         <img src="../images/content-images/phsi-p8.png" alt="">
          <h3>Date posted</h3>
       </div>
       <div class="content">
@@ -150,7 +150,7 @@
 
    <div class="box hide">
       <div class="image">
-         <img src="images/content-images/phsi-p9.png" alt="">
+         <img src="../images/content-images/phsi-p9.png" alt="">
          <h3>Date posted</h3>
       </div>
       <div class="content">
@@ -173,5 +173,5 @@
 
 
 <?php
-    require_once 'includes/footer.php';
+    require_once '../includes/footer.php';
 ?>

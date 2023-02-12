@@ -1,7 +1,7 @@
 <?php
     $page_title = 'News & Features | WMSU - Peace and Human Security Institute';
-    require_once 'includes/head.php';
-    require_once 'includes/header.php';
+    require_once '../includes/head.php';
+    require_once '../includes/header.php';
 ?>
 
 <!-- Mission and Vission Section starts  -->
@@ -11,7 +11,7 @@
       <h3 class="news-title">Harnessing our Peace Efforts: Towards Solidarity in Service</h3>
       
       <div class="image">
-      <img src="images/content-images/phsi-dialogue.jpg" alt="">
+      <img src="../images/content-images/phsi-dialogue.jpg" alt="">
     </div>
 
     <div class="desc">
@@ -22,7 +22,7 @@
       </p>
 
       <div class="image">
-      <img src="images/content-images/phsi-dialogue1.jpg" alt="">
+      <img src="../images/content-images/phsi-dialogue1.jpg" alt="">
     </div>
 
     <div class="desc">
@@ -46,5 +46,5 @@
 
 
 <?php
-    require_once 'includes/footer.php';
+    require_once '../includes/footer.php';
 ?>

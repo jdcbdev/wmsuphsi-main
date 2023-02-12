@@ -1,12 +1,12 @@
 <?php
     $page_title = 'History | WMSU - Peace and Human Security Institute';
-    require_once 'includes/head.php';
-    require_once 'includes/header.php';
+    require_once '../includes/head.php';
+    require_once '../includes/header.php';
 ?>
 
 <section class="heading-link">
    <h3>History</h3>
-   <p> <a href="home.php">Home</a> / History </p>
+   <p> <a href="../home.php">Home</a> / History </p>
 </section>
 
 <!-- History Section starts  -->
@@ -20,11 +20,11 @@
         welfare of the society grounded on democratic and peaceful initiative.</p>
    </div>
    <div class="image">
-      <img src="images/logos/phsi.png" alt="">
+      <img src="../images/logos/phsi.png" alt="">
    </div>
 
    <div class="image">
-      <img src="images/content-images/phsi-p5.png" alt="">
+      <img src="../images/content-images/phsi-p5.png" alt="">
    </div>
    <div class="content">
       <p>In 2010, it was renamed as Peace and Human Security Institute (PHSI),
@@ -41,5 +41,5 @@
 
 
 <?php
-    require_once 'includes/footer.php';
+    require_once '../includes/footer.php';
 ?>

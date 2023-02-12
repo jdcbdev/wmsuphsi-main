@@ -16,29 +16,170 @@
     require_once '../includes/sidebar.php';
     require_once '../includes/topnav.php';
 ?>
- </div>
+
+<!--<div class="table-container">
+            <div class="table-heading">
+                <h3 class="table-title">Manage Carousel</h3>
+                    <a href="../carousel/add-carousel.php" class="button">Add New Carousel</a>
+            </div>
             <table class="table">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Announcement Title</th>
-                        <th>Announcement Description</th>
-                        <th>Date Upload</th>
-                        <?php
-                            if($_SESSION['user_type'] == 'admin'){ 
-                        ?>
-                            <th class="action">Action</th>
-                        <?php
-                            }
-                        ?>
+                        <th class="carousel-image">Image</th>
+                        <th>Carousel Title</th>
+                        <th>Description</th>
+                        <th class="action">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                        <tr>
+                          
+                            <td>1</td>
+                            <td><img src="../images/carousel-images/phsi-carousel.jpg" alt=""></td>
+                            <td>Peace and Human Security Institute</td>
+                            <td>Peace is more than 
+                                the absence of war, 
+                                it is living together 
+                                with our differences – 
+                                of sex, race, language, 
+                                religion or culture – while 
+                                furthering universal respect 
+                                for justice and human rights 
+                                on which such coexistence depends.</td>
+                            <td>
+                                <div class="action">
+                                <a class="action-edit" href="../carousel/edit-carousel.php">Edit</a>
+                                    <a class="action-delete" href="../carousel/delete-carousel.php">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
 
-                
+                        <tr>
+      
+                            <td>2</td>
+                            <td><img src="../images/carousel-images/unesco-carousel.png" alt=""></td>
+                            <td>Peace and Human Security Institute</td>
+                            <td>Peace is more than 
+                                the absence of war, 
+                                it is living together 
+                                with our differences – 
+                                of sex, race, language, 
+                                religion or culture – while 
+                                furthering universal respect 
+                                for justice and human rights 
+                                on which such coexistence depends.
+                                Peace is more than 
+                                the absence of war, 
+                                it is living together 
+                                with our differences – 
+                                of sex, race, language, 
+                                religion or culture – while 
+                                furthering universal respect 
+                                for justice and human rights 
+                                on which such coexistence dependss</td>
+                            <td>
+                                <div class="action">
+                                    <a class="action-edit" href="../carousel/edit-carousel.php">Edit</a>
+                                    <a class="action-delete" href="../carousel/delete-carousel.php">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>-->
+
+        <div class="table-container">
+            <div class="table-heading" >
+                <h3 class="table-title">Manage Mission and Vision Page</h3>
+                    <a href="../misvis/add-misvis.php" class="button">Add New Content</a>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th class="action">Action</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                        <?php
+                        require_once '../classes/misvis.class.php';
+                        $misvis = new Misvis();
+                        //We will now fetch all the records in the array using loop
+                        //use as a counter, not required but suggested for the table
+                        $i = 1;
+                        //loop for each record found in the array
+                        foreach ($misvis->show() as $value){ //start of loop
+                    ?>
+                        <tr>
+                            <!-- always use echo to output PHP values -->
+                            <td><?php echo $i ?></td>
+                            <td><?php echo $value['misvis_title'] ?></td>
+                            <td><?php echo $value['misvis_description'] ?></td>
+                            <td>
+                                <div class="action">
+                                    <a class="action-edit" href="../misvis/edit-misvis.php?id=<?php echo $value['id'] ?>">Edit</a>
+                                    <a class="action-delete" href="../misvis/delete-misvis.php?id=<?php echo $value['id'] ?>">Delete</a>
+                                    <a class="action-view" href="../misvis/misvis.php">View</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php
+                        $i++;
+                    //end of loop
+                    }
+                    ?>
 
 
+                </tbody>
+            </table>
+        </div>
 
-<?php
-    require_once '../includes/admin-footer.php';
-?>
+ <!-- Swiper Js link  -->
+ <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- Custom Js file link  -->
+<script src="js/script.js"></script>    
+
+
+       
+</body>
+</html> 
+
+<!--DELETE ANNOUNCEMENT WARNING BOX-->
+<div id="delete-dialog" class="dialog" title="Delete Content">
+    <p><span>Are you sure you want to delete the selected record?</span></p>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#delete-dialog").dialog({
+            resizable: false,
+            draggable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            autoOpen: false
+        });
+        $(".action-delete").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#delete-dialog").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "Cancel" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#delete-dialog").dialog("open");
+        });
+    });   
+</script>
+
+
+    

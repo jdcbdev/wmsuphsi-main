@@ -60,7 +60,7 @@
                             <span class="uil uil-clipboard-notes"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Total Cotents</small>
+                            <small>Total Contents</small>
                             <div class="card-date">
                                 <p>As of January 30, 2023 09:06 PM</p>
                             </div>
@@ -98,16 +98,12 @@
                                 <option value="">Peace and Human Security Institute</option>
                                 <option value="">WMSU Youth Peace Mediatoirs - UNESCO Club</option>
                                 <option value="">WMSU Biosafety and Biosecurity Committee</option>
-
                             </select>
                             <button>Download Excel / CSV list</button>
                         </div>
 
                         <div class="browse">
                            <input type="search" placeholder="Name Search" class="record-search" style="width: 250px;" >
-                            <!--<select name="" id="">
-                                <option value="">Status</option>
-                            </select>-->
                         </div>
                     </div>
 
@@ -127,38 +123,36 @@
                             <tbody>
 
                                 <tr>
-                                    <!--ID-->
+
                                     <td>1</td>
                                     <td>
                                         <div class="client">
                                            <div class="client-img bg-img" style="background-image: url(../images/student-profile/pic-1.png)"></div>
                                             <div class="client-info">
-                                                <!--NAME-->
+
                                                 <h4>Arjay Malaga</h4>
-                                                <!--EMAIL-->
+
                                                 <small>xt202001283@wmsu.edu.ph</small>
                                             </div>
                                         </div>
                                     </td>
 
-                                    <!--USER TYPE-->
                                     <td>
                                         <small>WMSU UNESCO Club</small>
                                         
                                     </td>
-                                    <!--ADDRESS-->
+
                                     <td>
                                         <small>Guiwan, Zamboanga City</small>
-                                    </td>
-                                    <!--GENDER-->
+   
                                     <td>
                                         <small>Male</small>
                                     </td>                                   
-                                    <!--DATE-->
+                             
                                     <td>
                                         <small>29 January, 2023</small>
                                     </td>
-                                    <!--ACTIONS-->
+                            
                                     <td>
                                         <div class="actions">
                                             <span class="las la-ellipsis-v"></span>
@@ -166,54 +160,11 @@
                                         </div>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <!--ID-->
-                                    <td>2</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(../images/student-profile/jaaf.jpg)"></div>
-                                            <div class="client-info">
-                                                <!--NAME-->
-                                                <h4>Jaafar Hadzramar</h4>
-                                                <!--EMAIL-->
-                                                <small>xt202001269@wmsu.edu.ph</small>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                    <!--USER TYPE-->
-                                    <td>
-                                        <small>WMSU Student</small>
-                                    </td>
-                                    <!--ADDRESS-->
-                                    <td>
-                                        <small>Mampang, Zamboanga City</small>
-                                    </td>
-                                    <!--GENDER-->
-                                    <td>
-                                    <small>Male</small>
-                                    </td>                                   
-                                    <!--DATE-->
-                                    <td>
-                                    <small>29 January, 2023</small>
-                                    </td>
-                                    <!--ACTIONS-->
-                                    <td>
-                                        <div class="actions">
-                                            <span class="las la-ellipsis-v"></span>
-                                            <span class="las la-eye"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-
-
                             </tbody>
                         </table>
                     </div>
 
-                </div>
+                </div> 
             
             </div> 
             
