@@ -5,37 +5,65 @@
     require_once '../includes/head.php';
 ?>
 
+  <div class="signup-container">
 
-<div class="signup-container">
     <div class="title">Sign Up Form</div>
+    
     <div class="content">
 
     <!--PERSONAL INFORMATION-->
     <div class="sub-title">Personal Information</div>
       <form action="login.php">
+
         <div class="user-details">
+
           <div class="input-box">
             <span class="details">Firstname</span>
             <input type="text" placeholder="" required> 
           </div>
+
           <div class="input-box">
-            <span class="details" id="middlename">Middlename</span>
+            <span class="details-opt">Middlename</span>
             <input type="text" placeholder="">
           </div>
+
           <div class="input-box">
             <span class="details">Lastname</span>
             <input type="text" placeholder="" required>
           </div>
+
           <div class="input-box">
-            <span class="details" id="middlename">Extension Name</span>
+            <span class="details-opt">Suffix Name</span>
             <input type="text" placeholder="" required>
           </div>
+
           <div class="input-box">
             <span class="details">Email</span>
             <input type="text" placeholder="" required>
           </div>
+
           <div class="input-box">
-            <span class="details">Street Address</span>
+          <span class="details">Sex</span>
+          <select name="department" id="department">
+            <option value="None">--Select--</option>
+            <option value="Male" >Male</option>
+            <option value="Female">Female</option>
+          </select>
+          </div>
+        </div>
+        <!--CONTACT INFORMATION-->
+        <div class="sub-title">Contact Information</div>
+        <div class="user-details">
+        <div class="input-box">
+            <span class="details">Region</span>
+            <input type="text" placeholder="" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Province</span>
+            <input type="text" placeholder="" required>
+          </div>
+          <div class="input-box">
+            <span class="details">City/Municipality</span>
             <input type="text" placeholder="" required>
           </div>
           <div class="input-box">
@@ -43,79 +71,74 @@
             <input type="text" placeholder="" required>
           </div>
           <div class="input-box">
-            <span class="details">City/town</span>
+            <span class="details">Street Name</span>
             <input type="text" placeholder="" required>
           </div>
           <div class="input-box">
-            <span class="details">Country</span>
+            <span class="details">Bulding/House No.</span>
             <input type="text" placeholder="" required>
           </div>
           <div class="input-box">
-            <span class="details">Contact number</span>
+            <span class="details">Contact Number</span>
             <input type="text" placeholder="" required>
           </div>
         </div>
-        <div class="gender-details">
-          <input type="radio" name="gender" id="dot-1">
-          <input type="radio" name="gender" id="dot-2">
-          <input type="radio" name="gender" id="dot-3">
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-            <span class="dot one"></span>
-            <span class="gender">Male</span>
-          </label>
-          <label for="dot-2">
-            <span class="dot two"></span>
-            <span class="gender">Female</span>
-          </label>
-          <label for="dot-3">
-            <span class="dot three"></span>
-            <span class="gender">Prefer not to say</span>
-            </label>
-          </div>
 
         <!--WMSU STATUS-->
-          <div class="sub-title">WMSU Status (Optional) </div><br>
-          <p style="COLOR: red;margin-bottom: 10px;">Please skip this part if it does not apply to you!
-          </p>
+          <div class="sub-title">WMSU Status <span> (Please Select all that Apply.)</span>
+          </div><br>
+          <div class="user-details">
+          <div class="status-container">
+
           <label class="wmsu-status">WMSU Alumni
             <input type="checkbox" checked="checked">
             <span class="checkmark"></span>
           </label>
+
           <label class="wmsu-status">WMSU Employee
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
+          
           <label class="wmsu-status">WMSU Student
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
+
+          <label class="wmsu-status">WMSU Peace and Human Security Institute
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+
           <label class="wmsu-status">WMSU Youth Peace Mediators - UNESCO Club 
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
+
           <label class="wmsu-status">WMSU Biosafety and Biosecurity Committee
             <input type="checkbox">
             <span class="checkmark"></span>
           </label>
+        </div>
+        </div>
+
+
 
 
            <!--ACCOUNT CREDENTIALS-->
           <div class="sub-title">Account Credentials</div><br>
+          <div class="user-details">
           <div class="input-box">
-            <span class="details">Username</span>
+            <span class="details">Create Username</span>
             <input type="text" placeholder="" required>
           </div>
           <div class="input-box">
-            <span class="details">New Password</span>
+            <span class="details">Create Password</span>
             <input type="password" placeholder="">
           </div>
-          <div class="input-box">
-            <span class="details">Confirm Password</span>
-            <input type="password" placeholder="" required>
-          </div>
         </div>
+
+
         
          <!--SIGN UP BUTTON-->
         <div class="button">
@@ -124,9 +147,8 @@
         <div class="have-account">
         <p>ALREADY HAVE AN ACCOUNT?<span> <a href="login.php">LOG IN</a></span></p>
         </div>
-        
       </form>
     </div>
   </div>
-  </section>
+
 

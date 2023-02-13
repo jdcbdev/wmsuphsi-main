@@ -428,6 +428,11 @@ input, select, textarea {
 
 
 /*------------SIGN UP FORM START----------------*/
+
+.signup{
+  background-image: url('../images/carousel-images/phsi-carousel.jpg');
+}
+
 .signup-container{
   max-width: 900px;
   margin: auto;
@@ -437,7 +442,7 @@ input, select, textarea {
   padding: 25px 50px;
   border-radius: 5px;
   background: white;
-  box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.113);
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
 .signup-container .content{
@@ -456,6 +461,10 @@ input, select, textarea {
   font-weight: 400;
   position: relative;
   margin-top: 3.5rem;
+}
+
+.signup-container .sub-title span{
+  font-size: 15px;
 }
 
 
@@ -486,12 +495,19 @@ form .input-box span.details{
   font-size: 14px;
 }
 
+form .input-box span.details-opt{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
 form .input-box span.details::after{
   content: " *";
   color: red;
 }
 
-  form .input-box #middlename::after{
+  form .input-box .details-opt::after{
     content: " *";
     color: red;
     display: none;
@@ -508,6 +524,17 @@ form .input-box span.details::after{
   border: 1px solid #ccc;
   transition: all 0.3s ease;
 }
+
+.user-details .input-box select{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
 .user-details .input-box input:focus,
 .user-details .input-box input:valid{
   border-color: var(--color-green);
@@ -518,7 +545,7 @@ form .input-box span.details::after{
  }
  form .category{
    display: flex;
-   width: 47%;
+   width: 25%;
    margin: 14px 0 ;
    justify-content: space-between;
 
@@ -580,12 +607,16 @@ form .category .gender{
    transition: all 0.3s ease;
    background: linear-gradient(135deg, var(--color-green), var(--color-light-green));
  }
+
+
+
  form .button input:hover{
   /* transform: scale(0.99); */
   background: linear-gradient(-135deg, var(--color-green), var(--color-light-green));
   }
+
  @media(max-width: 584px){
- .signup-containerr{
+ .signup-container{
   max-width: 100%;
 }
 form .user-details .input-box{
