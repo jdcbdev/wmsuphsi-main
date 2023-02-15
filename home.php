@@ -117,7 +117,7 @@
          <div class="content">
             <h3>Harnessing our Peace Efforts: Towards Solidarity in Service</h3>
             <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="news-page.php" class="btn">read more</a>
+            <a href="news/news-page.php" class="btn">read more</a>
          </div>
       </div>
 

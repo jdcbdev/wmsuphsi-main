@@ -4,7 +4,7 @@
     $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
     require_once '../includes/head.php';
 ?>
-
+<div class="signup">
   <div class="signup-container">
 
     <div class="title">Sign Up Form</div>
@@ -34,53 +34,31 @@
 
           <div class="input-box">
             <span class="details-opt">Suffix Name</span>
-            <input type="text" placeholder="" required>
+            <input type="text" placeholder="" >
           </div>
 
           <div class="input-box">
             <span class="details">Email</span>
             <input type="text" placeholder="" required>
           </div>
+          
+          <div class="input-box">
+            <span class="details">Complete Address</span>
+            <input type="text" placeholder="" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Contact No.</span>
+            <input type="text" placeholder="" required>
+          </div>
 
           <div class="input-box">
           <span class="details">Sex</span>
-          <select name="department" id="department">
+          <select name="barangay" id="barangay" required>
             <option value="None">--Select--</option>
             <option value="Male" >Male</option>
             <option value="Female">Female</option>
           </select>
-          </div>
-        </div>
-        <!--CONTACT INFORMATION-->
-        <div class="sub-title">Contact Information</div>
-        <div class="user-details">
-        <div class="input-box">
-            <span class="details">Region</span>
-            <input type="text" placeholder="" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Province</span>
-            <input type="text" placeholder="" required>
-          </div>
-          <div class="input-box">
-            <span class="details">City/Municipality</span>
-            <input type="text" placeholder="" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Barangay</span>
-            <input type="text" placeholder="" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Street Name</span>
-            <input type="text" placeholder="" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Bulding/House No.</span>
-            <input type="text" placeholder="" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Contact Number</span>
-            <input type="text" placeholder="" required>
           </div>
         </div>
 
@@ -129,11 +107,15 @@
           <div class="sub-title">Account Credentials</div><br>
           <div class="user-details">
           <div class="input-box">
-            <span class="details">Create Username</span>
+            <span class="details">Username</span>
             <input type="text" placeholder="" required>
           </div>
           <div class="input-box">
-            <span class="details">Create Password</span>
+            <span class="details">Password</span>
+            <input type="password" placeholder="">
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
             <input type="password" placeholder="">
           </div>
         </div>
@@ -150,5 +132,5 @@
       </form>
     </div>
   </div>
-
+</div>
 
