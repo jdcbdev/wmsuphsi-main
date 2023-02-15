@@ -54,7 +54,7 @@
 
           <div class="input-box">
           <span class="details">Sex</span>
-          <select name="barangay" id="barangay" required>
+          <select name="sex" id="sex" required>
             <option value="None">--Select--</option>
             <option value="Male" >Male</option>
             <option value="Female">Female</option>

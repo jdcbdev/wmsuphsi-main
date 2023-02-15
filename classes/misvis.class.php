@@ -17,7 +17,6 @@ Class MisVis{
     }
 
     //Methods
-
     function add(){
         $sql = "INSERT INTO misvis (misvis_title, misvis_description) VALUES 
         (:misvis_title, :misvis_description);";
