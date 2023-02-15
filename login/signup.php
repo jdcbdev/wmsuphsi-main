@@ -67,27 +67,27 @@
         <div class="user-details">
           <div class="input-box">
             <span class="details">Firstname</span>
-            <input type="text" placeholder="" required> 
+            <input type="text" placeholder="" id="firstname" name="firstname" placeholder="Enter firstname" required tabindex="1"> 
           </div>
           <div class="input-box">
             <span class="details" id="middlename">Middlename</span>
-            <input type="text" placeholder="">
+            <input type="text" placeholder=""id="middlename" name="middlename" placeholder="Enter middlename" required tabindex="1">
           </div>
           <div class="input-box">
             <span class="details">Lastname</span>
-            <input type="text" placeholder="" required>
+            <input type="text" placeholder="" id="firstname" name="firstname" placeholder="Enter firstname" required tabindex="1">
           </div>
           <div class="input-box">
-            <span class="details" id="middlename">Extension Name</span>
-            <input type="text" placeholder="" required>
+            <span class="details" id="suffix">Suffix</span>
+            <input type="text" placeholder="" id="suffix" name="suffix" placeholder="suffix" required tabindex="1"> 
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="" required>
+            <input type="text" placeholder="" id="email" name="email" placeholder="Enter email" required tabindex="1">
           </div>
           <div class="input-box">
             <span class="details">Street Address</span>
-            <input type="text" placeholder="" required>
+            <input type="text" placeholder="" id="street address" name="firstname" placeholder="Enter firstname" required tabindex="1">
           </div>
           <div class="input-box">
             <span class="details">Barangay</span>
