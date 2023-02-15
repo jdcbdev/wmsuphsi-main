@@ -6,56 +6,56 @@
     require_once '../includes/head.php';
 ?>
 
-<<<<<<< Updated upstream
-=======
 <?php
-        if(isset($_POST['username'] . $_POST['password'] . $_POST['firstname'] 
-        . $_POST['middlename'] . $_POST['lastname'] . $_POST['suffix'] 
-        . $_POST['email'] . $_POST['address'] ). $_POST['role'] . $_POST['sex']  ){
+        if(isset($_POST['username'])&&  isset($_POST['password'] )
+        &&  isset($_POST['firstname'] ) &&  isset($_POST['middlename'] )
+        &&  isset($_POST['lastname'] ) &&  isset($_POST['suffix'] )
+        &&  isset($_POST['email'] ) && isset($_POST['address'] )
+        &&  isset($_POST['sex'] ))
+        {
           //Sanitizing the inputs of the users. Mandatory to prevent injections!
-         
-          $user= new users;
-          $user -> email = htmlentities($_POST['username']); 
-          $user -> password = htmlentities($_POST['password']);
-          $user -> firstname = htmlentities($_POST['firstname']);
-          $user -> middlename = htmlentities($_POST['middlename']);
-          $user -> lastname = htmlentities($_POST['lastname']);
-          $user -> suffix = htmlentities($_POST['suffix ']);
-          $user -> email = htmlentities($_POST['email']);
-          $user -> address = htmlentities($_POST['address']);
-          $user -> role = htmlentities($_POST['role']);
-          $user -> sex = htmlentities($_POST['sex']); 
-  
-          $output= $user -> login();
-  
-          if ($output) {
-              // CREATE -- COLUMN "firstname" "lastname" "role"
-              $_SESSION['logged-in'] = $output['user_name'];
-              $_SESSION['fullname'] = $output['firstname'] . ' '.$output['middlename'] . ' ' . $output['lastname'] . ' ' .
-               $output['suffix'];
-              $_SESSION['user_role'] = $output['role'];
-              $_SESSION['email'] = $output['email'];
-              $_SESSION['address'] = $output['address'];
-              $_SESSION['sex'] = $output['sex'];
-  
-              //display the appropriate dashboard page for user
-                  if($output['role'] == 'admin'){
-                      header('location: ../admin/dashboard.php');
-                  }else{
-                      header('location: ../user/user-profile.php');
-                       header('location: ../admin/dashboard1.php');
+            
+              $user= new users;
+              $user -> email = htmlentities($_POST['username']); 
+              $user -> password = htmlentities($_POST['password']);
+              $user -> firstname = htmlentities($_POST['firstname']);
+              $user -> middlename = htmlentities($_POST['middlename']);
+              $user -> lastname = htmlentities($_POST['lastname']);
+              $user -> suffix = htmlentities($_POST['suffix ']);
+              $user -> email = htmlentities($_POST['email']);
+              $user -> address = htmlentities($_POST['address']);
+              $user -> role = htmlentities($_POST['role']);
+              $user -> sex = htmlentities($_POST['sex']); 
+      
+              $output= $user -> login();
+      
+              if ($output) {
+                  // CREATE -- COLUMN "firstname" "lastname" "role"
+                  $_SESSION['logged-in'] = $output['user_name'];
+                  $_SESSION['fullname'] = $output['firstname'] . ' '.$output['middlename'] . ' ' . $output['lastname'] . ' ' .
+                  $output['suffix'];
+                  $_SESSION['user_role'] = $output['role'];
+                  $_SESSION['email'] = $output['email'];
+                  $_SESSION['address'] = $output['address'];
+                  $_SESSION['sex'] = $output['sex'];
+      
+                  //display the appropriate dashboard page for user
+                      if($output['role'] == 'admin'){
+                          header('location: ../admin/dashboard.php');
+                      }else{
+                          header('location: ../user/user-profile.php');
+                          header('location: ../admin/dashboard1.php');
+                      }
                   }
-              }
-         
-          
-          //set the error message if account is invalid
-          $error = 'Incorrect Account Credentials! Try again.';
+            
+              
+              //set the error message if account is invalid
+              $error = 'Incorrect Account Credentials! Try again.';
         }
   ?>
 ?>
 
   <div class="signup-container">
->>>>>>> Stashed changes
 
 <div class="signup-container">
     <div class="title">Sign Up Form</div>

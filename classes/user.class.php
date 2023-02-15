@@ -19,12 +19,6 @@ Class users{
         $this->db = new Database();
     }
 
-<<<<<<< Updated upstream
-    function validate(){
-        $sql = "SELECT * FROM users WHERE username =:username and password = :password ;";
-        $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':username', $this->username);
-=======
     function register(){
         $sql = "INSERT INTO user_acc_data (firstname, middlename, lastname, email, address, gender, role, username, password) VALUES 
         (:firstname, :middlename, :lastname, :email, :address, :gender, :role, :username, :password);";
@@ -38,7 +32,6 @@ Class users{
         $query->bindParam(':sex', $this->sex);
         $query->bindParam(':role', $this->role);
         $query->bindParam(':user_name', $this->user_name);
->>>>>>> Stashed changes
         $query->bindParam(':password', $this->password);
         if($query->execute()){
             $data = $query->fetch();
@@ -55,8 +48,6 @@ Class users{
         }
      	return $data;
     }
-<<<<<<< Updated upstream
-=======
    
   
 
@@ -73,7 +64,6 @@ Class users{
         }
         return $data;
     } */
->>>>>>> Stashed changes
 }
 
 ?>
