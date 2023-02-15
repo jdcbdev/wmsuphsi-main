@@ -7,8 +7,9 @@ Class users{
     public $lastname;
     public $email;
     public $address;
-    public $gender;
+    public $sex;
     public $role;
+    public $type;
     public $username;
     public $password;
 
@@ -19,25 +20,7 @@ Class users{
         $this->db = new Database();
     }
 
-    function register(){
-        $sql = "INSERT INTO user_acc_data (firstname, middlename, lastname, email, address, gender, role, username, password) VALUES 
-        (:firstname, :middlename, :lastname, :email, :address, :gender, :role, :username, :password);";
-
-        $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':firstname', $this->firstname);
-        $query->bindParam(':middlename', $this->middlename);
-        $query->bindParam(':lastname', $this->lastname);
-        $query->bindParam(':email', $this->email);
-        $query->bindParam(':address', $this->address);
-        $query->bindParam(':sex', $this->sex);
-        $query->bindParam(':role', $this->role);
-        $query->bindParam(':user_name', $this->user_name);
-        $query->bindParam(':password', $this->password);
-        if($query->execute()){
-            $data = $query->fetch();
-        }
-        return $data;
-    }
+    
     function login(){
         $sql = "SELECT * FROM user_acc_data WHERE user_name = :email and user_pass = :password" ;
         $query=$this->db->connect()->prepare($sql);

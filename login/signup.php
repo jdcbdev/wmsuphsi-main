@@ -12,8 +12,8 @@
         if(isset($_POST['username'])&&  isset($_POST['password'] )
         &&  isset($_POST['firstname'] ) &&  isset($_POST['middlename'] )
         &&  isset($_POST['lastname'] ) &&  isset($_POST['suffix'] )
-        &&  isset($_POST['email'] ) && isset($_POST['address'] )
-        &&  isset($_POST['sex'] ))
+        &&  isset($_POST['email'] ) && isset($_POST['address'] ) && isset($_POST['role'] )
+        && isset($_POST['type'] ) &&  isset($_POST['sex'] ))
         {
           //Sanitizing the inputs of the users. Mandatory to prevent injections!
             
@@ -27,7 +27,9 @@
               $user -> email = htmlentities($_POST['email']);
               $user -> address = htmlentities($_POST['address']);
               $user -> role = htmlentities($_POST['role']);
+              $user -> role = htmlentities($_POST['type']);
               $user -> sex = htmlentities($_POST['sex']); 
+
       
               $output= $user -> login();
       
@@ -35,10 +37,12 @@
                   // CREATE -- COLUMN "firstname" "lastname" "role"
                   $_SESSION['logged-in'] = $output['user_name'];
                   $_SESSION['fullname'] = $output['firstname'] . ' '.$output['middlename'] . ' ' . $output['lastname'] . ' ' .
-                  $output['suffix'];
+                  $output['suffix'] = $output['suffix'];
                   $_SESSION['user_role'] = $output['role'];
                   $_SESSION['email'] = $output['email'];
                   $_SESSION['address'] = $output['address'];
+                  $_SESSION['role'] = $output['role'];
+                  $_SESSION['type'] = $output['type'];
                   $_SESSION['sex'] = $output['sex'];
       
                   //display the appropriate dashboard page for user
@@ -57,7 +61,7 @@
   ?>
 ?>
 
-  <div class="signup-container">
+  
 
 <div class="signup-container">
     <div class="title">Sign Up Form</div>
@@ -77,37 +81,46 @@
 
           <div class="input-box">
             <span class="details-opt">Middlename</span>
-            <input type="text" placeholder="">
+            <input type="text"  id="firstname" name="middlename" placeholder="Enter middlename" required tabindex="2">
           </div>
 
           <div class="input-box">
             <span class="details">Lastname</span>
-            <input type="text" placeholder="" id="firstname" name="firstname" placeholder="Enter firstname" required tabindex="1">
+            <input type="text"  id="firstname" name="lastname" placeholder="Enter lastname" required tabindex="3">
           </div>
 
           <div class="input-box">
             <span class="details-opt">Suffix Name</span>
-            <input type="text" placeholder="" >
+            <input type="text"  id="suffix" name="lastname" placeholder="Enter lastname" required tabindex="4">
           </div>
 
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="" id="email" name="email" placeholder="Enter email" required tabindex="1">
+            <input type="text"  id="email" name="email" placeholder="Enter email" required tabindex="4">
           </div>
           
           <div class="input-box">
             <span class="details">Complete Address</span>
-            <input type="text" placeholder="" required>
+            <input type="text"   id="Complete Address" name="Complete Address" placeholder="Complete Address" required tabindex="5">
           </div>
+
+          <div class="input-box">
+          <span class="details">Role</span>
+          <select name="role" id="role" required>
+            <option value="None">--Select--</option>
+            <option value="SuperAdmin" >Super Admin</option>
+            <option value="Admin">Admin</option>
+            <option value="Users">Users</option>
+          </select>
           
           <div class="input-box">
             <span class="details">Contact No.</span>
-            <input type="text" placeholder="" required>
+            <input type="text" id="Contact No." name="Contact No." placeholder="Enter Contact No." required tabindex="7">
           </div>
 
           <div class="input-box">
           <span class="details">Sex</span>
-          <select name="barangay" id="barangay" required>
+          <select name="sex" id="sex" required>
             <option value="None">--Select--</option>
             <option value="Male" >Male</option>
             <option value="Female">Female</option>
@@ -115,14 +128,15 @@
           </div>
         </div>
 
-        <!--WMSU STATUS-->
+        <!--WMSU TYPE -->
           <div class="sub-title">WMSU Status <span> (Please Select all that Apply.)</span>
+         
           </div><br>
           <div class="user-details">
           <div class="status-container">
 
           <label class="wmsu-status">WMSU Alumni
-            <input type="checkbox" checked="checked">
+            <input type="checkbox" checked="checked" >
             <span class="checkmark"></span>
           </label>
 
@@ -177,7 +191,7 @@
         
          <!--SIGN UP BUTTON-->
         <div class="button">
-          <input type="submit" value="Sign Up">
+          <input type="submit"action="signup.php" method="post" value="Sign Up">
         </div>
         <div class="have-account">
         <p>ALREADY HAVE AN ACCOUNT?<span> <a href="login.php">LOG IN</a></span></p>
@@ -185,5 +199,5 @@
       </form>
     </div>
   </div>
-</div>
+
 
