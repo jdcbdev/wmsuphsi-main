@@ -88,16 +88,17 @@
 
         if ($output) {
             // CREATE -- COLUMN "firstname" "lastname" "role"
-            $_SESSION['logged-in'] = $output['user_name'];
+            $_SESSION['logged-in'] = $output['username'];
             $_SESSION['fullname'] = $output['firstname'] . ' ' . $output['lastname'];
             $_SESSION['user_role'] = $output['role'];
 
             //display the appropriate dashboard page for user
-                if($output['role'] == 'admin'){
+                if($output['role'] == 'Admin'){
+                    // print_r($_SESSION);
                     header('location: ../admin/dashboard.php');
                 }else{
-                    header('location: ../user/user-profile.php');
-                     header('location: ../admin/dashboard1.php');
+                    // header('location: ../user/user-profile.php');
+                    //  header('location: ../admin/dashboard1.php');
                 }
             }
         // $username = htmlentities($_POST['username']);
