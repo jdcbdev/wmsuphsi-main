@@ -1,12 +1,11 @@
 <?php
-   require_once '../classes/user.class.php';
+   require_once '../classes/signup.class.php';
     //resume session here to fetch session values
     session_start();
     $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
     require_once '../includes/head.php';
 ?>
-<div class="signup">
-  <div class="signup-container">
+
 
 <?php
         if(isset($_POST['username'])&&  isset($_POST['password'] )
@@ -35,7 +34,8 @@
       
               if ($output) {
                   // CREATE -- COLUMN "firstname" "lastname" "role"
-                  $_SESSION['logged-in'] = $output['user_name'];
+                  $_SESSION['username'] = $output['username'];
+                  $_SESSION['password'] = $output['password'];
                   $_SESSION['fullname'] = $output['firstname'] . ' '.$output['middlename'] . ' ' . $output['lastname'] . ' ' .
                   $output['suffix'] = $output['suffix'];
                   $_SESSION['user_role'] = $output['role'];
@@ -46,17 +46,14 @@
                   $_SESSION['sex'] = $output['sex'];
       
                   //display the appropriate dashboard page for user
-                      if($output['role'] == 'admin'){
-                          header('location: ../admin/dashboard.php');
-                      }else{
-                          header('location: ../user/user-profile.php');
-                          header('location: ../admin/dashboard1.php');
-                      }
+                      // if($output['role'] == 'admin'){
+                      //     header('location: ../admin/dashboard.php');
+                      // }else{
+                      //     header('location: ../user/user-profile.php');
+                      //     header('location: ../admin/dashboard1.php');
+                      // }
                   }
-            
               
-              //set the error message if account is invalid
-              $error = 'Incorrect Account Credentials! Try again.';
         }
   ?>
 ?>
@@ -70,7 +67,7 @@
 
     <!--PERSONAL INFORMATION-->
     <div class="sub-title">Personal Information</div>
-      <form action="login.php">
+      <form action="signup.php" method="post">
 
         <div class="user-details">
 
@@ -91,7 +88,7 @@
 
           <div class="input-box">
             <span class="details-opt">Suffix Name</span>
-            <input type="text"  id="suffix" name="lastname" placeholder="Enter lastname" required tabindex="4">
+            <input type="text"  id="suffix" name="suffix" placeholder="Enter suffix" required tabindex="4">
           </div>
 
           <div class="input-box">

@@ -77,11 +77,11 @@
             "password" => 'angelica'
         )    
     );
-    if(isset($_POST['username']) && isset($_POST['password'])){
+    if(isset($_POST['user_name']) && isset($_POST['password'])){
         //Sanitizing the inputs of the users. Mandatory to prevent injections!
        
         $user= new users;
-        $user -> email = htmlentities($_POST['username']); 
+        $user -> email = htmlentities($_POST['user_name']); 
         $user -> password = htmlentities($_POST['password']); 
 
         $output= $user -> login();
@@ -130,8 +130,8 @@
                 <span class="logo-name">WMSU-PHSI</span>
             </div>
             
-            <label for="username" style="color: black;"></label>
-            <input type="text" id="username" name="username" placeholder="Enter username" required tabindex="1">
+            <label for="user_name" style="color: black;"></label>
+            <input type="text" id="user_name" name="user_name" placeholder="Enter username" required tabindex="1">
             
             <label for="password" style="color: black;"></label>
             <input type="password" id="password" name="password" placeholder="Enter password" required tabindex="2">

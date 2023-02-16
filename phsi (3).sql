@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2023 at 03:08 AM
+-- Generation Time: Feb 16, 2023 at 02:21 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -89,6 +89,25 @@ INSERT INTO `programs` (`id`, `program_title`, `description`, `created_at`, `upd
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sex`
+--
+
+CREATE TABLE `sex` (
+  `sex_id` int(11) NOT NULL,
+  `sex_type` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sex`
+--
+
+INSERT INTO `sex` (`sex_id`, `sex_type`) VALUES
+(1, 'boy'),
+(2, 'Female');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_acc_data`
 --
 
@@ -97,16 +116,23 @@ CREATE TABLE `user_acc_data` (
   `user_name` varchar(50) NOT NULL,
   `user_pass` varchar(50) NOT NULL,
   `firstname` varchar(50) NOT NULL,
+  `middlename` varchar(35) NOT NULL,
   `lastname` varchar(50) NOT NULL,
-  `role` varchar(50) NOT NULL
+  `suffix` varchar(5) NOT NULL,
+  `email` varchar(35) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `role` varchar(50) NOT NULL,
+  `type` varchar(35) NOT NULL,
+  `sex` int(11) NOT NULL,
+  `contactno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_acc_data`
 --
 
-INSERT INTO `user_acc_data` (`id`, `user_name`, `user_pass`, `firstname`, `lastname`, `role`) VALUES
-(1, 'echoloko', 'loko', 'jec', 'koko', 'admin');
+INSERT INTO `user_acc_data` (`id`, `user_name`, `user_pass`, `firstname`, `middlename`, `lastname`, `suffix`, `email`, `address`, `role`, `type`, `sex`, `contactno`) VALUES
+(1, 'echoloko', 'loko', 'jec', 'olleb', 'koko', '', 'jerichosagdi@gmail.com', 'macrohon Drive', 'admin', '', 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -129,6 +155,12 @@ ALTER TABLE `carousel`
 --
 ALTER TABLE `programs`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sex`
+--
+ALTER TABLE `sex`
+  ADD PRIMARY KEY (`sex_id`);
 
 --
 -- Indexes for table `user_acc_data`
@@ -157,6 +189,12 @@ ALTER TABLE `carousel`
 --
 ALTER TABLE `programs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `sex`
+--
+ALTER TABLE `sex`
+  MODIFY `sex_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_acc_data`
