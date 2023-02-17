@@ -8,7 +8,8 @@
 
 
 <?php 
-  print_r($_POST);
+
+ /* print_r($_POST); */
 
         if(isset($_POST['submit'])) {
           //Sanitizing the inputs of the users. Mandatory to prevent injections!
@@ -28,6 +29,7 @@
               $user -> contactNo = htmlentities($_POST['ContactNo']); 
 
 
+              
             //  `username`, `user_pass`, `firstname`, `middlename`, `lastname`, `suffix`, `email`, `address`, `role`,
             //   `type`, `sex`, `contactno`
 
@@ -124,7 +126,7 @@
             <input type="text"   id="CompleteAddress" name="CompleteAddress" placeholder="Complete Address" required tabindex="5">
           </div>
 
-          <div class="input-box">
+         <div class="input-box">
           <span class="details">Role</span>
           <select name="role" id="role" required>
             <option value="None">--Select--</option>
@@ -132,6 +134,7 @@
             <option value="Admin">Admin</option>
             <option value="Users">Users</option>
           </select>
+      </div>
           
           <div class="input-box">
             <span class="details">Contact No.</span>
