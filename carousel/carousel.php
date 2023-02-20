@@ -35,6 +35,29 @@
             </div>-->
          </section>
          <!-- UNESCO Carousel End -->
+         <section class="swiper-slide slide" style="background: url(images/content-images/sad.jpg) no-repeat;">
+            <!--<div class="content">
+               <h3>WMSU Youth Peace Mediators - <br>
+                  UNESCO Club</h3>
+               <p>Peace comes from being able to contribute the best that we have, 
+                  and all that we are, toward creating a world that supports everyone. 
+                  But it is also securing the space for others to contribute the best 
+                  that they have and all that they are.</p>
+               <a href="#" class="btn">Read more</a>
+            </div>-->
+         </section>
+
+         <section class="swiper-slide slide" style="background: url(images/content-images/unesco-p1.jpg) no-repeat;">
+            <!--<div class="content">
+               <h3>WMSU Youth Peace Mediators - <br>
+                  UNESCO Club</h3>
+               <p>Peace comes from being able to contribute the best that we have, 
+                  and all that we are, toward creating a world that supports everyone. 
+                  But it is also securing the space for others to contribute the best 
+                  that they have and all that they are.</p>
+               <a href="#" class="btn">Read more</a>
+            </div>-->
+         </section>
       </div>
       <!--Next/Prev Carousel Button-->
       <div class="swiper-button-next"></div>

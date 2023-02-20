@@ -24,24 +24,87 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `announcement`
+--
+-- Table structure for table `history`
 --
 
-CREATE TABLE `announcement` (
+CREATE TABLE `history` (
   `id` int(11) NOT NULL,
-  `announcement_title` varchar(100) NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `history_title` varchar(255) NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `history_description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `announcement`
+-- Dumping data for table `history`
+--
+INSERT INTO `history` (`id`, `history_title`, `filename`, `history_description`) VALUES
+(1, 'The History of Peace and Human Security Institute', 'phsi.png', 'Western Mindanao State University (WMSU) created the Center for Peace and Development (CPD) in January 2000, to generate well- rounded and productive people for the region, ensuring the good welfare of the society grounded on democratic and peaceful initiative. In 2010, it was renamed as Peace and Human Security Institute (PHSI), becoming the peace-building arm of the Office of the University President. Today, under Dr. Ma. Carla A. Ochotorena, the office takes the lead in engaging WMSU in the government-led peace efforts to be the main protagonist in peace education and research on the resolution of local conflicts.');
+
+
+
+--
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+
+
+
+--
+--
+-- Table structure for table `misvis`
 --
 
-INSERT INTO `announcement` (`id`, `announcement_title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Peace Human and Security Institute', 'Lorem ipsum odor amet, consectetuer adipiscing elit. \nFusce risus fermentum vestibulum tellus intege', '2022-11-03 15:10:55', '2022-11-13 14:19:15'),
-(2, ' Western Mindanao State University', 'Lorem ipsum odor amet, consectetuer adipiscing elit.\nFusce risus fermentum vestibulum tellus integer', '2022-11-03 15:17:36', '2022-11-13 23:07:49');
+CREATE TABLE `misvis` (
+  `id` int(11) NOT NULL,
+  `misvis_title` varchar(255) NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `misvis_description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `misvis`
+--
+INSERT INTO `misvis` (`id`, `misvis_title`, `filename`, `misvis_description`) VALUES
+(1, 'Vision', 'phsi-p5.png', 'A group of men and women in WMSU working in the field of instruction, research, and extension, towards the promotion of a Culture of Peace and the provision of the opportunities and caring spaces that facilitate the development and expression of the potentials, capabilities, and talents of the people of Mindanao and the country.'),
+(2, 'Mission', 'phsi-p7.png', 'The WMSU-PHSI seeks to expand and deepen the commitment, engagement, and involvement of individuals and groups inside and outside the university not only within the region but even in the national and international community, thru the offering of peace studies, integration of peace education, and other peace and development initiatives.');
+
+--
+-- Indexes for table `misvis`
+--
+ALTER TABLE `misvis`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `misvis`
+--
+ALTER TABLE `misvis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+
+
+
+
+
+
 
 -- --------------------------------------------------------
 
@@ -139,10 +202,7 @@ INSERT INTO `user_acc_data` (`id`, `user_name`, `user_pass`, `firstname`, `middl
 --
 
 --
--- Indexes for table `announcement`
---
-ALTER TABLE `announcement`
-  ADD PRIMARY KEY (`id`);
+
 
 --
 -- Indexes for table `carousel`
@@ -172,11 +232,6 @@ ALTER TABLE `user_acc_data`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `announcement`
---
-ALTER TABLE `announcement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `carousel`

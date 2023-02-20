@@ -27,7 +27,7 @@
             </div>
             <div class="content">
                <h3>Dr. Ma. Carla A. Ochotorena</h3>
-               <span>Peace and Human Security<br> President</span>
+               <span>WMSU - Peace and Human Security<br>University President</span>
             </div>
          </div>
 
@@ -43,7 +43,7 @@
             </div>
             <div class="content">
                <h3>Asst. Prof. Ludivina Borja-Dekit</h3>
-               <span>Peace and Human Security <br> Director</span>
+               <span>WMSU - Peace and Human Security <br> Director</span>
             </div>
          </div>
 
@@ -59,7 +59,7 @@
             </div>
             <div class="content">
                <h3>Engr. Marlon Grande</h3>
-               <span>Peace and Human Security <br> Asst. Director</span>
+               <span>WMSU - Peace and Human Security <br> Asst. Director</span>
             </div>
          </div>
       </div>

@@ -10,16 +10,15 @@
 
 <section class="event-heading">
     <div class="img"><img src="../images/content-images/unesco-ncm.png" alt="">
-    <!--<div class="event-content">
-        <h2 class="event-title">National Peace Consciousness Month 2022</h2>
-    </div>-->
+    <div class="event-content">
+        <h2 class="event-title">Registration ends at Feb 18, 2023</h2>
+    </div>
     </div>
 </section>
 
 <section class="rsvp-container">
     <div class="rsvp-box">
         <p>RSVP for this event now!</p>
-        <h5>Registration ends Feb 18, 2023</h5>
         <a href="event-page.php" class="btn">RSVP</a>
     </div>
 </section>
