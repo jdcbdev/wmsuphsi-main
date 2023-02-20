@@ -19,12 +19,22 @@
                             <small>Dashboard</small>
                         </a>
                     </li>
+
                     <li>
-                       <a href="content_management.php" class="<?php echo $content_management; ?>" title="Content Management">
+                       <a href="misvis_page.php" class="<?php echo $misvis_page; ?>" title="Mission & Vision">
                             <span class="uil uil-clipboard-notes"></span>
-                            <small>Content Management</small>
+                            <small>Mission & Vision Page</small>
                         </a>
                     </li>
+
+                    <li>
+                       <a href="history_page.php" class="<?php echo $history_page; ?>" title="History Page">
+                            <span class="uil uil-clipboard-notes"></span>
+                            <small>History Page</small>
+                        </a>
+                    </li>
+
+
                     <li>
                        <a href="event_management.php" class="<?php echo $event_management; ?>" title="Event Management">
                             <span class="uil uil-podium"></span>

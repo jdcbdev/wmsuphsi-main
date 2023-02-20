@@ -217,3 +217,8 @@ $(function(){
 
   $('#region').ph_locations('fetch_list');
 });
+
+
+$(document).ready(function () {
+  $('#example').DataTable();
+});

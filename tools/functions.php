@@ -1,4 +1,15 @@
 <?php
+
+//VALIDATING MISVIS IMAGE
+function validate_misvis_image($POST){
+    if(!isset($POST['filename'])){
+        return false;
+    }else if(strlen(trim($POST['filename']))<1){
+        return false;
+    }
+    return true;
+}
+
 //VALIDATING MISVIS TITLE
 function validate_misvis_title($POST){
     if(!isset($POST['misvis_title'])){
@@ -48,7 +59,7 @@ function validate_misvis_title_duplicate($POST){
 
 //VALIDATING ALL misvis FUNCTIONS
 function validate_add_misvis($POST){
-    if(!validate_misvis_title($POST) || !validate_misvis_description($POST) || !validate_misvis_title_duplicate($POST)){
+    if(!validate_misvis_image($POST) || !validate_misvis_title($POST) || !validate_misvis_description($POST) || !validate_misvis_title_duplicate($POST)){
         return false;
      }
     return true;

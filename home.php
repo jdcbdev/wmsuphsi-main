@@ -86,7 +86,7 @@
       <p>WMSU Youth Peace Mediator-UNESCO Club together with it's partnered organization: Rotaract Club of Metro Zamboanga, Jovenes Allianza De Zamboanga (JADZ), WMSU - Political Science Society (PSS) and Arts for Peace Education CALLS FOR DONATION for the affected individuals and families that happened yesterday (January 11, 2023) due to flash floods. This CALL FOR DONATION was supported by Western Mindanao State University and Peace and Human Security Institute office (PHSI). <br> <br>
       We are knocking on your hearts to help those who are affected. Let us remind them that HOPE is still PRESENT.
       </p>
-      <a href="callfordonations.php" class="btn">I want to donate</a>
+      <a href="free/callfordonations.php" class="btn">I want to donate</a>
    </div>
 </section>
 <!-------------------------------------------  Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES End -------------------------------------------------------------------------------------------->
