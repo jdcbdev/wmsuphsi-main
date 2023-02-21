@@ -7,33 +7,34 @@
 <!-- Mission and Vission Section starts  -->
 
 <section class="news">
+
+<?php
+  require_once '../classes/news_model.php'; 
+  $news = new News();
+  //We will now fetch all the records in the array using loop
+  //use as a counter, not required but suggested for the table
+  $i = 1;
+  //loop for each record found in the array
+  foreach ($news->fetchAllRecords() as $value){ //start of loop
+?>
+
     <div class="news-content">
-      <h3 class="news-title">Harnessing our Peace Efforts: Towards Solidarity in Service</h3>
+      <h3 class="news-title"><?php echo $value['news_title'] ?></h3>
       
       <div class="image">
-      <img src="../images/content-images/phsi-dialogue.jpg" alt="">
+      <img src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['news_title']; ?>">
     </div>
 
     <div class="desc">
-    <p>"Mr. Hirotaka Sekiguchi recieving a certificate. He is the Senior Official of the National Federation of UNESCO Associations in JAPAN."</p>
+    <p><?php echo $value['image_description'] ?></p>
     </div>
 
-      <p> In line with the opening of the Mindanao Week of Peace 2022, on the 24th of November, the WMSU PHSI conducted a Peace Dialogue with the theme, "Harnessing our Peace Efforts: Towards Solidarity in Service". with the participation of Mr. Hirotaka Sekiguchi, the senior Official of the National Federation of UNESCO.
-      </p>
-
-      <div class="image">
-      <img src="../images/content-images/phsi-dialogue1.jpg" alt="">
-    </div>
-
-    <div class="desc">
-    <p>"Mr. Hirotaka Sekiguchu with the Director of WMSU - Peace and Human Security Institute." </p>
-    </div>
-
-      <p> The Peace Dialogue took place at the College of Teacher Education Social Hall, with the attendance of the WMSU-UNESCO Club members and Officers and different representatives from the College of Liberal Arts (CLA) ,  College of Education (CTE) , College of Islamic Studies ( CAIS) and College of Social Work and Community Development. <br> 
-      Let us commemorate this week of Peace as a remembrance and celebration of unity and solidarity through peace. 
-      </p>
-   </div>
-
+      <p><?php echo $value['news_content'] ?></p>
+   <?php
+   $i++;
+//end of loop
+}
+?>
    
 
 </section>

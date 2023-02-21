@@ -34,6 +34,20 @@
                         </a>
                     </li>
 
+                    <li>
+                       <a href="news_page.php" class="<?php echo $news_page; ?>" title="news Page">
+                            <span class="uil uil-clipboard-notes"></span>
+                            <small>News Page</small>
+                        </a>
+                    </li>
+
+                    <li>
+                       <a href="home_carousel.php" class="<?php echo $home_carousel; ?>" title="Carousel">
+                            <span class="uil uil-clipboard-notes"></span>
+                            <small>Carousel</small>
+                        </a>
+                    </li>
+
 
                     <li>
                        <a href="event_management.php" class="<?php echo $event_management; ?>" title="Event Management">

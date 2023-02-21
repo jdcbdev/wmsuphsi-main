@@ -218,11 +218,13 @@ section {
 
 .header .icons div:hover {
   color: #0eb582;
+  text-decoration: none;
 }
 
 
 .header .icons a:hover {
   color: #0eb582;
+  text-decoration: none;
 }
 
 .header #menu-btn {

@@ -22,6 +22,89 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+  
+
+
+
+
+--
+--
+-- Table structure for table `carousel`
+--
+
+CREATE TABLE `carousel` (
+  `id` int(11) NOT NULL,
+  `carousel_title` text NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `carousel_content` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `carousel`
+--
+INSERT INTO `carousel` (`id`, `carousel_title`, `filename`, `carousel_content`) VALUES
+(1, 'Peace and Human Security Institute', 'phsi-carousel.jpg', 'Peace is more than the absence of war, it is living together with our differences – of sex, race, language, religion or culture – while furthering universal respect for justice and human rights on which such coexistence depends – Tap Tant, UNESCO');
+
+
+--
+-- Indexes for table `history`
+--
+ALTER TABLE `carousel`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `carousel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+
+--
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `news_title` varchar(255) NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `image_description` text DEFAULT NULL,
+  `news_content` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `history`
+--
+
+
+--
+-- Indexes for table `history`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+
+
+
+
+
+
 
 --
 --
@@ -101,34 +184,6 @@ COMMIT;
 
 
 
-
-
-
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `carousel`
---
-
-CREATE TABLE `carousel` (
-  `id` int(11) NOT NULL,
-  `carousel_image` varchar(255) NOT NULL,
-  `carousel_title` varchar(255) NOT NULL,
-  `carousel_description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `carousel`
---
-
-INSERT INTO `carousel` (`id`, `carousel_image`, `carousel_title`, `carousel_description`) VALUES
-(1, 'ccslogo1.jpg', 'Peace and Human Security Institute', 'Peace is more than the absence of war, it is living together with our differences – of sex, race, language, religion or culture – while furthering universal respect for justice and human rights on which such coexistence depends.'),
-(2, 'sad.jpg', 'Peace and Human Security Institute', 'Peace is more than the absence of war, it is living together with our differences – of sex, race, language, religion or culture – while furthering universal respect for justice and human rights on which such coexistence depends.');
-
--- --------------------------------------------------------
-
 --
 -- Table structure for table `programs`
 --
@@ -178,11 +233,7 @@ INSERT INTO `user_acc_data` (`id`, `user_name`, `user_pass`, `firstname`, `lastn
 --
 
 
---
--- Indexes for table `carousel`
---
-ALTER TABLE `carousel`
-  ADD PRIMARY KEY (`id`);
+
 
 --
 -- Indexes for table `programs`
@@ -201,11 +252,7 @@ ALTER TABLE `user_acc_data`
 --
 
 
---
--- AUTO_INCREMENT for table `carousel`
---
-ALTER TABLE `carousel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 
 --
 -- AUTO_INCREMENT for table `programs`

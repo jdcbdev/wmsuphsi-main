@@ -10,120 +10,31 @@
 </section>
 
 <section class="announcements">
+<?php
+  require_once '../classes/news_model.php'; 
+  $news = new News();
+  //We will now fetch all the records in the array using loop
+  //use as a counter, not required but suggested for the table
+  $i = 1;
+  //loop for each record found in the array
+  foreach ($news->fetchAllRecords() as $value){ //start of loop
+?> 
    <div class="box-container">
-      <div class="box">
-         <div class="image">
-            <img src="../images/content-images/unesco-canton.jpg" alt="">
-            <h3>Jan 16, 2023</h3>
-         </div>
-         <div class="content">
-            <h3>In the Light of the Recent Flood in Zamboanga City</h3>
-            <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="#" class="btn">read more</a>
-         </div>
-      </div>
 
       <div class="box">
          <div class="image">
-            <img src="../images/content-images/phsi-dialogue.jpg"  alt="">
+            <img  src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['news_title']; ?>">
             <h3>Nov 26, 2022</h3>
          </div>
          <div class="content">
-            <h3>Harnessing our Peace Efforts: Towards Solidarity in Service</h3>
-            <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="#" class="btn">read more</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="../images/content-images/unesco-youthleader.png"  alt="">
-            <h3>Nov 12, 2022</h3>
-         </div>
-         <div class="content">
-         <h3>2022 UNESCO Club Outstanding Youth Leader (College Level)!</h3>
+            <h3><?php echo $value['news_title'] ?></h3>
             <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
             <a href="#" class="btn">read more</a>
          </div>
       </div>
 
 
-   <div class="box">
-      <div class="image">
-         <img src="../images/content-images/phsi-p4.jpg" alt="">
-         <h3>Date posted</h3>
-      </div>
-      <div class="content">
-         <h3>Announcement Title</h3>
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>
-         <a href="#" class="btn">Read more</a>
-      </div>
-   </div>
-
-
-   <div class="box">
-      <div class="image">
-         <img src="../images/content-images/unesco-p1.jpg" alt="">
-         <h3>Date posted</h3>
-      </div>
-      <div class="content">
-         <h3>Announcement Title</h3>
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>
-         <a href="#" class="btn">Read more</a>
-      </div>
-   </div>
-
-   <div class="box">
-      <div class="image">
-         <img src="../images/content-images/unesco-p2.jpg" alt="">
-         <h3>Date posted</h3>
-      </div>
-      <div class="content">
-         <h3>Announcement Title</h3>
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>
-         <a href="#" class="btn">Read more</a>
-      </div>
-   </div>
-
-   <div class="box">
-      <div class="image">
-         <img src="../images/content-images/unesco-p3.jpg" alt="">
-         <h3>Date posted</h3>
-      </div>
-      <div class="content">
-         <h3>Announcement Title</h3>
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>
-         <a href="#" class="btn">Read more</a>
-      </div>
-   </div>
-
-   <div class="box">
-      <div class="image">
-         <img src="../images/content-images/unesco-p4.jpg" alt="">
-         <h3>Date posted</h3>
-      </div>
-      <div class="content">
-         <h3>Announcement Title</h3>
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>
-         <a href="#" class="btn">Read more</a>
-      </div>
-   </div>
-
-
-   <div class="box">
-      <div class="image">
-         <img src="../images/content-images/unesco-p5.jpg" alt="">
-         <h3>Date posted</h3>
-      </div>
-      <div class="content">
-         <h3>Announcement Title</h3>
-         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>
-         <a href="#" class="btn">Read more</a>
-      </div>
-   </div>
-
-
-   <div class="box hide">
+   <!--<div class="box hide">
       <div class="image">
          <img src="../images/content-images/phsi-p7.png" alt="">
          <h3>Date posted</h3>
@@ -158,11 +69,19 @@
          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>
          <a href="#" class="btn">Read more</a>
       </div>
-   </div>
+   </div>-->
 
    </div>
+
+   <?php
+   $i++;
+//end of loop
+}
+?>
 
    <div class="load-more"> <div class="btn">Load more</div> </div>
+
+
 
 </section>
 
