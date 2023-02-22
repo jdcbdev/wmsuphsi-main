@@ -77,27 +77,28 @@
             "password" => 'angelica'
         )    
     );
-    if(isset($_POST['username']) && isset($_POST['password'])){
+    if(isset($_POST['user_name']) && isset($_POST['password'])){
         //Sanitizing the inputs of the users. Mandatory to prevent injections!
        
         $user= new users;
-        $user -> email = htmlentities($_POST['username']); 
+        $user -> email = htmlentities($_POST['user_name']); 
         $user -> password = htmlentities($_POST['password']); 
 
         $output= $user -> login();
 
         if ($output) {
             // CREATE -- COLUMN "firstname" "lastname" "role"
-            $_SESSION['logged-in'] = $output['user_name'];
+            $_SESSION['logged-in'] = $output['username'];
             $_SESSION['fullname'] = $output['firstname'] . ' ' . $output['lastname'];
             $_SESSION['user_role'] = $output['role'];
 
             //display the appropriate dashboard page for user
-                if($output['role'] == 'admin'){
+                if($output['role'] == 'Admin'){
+                    // print_r($_SESSION);
                     header('location: ../admin/dashboard.php');
                 }else{
-                    header('location: ../user/user-profile.php');
-                     header('location: ../admin/dashboard1.php');
+                    // header('location: ../user/user-profile.php');
+                    //  header('location: ../admin/dashboard1.php');
                 }
             }
         // $username = htmlentities($_POST['username']);
@@ -130,8 +131,8 @@
                 <span class="logo-name">WMSU-PHSI</span>
             </div>
             
-            <label for="username" style="color: black;"></label>
-            <input type="text" id="username" name="username" placeholder="Enter username" required tabindex="1">
+            <label for="user_name" style="color: black;"></label>
+            <input type="text" id="user_name" name="user_name" placeholder="Enter username" required tabindex="1">
             
             <label for="password" style="color: black;"></label>
             <input type="password" id="password" name="password" placeholder="Enter password" required tabindex="2">

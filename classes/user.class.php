@@ -2,16 +2,17 @@
 require_once 'database.php';
 
 Class users{
-    public $id;
     public $firstname;
     public $middlename;
     public $lastname;
     public $email;
     public $address;
-    public $gender;
+    public $sex;
     public $role;
+    public $type;
     public $username;
     public $password;
+    public $contactNo;
 
     protected $db;
 
@@ -20,30 +21,9 @@ Class users{
         $this->db = new Database();
     }
 
-    function register(){
-        $sql = "INSERT INTO users (firstname, middlename, lastname, email, address, gender, role, username, password) VALUES 
-        (:firstname, :middlename, :lastname, :email, :address, :gender, :role, :username, :password);";
-
-        $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':firstname', $this->firstname);
-        $query->bindParam(':middlename', $this->middlename);
-        $query->bindParam(':lastname', $this->lastname);
-        $query->bindParam(':email', $this->email);
-        $query->bindParam(':address', $this->address);
-        $query->bindParam(':gender', $this->gender);
-        $query->bindParam(':role', $this->role);
-        $query->bindParam(':username', $this->username);
-        $query->bindParam(':password', $this->password);
-        if($query->execute()){
-            return true;
-        }
-        else{   
-            return false;
-        }	
-    }
-
+    
     function login(){
-        $sql = "SELECT * FROM user_acc_data WHERE user_name = :email and user_pass = :password" ;
+        $sql = "SELECT * FROM user_acc_data WHERE username = :email and user_pass = :password" ;
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':email', $this->email);
         $query->bindParam(':password', $this->password);
@@ -52,6 +32,41 @@ Class users{
         }
      	return $data;
     }
+   
+  
+    function signup() {
+        $sql = "INSERT INTO `user_acc_data` (`id`, `username`, `user_pass`, `firstname`, `middlename`, `lastname`, `suffix`, `email`, `address`, `role`, 
+        `type`, `sex`, `contactno`) VALUES (NULL, :username, :user_pass, :firstname, :middlename, :lastname, :suffix, :email, :address, :role, :type, 
+        :sex, :contactNo)";
+        $query=$this->db->connect()->prepare($sql);
+
+        $query->bindParam(':username', $this->username);
+        $query->bindParam(':user_pass', $this->password);
+        $query->bindParam(':firstname', $this->firstname);
+        $query->bindParam(':middlename', $this->middlename);
+        $query->bindParam(':lastname', $this->lastname);
+        $query->bindParam(':suffix', $this->suffix);
+        $query->bindParam(':email', $this->email);
+        $query->bindParam(':address', $this->address);
+        $query->bindParam(':role', $this->role);
+        $query->bindParam(':type', $this->type);
+        $query->bindParam(':sex', $this->sex);
+        $query->bindParam(':contactNo', $this->contactNo);
+       
+        if($query->execute()){
+            return "added successfully 1";
+        } 
+        return "error adding ";
+    }
+
+    // function getUserData() {
+    //     $sql = "SELECT * FROM `user_acc_data` WHERE username = :username AND user_pass = :user_pass";
+    //     $query=$this->db->connect()->prepare($sql);
+
+    //     $query->bindParam(':username', $this->username);
+    //     $query->bindParam(':user_pass', $this->password);
+
+    // }
 
 
 
