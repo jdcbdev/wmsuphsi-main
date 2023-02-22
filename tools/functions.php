@@ -39,7 +39,7 @@ function validate_suffix($POST){
 
 function validate_email($POST){
     // Remove all illegal characters from email
-    $email = filter_var($POST['email'], FILTER_SANITIZE_EMAIL)
+    $email = filter_var($POST['email'], FILTER_SANITIZE_EMAIL);
     //validate email
     if(filter_var($email, FILTER_VALIDATE_EMAIL)){
         // separate string by @ characters (there should be only one )
@@ -53,6 +53,15 @@ function validate_email($POST){
         return false;
     }
     return true;
+}
+
+
+function contactno($POST){
+    if(preg_match('/^[0-9]{11}+$/', $contactno)) {
+        echo "Valid Phone Number";
+        } else {
+        echo "Invalid Phone Number";
+        }
 }
 
 

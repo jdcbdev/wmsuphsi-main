@@ -113,7 +113,7 @@
 
           <div class="input-box">
             <span class="details-opt">Suffix Name</span>
-            <input type="text"  id="suffix" name="suffix" placeholder="Enter suffix" required tabindex="4">
+            <input type="text"  id="suffix" name="suffix" placeholder="Enter suffix"  tabindex="4">
           </div>
  
           <div class="input-box">
