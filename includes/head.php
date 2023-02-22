@@ -21,6 +21,7 @@
    
    <!-- Custom css file link  -->
    <link rel="stylesheet" href="../css/phsi.css">
+   <link rel="stylesheet" href="../css/modal.css">
 
     <!-- Swiper Js link  -->
    <!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->

@@ -6,7 +6,7 @@
     $misvis_page = "";
     $home_carousel = "";
     $news_page = "";
-    $event_management = "";
+    $events_management = "";
     $organizations = "";
     $feedback_management =  "";
     $user_management = "";

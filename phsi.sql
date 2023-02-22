@@ -22,11 +22,100 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+--
+-- --------------------------------------------------------
+--
+--
+-- Table structure for table `event`
+--
+
+CREATE TABLE 'event'(
+	'event_id' int(11) NOT NULL PRIMARY KEY,
+	'event_title' VARCHAR(50) DEFAULT NULL,
+	'filename' VARCHAR(255) NOT NULL,
+	'event_about' text DEFAULT NUll,
+	'event_mode' VARCHAR(35) NOT NULL,
+  'event_location' VARCHAR(50) NOT NULL,
+  'event_platform' VARCHAR(50) NOT NULL,
+	'event_type' VARCHAR(50) NOT NULL,
+	'event_slots' int(11) DEFAULT NULL,
+	'event_status' VARCHAR(50) NOT NULL,
+	'event_date' DATE NOT NULL,
+  'event_start_time' TIME NOT NULL,
+  'event_end_time' TIME NOT NULL,
+  'event_reg_duedate' timestamp NOT NULL,
+	'event_invitation_id' int FOREIGN KEY REFERENCES 'event_invitation'(event_invitation_id),
+	'event_agenda_id' int FOREIGN KEY REFERENCES 'event_agenda'(event_agenda_id),
+	'event_speaker_id' int FOREIGN KEY REFERENCES 'event_speaker'(event_speaker_id),
+	'created_at' timestamp NOT NULL DEFAULT current_timestamp(),
+  'updated_at' timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+	)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `carousel`
+--
+
+
+
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`id`); 
   
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `event`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+
+-- --------------------------------------------------------
+--
+--
+-- Table structure for table `event_scope`
+--
+
+CREATE TABLE 'event_scope'(
+  'event_id' int(11),
+	'event_scope' VARCHAR(50) NOT NULL,
+	FOREIGN KEY (event_id) REFERENCES event (event_id)
+	);
+
+--
+-- Dumping data for table `event_scope`
+--
 
 
 
 
+--
+-- Indexes for table `event_scope`
+--
+ALTER TABLE `event_scope`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `event_scope`
+--
+ALTER TABLE `event_scope `
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+-- --------------------------------------------------------
+
+
+-- --------------------------------------------------------
 --
 --
 -- Table structure for table `carousel`
@@ -46,8 +135,9 @@ INSERT INTO `carousel` (`id`, `carousel_title`, `filename`, `carousel_content`) 
 (1, 'Peace and Human Security Institute', 'phsi-carousel.jpg', 'Peace is more than the absence of war, it is living together with our differences – of sex, race, language, religion or culture – while furthering universal respect for justice and human rights on which such coexistence depends – Tap Tant, UNESCO');
 
 
+
 --
--- Indexes for table `history`
+-- Indexes for table `carousel`
 --
 ALTER TABLE `carousel`
   ADD PRIMARY KEY (`id`); 
@@ -57,13 +147,13 @@ ALTER TABLE `carousel`
 --
 --
 --
--- AUTO_INCREMENT for table `history`
+-- AUTO_INCREMENT for table `carousel`
 --
 ALTER TABLE `carousel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
-
+-- --------------------------------------------------------
 --
 --
 -- Table structure for table `news`
@@ -78,12 +168,12 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `history`
+-- Dumping data for table `news`
 --
 
 
 --
--- Indexes for table `history`
+-- Indexes for table `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`); 
@@ -93,18 +183,13 @@ ALTER TABLE `news`
 --
 --
 --
--- AUTO_INCREMENT for table `history`
+-- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
-
-
-
-
-
-
+-- --------------------------------------------------------
 
 --
 --
@@ -143,8 +228,7 @@ ALTER TABLE `history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
-
-
+-- --------------------------------------------------------
 
 --
 --
@@ -181,31 +265,7 @@ ALTER TABLE `misvis`
 ALTER TABLE `misvis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
-
-
-
---
--- Table structure for table `programs`
---
-
-CREATE TABLE `programs` (
-  `id` int(11) NOT NULL,
-  `program_title` varchar(100) NOT NULL,
-  `description` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `programs`
---
-
-INSERT INTO `programs` (`id`, `program_title`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Peace Studies', 'Lorem ipsum odor amet, consectetuer adipiscing elit. \nFusce risus fermentum vestibulum tellus intege', '2022-11-03 15:10:55', '2022-11-13 14:19:15'),
-(2, 'Bayanihan', 'Lorem ipsum odor amet, consectetuer adipiscing elit. \nFusce risus fermentum vestibulum tellus intege', '2022-11-03 15:17:36', '2022-11-13 23:07:49');
-
 -- --------------------------------------------------------
-
 --
 -- Table structure for table `user_acc_data`
 --
@@ -233,14 +293,6 @@ INSERT INTO `user_acc_data` (`id`, `user_name`, `user_pass`, `firstname`, `lastn
 --
 
 
-
-
---
--- Indexes for table `programs`
---
-ALTER TABLE `programs`
-  ADD PRIMARY KEY (`id`);
-
 --
 -- Indexes for table `user_acc_data`
 --
@@ -252,20 +304,13 @@ ALTER TABLE `user_acc_data`
 --
 
 
-
-
---
--- AUTO_INCREMENT for table `programs`
---
-ALTER TABLE `programs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `user_acc_data`
 --
 ALTER TABLE `user_acc_data`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
+-- --------------------------------------------------------
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

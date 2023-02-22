@@ -19,7 +19,61 @@
 <section class="rsvp-container">
     <div class="rsvp-box">
         <p>RSVP for this event now!</p>
-        <a href="event-page.php" class="btn">RSVP</a>
+        <button class="btn trigger">RSVP</button>
+        <div class="modal-event-reg">
+         <div class="modal-content">
+            <span class="close-button">×</span>
+            <h1 style="display: flex;justify-content: center;">Attendee Information</h1>
+            <div class="attendee-information">
+               <form action="" class="">
+
+                  <label for="" class=""></label>
+                  <div class=""> Firstname
+                     <input class="atnd-info" type="text" name="" id="" required>
+                  </div>
+
+                  <label for="" class=""></label>
+                  <div class=""> Middlename
+                     <input class="atnd-info" type="text" name="" id="" required>
+                  </div>
+
+                  <label for="" class=""></label>
+                  <div class=""> Lastname
+                     <input class="atnd-info" type="text" name="" id="" required>
+                  </div>
+
+                  <label for="" class=""></label>
+                  <div class=""> Suffix
+                     <input class="atnd-info" type="text" name="" id="" required>
+                  </div>
+
+                  <label for="" class=""></label>
+                  <div class=""> Suffix
+                     <input class="atnd-info" type="text" name="" id="" required>
+                  </div>
+
+                  <label for="" class=""></label>
+                  <div class=""> Email
+                     <input class="atnd-info" type="text" name="" id="" required>
+                  </div>
+
+                  <label for="" class=""></label>
+                  <div class=""> Contact Number
+                     <input class="atnd-info" type="text" name="" id="" required>
+                  </div>
+
+                  <div class="">
+                <input type="submit" id="submit" name="submit" value="Submit" class="form-btn">
+                <input type="reset" id="" name="" hidden>
+            </div>
+
+
+
+            
+               </form>
+            </div>
+         </div>
+</div>
     </div>
 </section>
 
@@ -215,7 +269,7 @@
    </div>
 </section>
 
-
+<script src="../js/modal.js"></script>
 
 <!-- Event Section End -->
 

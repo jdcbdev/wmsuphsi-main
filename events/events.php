@@ -21,7 +21,7 @@
             <div class="event-content">
                 <p>With the theme: "Pagkakaisa at Paghilom: Isang Bansa para sa Kapayapaan," held at the Juanito Bruno Gymnasium from 11 AM to 5 PM. The celebration aims to bring Filipinos together and join hands in healing the wounds of the past and using those lessons to pave the way for a bright future free of violence, prejudice, and hatred.</p>
             </div>
-			<a href="event-page.php" class="btn">View details</a>
+			<a href="events-page.php" class="btn">View details</a>
 		</div>
 	</div>
 </div>
@@ -39,7 +39,7 @@
             <div class="event-content">
                 <p>Come and join us  we celebrate unity, build a dialogue of solidarity in service, and harness a dialogue of peace with  the Senior Official of the National Federation of UNESCO Associations in JAPAN, MR. HIROTAKA SEKIGUCHI in this Peace Dialogue.</p>
             </div>
-			<a href="event-page.php" class="btn">View details</a>
+			<a href="events-page.php" class="btn">View details</a>
 		</div>
 	</div>
 </div>
@@ -57,7 +57,7 @@
             <div class="event-content">
                 <p>This year's GENERAL ASSEMBLY aims to strengthen the members' relationship and build a strong camaraderie through team-building activities with the theme PEACE-ta sa UNESCO: Pagkakaisa tungo sa Matibay na Samahan.</p>
             </div>
-			<a href="event-page.php" class="btn">View details</a>
+			<a href="events-page.php" class="btn">View details</a>
 		</div>
 	</div>
 </div>

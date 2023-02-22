@@ -50,7 +50,7 @@
 
 
                     <li>
-                       <a href="event_management.php" class="<?php echo $event_management; ?>" title="Event Management">
+                       <a href="events_management.php" class="<?php echo $events_management; ?>" title="Event Management">
                             <span class="uil uil-podium"></span>
                             <small>Event Management</small>
                         </a>
