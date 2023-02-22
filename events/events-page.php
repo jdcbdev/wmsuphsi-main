@@ -28,13 +28,13 @@
                <form action="" class="">
 
                   <label for="" class=""></label>
-                  <div class=""> Firstname
+                  <div class="details"> Firstname
                      <input class="atnd-info" type="text" name="" id="" required>
                   </div>
 
                   <label for="" class=""></label>
                   <div class=""> Middlename
-                     <input class="atnd-info" type="text" name="" id="" required>
+                     <input class="atnd-info" type="text" name="" id="" >
                   </div>
 
                   <label for="" class=""></label>
@@ -44,12 +44,7 @@
 
                   <label for="" class=""></label>
                   <div class=""> Suffix
-                     <input class="atnd-info" type="text" name="" id="" required>
-                  </div>
-
-                  <label for="" class=""></label>
-                  <div class=""> Suffix
-                     <input class="atnd-info" type="text" name="" id="" required>
+                     <input class="atnd-info" type="text" name="" id="">
                   </div>
 
                   <label for="" class=""></label>
