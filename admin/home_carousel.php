@@ -15,7 +15,7 @@
     require_once '../includes/admin-header.php';
     require_once '../includes/sidebar.php';
     require_once '../includes/topnav.php';
-?>
+?> 
 
 <!--HOME CAROUSEL-->
 <section>
