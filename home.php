@@ -1,7 +1,9 @@
 <?php
     //resume session here to fetch session values
     session_start();
-
+    
+    require_once 'carousel/carousel.php';
+ 
 
 ?>
 
@@ -72,9 +74,7 @@
 
 
 
-<?php
-   require_once 'carousel/carousel.php';
-?>
+
 
 <!------------------------------------------- Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES Start -------------------------------------------------------------------------------------------->
 <section class="free_content">
