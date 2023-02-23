@@ -1,5 +1,5 @@
 <?php 
-require_once 'database.sample.php';
+require_once 'database.php';
 
 Class users{
     public $firstname;
