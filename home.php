@@ -1,9 +1,7 @@
 <?php
     //resume session here to fetch session values
     session_start();
-    
-    require_once 'carousel/carousel.php';
- 
+
 
 ?>
 
