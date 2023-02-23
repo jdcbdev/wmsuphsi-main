@@ -79,7 +79,7 @@
       <div class="swiper-wrapper">
          <!-- PHSI Carousel Start -->
          <?php 
-         require_once 'classes/carousel_model.php';
+         // require_once 'classes/carousel_model.php';
          $carousel = new Carousel();
          //We will now fetch all the records in the array using loop
          //use as a counter, not required but suggested for the table
