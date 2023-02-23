@@ -5,6 +5,7 @@
     $history_page = "";
     $misvis_page = "";
     $home_carousel = "";
+    $administration_page = "";
     $news_page = "";
     $events_management = "";
     $organizations = "";

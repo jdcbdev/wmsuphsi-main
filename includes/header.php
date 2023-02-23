@@ -33,7 +33,7 @@
             <a href="../organizations/biorisk.php">Biorisk Management and Security</a>
          </div>
       </div> 
-      <a href="../events/events.php">Upcoming Events</a>  
+      <a href="../event/events.php">Upcoming Events</a>  
    </nav>
 
    <div class="icons">

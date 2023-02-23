@@ -3,8 +3,8 @@
     require_once 'database.php';
     require_once '../tools/functions.php';
     
-    //CREATE CLASS EVENTS
-    Class Events{
+    //CREATE CLASS event
+    Class Event{
         
         //attributes
         protected $db;
@@ -15,22 +15,46 @@
 		//INSERT A NEW RECORD INTO THE DATABASE "PHSI" & HADLE AJAX REQUEST
         public function insert() {
             
-            if(isset($_POST['events_title'])) {
-                if(isset($_FILES['fileupload']) && $_FILES['fileupload']['error'] === UPLOAD_ERR_OK) {
+            if(isset($_POST['event_title'])) {
+                if(isset($_FILES['event_banner']) && $_FILES['event_banner']['error'] === UPLOAD_ERR_OK) {
 
                     
-                    $events_title =  htmlentities($_POST['events_title']);
-                    $events_description =  htmlentities($_POST['events_description']);
+                    $event_title =  htmlentities($_POST['event_title']);
+                    $event_about =  htmlentities($_POST['event_about']);
+                    $event_mode =  htmlentities($_POST['event_mode']);
+                    $event_location =  htmlentities($_POST['event_location']);
+                    $event_platform =  htmlentities($_POST['event_platform']);
+                    $event_type =  htmlentities($_POST['event_type']);
+                    $event_slots =  htmlentities($_POST['event_slots']);
+                    $event_status =  htmlentities($_POST['event_status']);
+                    $event_date =  htmlentities($_POST['event_date']);
+                    $event_start_time =  htmlentities($_POST['event_start_time']);
+                    $event_end_time =  htmlentities($_POST['event_end_time']);
+                    $event_reg_duedate =  htmlentities($_POST['event_reg_duedate']);
+                    $event_banner = $_FILES['event_banner']['name'];
+                    $tempname_banner = $_FILES['event_banner']['tmp_name'];
+                    $folder = "../uploads/" . $event_banner;
+                    $event_agenda = $_FILES['event_agenda']['name'];
+                    $tempname_agenda = $_FILES['event_agenda']['tmp_name'];
+                    $folder = "../uploads/" . $event_agenda;
 
-                    $filename = $_FILES['fileupload']['name'];
-                    $tempname = $_FILES['fileupload']['tmp_name'];
-                    $folder = "../uploads/" . $filename;
+                    if (move_uploaded_file($tempname_banner, $folder) && move_uploaded_file($tempname_agenda, $folder)) {
+                        $insert_stmt=$this->db->connect()->prepare("INSERT INTO event (event_title, event_banner, event_about, event_mode, event_location, event_platform, event_type, event_slots, event_status, event_date, event_start_time, event_end_time, event_reg_duedate, event_agenda) VALUES (:event_title, :event_banner, :event_about, :event_mode, :event_location, :event_platform, :event_type, :event_slots, :event_status, :event_date, :event_start_time, :event_end_time, :event_reg_duedate, :event_agenda)");
+                        $insert_stmt->bindParam(':event_title', $event_title);
+                        $insert_stmt->bindParam(':event_banner', $event_banner);
+                        $insert_stmt->bindParam(':event_about', $event_about);
+                        $insert_stmt->bindParam(':event_mode', $event_mode);
+                        $insert_stmt->bindParam(':event_location', $event_location);
+                        $insert_stmt->bindParam(':event_platform', $event_platform);
+                        $insert_stmt->bindParam(':event_type', $event_type);
+                        $insert_stmt->bindParam(':event_slots', $event_slots);
+                        $insert_stmt->bindParam(':event_status', $event_status);
+                        $insert_stmt->bindParam(':event_date', $event_date);
+                        $insert_stmt->bindParam(':event_start_time', $event_start_time);
+                        $insert_stmt->bindParam(':event_end_time', $event_end_time);
+                        $insert_stmt->bindParam(':event_reg_duedate', $event_reg_duedate);
+                        $insert_stmt->bindParam(':event_agenda', $event_agenda);
 
-                    if (move_uploaded_file($tempname, $folder)) {
-                        $insert_stmt=$this->db->connect()->prepare("INSERT INTO events (events_title, events_description, filename) VALUES (:events_title, :events_description, :filename)");
-                        $insert_stmt->bindParam(':events_title', $events_title);
-                        $insert_stmt->bindParam(':events_description', $events_description);
-                        $insert_stmt->bindParam(':filename', $filename);
 
                         if($insert_stmt->execute()) {
                             echo 'Successfully saved.';
@@ -54,7 +78,7 @@
 
             $data = null;
 
-			$select_stmt = $this->db->connect()->prepare('SELECT id, events_title, events_description, filename FROM events;');
+			$select_stmt = $this->db->connect()->prepare('SELECT id, event_title, event_banner, event_about, event_mode, event_location, event_platform, event_type, event_slots, event_status, event_date, event_start_time, event_end_time, event_reg_duedate, event_agenda FROM event;');
 			$select_stmt->execute();
 
 			$data = $select_stmt->fetchAll();
@@ -64,7 +88,7 @@
 
 		//DELETE RECORD FROM DATABASE "PHSI" AND HANDLE AJAX REQUEST
         public function deleteRecords($delete_id) {
-            $delete_stmt = $this->db->connect()->prepare('DELETE FROM events WHERE id = :sid ');
+            $delete_stmt = $this->db->connect()->prepare('DELETE FROM event WHERE id = :sid ');
 			$delete_stmt->bindParam(':sid',$delete_id);
 
             if ($delete_stmt->execute()) {
@@ -79,35 +103,61 @@
 
             $data = null;
 
-            $edit_stmt = $this->db->connect()->prepare('SELECT * FROM events WHERE id = :sid');
-			$edit_stmt->bindParam(':sid', $update_id);
+            $event_stmt = $this->db->connect()->prepare('SELECT * FROM event WHERE id = :sid');
+			$event_stmt->bindParam(':sid', $update_id);
 			
-			$edit_stmt->execute();
+			$event_stmt->execute();
 			
-			$data = $edit_stmt->fetch(); 
+			$data = $event_stmt->fetch(); 
 			
 			return $data;
         }
 
         //UPDATE RECORD AND HANDLE AJAX REQUEST
-        public function update($edit_id) {
+        public function update($id) {
 
-            if(isset($_POST['edit_title']) && isset($_POST['edit_description']) && isset($_POST['edit_id'])) {
-                if(!empty($_POST['edit_title']) && !empty($_POST['edit_description']) && !empty($_POST['edit_id'])) {
-                    $events_title =  htmlentities($_POST['edit_title']);
-					$events_description =  htmlentities($_POST['edit_description']);
-					$id = $_POST['edit_id'];
+            if(isset($_POST['edit_title']) && isset($_POST['edit_about'])  && isset($_POST['edit_mode'])  && isset($_POST['edit_location'])  && isset($_POST['edit_platform'])  && isset($_POST['edit_type'])  && isset($_POST['edit_slots'])  && isset($_POST['edit_status'])  && isset($_POST['edit_date'])  && isset($_POST['edit_start_time'])  && isset($_POST['edit_end_time'])  && isset($_POST['edit_reg_duedate'])  && isset($_POST['edit_agenda']) && isset($_POST['id'])) {
+                if(!empty($_POST['event_title']) && !empty($_POST['edit_about'])  && !empty($_POST['edit_mode']) && !empty($_POST['edit_location']) && !empty($_POST['edit_platform']) && !empty($_POST['edit_type']) && !empty($_POST['edit_slots']) && !empty($_POST['edit_status']) && !empty($_POST['edit_date']) && !empty($_POST['edit_start_time']) && !empty($_POST['event_end_time']) && !empty($_POST['edit_reg_duedate']) && !empty($_POST['edit_agenda']) && !empty($_POST['id'])) {
+                    $edit_title =  htmlentities($_POST['event_title']);
+					$edit_about =  htmlentities($_POST['event_about']);
+                    $edit_mode =  htmlentities($_POST['event_mode']);
+                    $edit_location =  htmlentities($_POST['event_location']);
+                    $edit_platform =  htmlentities($_POST['event_platform']);
+                    $edit_type =  htmlentities($_POST['event_type']);
+                    $edit_slots =  htmlentities($_POST['event_slots']);
+                    $edit_status =  htmlentities($_POST['event_status']);
+                    $edit_date =  htmlentities($_POST['event_date']);
+                    $edit_start_time =  htmlentities($_POST['event_start_time']);
+                    $edit_end_time =  htmlentities($_POST['event_end_time']);
+                    $edit_reg_duedate =  htmlentities($_POST['event_reg_duedate']);
+					$id = $_POST['id'];
 
-                    if(isset($_FILES['fileupload']) && $_FILES['fileupload']['error'] === UPLOAD_ERR_OK) {
-                        $filename = $_FILES['fileupload']['name'];
-						$tempname = $_FILES['fileupload']['tmp_name'];
-						$folder = "../uploads/" . $filename;	
+                    if(isset($_FILES['event_banner']) && $_FILES['event_banner']['error'] === UPLOAD_ERR_OK) {
+                        $event_banner = $_FILES['event_banner']['name'];
+						$tempname = $_FILES['event_banner']['tmp_name'];
+						$folder = "../uploads/" . $event_banner;	
 
-                        if(move_uploaded_file($tempname, $folder)) {
-                            $update_stmt=$this->db->connect()->prepare('UPDATE events SET events_title=:events_title, events_description=:events_description, filename=:filename WHERE id=:id');
-							$update_stmt->bindParam(':events_title', $events_title);
-							$update_stmt->bindParam(':filename', $filename);
-							$update_stmt->bindParam(':events_description', $events_description);
+                        if(isset($_FILES['event_agenda']) && $_FILES['event_agenda']['error'] === UPLOAD_ERR_OK) {
+                            $event_agenda = $_FILES['event_agenda']['name'];
+                            $tempname = $_FILES['event_agenda']['tmp_name'];
+                            $folder = "../uploads/" . $event_agenda;	
+
+                        if(move_uploaded_file($tempname_banner, $folder)) {
+                            $update_stmt=$this->db->connect()->prepare('UPDATE event SET event_title=:event_title, event_about=:event_about, event_banner=:event_banner, event_mode=:event_mode, event_location=:event_location, event_platform=:event_platform, event_type=:event_type, event_slots=:event_slots, event_status=:event_status, event_date=:event_date, event_start_time=:event_start_time, event_end_time=:event_end_time, event_reg_duedate=:event_reg_duedate, event_agenda=:event_agenda WHERE id=:id');
+							$update_stmt->bindParam(':event_title', $event_title);
+							$update_stmt->bindParam(':event_banner', $event_banner);
+							$update_stmt->bindParam(':event_about', $event_about);
+                            $update_stmt->bindParam(':event_mode', $event_mode);
+                            $update_stmt->bindParam(':event_location', $event_location);
+                            $update_stmt->bindParam(':event_platform', $event_platform);
+                            $update_stmt->bindParam(':event_type', $event_type);
+                            $update_stmt->bindParam(':event_slots', $event_slots);
+                            $update_stmt->bindParam(':event_status', $event_status);
+                            $update_stmt->bindParam(':event_date', $event_date);
+                            $update_stmt->bindParam(':event_start_time', $event_start_time);
+                            $update_stmt->bindParam(':event_end_time', $event_end_time);
+                            $update_stmt->bindParam(':event_reg_duedate', $event_reg_duedate);
+                            $update_stmt->bindParam(':event_agenda', $event_agenda);
 							$update_stmt->bindParam(':id', $id);
 
                             //EXECUTE
@@ -122,10 +172,22 @@
                         }
                     }
                     else {
-                        $update_stmt=$this->db->connect()->prepare('UPDATE events SET events_title=:events_title, events_description=:events_description WHERE id=:id');
-						$update_stmt->bindParam(':events_title', $events_title);
-						$update_stmt->bindParam(':events_description', $events_description);
-						$update_stmt->bindParam(':id', $id);
+                        $update_stmt=$this->db->connect()->prepare('UPDATE event SET event_title=:event_title, event_about=:event_about, event_banner=:event_banner, event_mode=:event_mode, event_location=:event_location, event_platform=:event_platform, event_type=:event_type, event_slots=:event_slots, event_status=:event_status, event_date=:event_date, event_start_time=:event_start_time, event_end_time=:event_end_time, event_reg_duedate=:event_reg_duedate, event_agenda=:event_agenda WHERE id=:id');
+                        $update_stmt->bindParam(':event_title', $event_title);
+                        $update_stmt->bindParam(':event_banner', $event_banner);
+                        $update_stmt->bindParam(':event_about', $event_about);
+                        $update_stmt->bindParam(':event_mode', $event_mode);
+                        $update_stmt->bindParam(':event_location', $event_location);
+                        $update_stmt->bindParam(':event_platform', $event_platform);
+                        $update_stmt->bindParam(':event_type', $event_type);
+                        $update_stmt->bindParam(':event_slots', $event_slots);
+                        $update_stmt->bindParam(':event_status', $event_status);
+                        $update_stmt->bindParam(':event_date', $event_date);
+                        $update_stmt->bindParam(':event_start_time', $event_start_time);
+                        $update_stmt->bindParam(':event_end_time', $event_end_time);
+                        $update_stmt->bindParam(':event_reg_duedate', $event_reg_duedate);
+                        $update_stmt->bindParam(':event_agenda', $event_agenda);
+                        $update_stmt->bindParam(':id', $id);
 
 						//EXECUTE
 						if($update_stmt->execute()) {
@@ -143,4 +205,5 @@
 
         }
     }
+}
 ?>

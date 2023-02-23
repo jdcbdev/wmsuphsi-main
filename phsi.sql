@@ -26,40 +26,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 --
 --
--- Table structure for table `event`
---
-
-CREATE TABLE 'event'(
-	'event_id' int(11) NOT NULL PRIMARY KEY,
-	'event_title' VARCHAR(50) DEFAULT NULL,
-	'filename' VARCHAR(255) NOT NULL,
-	'event_about' text DEFAULT NUll,
-	'event_mode' VARCHAR(35) NOT NULL,
-  'event_location' VARCHAR(50) NOT NULL,
-  'event_platform' VARCHAR(50) NOT NULL,
-	'event_type' VARCHAR(50) NOT NULL,
-	'event_slots' int(11) DEFAULT NULL,
-	'event_status' VARCHAR(50) NOT NULL,
-	'event_date' DATE NOT NULL,
-  'event_start_time' TIME NOT NULL,
-  'event_end_time' TIME NOT NULL,
-  'event_reg_duedate' timestamp NOT NULL,
-	'event_invitation_id' int FOREIGN KEY REFERENCES 'event_invitation'(event_invitation_id),
-	'event_agenda_id' int FOREIGN KEY REFERENCES 'event_agenda'(event_agenda_id),
-	'event_speaker_id' int FOREIGN KEY REFERENCES 'event_speaker'(event_speaker_id),
-	'created_at' timestamp NOT NULL DEFAULT current_timestamp(),
-  'updated_at' timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+CREATE TABLE `event` (
+	`id` int(11) NOT NULL,
+	`event_title` VARCHAR(50) NOT NULL,
+	`event_banner` VARCHAR(50) NOT NULL,
+	`event_about` text DEFAULT NULL,
+	`event_mode` VARCHAR(35) NOT NULL,
+  `event_location` VARCHAR(50) DEFAULT NULL,
+  `event_platform` VARCHAR(50) DEFAULT NULL,
+	`event_type` VARCHAR(50) NOT NULL,
+	`event_slots` int(11) DEFAULT NULL,
+	`event_status` VARCHAR(50) NOT NULL,
+	`event_date` DATE NOT NULL,
+  `event_start_time` TIME NOT NULL,
+  `event_end_time` TIME NOT NULL,
+  `event_reg_duedate` timestamp NOT NULL,
+	`event_agenda` VARCHAR(50) NOT NULL,
+	`created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 	)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `carousel`
+-- Dumping data for table `event`
 --
 
-
-
-
 --
--- Indexes for table `events`
+-- Indexes for table `event`
 --
 ALTER TABLE `event`
   ADD PRIMARY KEY (`id`); 
@@ -69,50 +61,11 @@ ALTER TABLE `event`
 --
 --
 --
--- AUTO_INCREMENT for table `events`
+-- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
-
-
--- --------------------------------------------------------
---
---
--- Table structure for table `event_scope`
---
-
-CREATE TABLE 'event_scope'(
-  'event_id' int(11),
-	'event_scope' VARCHAR(50) NOT NULL,
-	FOREIGN KEY (event_id) REFERENCES event (event_id)
-	);
-
---
--- Dumping data for table `event_scope`
---
-
-
-
-
---
--- Indexes for table `event_scope`
---
-ALTER TABLE `event_scope`
-  ADD PRIMARY KEY (`id`); 
-  
---
--- AUTO_INCREMENT for dumped tables
---
---
---
--- AUTO_INCREMENT for table `event_scope`
---
-ALTER TABLE `event_scope `
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-COMMIT;
-
--- --------------------------------------------------------
 
 
 -- --------------------------------------------------------

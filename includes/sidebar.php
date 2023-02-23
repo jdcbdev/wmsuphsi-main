@@ -48,6 +48,14 @@
                         </a>
                     </li>
 
+                    
+                    <li>
+                       <a href="administration_page.php" class="<?php echo $administration_page; ?>" title="Administration Page">
+                            <span class="uil uil-clipboard-notes"></span>
+                            <small>Administration_page</small>
+                        </a>
+                    </li>
+
 
                     <li>
                        <a href="events_management.php" class="<?php echo $events_management; ?>" title="Event Management">

@@ -21,7 +21,7 @@
         <p>RSVP for this event now!</p>
         <button class="btn trigger">RSVP</button>
         <div class="modal-event-reg">
-         <div class="modal-content">
+         <div class="modal-content" id="modal-content">
             <span class="close-button">×</span>
             <h1 style="display: flex;justify-content: center;">Attendee Information</h1>
             <div class="attendee-information">
