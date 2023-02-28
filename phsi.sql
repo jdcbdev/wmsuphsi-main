@@ -66,9 +66,6 @@ COMMIT;
 --
 -- --------------------------------------------------------
 --
-<<<<<<< HEAD
-
-=======
 --
 CREATE TABLE `event` (
 	`id` int(11) NOT NULL,
@@ -111,7 +108,6 @@ ALTER TABLE `event`
 ALTER TABLE `event`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
->>>>>>> ECHO
 
 -- --------------------------------------------------------
 --
