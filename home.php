@@ -164,13 +164,13 @@
 
       <div class="box" id="unesco">
       <a href="organizations/unesco.php">
-         <img src=images/logos/new-unesco.png" alt="">
+         <img src="images/logos/new-unesco.png" alt="">
          <h3>WMSU Youth Peace Mediators - UNESCO Club</h3></a>
          <!--<p>Lorem ipsum</p>-->
       </div>
 
       <div class="box" id="biorisk">
-         <img src=images/logos/biorisk.png" alt="">
+         <img src="images/logos/biorisk.png" alt="">
          <h3>WMSU Biosafety and Biosecurity Committee</h3>
          <!--<p>Lorem ipsum</p>-->
       </div>

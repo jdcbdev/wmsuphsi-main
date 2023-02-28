@@ -7,7 +7,6 @@
 
 <!-- Event Section Start  -->
 
-
 <section class="event-heading">
     <div class="img"><img src="../images/content-images/unesco-ncm.png" alt="">
     <div class="event-content">
@@ -19,56 +18,35 @@
 <section class="rsvp-container">
     <div class="rsvp-box">
         <p>RSVP for this event now!</p>
-        <button class="btn trigger">RSVP</button>
-        <div class="modal-event-reg">
-         <div class="modal-content" id="modal-content">
-            <span class="close-button">×</span>
-            <h1 style="display: flex;justify-content: center;">Attendee Information</h1>
-            <div class="attendee-information">
-               <form action="" class="">
+        <button class="btn" id="open-modal-btn">RSVP</button>
 
-                  <label for="" class=""></label>
-                  <div class="details"> Firstname
-                     <input class="atnd-info" type="text" name="" id="" required>
-                  </div>
+        <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="margin: auto; font-size: 3rem;">Attendee Information</h2>
+            <form class="modal-form" id="modal-form" method="POST">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" name="first-name" required>
 
-                  <label for="" class=""></label>
-                  <div class=""> Middlename
-                     <input class="atnd-info" type="text" name="" id="" >
-                  </div>
+                <label for="middle-name">Middle Name:</label>
+                <input type="text" id="middle-name" name="middle-name">
 
-                  <label for="" class=""></label>
-                  <div class=""> Lastname
-                     <input class="atnd-info" type="text" name="" id="" required>
-                  </div>
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" name="last-name" required>
 
-                  <label for="" class=""></label>
-                  <div class=""> Suffix
-                     <input class="atnd-info" type="text" name="" id="">
-                  </div>
+                <label for="suffix">Suffix:</label>
+                <input type="text" id="suffix" name="suffix">
 
-                  <label for="" class=""></label>
-                  <div class=""> Email
-                     <input class="atnd-info" type="text" name="" id="" required>
-                  </div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-                  <label for="" class=""></label>
-                  <div class=""> Contact Number
-                     <input class="atnd-info" type="text" name="" id="" required>
-                  </div>
+                <label for="contact">Contact:</label>
+                <input type="text" id="contact" name="contact" required>
 
-                  <div class="">
-                <input type="submit" id="submit" name="submit" value="Submit" class="form-btn">
-                <input type="reset" id="" name="" hidden>
-            </div>
-
-
-
-            
-               </form>
-            </div>
-         </div>
-</div>
+                <input type="submit" id="submit" name="submit" value="Submit">  
+            </form>
+        </div>
+    </div>
     </div>
 </section>
 

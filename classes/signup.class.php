@@ -2,6 +2,8 @@
 require_once 'database.php';
 
 Class users{
+    public $profile_picture;
+    public $background_image
     public $username;
     public $password;
     public $firstname;

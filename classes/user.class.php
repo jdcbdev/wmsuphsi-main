@@ -41,11 +41,16 @@ Class Users{
    
     //INSERT A NEW USER  INTO THE DATABASE "PHSI" & HADLE AJAX REQUEST
     function signup(){
-        $sql = "INSERT INTO user_acc_data (firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role) 
-        VALUES (:firstname, :middlename, :lastname, :suffix, :sex, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :username, :password, :role);";
+
+        
+
+
+        $sql = "INSERT INTO user_acc_data (profile_picture, background_image, firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role) 
+        VALUES (:profile_picture, :background_image, :firstname, :middlename, :lastname, :suffix, :sex, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :username, :password, :role);";
 
         $query=$this->db->connect()->prepare($sql);
-
+        $query->bindParam(':profile_picture', $this->profile_picture);
+        $query->bindParam(':background_image', $this->background_image);
         $query->bindParam(':firstname', $this->firstname);
         $query->bindParam(':middlename', $this->middlename);
         $query->bindParam(':lastname', $this->lastname);

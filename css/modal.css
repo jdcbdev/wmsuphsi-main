@@ -1,65 +1,69 @@
-.modal-event-reg {
+
+.modal {
+    display: none;
     position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-form{
+    margin: 1.5rem;
 }
 
 .modal-content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: white;
-    padding: 1rem 1.5rem;
-    width: 40%;
-    border-radius: 0.5rem;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    min-width: 300px;
 }
 
-.model-content::-webkit-scrollbar{
-    width: 5px;
+
+.close {
+    color: #aaa;
+    margin-left: auto;
+    font-size: 28px;
+    font-weight: bold;
 }
-.close-button {
-    float: right;
-    width: 3rem;
-    line-height: 1.5rem;
-    text-align: center;
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
     cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: lightgray;
-    margin-left: 95%;
-    font-size: 1.8rem;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.close-button:hover {
-    background-color: darkgray;
+#submit {
+    border: 0.1rem solid #107869;
+    background: #ffffff;
+    color: #107869;
+    cursor: pointer;
+    margin-top: 3rem;
 }
 
-.show-modal {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-    overflow: auto;
-}
-
-.atnd-info{
-    border-radius: 0;
-}
-
-.form-btn {
-    background-color:  #107869;
+#submit:hover {
+    background: #107869;
     color: white;
-    cursor: pointer;
 }
 
+input {
+    border-radius: 0;
+    font-size: 16px;
+}
+
+
+input:active,
+input:focus {
+    border: 1px solid #107869;
+}
+
+label{
+    font-size: 16px;
+    margin-top: 15px;
+}

@@ -29,16 +29,24 @@
               $user -> username = htmlentities($_POST['username']); 
               $user -> password = htmlentities($_POST['password']);
 
+              $user -> profile_picture = $_FILES['profile_picture']['name'];
+              $user -> tempname_picture = $_FILES['profile_picture']['tmp_name'];
+              $user -> folder_picture = "../uploads/" . $user -> profile_picture;
 
-              if(validate_signup_user($_POST)){
-                if($user -> signup()){
+              $user -> background_image = $_FILES['background_image']['name'];
+              $user -> tempname_background = $_FILES['background_image']['tmp_name'];
+              $user -> folder_background = "../uploads/" . $user -> background_image;
+
+              if (move_uploaded_file($user -> tempname_picture, $user -> folder_picture) && move_uploaded_file($user -> tempname_background, $user -> folder_background)) {
+                if(validate_signup_user($_POST)){
+                  if($user -> signup()){
                     //redirect user to program page after saving
                     header('location: login.php');
                 }
             }
               
-        }
-  
+          }
+      }
 ?>
 
 <div class="signup">
@@ -89,7 +97,7 @@
 
           <div class="input-box">
             <span class="details">Contact No.</span>
-            <input type="number" name="contact_number" placeholder="" required>
+            <input type="text" name="contact_number" id="contact_number" placeholder="" required>
           </div>
 
           <div class="input-box">
@@ -117,6 +125,28 @@
             <input type="text" name="bldg_house_no" placeholder="">
           </div>
         </div>
+
+        <div class="sub-title">Upload Profile Picture</div><br>
+        <div class="input-group">
+          <input type="file" name="profile_picture" id="profile_picture" accept="image/*" onchange="showProfile(event)" required>
+        </div>
+
+        <label for="file"></label>
+        <div class="preview">
+          <img id="profile-preview">
+        </div>
+
+        <div class="sub-title">Upload Background Image</div><br>
+        <div class="input-group">
+          <input type="file" name="background_image" id="background_image" accept="image/*" onchange="showBackground(event)" required>
+        </div>
+
+        <label for="file"></label>
+        <div class="preview">
+          <img id="background-preview">
+        </div>
+            
+
 
 
         <!--WMSU STATUS
@@ -170,12 +200,12 @@
           <div class="input-box">
             <span class="details">Password</span>
             <input type="password" id="password" name="password" placeholder="">
-            <!--<input type="checkbox" onclick="showPw()">Show Password-->
           </div>
-          <!--<div class="input-box">
+            
+          <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="password" placeholder="">
-          </div>-->
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="">
+          </div>
         </div>
 
         
@@ -194,6 +224,5 @@
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="../js/administration.js"></script>
-<script src="../js/password.js"></script>
+<script src="../js/signup.js"></script>
 
