@@ -472,3 +472,41 @@ section{
    }
 
 }
+
+.event-organizers .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+   gap:2rem;
+ }
+ 
+ .event-organizers .box-container .box{
+   
+   background-repeat: no-repeat;
+   background-size: cover;
+   padding: 2.2rem;
+   border-radius: .5rem;
+   text-align: center;
+   /*box-shadow: var(--box-shadow);*/
+   width: 100%;
+   height: 71.5%;
+ }
+ 
+ .event-organizers .box-container .box img{
+   height: 28.5rem;
+   margin: 1rem 0;
+   border: 1.5px solid var(--primary-color);
+   border-radius: 50%;
+ }
+ 
+ .event-organizers .box-container .box h3{
+   font-size: 2rem;
+   color:var(--primary-color);
+   margin:1.5rem 0;
+   font-weight: 1000;
+ }
+ 
+ .event-organizers .box-container .box p{
+   font-size: 1.5rem;
+   color:var(--black);
+   line-height: 2;
+ }

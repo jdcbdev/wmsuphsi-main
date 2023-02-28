@@ -1,5 +1,6 @@
 <?php
    require_once '../classes/user.class.php';
+   require_once '../tools/functions.php';
     //resume session here to fetch session values
     session_start();
     $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
@@ -9,186 +10,182 @@
 
 <?php 
 
- /* print_r($_POST); */
-
         if(isset($_POST['submit'])) {
           //Sanitizing the inputs of the users. Mandatory to prevent injections!
             
-              $user= new users;
-              $user -> username = htmlentities($_POST['username']); 
-              $user -> password = htmlentities($_POST['password']);
+              $user = new Users;
               $user -> firstname = htmlentities($_POST['firstname']);
               $user -> middlename = htmlentities($_POST['middlename']);
               $user -> lastname = htmlentities($_POST['lastname']);
               $user -> suffix = htmlentities($_POST['suffix']);
+              $user -> sex = htmlentities($_POST['sex']);
               $user -> email = htmlentities($_POST['email']);
-              $user -> address = htmlentities($_POST['CompleteAddress']);
-              $user -> role = htmlentities($_POST['role']);
-              $user -> type = htmlentities($_POST['phsi-type']);
-              $user -> sex = htmlentities($_POST['sex']); 
-              $user -> contactNo = htmlentities($_POST['ContactNo']); 
+              $user -> contact_number = htmlentities($_POST['contact_number']); 
+              $user -> province = htmlentities($_POST['province']); 
+              $user -> city = htmlentities($_POST['city']); 
+              $user -> barangay = htmlentities($_POST['barangay']); 
+              $user -> street_name = htmlentities($_POST['street_name']); 
+              $user -> bldg_house_no = htmlentities($_POST['bldg_house_no']); 
+              $user -> username = htmlentities($_POST['username']); 
+              $user -> password = htmlentities($_POST['password']);
 
+              $user -> profile_picture = $_FILES['profile_picture']['name'];
+              $user -> tempname_picture = $_FILES['profile_picture']['tmp_name'];
+              $user -> folder_picture = "../uploads/" . $user -> profile_picture;
 
-              
-            //  `username`, `user_pass`, `firstname`, `middlename`, `lastname`, `suffix`, `email`, `address`, `role`,
-            //   `type`, `sex`, `contactno`
+              $user -> background_image = $_FILES['background_image']['name'];
+              $user -> tempname_background = $_FILES['background_image']['tmp_name'];
+              $user -> folder_background = "../uploads/" . $user -> background_image;
 
-            //   $query->bindParam(':username', $this->username);
-            //   $query->bindParam(':user_pass', $this->password);
-            //   $query->bindParam(':firstname', $this->firstname);
-            //   $query->bindParam(':middlename', $this->middlename);
-            //   $query->bindParam(':lastname', $this->lastname);
-            //   $query->bindParam(':suffix', $this->suffix);
-            //   $query->bindParam(':email', $this->email);
-            //   $query->bindParam(':address', $this->address);
-            //   $query->bindParam(':role', $this->role);
-            //   $query->bindParam(':type', $this->type);
-            //   $query->bindParam(':sex', $this->sex);
-            //   $query->bindParam(':contactNo', $this->contactNo);
-
-              $output= $user -> signup();
-      
-              if ($output) {
-                  // CREATE -- COLUMN "firstname" "lastname" "role"
-                  print_r($output);
-
-                  $userData = $user -> login();
-
-                  if($userData) {
-                       $_SESSION['username'] = $userData['username'];
-                  $_SESSION['password'] = $userData['user_pass'];
-                  $_SESSION['fullname'] = $userData['firstname'] . ' '.$userData['middlename'] . ' ' . $userData['lastname'] . ' ' .
-                  $userData['suffix'] = $userData['suffix'];
-                  $_SESSION['user_role'] = $userData['role'];
-                  $_SESSION['email'] = $userData['email'];
-                  $_SESSION['address'] = $userData['address'];
-                  $_SESSION['role'] = $userData['role'];
-                  $_SESSION['type'] = $userData['type'];
-                  $_SESSION['sex'] = $userData['sex'];
-                  if($userData['role'] == 'Admin'){
-                    header('location: ../admin/dashboard.php');
-                  } else{
-                    header('location: ../user/user-profile.php');
-                    header('location: ../admin/dashboard1.php');
+              if (move_uploaded_file($user -> tempname_picture, $user -> folder_picture) && move_uploaded_file($user -> tempname_background, $user -> folder_background)) {
+                if(validate_signup_user($_POST)){
+                  if($user -> signup()){
+                    //redirect user to program page after saving
+                    header('location: login.php');
                 }
-                  }
-               
-      
-                  //display the appropriate dashboard page for user
-             
-                  }
+            }
               
-        }
-  
+          }
+      }
 ?>
 
+<div class="signup">
+  <div class="signup-container">
 
-  
-
-<div class="signup-container">
     <div class="title">Sign Up Form</div>
     
     <div class="content">
 
     <!--PERSONAL INFORMATION-->
     <div class="sub-title">Personal Information</div>
-      <form action="signup.php" method="post">
+      <form action="signup.php" method="post" enctype="multipart/form-data">
 
         <div class="user-details">
 
           <div class="input-box">
             <span class="details">Firstname</span>
-            <input type="text" placeholder="" id="firstname" name="firstname" placeholder="Enter firstname" required tabindex="1"> 
+            <input type="text" name="firstname" placeholder="" required> 
           </div>
 
           <div class="input-box">
             <span class="details-opt">Middlename</span>
-            <input type="text"  id="firstname" name="middlename" placeholder="Enter middlename" required tabindex="2">
+            <input type="text" name="middlename" placeholder="">
           </div>
 
           <div class="input-box">
             <span class="details">Lastname</span>
-            <input type="text"  id="firstname" name="lastname" placeholder="Enter lastname" required tabindex="3">
+            <input type="text" name="lastname"  placeholder="" required>
           </div>
 
           <div class="input-box">
-            <span class="details-opt">Suffix Name</span>
-            <input type="text"  id="suffix" name="suffix" placeholder="Enter suffix"  tabindex="4">
+            <span class="details-opt">Suffix</span>
+            <input type="text" name="suffix" placeholder="">
           </div>
- 
+
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text"  id="email" name="email" placeholder="Enter email" required tabindex="4">
-          </div>
-          
-          <div class="input-box">
-            <span class="details">Complete Address</span>
-            <input type="text"   id="CompleteAddress" name="CompleteAddress" placeholder="Complete Address" required tabindex="5">
-          </div>
-
-         <div class="input-box">
-          <span class="details">Role</span>
-          <select name="role" id="role" required>
-            <option value="None">--Select--</option>
-            <option value="SuperAdmin" >Super Admin</option>
-            <option value="Admin">Admin</option>
-            <option value="Users">Users</option>
-          </select>
-      </div>
-          
-          <div class="input-box">
-            <span class="details">Contact No.</span>
-            <input type="text" id="ContactNo" name="ContactNo" placeholder="Enter ContactNo." required tabindex="7">
+            <input type="email" name="email" placeholder="" required>
           </div>
 
           <div class="input-box">
           <span class="details">Sex</span>
           <select name="sex" id="sex" required>
-            <option value="None">--Select--</option>
-            <option value="1" >Male</option>
-            <option value="2">Female</option>
+            <option value="Male" >Male</option>
+            <option value="Female">Female</option>
           </select>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Contact No.</span>
+            <input type="text" name="contact_number" id="contact_number" placeholder="" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Province</span>
+            <input type="text" name="province" placeholder="" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">City/Municipality</span>
+            <input type="text" name="city" placeholder="" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Barangay</span>
+            <input type="text" name="barangay" placeholder="" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details-opt">Street Name</span>
+            <input type="text" name="street_name" placeholder="">
+          </div>
+
+          <div class="input-box">
+            <span class="details-opt">Building/House No.</span>
+            <input type="text" name="bldg_house_no" placeholder="">
           </div>
         </div>
 
-        <!--WMSU TYPE -->
+        <div class="sub-title">Upload Profile Picture</div><br>
+        <div class="input-group">
+          <input type="file" name="profile_picture" id="profile_picture" accept="image/*" onchange="showProfile(event)" required>
+        </div>
+
+        <label for="file"></label>
+        <div class="preview">
+          <img id="profile-preview">
+        </div>
+
+        <div class="sub-title">Upload Background Image</div><br>
+        <div class="input-group">
+          <input type="file" name="background_image" id="background_image" accept="image/*" onchange="showBackground(event)" required>
+        </div>
+
+        <label for="file"></label>
+        <div class="preview">
+          <img id="background-preview">
+        </div>
+            
+
+
+
+        <!--WMSU STATUS
           <div class="sub-title">WMSU Status <span> (Please Select all that Apply.)</span>
-         
           </div><br>
           <div class="user-details">
           <div class="status-container">
 
           <label class="wmsu-status">WMSU Alumni
-            <input type="checkbox" name="phsi-type" checked >
+            <input type="checkbox" checked="checked">
             <span class="checkmark"></span>
           </label>
 
           <label class="wmsu-status">WMSU Employee
-            <input type="checkbox" name="phsi-type"> 
+            <input type="checkbox">
             <span class="checkmark"></span>
           </label>
           
           <label class="wmsu-status">WMSU Student
-            <input type="checkbox" name="phsi-type">
+            <input type="checkbox">
             <span class="checkmark"></span>
           </label>
 
           <label class="wmsu-status">WMSU Peace and Human Security Institute
-            <input type="checkbox" name="phsi-type">
+            <input type="checkbox">
             <span class="checkmark"></span>
           </label>
 
           <label class="wmsu-status">WMSU Youth Peace Mediators - UNESCO Club 
-            <input type="checkbox" name="phsi-type">
+            <input type="checkbox">
             <span class="checkmark"></span>
           </label>
 
           <label class="wmsu-status">WMSU Biosafety and Biosecurity Committee
-            <input type="checkbox" name="phsi-type">
+            <input type="checkbox">
             <span class="checkmark"></span>
           </label>
         </div>
-        </div>
+        </div>-->
 
 
 
@@ -198,23 +195,23 @@
           <div class="user-details">
           <div class="input-box">
             <span class="details">Username</span>
-            <input type="text" placeholder="" name="username" required>
+            <input type="text" name="username" placeholder="" required>
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="password" name="password" placeholder="">
+            <input type="password" id="password" name="password" placeholder="">
           </div>
+            
           <div class="input-box">
             <span class="details">Confirm Password</span>
-            <input type="password" name="confirm-password" placeholder="">
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="">
           </div>
         </div>
-
 
         
          <!--SIGN UP BUTTON-->
         <div class="button">
-          <input type="submit" action="signup.php" name="submit" id="submit" value="Sign Up">
+          <input type="submit" name="submit" value="Sign Up">
         </div>
         <div class="have-account">
         <p>ALREADY HAVE AN ACCOUNT?<span> <a href="login.php">LOG IN</a></span></p>
@@ -222,5 +219,10 @@
       </form>
     </div>
   </div>
+</div>
 
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="../js/signup.js"></script>
 

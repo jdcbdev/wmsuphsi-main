@@ -21,7 +21,7 @@ $(document).ready(function(e){
         e.preventDefault();
         
         $.ajax({
-            url: "../carousel/events-carousel.php",
+            url: "../event/create-event.php",
             type: "POST",
             data:  new FormData(this),
             contentType: false,
@@ -41,7 +41,7 @@ $(document).ready(function(e){
 //Fetch All Records
 function fetch(){
     $.ajax({
-        url: '../carousel/events-carousel.php',
+        url: '../event/read-event.php',
         type: 'post',
         success: function(response){
             $('#fetch').html(response);
@@ -58,7 +58,7 @@ $(document).on('click', '#delete', function(e){
         var delete_id = $(this).attr('value'); 
     
         $.ajax({
-            url: '../carousel/events-carousel.php',
+            url: '../event/delete-event.php',
             type: 'post',
             data: {delete_id: delete_id},
             success: function(response){
@@ -80,7 +80,7 @@ $(document).on('click', '#edit', function(e){
     var update_id = $(this).attr('value');
     
     $.ajax({
-        url: '../carousel/events-carousel.php',
+        url: '../event/edit-event.php',
         type: 'post',
         data: {update_id: update_id},
         success: function(response){
@@ -96,7 +96,7 @@ $(document).on('submit', '#editform', function(e){
     e.preventDefault();
         
     $.ajax({
-        url: "../carousel/events-carousel.php",
+        url: "../event/update-event.php",
         type: "POST",
         data:  new FormData(this),
         contentType: false,

@@ -91,8 +91,8 @@
         //UPDATE RECORD AND HANDLE AJAX REQUEST
         public function update($edit_id) {
 
-            if(isset($_POST['edit_title']) && isset($_POST['edit_content']) && isset($_POST['edit_id'])) {
-                if(!empty($_POST['edit_title']) && !empty($_POST['edit_content']) && !empty($_POST['edit_id'])) {
+            if(isset($_POST['edit_title']) || isset($_POST['edit_content']) || isset($_POST['edit_id'])) {
+                if(!empty($_POST['edit_title']) || !empty($_POST['edit_content']) || !empty($_POST['edit_id'])) {
                     $carousel_title =  htmlentities($_POST['edit_title']);
 					$carousel_content =  htmlentities($_POST['edit_content']);
 					$id = $_POST['edit_id'];
@@ -111,7 +111,7 @@
 
                             //EXECUTE
                             if($update_stmt->execute()) {
-                                echo 'Record updated successfullt';
+                                echo 'Record updated successfully';
                             } else {
                                 echo 'Failed to update the record.';
                             }

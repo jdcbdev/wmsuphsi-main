@@ -3,7 +3,7 @@
 <header>
     <div class="header-content">
         <label for="menu-toggle">
-            <span class="las la-bars"></span>
+            <span class="las la-bars" style="margin: 15px;"></span>
         </label>
         
         <div class="header-menu">

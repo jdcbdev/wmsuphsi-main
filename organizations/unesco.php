@@ -129,7 +129,7 @@
 
 <!-- process section starts  -->
 
-<section class="process" id="administration">
+<section class="event-organizers">
 
    <h1 class="heading">Administration</h1>
 
@@ -205,7 +205,7 @@
       </div>
 
       <div class="box">
-         <img src="" alt="">
+         <img src="../images/student-profile/user-icon.png"" alt="">
          <h3>Vanessa Pascua</h3>
          <p>Content Committee</p>
       </div>
@@ -217,7 +217,7 @@
       </div>
 
       <div class="box">
-         <img src="../images/administration-profile/unesco-.png" alt="">
+         <img src="../images/student-profile/user-icon.png" alt="">
          <h3>Myrtle Pama</h3>
          <p>Creative Committee Asst. Head</p>
       </div>
@@ -241,14 +241,11 @@
       </div>
 
       <div class="box">
-         <img src="../images/administration-profile/unesco-" alt="">
+         <img src="../images/student-profile/user-icon.png" alt="">
          <h3>Monique Dancel</h3>
          <p>Membership Committee</p>
       </div>
-
-
    </div>
-
 </section>
 
 <!-- process section ends -->

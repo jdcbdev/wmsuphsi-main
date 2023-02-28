@@ -1,0 +1,231 @@
+.profile-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+  }
+  
+  .profile-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*width: 300px;*/
+    height: 300px;
+    border-radius: 50%;
+
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  .profile-info {
+    text-align: center;
+  }
+  
+  .profile-name {
+
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .profile-description {
+    font-size: 18px;
+    color: #5b5b5b;
+    margin-bottom: 20px;
+  }
+  
+  .edit-profile-btn {
+    /*position: absolute;*/
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    border: 0.1rem solid var(--color-green);
+    font-style: none;
+    color: #107869;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .edit-profile-btn:hover {
+    background-color: #107869;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+
+
+  .user-work{
+    position: relative;
+    padding: 20px;
+    background-color: white;
+  }
+
+  .user-work p{
+    font-size: 30px;
+    font-weight: 600;
+  
+  }
+
+  .top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+
+  }
+
+  .top-right a {
+    padding: 12px;
+    font-size: 14px;
+    color: black;
+}
+
+  .top-right a:hover {
+    text-decoration: underline;
+    color: #0eb582;
+    cursor: pointer;
+  }
+
+
+
+
+/*---------------- UPCOMING EVENTS START ------------------*/
+.events-container {
+  display: flex;
+	justify-content: center;
+  margin: 50px;
+}
+
+.event {
+	background-color: #fff;
+	/*border-radius: 10px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); */
+	display: flex;
+	max-width: 100%;
+	margin: 15px;
+	overflow: hidden;
+	width: 1000px;
+}
+
+.event h6 {
+	opacity: 0.6;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.event h2 {
+	letter-spacing: 1px;
+	margin: 10px 0;
+}
+
+.event-image-container {
+  justify-content: center;
+  align-items: center;
+  display: grid;
+	background-color: transparent;
+	color: #fff;
+	/*padding: ; */
+	max-width: 250px;
+
+
+}
+
+.event-image-container img {
+  height: 20rem;
+  border-radius: 50%;
+  width: 25rem;
+}
+
+
+.event-info {
+	padding: 30px;
+	position: relative;
+	width: 100%;
+}
+
+
+.event-info h6 {
+  font-size: 12px;
+}
+
+.event-info span {
+  color: var(--color-green);
+}
+
+.event-info h2 {
+  font-size: 20px;
+}
+
+.event-info .event-content {
+  padding-bottom: 10px;
+}
+
+.event-info .event-content p {
+  font-size: 14px;
+}
+
+.event-organizers .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap:2rem;
+}
+
+.event-organizers .box-container .box{
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2.2rem;
+  border-radius: .5rem;
+  text-align: center;
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  height: 71.5%;
+}
+
+.event-organizers .box-container .box img{
+  height: 28.5rem;
+  margin: 1rem 0;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.event-organizers .box-container .box h3{
+  font-size: 2rem;
+  color:var(--primary-color);
+  margin:1.5rem 0;
+  font-weight: 1000;
+}
+
+.event-organizers .box-container .box p{
+  font-size: 1.5rem;
+  color:var(--black);
+  line-height: 2;
+}
+
+
+
+
+/*---------------- UPCOMING EVENTS END ------------------*/

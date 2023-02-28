@@ -9,14 +9,14 @@ function validate_firstname($POST){
 }
 
 
-function validate_middlename($POST){
+/*function validate_middlename($POST){
     if(!isset($POST['middlename'])){
         return false;
     }else if(strlen(trim($POST['middlename']))<1){
-        return false;
+        return false;   
     }
     return true;
-}
+}*/
 
 function validate_lastname($POST){
     if(!isset($POST['lastname'])){
@@ -27,14 +27,14 @@ function validate_lastname($POST){
     return true;
 }
 
-function validate_suffix($POST){
+/*function validate_suffix($POST){
     if(!isset($POST['suffix'])){
         return false;
     }else if(strlen(trim($POST['suffix']))<1){
         return false;
     }
     return true;
-}
+}*/
 
 
 function validate_email($POST){
@@ -56,13 +56,45 @@ function validate_email($POST){
 }
 
 
-function contactno($POST){
-    if(preg_match('/^[0-9]{11}+$/', $contactno)) {
+/*function contactno($POST){
+    if(preg_match('/^[0-9]{11}+$/', $contact_number)) {
         echo "Valid Phone Number";
         } else {
         echo "Invalid Phone Number";
         }
+}*/
+
+//VALIDATING ALL misvis FUNCTIONS
+function validate_signup_user($POST){
+    if(!validate_firstname($POST) || !validate_lastname($POST) || !validate_email($POST)){
+        return false;
+     }
+    return true;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

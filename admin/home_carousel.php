@@ -11,7 +11,7 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
-    $carousel_page = 'active';
+    $home_carousel = 'active';
     require_once '../includes/admin-header.php';
     require_once '../includes/sidebar.php';
     require_once '../includes/topnav.php';

@@ -149,11 +149,23 @@ section {
   text-transform: capitalize;
   color: var(--color-green);
   font-weight: bolder;
+  text-decoration: none;
 }
 
 .header img {
-  width: 45px;
-  margin: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; 
+  border: 1px solid var(--color-green);
+  cursor: pointer;
+}
+
+.header img:hover {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; 
+  cursor: pointer;
+  border: 3px solid var(--color-green);
 }
 
 .header .navbar {
@@ -182,6 +194,7 @@ section {
   text-transform: capitalize;
   color:  black;
   font-weight: 400;
+  text-decoration: none;
 }
 
 .header .navbar a i{
@@ -543,8 +556,8 @@ form .input-box span.details::after{
   transition: all 0.3s ease;
 }
 
-.user-details .input-box input:focus,
-.user-details .input-box input:valid{
+.user-details .input-box input:focus
+/*.user-details .input-box input:valid*/{
   border-color: var(--color-green);
 }
  form .gender-details .gender-title{

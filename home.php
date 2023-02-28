@@ -24,7 +24,7 @@
    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
    
    <!-- Custom css file link  -->
-   <link rel="stylesheet" href="./css/phsi.css">
+   <link rel="stylesheet" href="css/phsi.css">  
 
    <!-- Title and Logo in tab -->
    <link rel="icon" type="image/png" href="images/logos/phsi.png">
@@ -60,11 +60,33 @@
             <a href="organizations/biorisk.php">Biorisk Management and Security</a>
          </div>
       </div> 
-      <a href="events/events.php">Upcoming Events</a>  
+      <a href="event/events.php">Upcoming Events</a>  
    </nav>
 
    <div class="icons">
+      <!--If user is not yet logged in, notification bell, user icon and logout will not show-->
+      <?php  if(isset($_SESSION['logged-in'])) { 
+      ?>
+      <div class="uil uil-bell"><a href=""></a></div>
+
+      <a href="user/user-profile.php"><img src="images/student-profile/user-icon.png" alt=""></a>
+      <?php
+      }
+      ?>
+      
+      <?php  if(isset($_SESSION['logged-in'])) { 
+      ?>
+      <div class="uil uil-signout"><a href="home.php">Logout</a></div>
+      <?php
+      }
+      ?>
+
+      <?php  if(!isset($_SESSION['logged-in'])) {   
+      ?>
       <div id="account-btn"><a href="login/login.php">Login</a></div>
+      <?php
+      }
+      ?>
       <div id="menu-btn">Menu</div>
    </div>
 </header>
@@ -142,13 +164,13 @@
 
       <div class="box" id="unesco">
       <a href="organizations/unesco.php">
-         <img src="./images/logos/new-unesco.png" alt="">
+         <img src="images/logos/new-unesco.png" alt="">
          <h3>WMSU Youth Peace Mediators - UNESCO Club</h3></a>
          <!--<p>Lorem ipsum</p>-->
       </div>
 
       <div class="box" id="biorisk">
-         <img src="./images/logos/biorisk.png" alt="">
+         <img src="images/logos/biorisk.png" alt="">
          <h3>WMSU Biosafety and Biosecurity Committee</h3>
          <!--<p>Lorem ipsum</p>-->
       </div>

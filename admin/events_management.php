@@ -30,16 +30,17 @@
                     <th>#</th>
                     <th>Event Name</th>
                     <th>Banner</th>
-                    <th>About</th>
+                    <!--<th>About</th>-->
                     <th>Mode</th>
                     <th>Type</th>
                     <th>Where</th>
                     <th>When</th>
-                    <th>From</th>
-                    <th>To</th>
+                    <th>From - To</th>
+                    <!--<th>To</th>-->
                     <th>Slots</th>
                     <th>Scope</th>
                     <th>Platform</th>
+                    <!--<th>Agenda</th>-->
                     <th>End Registration</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -72,7 +73,7 @@
             
             <!--EVENT BANNER UPLOAD BUTTON-->
             <div class="input-group">
-                <input type="file" name="fileupload" id="fileupload" accept="image/*" onchange="showPreview(event)" required>
+                <input type="file" name="event_banner" id="event_banner" accept="image/*" onchange="showPreview(event)" required>
             </div>  
 
             <!--EVENT ABOUT-->
@@ -84,7 +85,7 @@
             <!--EVENT MODE: ACTUAL OR VIRTUAL-->
             <label for="event_mode">Event Mode</label>
             <div class="input-group">
-            <select id="event_mode" name="event-mode">
+            <select id="event_mode" name="event_mode">
                 <option value="">--Select Mode--</option>
                 <option value="actual">On-site</option>
                 <option value="virtual">Virtual</option>
@@ -100,7 +101,7 @@
             <!--EVENT LOCATION (VENUE)-->
             <label for="event_location" class="form-label">Where</label>
             <div class="input-group">
-                <input class="form-control" type="text" name="event_location" id="event_location" required>
+                <input class="form-control" type="text" name="event_location" id="event_location">
             </div>
 
             <!--WHEN IS THE EVENT (DATE)-->
@@ -136,13 +137,37 @@
             <!--EVENT ONLINE PLATFORM (LINK)-->
             <label for="event_platform" class="form-label">Online Platform (if event mode is virtual)</label>
             <div class="input-group">
-                <input class="form-control" type="text" name="event_platform" id="event_platform" required>
+                <input class="form-control" type="text" name="event_platform" id="event_platform">
             </div>
+
+            <!--EVENT AGENDA-->
+            <label for="file">Upload Event Agenda</label>
+            <div class="preview">
+                <img id="file-preview">
+            </div>
+            
+            <!--EVENT AGENDA UPLOAD BUTTON-->
+            <div class="input-group">
+                <input type="file" name="event_agenda" id="event_agenda" accept="image/*" onchange="showPreview(event)" required>
+            </div>             
 
             <!--EVENT REGISTRATION DUE-->
             <label for="event_reg_duedate" class="form-label">Registration Due</label>
             <div class="input-group">
-                <input class="form-control" type="datetime" name="event_reg_duedate" id="event_reg_duedate" required>
+                <input class="form-control" type="datetime-local" name="event_reg_duedate" id="event_reg_duedate" required>
+            </div>
+
+            <!--EVENT STATUS-->
+            <label for="event_status" class="form-label">Event Status</label>
+             <div class="input-group">
+                <select name="event_status" id="event_status" required>
+                    <option value="Accepting">Accepting Attendees</option>
+                    <option value="Close">Close Registration</option>
+                    <option value="Ongoing">Ongoing</option>
+                    <option value="Postponed">Postponed</option>
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Ended">Ended</option>
+                </select>
             </div>
 
 
@@ -175,7 +200,7 @@
 <script src="js/script.js"></script>    
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="../js/news.js"></script>
+<script src="../js/events.js"></script>
 
 <script>
   var eventModeSelect = document.getElementById("event_mode");
