@@ -51,7 +51,7 @@
       ?>
       <div class="uil uil-bell"><a href=""></a></div>
 
-      <a href="../user/user-profile.php"><img src="../images/student-profile/user-icon.png" alt=""></a>
+      <a href="../user/user-profile.php"><img src="../uploads/<?php echo $_SESSION['profile_picture']; ?>" alt=""></a>
 
       <div class="uil uil-signout"><a href="../home.php">Logout</a></div>
 
