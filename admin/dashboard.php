@@ -84,11 +84,11 @@
                                     <th><span class=""></span> NAME </th>
                                     <th><span class=""></span> USER TYPE</th>
                                     <th><span class=""></span> CONTACT</th>
-                                    <th><span class=""></span> ADDRESS</th>
+                                    <th><span class=""></span> FULL ADDRESS</th>
                                     <th><span class=""></span> SEX</th>
                                     <th><span class=""></span> USERNAME</th>
                                     <th><span class=""></span> PASSWORD</th>
-                                    <th><span class=""></span> STATUS</th>
+                                    <th><span class=""></span> ROLE</th>
                                     <th><span class=""></span> ACTION</th>
                                 </tr>
                             </thead>
@@ -111,11 +111,11 @@
                                     <td><small>Male</small></td>
                                     <td><small>arjay</small></td>  
                                     <td><small>arjay</small></td>                        
-                                    <td><small>Active</small></td>
+                                    <td><small>User</small></td>
                                     <td>
-                                        <div class="actions">
-                                            <span class="las la-ellipsis-v"></span>
-                                            <span class="las la-eye"></span>
+                                    <div class="action">
+                                            <a class="action-edit" id="edit" value="">Edit</a>
+                                            <a class="action-delete" id="delete" value="">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -138,11 +138,11 @@
                                     <td><small>Male</small></td>           
                                     <td><small>jer</small></td>  
                                     <td><small>jer</small></td>                        
-                                    <td><small>Active</small></td>
+                                    <td><small>User</small></td>
                                     <td>
-                                        <div class="actions">
-                                            <span class="las la-ellipsis-v"></span>
-                                            <span class="las la-eye"></span>
+                                    <div class="action">
+                                            <a class="action-edit" id="edit" value="">Edit</a>
+                                            <a class="action-delete" id="delete" value="">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -165,11 +165,11 @@
                                     <td><small>Male</small></td>     
                                     <td><small>hadz</small></td>  
                                     <td><small>hadz</small></td>                              
-                                    <td><small>Active</small></td>
+                                    <td><small>User</small></td>
                                     <td>
-                                        <div class="actions">
-                                            <span class="las la-ellipsis-v"></span>
-                                            <span class="las la-eye"></span>
+                                    <div class="action">
+                                            <a class="action-edit" id="edit" value="">Edit</a>
+                                            <a class="action-delete" id="delete" value="">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -192,11 +192,11 @@
                                     <td><small>Female</small></td>    
                                     <td><small>june</small></td>  
                                     <td><small>june</small></td>                               
-                                    <td><small>Active</small></td>
+                                    <td><small>User</small></td>
                                     <td>
-                                        <div class="actions">
-                                            <span class="las la-ellipsis-v"></span>
-                                            <span class="las la-eye"></span>
+                                    <div class="action">
+                                            <a class="action-edit" id="edit" value="">Edit</a>
+                                            <a class="action-delete" id="delete" value="">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -219,11 +219,11 @@
                                     <td><small>Female</small></td>   
                                     <td><small>angel</small></td>  
                                     <td><small>angel</small></td>                                
-                                    <td><small>Active</small></td>
+                                    <td><small>User</small></td>
                                     <td>
-                                        <div class="actions">
-                                            <span class="las la-ellipsis-v"></span>
-                                            <span class="las la-eye"></span>
+                                    <div class="action">
+                                            <a class="action-edit" id="edit" value="">Edit</a>
+                                            <a class="action-delete" id="delete" value="">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -245,11 +245,11 @@
                                     <td><small>Male</small></td>     
                                     <td><small>ben</small></td>  
                                     <td><small>ben</small></td>                              
-                                    <td><small>Active</small></td>
+                                    <td><small>User</small></td>
                                     <td>
-                                        <div class="actions">
-                                            <span class="las la-ellipsis-v"></span>
-                                            <span class="las la-eye"></span>
+                                        <div class="action">
+                                            <a class="action-edit" id="edit" value="">Edit</a>
+                                            <a class="action-delete" id="delete" value="">Delete</a>
                                         </div>
                                     </td>
                                 </tr>

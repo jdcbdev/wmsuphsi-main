@@ -30,17 +30,17 @@
                     <th>#</th>
                     <th>Event Name</th>
                     <th>Banner</th>
-                    <th>About</th>
+                    <!--<th>About</th>-->
                     <th>Mode</th>
                     <th>Type</th>
                     <th>Where</th>
                     <th>When</th>
-                    <th>From</th>
-                    <th>To</th>
+                    <th>From - To</th>
+                    <!--<th>To</th>-->
                     <th>Slots</th>
                     <th>Scope</th>
                     <th>Platform</th>
-                    <th>Agenda</th>
+                    <!--<th>Agenda</th>-->
                     <th>End Registration</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -85,7 +85,7 @@
             <!--EVENT MODE: ACTUAL OR VIRTUAL-->
             <label for="event_mode">Event Mode</label>
             <div class="input-group">
-            <select id="event_mode" name="event-mode">
+            <select id="event_mode" name="event_mode">
                 <option value="">--Select Mode--</option>
                 <option value="actual">On-site</option>
                 <option value="virtual">Virtual</option>
@@ -157,10 +157,17 @@
                 <input class="form-control" type="datetime-local" name="event_reg_duedate" id="event_reg_duedate" required>
             </div>
 
-            <!--EVENT STATUS)-->
+            <!--EVENT STATUS-->
             <label for="event_status" class="form-label">Event Status</label>
-            <div class="input-group">
-                <input class="form-control" type="text" name="event_status" id="event_status">
+             <div class="input-group">
+                <select name="event_status" id="event_status" required>
+                    <option value="Accepting">Accepting Attendees</option>
+                    <option value="Close">Close Registration</option>
+                    <option value="Ongoing">Ongoing</option>
+                    <option value="Postponed">Postponed</option>
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Ended">Ended</option>
+                </select>
             </div>
 
 

@@ -1,11 +1,11 @@
 <?php
 
-    require_once '../classes/carousel_model.php';
+    require_once '../classes/administration_model.php';
     require_once '../tools/functions.php';
 
-    $carousel = new Carousel();
+    $administration = new Administration();
 
-    $create = $carousel->insert();    
+    $create = $administration->insert();    
 
 
 ?>

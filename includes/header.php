@@ -1,7 +1,16 @@
 <?php
+
     //resume session here to fetch session values
     session_start();
-
+    /*
+        if user is not login then redirect to login page,
+        this is to prevent users from accessing pages that requires
+        authentication such as the dashboard
+    */
+    if (!isset($_SESSION['logged-in'])){
+        header('location: ../login/logout.php');
+    }
+    //if the above code is false then html below will be displayed
 
 ?>
 
@@ -37,18 +46,21 @@
    </nav>
 
    <div class="icons">
-      <!--If user is not ye logged in, notification bell, user icon and logout will now show-->
+      <!--If user is not yet logged in, notification bell, user icon and logout will not show-->
       <?php  if(isset($_SESSION['logged-in'])) { 
       ?>
       <div class="uil uil-bell"><a href=""></a></div>
-      <div class="user">
-         <div class="bg-img" style="background-image: url(../images/student-profile/user-icon.png)"></div>
-      </div>
+
+      <a href="../user/user-profile.php"><img src="../images/student-profile/user-icon.png" alt=""></a>
+
       <div class="uil uil-signout"><a href="../home.php">Logout</a></div>
+
       <?php
       }
       ?>
-      <?php  if(!isset($_SESSION['logged-in'])) { 
+
+
+      <?php  if(!isset($_SESSION['logged-in'])) {   
       ?>
       <div id="account-btn"><a href="../login/login.php">Login</a></div>
       <?php

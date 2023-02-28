@@ -10,7 +10,9 @@
 </section>
 
 <section class="announcements">
-<?php
+
+   <div class="box-container">
+   <?php
   require_once '../classes/news_model.php'; 
   $news = new News();
   //We will now fetch all the records in the array using loop
@@ -19,17 +21,16 @@
   //loop for each record found in the array
   foreach ($news->fetchAllRecords() as $value){ //start of loop
 ?> 
-   <div class="box-container">
 
       <div class="box">
          <div class="image">
             <img  src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['news_title']; ?>">
-            <h3>Nov 26, 2022</h3>
+            <h3><?php echo $value['created_at']; ?></h3>
          </div>
          <div class="content">
-            <h3><?php echo $value['news_title'] ?></h3>
+            <h3><?php echo $value['news_title']; ?></h3>
             <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="#" class="btn">read more</a>
+            <a href="news-page.php" class="btn">read more</a>
          </div>
       </div>
 
@@ -71,13 +72,14 @@
       </div>
    </div>-->
 
-   </div>
-
    <?php
    $i++;
 //end of loop
 }
 ?>
+
+
+   </div>
 
    <div class="load-more"> <div class="btn">Load more</div> </div>
 

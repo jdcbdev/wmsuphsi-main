@@ -11,59 +11,40 @@
 
 <!-- teachers section starts  -->
 
-<section class="administration">
-   <div class="swiper administration-slider">
-      <div class="swiper-wrapper">
+<section class="event-organizers">
 
-         <div class="swiper-slide slide">
-            <div class="image">
-               <img src="../images/administration-profile/phsi-carla.png" alt="">
-               <div class="share">
-                  <a href="#" class="fab fa-facebook-f"></a>
-                  <a href="#" class="fab fa-twitter"></a>
-                  <a href="#" class="fab fa-instagram"></a>
-                  <a href="#" class="fab fa-linkedin"></a>
-               </div>
-            </div>
-            <div class="content">
-               <h3>Dr. Ma. Carla A. Ochotorena</h3>
-               <span>WMSU - Peace and Human Security<br>University President</span>
-            </div>
-         </div>
 
-         <div class="swiper-slide slide">
-            <div class="image">
-               <img src="../images/administration-profile/phsi-ludi.png" alt="">
-               <div class="share">
-                  <a href="#" class="fab fa-facebook-f"></a>
-                  <a href="#" class="fab fa-twitter"></a>
-                  <a href="#" class="fab fa-instagram"></a>
-                  <a href="#" class="fab fa-linkedin"></a>
-               </div>
-            </div>
-            <div class="content">
-               <h3>Asst. Prof. Ludivina Borja-Dekit</h3>
-               <span>WMSU - Peace and Human Security <br> Director</span>
-            </div>
-         </div>
 
-         <div class="swiper-slide slide">
-            <div class="image">
-               <img src="../images/administration-profile/phsi-marlon.png" alt="">
-               <div class="share">
-                  <a href="#" class="fab fa-facebook-f"></a>
-                  <a href="#" class="fab fa-twitter"></a>
-                  <a href="#" class="fab fa-instagram"></a>
-                  <a href="#" class="fab fa-linkedin"></a>
-               </div>
-            </div>
-            <div class="content">
-               <h3>Engr. Marlon Grande</h3>
-               <span>WMSU - Peace and Human Security <br> Asst. Director</span>
-            </div>
+   <div class="box-container container">
+
+   <?php 
+    require_once '../classes/administration_model.php';
+    $administration = new Administration();
+    //We will now fetch all the records in the array using loop
+    //use as a counter, not required but suggested for the table
+    $i = 1;
+    //loop for each record found in the array
+    foreach ($administration->fetchAllRecords() as $value) { //start of loop
+    ?>
+
+
+      <div class="box">
+         <img src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['admin_name']; ?>">
+         <div class="admin-info">
+         <h3><?php echo $value['admin_name'] ?></h3>
+         <p><?php echo $value['admin_position'] ?></p>
          </div>
       </div>
+      <?php
+   $i++;
+    }
+    //end loop
+?>
+
+  
    </div>
+
+
 </section>
 
 <!-- Administration Section Ends -->

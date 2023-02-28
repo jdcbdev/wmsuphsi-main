@@ -3,8 +3,8 @@
     require_once 'database.php';
     require_once '../tools/functions.php';
     
-    //CREATE CLASS HISTORY
-    Class History{
+    //CREATE CLASS admin
+    Class Administration{
         
         //attributes
         protected $db;
@@ -15,21 +15,23 @@
 		//INSERT A NEW RECORD INTO THE DATABASE "PHSI" & HADLE AJAX REQUEST
         public function insert() {
             
-            if(isset($_POST['history_title'])) {
+            if(isset($_POST['admin_name'])) {
                 if(isset($_FILES['fileupload']) && $_FILES['fileupload']['error'] === UPLOAD_ERR_OK) {
 
                     
-                    $history_title =  htmlentities($_POST['history_title']);
-                    $history_description =  htmlentities($_POST['history_description']);
+                    $admin_name =  htmlentities($_POST['admin_name']);
+                    $admin_organization =  htmlentities($_POST['admin_organization']);
+                    $admin_position =  htmlentities($_POST['admin_position']);
 
                     $filename = $_FILES['fileupload']['name'];
                     $tempname = $_FILES['fileupload']['tmp_name'];
                     $folder = "../uploads/" . $filename;
 
                     if (move_uploaded_file($tempname, $folder)) {
-                        $insert_stmt=$this->db->connect()->prepare("INSERT INTO history (history_title, history_description, filename) VALUES (:history_title, :history_description, :filename)");
-                        $insert_stmt->bindParam(':history_title', $history_title);
-                        $insert_stmt->bindParam(':history_description', $history_description);
+                        $insert_stmt=$this->db->connect()->prepare("INSERT INTO administration (admin_name, admin_organization, admin_position, filename) VALUES (:admin_name, :admin_organization, :admin_position, :filename)");
+                        $insert_stmt->bindParam(':admin_name', $admin_name);
+                        $insert_stmt->bindParam(':admin_organization', $admin_organization);
+                        $insert_stmt->bindParam(':admin_position', $admin_position);
                         $insert_stmt->bindParam(':filename', $filename);
 
                         if($insert_stmt->execute()) {
@@ -54,7 +56,7 @@
 
             $data = null;
 
-			$select_stmt = $this->db->connect()->prepare('SELECT id, history_title, history_description, filename FROM history;');
+			$select_stmt = $this->db->connect()->prepare('SELECT id, admin_name, admin_organization, admin_position, filename FROM administration;');
 			$select_stmt->execute();
 
 			$data = $select_stmt->fetchAll();
@@ -64,7 +66,7 @@
 
 		//DELETE RECORD FROM DATABASE "PHSI" AND HANDLE AJAX REQUEST
         public function deleteRecords($delete_id) {
-            $delete_stmt = $this->db->connect()->prepare('DELETE FROM history WHERE id = :sid ');
+            $delete_stmt = $this->db->connect()->prepare('DELETE FROM administration WHERE id = :sid ');
 			$delete_stmt->bindParam(':sid',$delete_id);
 
             if ($delete_stmt->execute()) {
@@ -79,7 +81,7 @@
 
             $data = null;
 
-            $edit_stmt = $this->db->connect()->prepare('SELECT * FROM history WHERE id = :sid');
+            $edit_stmt = $this->db->connect()->prepare('SELECT * FROM administration WHERE id = :sid');
 			$edit_stmt->bindParam(':sid', $update_id);
 			
 			$edit_stmt->execute();
@@ -92,10 +94,11 @@
         //UPDATE RECORD AND HANDLE AJAX REQUEST
         public function update($edit_id) {
 
-            if(isset($_POST['edit_title']) && isset($_POST['edit_description']) && isset($_POST['edit_id'])) {
-                if(!empty($_POST['edit_title']) && !empty($_POST['edit_description']) && !empty($_POST['edit_id'])) {
-                    $history_title =  htmlentities($_POST['edit_title']);
-					$history_description =  htmlentities($_POST['edit_description']);
+            if(isset($_POST['edit_name']) && isset($_POST['edit_organization'])  && isset($_POST['edit_position']) && isset($_POST['edit_id'])) {
+                if(!empty($_POST['edit_name']) && !empty($_POST['edit_organization']) && !empty($_POST['edit_position']) && !empty($_POST['edit_id'])) {
+                    $admin_name =  htmlentities($_POST['edit_name']);
+					$admin_organization =  htmlentities($_POST['edit_organization']);
+                    $admin_position =  htmlentities($_POST['edit_position']);
 					$id = $_POST['edit_id'];
 
                     if(isset($_FILES['fileupload']) && $_FILES['fileupload']['error'] === UPLOAD_ERR_OK) {
@@ -104,15 +107,16 @@
 						$folder = "../uploads/" . $filename;	
 
                         if(move_uploaded_file($tempname, $folder)) {
-                            $update_stmt=$this->db->connect()->prepare('UPDATE history SET history_title=:history_title, history_description=:history_description, filename=:filename WHERE id=:id');
-							$update_stmt->bindParam(':history_title', $history_title);
+                            $update_stmt=$this->db->connect()->prepare('UPDATE administration SET admin_name=:admin_name, admin_organization=:admin_organization, admin_position=:admin_position filename=:filename WHERE id=:id');
+							$update_stmt->bindParam(':admin_name', $admin_name);
 							$update_stmt->bindParam(':filename', $filename);
-							$update_stmt->bindParam(':history_description', $history_description);
+							$update_stmt->bindParam(':admin_organization', $admin_organization);
+                            $update_stmt->bindParam(':admin_position', $admin_position);
 							$update_stmt->bindParam(':id', $id);
 
                             //EXECUTE
                             if($update_stmt->execute()) {
-                                echo 'Record updated successfullt';
+                                echo 'Record updated successfully';
                             } else {
                                 echo 'Failed to update the record.';
                             }
@@ -122,9 +126,10 @@
                         }
                     }
                     else {
-                        $update_stmt=$this->db->connect()->prepare('UPDATE history SET history_title=:history_title, history_description=:history_description WHERE id=:id');
-						$update_stmt->bindParam(':history_title', $history_title);
-						$update_stmt->bindParam(':history_description', $history_description);
+                        $update_stmt=$this->db->connect()->prepare('UPDATE administration SET admin_name=:admin_name, admin_description=:admin_description WHERE id=:id');
+						$update_stmt->bindParam(':admin_name', $admin_name);
+						$update_stmt->bindParam(':admin_organization', $admin_organization);
+                        $update_stmt->bindParam(':admin_position', $admin_position);
 						$update_stmt->bindParam(':id', $id);
 
 						//EXECUTE

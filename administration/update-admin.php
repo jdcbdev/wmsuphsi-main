@@ -1,12 +1,12 @@
 <?php
 
-    require_once '../classes/carousel_model.php';
+    require_once '../classes/administration_model.php';
     
     $edit_id = $_POST['edit_id'];
     
-    $carousel = new Carousel();
+    $administration= new Administration();
     
-    $update = $carousel->update($edit_id);
+    $update = $administration->update($edit_id);
 
 
 ?>

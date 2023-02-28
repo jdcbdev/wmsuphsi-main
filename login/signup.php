@@ -1,9 +1,46 @@
 <?php
+   require_once '../classes/user.class.php';
+   require_once '../tools/functions.php';
     //resume session here to fetch session values
     session_start();
     $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
     require_once '../includes/head.php';
 ?>
+
+
+<?php 
+
+        if(isset($_POST['submit'])) {
+          //Sanitizing the inputs of the users. Mandatory to prevent injections!
+            
+              $user = new Users;
+              $user -> firstname = htmlentities($_POST['firstname']);
+              $user -> middlename = htmlentities($_POST['middlename']);
+              $user -> lastname = htmlentities($_POST['lastname']);
+              $user -> suffix = htmlentities($_POST['suffix']);
+              $user -> sex = htmlentities($_POST['sex']);
+              $user -> email = htmlentities($_POST['email']);
+              $user -> contact_number = htmlentities($_POST['contact_number']); 
+              $user -> province = htmlentities($_POST['province']); 
+              $user -> city = htmlentities($_POST['city']); 
+              $user -> barangay = htmlentities($_POST['barangay']); 
+              $user -> street_name = htmlentities($_POST['street_name']); 
+              $user -> bldg_house_no = htmlentities($_POST['bldg_house_no']); 
+              $user -> username = htmlentities($_POST['username']); 
+              $user -> password = htmlentities($_POST['password']);
+
+
+              if(validate_signup_user($_POST)){
+                if($user -> signup()){
+                    //redirect user to program page after saving
+                    header('location: login.php');
+                }
+            }
+              
+        }
+  
+?>
+
 <div class="signup">
   <div class="signup-container">
 
@@ -13,56 +50,76 @@
 
     <!--PERSONAL INFORMATION-->
     <div class="sub-title">Personal Information</div>
-      <form action="login.php">
+      <form action="signup.php" method="post" enctype="multipart/form-data">
 
         <div class="user-details">
 
           <div class="input-box">
             <span class="details">Firstname</span>
-            <input type="text" placeholder="" required> 
+            <input type="text" name="firstname" placeholder="" required> 
           </div>
 
           <div class="input-box">
             <span class="details-opt">Middlename</span>
-            <input type="text" placeholder="">
+            <input type="text" name="middlename" placeholder="">
           </div>
 
           <div class="input-box">
             <span class="details">Lastname</span>
-            <input type="text" placeholder="" required>
+            <input type="text" name="lastname"  placeholder="" required>
           </div>
 
           <div class="input-box">
-            <span class="details-opt">Suffix Name</span>
-            <input type="text" placeholder="" >
+            <span class="details-opt">Suffix</span>
+            <input type="text" name="suffix" placeholder="">
           </div>
 
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="" required>
-          </div>
-          
-          <div class="input-box">
-            <span class="details">Complete Address</span>
-            <input type="text" placeholder="" required>
-          </div>
-          
-          <div class="input-box">
-            <span class="details">Contact No.</span>
-            <input type="text" placeholder="" required>
+            <input type="email" name="email" placeholder="" required>
           </div>
 
           <div class="input-box">
           <span class="details">Sex</span>
           <select name="sex" id="sex" required>
-            <option value="None">--Select--</option>
             <option value="Male" >Male</option>
             <option value="Female">Female</option>
           </select>
           </div>
+
+          <div class="input-box">
+            <span class="details">Contact No.</span>
+            <input type="number" name="contact_number" placeholder="" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Province</span>
+            <input type="text" name="province" placeholder="" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">City/Municipality</span>
+            <input type="text" name="city" placeholder="" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Barangay</span>
+            <input type="text" name="barangay" placeholder="" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details-opt">Street Name</span>
+            <input type="text" name="street_name" placeholder="">
+          </div>
+
+          <div class="input-box">
+            <span class="details-opt">Building/House No.</span>
+            <input type="text" name="bldg_house_no" placeholder="">
+          </div>
         </div>
 
-        <!--WMSU STATUS-->
+
+        <!--WMSU STATUS
           <div class="sub-title">WMSU Status <span> (Please Select all that Apply.)</span>
           </div><br>
           <div class="user-details">
@@ -98,7 +155,7 @@
             <span class="checkmark"></span>
           </label>
         </div>
-        </div>
+        </div>-->
 
 
 
@@ -108,23 +165,23 @@
           <div class="user-details">
           <div class="input-box">
             <span class="details">Username</span>
-            <input type="text" placeholder="" required>
+            <input type="text" name="username" placeholder="" required>
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="password" placeholder="">
+            <input type="password" id="password" name="password" placeholder="">
+            <!--<input type="checkbox" onclick="showPw()">Show Password-->
           </div>
-          <div class="input-box">
+          <!--<div class="input-box">
             <span class="details">Confirm Password</span>
             <input type="password" placeholder="">
-          </div>
+          </div>-->
         </div>
-
 
         
          <!--SIGN UP BUTTON-->
         <div class="button">
-          <input type="submit" value="Sign Up">
+          <input type="submit" name="submit" value="Sign Up">
         </div>
         <div class="have-account">
         <p>ALREADY HAVE AN ACCOUNT?<span> <a href="login.php">LOG IN</a></span></p>
@@ -133,4 +190,10 @@
     </div>
   </div>
 </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="../js/administration.js"></script>
+<script src="../js/password.js"></script>
 

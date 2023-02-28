@@ -56,7 +56,7 @@
 
             $data = null;
 
-			$select_stmt = $this->db->connect()->prepare('SELECT id, news_title, image_description, news_content, filename FROM news;');
+			$select_stmt = $this->db->connect()->prepare('SELECT id, news_title, image_description, news_content, created_at, updated_at, filename FROM news;');
 			$select_stmt->execute();
 
 			$data = $select_stmt->fetchAll();

@@ -6,10 +6,10 @@
     session_start();
 
     //check if user is login already otherwise send to login page
-    if (isset($_SESSION['user_role']) == 'admin'){
+    if (isset($_SESSION['role']) == 'super_admin' || ($_SESSION['role']) == 'event_admin' || ($_SESSION['role']) == 'content_admin' || ($_SESSION['role']) == 'user_admin' || ($_SESSION['role']) == 'feedback_admin' ){
         header('location: admin/dashboard.php');
     }
-    else if (isset($_SESSION['user_role']) == 'normal_user'){
+    else if (isset($_SESSION['role']) == 'user'){
         header('location: user/user-profile.php');
     }
     else{

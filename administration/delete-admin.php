@@ -1,11 +1,11 @@
 <?php
 
-    require_once '../classes/carousel_model.php';
+    require_once '../classes/administration_model.php';
 
     $delete_id = $_POST['delete_id'];
 
-    $carousel = new Carousel();
+    $administration = new Administration();
 
-    $delete = $carousel->deleteRecords($delete_id);
+    $delete = $administration->deleteRecords($delete_id);
 
 ?>
