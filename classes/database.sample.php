@@ -2,9 +2,17 @@
 
 class Database{
     private $host = 'localhost';
-    private $username = 'root';
-    private $password = '';
-    private $database = 'phsi';
+
+    
+
+    private $username = 'u654609850_';
+    private $password = 'E1C2H3O4';
+    private $database = 'u654609850_phsi';
+
+    // private $username = 'root';
+    // private $password = '';
+    // private $database = 'phsi';
+    
     protected $connection;
 
     function connect(){
