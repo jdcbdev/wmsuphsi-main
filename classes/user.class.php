@@ -18,7 +18,11 @@ Class Users{
     public $bldg_house_no;
     public $username;
     public $password;
+    public $event_id;
+    public $user_id;
     public $role = 'user';
+
+
 
     protected $db;
 
@@ -41,19 +45,13 @@ Class Users{
    
     //INSERT A NEW USER  INTO THE DATABASE "PHSI" & HADLE AJAX REQUEST
     function signup(){
-
-        
-
-
         $sql = "INSERT INTO user_acc_data (profile_picture, background_image, firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role) 
         VALUES (:profile_picture, :background_image, :firstname, :middlename, :lastname, :suffix, :sex, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :username, :password, :role);";
-
         $query=$this->db->connect()->prepare($sql);
+
         $query->bindParam(':profile_picture', $this->profile_picture);
         $query->bindParam(':background_image', $this->background_image);
         $query->bindParam(':firstname', $this->firstname);
-        $query->bindParam(':middlename', $this->middlename);
-        $query->bindParam(':lastname', $this->lastname);
         $query->bindParam(':middlename', $this->middlename);
         $query->bindParam(':lastname', $this->lastname);
         $query->bindParam(':suffix', $this->suffix);
@@ -95,6 +93,26 @@ Class Users{
         else{
             return false;
         }
+    }
+
+    function addUserToEvent() {
+        $sql = "INSERT INTO rsvp (rsvp_id, event_id, id, firstname, middlename, lastname, suffix, email, contact_number)
+         VALUES (null, :event_id, :id, :firstname, :middlename, :lastname, :suffix,  :email, :contact_number);";
+        $query=$this->db->connect()->prepare($sql);
+
+        $query->bindParam(':event_id', $this->event_id);
+        $query->bindParam(':id', $this->user_id);
+        $query->bindParam(':firstname', $this->firstname);
+        $query->bindParam(':middlename', $this->middlename);
+        $query->bindParam(':lastname', $this->lastname);
+        $query->bindParam(':suffix', $this->suffix);
+        $query->bindParam(':email', $this->email);
+        $query->bindParam(':contact_number', $this->contact_number);
+
+        if($query->execute()){
+            return true;
+        } 
+        return false;
     }
 
 }
