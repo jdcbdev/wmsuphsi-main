@@ -2,6 +2,37 @@
     $page_title = 'Upcoming Events | WMSU - Peace and Human Security Institute';
     require_once '../includes/head.php';
     require_once '../includes/header.php';
+   require_once '../classes/user.class.php';
+
+   // print_r($_SESSION);
+
+   $user = new Users;
+   $userData = $user -> fetch($_SESSION['user_id']);
+
+
+
+
+
+
+
+
+
+   if(isset($_POST['submit'])) {
+      var_dump($_POST);
+
+      // TABULATE DATA TO USER OBJECT
+      $user -> user_id = $_SESSION['user_id'];
+      $user -> event_id = $_POST['event_id'];
+      $user -> firstname = $_POST['first-name'];
+      $user -> middlename = $_POST['middle-name'];
+      $user -> lastname = $_POST['last-name'];
+      $user -> suffix = $_POST['suffix'];
+      $user -> email = $_POST['email'];
+      $user -> contact_number= $_POST['contact'];
+      
+      $result = $user -> addUserToEvent();
+
+   }
 ?>
 
 
@@ -15,33 +46,41 @@
     </div>
 </section>
 
+
 <section class="rsvp-container">
     <div class="rsvp-box">
         <p>RSVP for this event now!</p>
-        <button class="btn" id="open-modal-btn">RSVP</button>
+        <button class="btn"  id="open-modal-btn">RSVP</button>
 
         <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2 style="margin: auto; font-size: 3rem;">Attendee Information</h2>
-            <form class="modal-form" id="modal-form" method="POST">
+            <form action="events-page.php" class="modal-form" id="modal-form" method="POST">
                 <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required>
+                <input type="text" id="first-name" name="first-name" required
+                 value="<?php echo $userData['firstname'] ?>">
 
                 <label for="middle-name">Middle Name:</label>
-                <input type="text" id="middle-name" name="middle-name">
+                <input type="text" id="middle-name" name="middle-name" 
+                value="<?php echo isset($userData['middlename']) ?  $userData['middlename']: "" ?>">
 
                 <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required>
+                <input type="text" id="last-name" name="last-name" required value='<?php echo $userData['lastname'] ?>'>
 
                 <label for="suffix">Suffix:</label>
-                <input type="text" id="suffix" name="suffix">
+                <input type="text" id="suffix" name="suffix"
+                value="<?php echo isset($userData['suffix']) ?  $userData['suffix']: "" ?>">
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required 
+                value="<?php echo $userData['email'] ?>">
 
                 <label for="contact">Contact:</label>
-                <input type="text" id="contact" name="contact" required>
+                <input type="text" id="contact" name="contact" required 
+                value="<?php echo $userData['contact_number'] ?> ">
+                  
+                <input type="hidden" name='event_id' value="1">
 
                 <input type="submit" id="submit" name="submit" value="Submit">  
             </form>

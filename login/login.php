@@ -29,6 +29,7 @@
             $_SESSION['contact_number'] = $output['contact_number'];
             $_SESSION['logged-in'] = $output['username'];
             $_SESSION['role'] = $output['role'];
+            $_SESSION['user_id'] = $output['id'];
 
             //display the appropriate dashboard page for user
                 if($output['role'] == 'super_admin' || $output['role'] == 'event_admin' || $output['role'] == 'content_admin' || $output['role'] == 'feedback_admin' || $output['role'] == 'user_admin'){
