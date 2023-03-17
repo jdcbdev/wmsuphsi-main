@@ -52,7 +52,7 @@
 <div class="signup">
   <div class="signup-container">
 
-    <div class="title">Sign Up Form</div>
+    <div class="title">Sign up form for WMSU student</div>
     
     <div class="content">
 
@@ -136,7 +136,7 @@
           </div>
         </div>
 
-        <div class="sub-title">Upload Profile Picture</div><br>
+        <div class="sub-title">Upload Student ID</div><br>
         <div class="input-group">
           <input type="file" name="profile_picture" id="profile_picture" accept="image/*" onchange="showProfile(event)" required>
         </div>
@@ -146,7 +146,7 @@
           <img id="profile-preview">
         </div>
 
-        <div class="sub-title">Upload Background Image</div><br>
+        <div class="sub-title">Upload a selfie</div><br>
         <div class="input-group">
           <input type="file" name="background_image" id="background_image" accept="image/*" onchange="showBackground(event)" required>
         </div>
@@ -155,7 +155,7 @@
         <div class="preview">
           <img id="background-preview">
         </div>
-              
+            
            <!--ACCOUNT CREDENTIALS-->
           <div class="sub-title">Account Credentials</div><br>
           <div class="user-details">

@@ -2,6 +2,7 @@
 require_once 'database.php';
 
 Class Users{
+    public $id;
     public $profile_picture;
     public $background_image;
     public $firstname;
@@ -18,6 +19,8 @@ Class Users{
     public $bldg_house_no;
     public $username;
     public $password;
+    public $event_id;
+    public $user_id;
     public $role = 'user';
 
     protected $db;
@@ -75,6 +78,16 @@ Class Users{
         return "error adding ";
     }
 
+    function fetchUser(){
+        $sql = "SELECT * FROM user_acc_data;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+ 
     function fetch($record_id){
         $sql = "SELECT * FROM user_acc_data WHERE id = :id;";
         $query=$this->db->connect()->prepare($sql);
@@ -95,6 +108,26 @@ Class Users{
         else{
             return false;
         }
+    }
+
+    function addUserToEvent() {
+        $sql = "INSERT INTO rsvp (rsvp_id, event_id, id, firstname, middlename, lastname, suffix, email, contact_number)
+         VALUES (null, :event_id, :id, :firstname, :middlename, :lastname, :suffix,  :email, :contact_number);";
+        $query=$this->db->connect()->prepare($sql);
+
+        $query->bindParam(':event_id', $this->event_id);
+        $query->bindParam(':id', $this->user_id);
+        $query->bindParam(':firstname', $this->firstname);
+        $query->bindParam(':middlename', $this->middlename);
+        $query->bindParam(':lastname', $this->lastname);
+        $query->bindParam(':suffix', $this->suffix);
+        $query->bindParam(':email', $this->email);
+        $query->bindParam(':contact_number', $this->contact_number);
+
+        if($query->execute()){
+            return true;
+        } 
+        return false;
     }
 
 }

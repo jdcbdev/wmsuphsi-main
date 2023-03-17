@@ -35,12 +35,9 @@
                     $event_banner = $_FILES['event_banner']['name'];
                     $tempname_banner = $_FILES['event_banner']['tmp_name'];
                     $folder = "../uploads/" . $event_banner;
-                    $event_agenda = $_FILES['event_agenda']['name'];
-                    $tempname_agenda = $_FILES['event_agenda']['tmp_name'];
-                    $folder = "../uploads/" . $event_agenda;
 
-                    if (move_uploaded_file($tempname_banner, $folder) && move_uploaded_file($tempname_agenda, $folder)) {
-                        $insert_stmt=$this->db->connect()->prepare("INSERT INTO event (event_title, event_banner, event_about, event_mode, event_location, event_scope, event_platform, event_type, event_slots, event_status, event_date, event_start_time, event_end_time, event_reg_duedate, event_agenda) VALUES (:event_title, :event_banner, :event_about, :event_mode, :event_location, :event_scope, :event_platform, :event_type, :event_slots, :event_status, :event_date, :event_start_time, :event_end_time, :event_reg_duedate, :event_agenda)");
+                    if (move_uploaded_file($tempname_banner, $folder)) {
+                        $insert_stmt=$this->db->connect()->prepare("INSERT INTO event (event_title, event_banner, event_about, event_mode, event_location, event_scope, event_platform, event_type, event_slots, event_status, event_date, event_start_time, event_end_time, event_reg_duedate) VALUES (:event_title, :event_banner, :event_about, :event_mode, :event_location, :event_scope, :event_platform, :event_type, :event_slots, :event_status, :event_date, :event_start_time, :event_end_time, :event_reg_duedate)");
                         $insert_stmt->bindParam(':event_title', $event_title);
                         $insert_stmt->bindParam(':event_banner', $event_banner);
                         $insert_stmt->bindParam(':event_about', $event_about);
@@ -55,7 +52,6 @@
                         $insert_stmt->bindParam(':event_start_time', $event_start_time);
                         $insert_stmt->bindParam(':event_end_time', $event_end_time);
                         $insert_stmt->bindParam(':event_reg_duedate', $event_reg_duedate);
-                        $insert_stmt->bindParam(':event_agenda', $event_agenda);
 
 
                         if($insert_stmt->execute()) {
@@ -80,7 +76,7 @@
 
             $data = null;
 
-			$select_stmt = $this->db->connect()->prepare('SELECT id, event_title, event_banner, event_about, event_mode, event_location, event_platform, event_scope, event_type, event_slots, event_status, event_date, event_start_time, event_end_time, event_reg_duedate, event_agenda FROM event;');
+			$select_stmt = $this->db->connect()->prepare('SELECT id, event_title, event_banner, event_about, event_mode, event_location, event_platform, event_scope, event_type, event_slots, event_status, event_date, event_start_time, event_end_time, event_reg_duedate FROM event;');
 			$select_stmt->execute();
 
 			$data = $select_stmt->fetchAll();
@@ -140,13 +136,8 @@
 						$tempname = $_FILES['event_banner']['tmp_name'];
 						$folder = "../uploads/" . $event_banner;	
 
-                        if(isset($_FILES['event_agenda']) && $_FILES['event_agenda']['error'] === UPLOAD_ERR_OK) {
-                            $event_agenda = $_FILES['event_agenda']['name'];
-                            $tempname = $_FILES['event_agenda']['tmp_name'];
-                            $folder = "../uploads/" . $event_agenda;	
-
                         if(move_uploaded_file($tempname_banner, $folder)) {
-                            $update_stmt=$this->db->connect()->prepare('UPDATE event SET event_title=:event_title, event_about=:event_about, event_banner=:event_banner, event_scope=:event_scope, event_mode=:event_mode, event_location=:event_location, event_platform=:event_platform, event_type=:event_type, event_slots=:event_slots, event_status=:event_status, event_date=:event_date, event_start_time=:event_start_time, event_end_time=:event_end_time, event_reg_duedate=:event_reg_duedate, event_agenda=:event_agenda WHERE id=:id');
+                            $update_stmt=$this->db->connect()->prepare('UPDATE event SET event_title=:event_title, event_about=:event_about, event_banner=:event_banner, event_scope=:event_scope, event_mode=:event_mode, event_location=:event_location, event_platform=:event_platform, event_type=:event_type, event_slots=:event_slots, event_status=:event_status, event_date=:event_date, event_start_time=:event_start_time, event_end_time=:event_end_time, event_reg_duedate=:event_reg_duedate WHERE id=:id');
 							$update_stmt->bindParam(':event_title', $event_title);
 							$update_stmt->bindParam(':event_banner', $event_banner);
 							$update_stmt->bindParam(':event_about', $event_about);
@@ -161,7 +152,6 @@
                             $update_stmt->bindParam(':event_start_time', $event_start_time);
                             $update_stmt->bindParam(':event_end_time', $event_end_time);
                             $update_stmt->bindParam(':event_reg_duedate', $event_reg_duedate);
-                            $update_stmt->bindParam(':event_agenda', $event_agenda);
 							$update_stmt->bindParam(':id', $id);
 
                             //EXECUTE
@@ -176,7 +166,7 @@
                         }
                     }
                     else {
-                        $update_stmt=$this->db->connect()->prepare('UPDATE event SET event_title=:event_title, event_about=:event_about, event_scope=:event_scope, event_banner=:event_banner, event_mode=:event_mode, event_location=:event_location, event_platform=:event_platform, event_type=:event_type, event_slots=:event_slots, event_status=:event_status, event_date=:event_date, event_start_time=:event_start_time, event_end_time=:event_end_time, event_reg_duedate=:event_reg_duedate, event_agenda=:event_agenda WHERE id=:id');
+                        $update_stmt=$this->db->connect()->prepare('UPDATE event SET event_title=:event_title, event_about=:event_about, event_scope=:event_scope, event_banner=:event_banner, event_mode=:event_mode, event_location=:event_location, event_platform=:event_platform, event_type=:event_type, event_slots=:event_slots, event_status=:event_status, event_date=:event_date, event_start_time=:event_start_time, event_end_time=:event_end_time, event_reg_duedate=:event_reg_duedate WHERE id=:id');
                         $update_stmt->bindParam(':event_title', $event_title);
                         $update_stmt->bindParam(':event_banner', $event_banner);
                         $update_stmt->bindParam(':event_about', $event_about);
@@ -191,7 +181,6 @@
                         $update_stmt->bindParam(':event_start_time', $event_start_time);
                         $update_stmt->bindParam(':event_end_time', $event_end_time);
                         $update_stmt->bindParam(':event_reg_duedate', $event_reg_duedate);
-                        $update_stmt->bindParam(':event_agenda', $event_agenda);
                         $update_stmt->bindParam(':id', $id);
 
 						//EXECUTE
@@ -210,5 +199,4 @@
 
         }
     }
-}
 ?>

@@ -1,8 +1,6 @@
 <?php
     //resume session here to fetch session values
     session_start();
-
-
 ?>
 
 
@@ -24,7 +22,8 @@
    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
    
    <!-- Custom css file link  -->
-   <link rel="stylesheet" href="css/phsi.css">  
+   <link rel="stylesheet" href="css/phsi.css"> 
+   <link rel="stylesheet" href="css/modal.css"> 
 
    <!-- Title and Logo in tab -->
    <link rel="icon" type="image/png" href="images/logos/phsi.png">
@@ -55,8 +54,7 @@
       <div class="dropdown">
          <button class="dropbtn">Organizations</button>
          <div class="dropdown-content">
-            <a href="organizations/unesco.php">WMSU Youth Peace Mediators -<br>
-             UNESCO Club</a>
+            <a href="organizations/unesco.php">WMSU UNESCO Club</a>
             <a href="organizations/biorisk.php">Biorisk Management and Security</a>
          </div>
       </div> 
@@ -69,14 +67,14 @@
       ?>
       <div class="uil uil-bell"><a href=""></a></div>
 
-      <a href="user/user-profile.php"><img src="images/student-profile/user-icon.png" alt=""></a>
+      <a href="user/user-profile.php"><img src="uploads/<?php echo $_SESSION['profile_picture']; ?>" alt=""></a>
       <?php
       }
       ?>
       
       <?php  if(isset($_SESSION['logged-in'])) { 
       ?>
-      <div class="uil uil-signout"><a href="home.php">Logout</a></div>
+      <div class="uil uil-signout"><a href="login/logout.php">Logout</a></div>
       <?php
       }
       ?>
@@ -97,6 +95,7 @@
 <?php
    require_once 'carousel/carousel.php';
 ?>
+
 
 <!------------------------------------------- Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES Start -------------------------------------------------------------------------------------------->
 <section class="free_content">

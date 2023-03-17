@@ -8,12 +8,12 @@
 <link rel="stylesheet" href="../css/user.css">
 
 <div class="profile-container">
-  <img src="../images/carousel-images/phsi-carousel.jpg" class="background-image" alt="Background Image">
+  <img src="../uploads/<?php echo $_SESSION['background_image']; ?>" class="background-image" alt="Background Image">
   <div class="profile-wrapper">
-    <img src="../images/student-profile/user-icon.png" class="profile-image" alt="Profile Image">
+    <img src="../uploads/<?php echo $_SESSION['profile_picture']; ?>" class="profile-image" alt="Profile Image">
     <div class="profile-info">
-      <h2 class="profile-name">ARJAY LUMIBOT MALAGA</h2>
-      <p class="profile-description">WMSU UNESCO Club</p>
+      <h2 class="profile-name"><?php echo $_SESSION['fullname']; ?></h2>
+      <!--<p class="profile-description">WMSU Student / WMSU UNESCO Club</p>-->
       <a href="edit-profile.php" class="edit-profile-btn">Edit Profile</a>
     </div>
   </div>

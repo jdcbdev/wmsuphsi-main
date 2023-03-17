@@ -83,7 +83,6 @@ CREATE TABLE `event` (
   `event_start_time` TIME NOT NULL,
   `event_end_time` TIME NOT NULL,
   `event_reg_duedate` timestamp NOT NULL,
-	`event_agenda`varchar(50) NOT NULL,
 	`created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 	)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -151,9 +150,6 @@ ALTER TABLE `administration`
 COMMIT;
 
 -- --------------------------------------------------------
-
-
-
 
 -- --------------------------------------------------------
 --
@@ -244,6 +240,53 @@ COMMIT;
 
 -- --------------------------------------------------------
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rsvp`
+--
+
+CREATE TABLE `rsvp` (
+  `rsvp_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `id` int(11) DEFAULT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `middlename` varchar(35) NOT NULL,
+  `lastname` varchar(35) NOT NULL,
+  `suffix` varchar(35) NOT NULL,
+  `email` varchar(35) NOT NULL,
+  `contact_number` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rsvp`
+--
+
+INSERT INTO `rsvp` (`rsvp_id`, `event_id`, `id`, `firstname`, `middlename`, `lastname`, `suffix`, `email`, `contact_number`) VALUES
+(1, 0, 1, 'Jericho', '', '', '', '', 0),
+(2, 0, NULL, 'Arjay', '', '', '', '', 0),
+(4, 1, 5, 'Janus', 'Janis', 'Janas', 'III', 'janus5@gmail.com', 2147483647);
+
+--
+-- Indexes for table `rsvp`
+--
+ALTER TABLE `rsvp`
+  ADD PRIMARY KEY (`rsvp_id`);
+
+--
+-- AUTO_INCREMENT for table `rsvp`
+--
+ALTER TABLE `rsvp`
+  MODIFY `rsvp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+-- --------------------------------------------------------
+
+
+
+
+
+
+
 --
 --
 -- Table structure for table `history`
@@ -268,7 +311,7 @@ INSERT INTO `history` (`id`, `history_title`, `filename`, `history_description`)
 -- Indexes for table `history`
 --
 ALTER TABLE `history`
-  ADD PRIMARY KEY (`id`); 
+  ADD PRIMARY KEY (`id`);   
   
 --
 -- AUTO_INCREMENT for dumped tables
@@ -327,13 +370,15 @@ CREATE TABLE `user_acc_data` (
   `id` int(11) NOT NULL,
   `profile_picture`varchar(255) NOT NULL,
   `background_image`varchar(255) NOT NULL,
+  `identification_card`varchar(255) NOT NULL,
+  `selfie_image`varchar(255) NOT NULL,
   `firstname`varchar(50) NOT NULL,
   `middlename`varchar(50) DEFAULT NULL,
   `lastname`varchar(50) NOT NULL,
   `suffix`varchar(50) DEFAULT NULL,
   `sex` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `contact_number`int(11) NOT NULL,
+  `contact_number`varchar(11) NOT NULL,
   `province` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
   `barangay` varchar(50) NOT NULL,
@@ -341,6 +386,8 @@ CREATE TABLE `user_acc_data` (
   `bldg_house_no` varchar(50) DEFAULT NULL,
   `username`varchar(50) NOT NULL,
   `password`varchar(50) NOT NULL,
+  `user_class`varchar(50) NOT NULL,
+  `type`varchar(50) NOT NULL,
   `role` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -348,11 +395,8 @@ CREATE TABLE `user_acc_data` (
 -- Dumping data for table `user_acc_data`
 --
 INSERT INTO `user_acc_data` (`id`, `profile_picture`, `background_image`, `firstname`, `middlename`, `lastname`, `suffix`, `sex`, `email`, `contact_number`, `province`, `city`, `barangay`, `street_name`, `bldg_house_no`, `username`, `password`, `role`) VALUES
-(1, '', '', 'Janus', 'Dimakita', 'Dimagiba', 'Jr.', 'Male', 'janus1@gmail.com', '09123456789', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', 'House 1', 'super_admin', 'janus', 'super_admin'),
-(2, '', '', 'Janus', 'Dimahanap', 'Dimawala', 'Sr.', 'Male', 'janus2@gmail.com', '09123456719', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', 'House 2', 'event_admin', 'janus', 'event_admin'),
-(3, '', '', 'Janus', 'Juan', 'Luan', '', 'Female', 'janus3@gmail.com', '09123456729', 'Zamboanga del Sur', 'Zamboanga City', 'Pasonanca', 'Pasonanca Court', 'House 3', 'content_admin', 'janus', 'content_admin'),
-(4, '', '', 'Janus', 'Swift', 'Smith', '', 'Male', 'janus4@gmail.com', '09123456739', 'Zamboanga del Sur', 'Zamboanga City', 'Town', 'Zone I', 'House 4', 'feedback_admin', 'janus', 'feedback_admin'),
-(5, '', '', 'Janus', 'Janis', 'Janas', 'III', 'Female', 'janus5@gmail.com', '09123456749', 'Zamboanga del Sur', 'Zamboanga City', 'Arena Blanco', 'Negro', 'House 5', 'user', 'janus', 'user');
+(1, 'meeee.jpg', 'uu7.jpg', 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjaymalaga990@gmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', '', 'super_admin', 'janus', 'super_admin'),
+(2, 'pic-1.png', 'uu7.jpg', 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjaymalaga990@gmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', '', 'user', 'janus', 'user');
 
 
 
