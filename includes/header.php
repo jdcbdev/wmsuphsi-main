@@ -7,9 +7,7 @@
         this is to prevent users from accessing pages that requires
         authentication such as the dashboard
     */
-    if (!isset($_SESSION['logged-in'])){
-        header('location: ../login/logout.php');
-    }
+
     //if the above code is false then html below will be displayed
 
 ?>
@@ -37,8 +35,7 @@
       <div class="dropdown">
          <button class="dropbtn">Organizations</button>
          <div class="dropdown-content">
-            <a href="../organizations/unesco.php">WMSU Youth Peace Mediators -<br>
-             UNESCO Club</a>
+            <a href="../organizations/unesco.php">WMSU   UNESCO Club</a>
             <a href="../organizations/biorisk.php">Biorisk Management and Security</a>
          </div>
       </div> 
@@ -53,7 +50,7 @@
 
       <a href="../user/user-profile.php"><img src="../uploads/<?php echo $_SESSION['profile_picture']; ?>" alt=""></a>
 
-      <div class="uil uil-signout"><a href="login/logout.php">Logout</a></div>
+      <div class="uil uil-signout"><a href="../login/logout.php">Logout</a></div>
 
       <?php
       }

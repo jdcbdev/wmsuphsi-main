@@ -122,9 +122,6 @@
     
 }
 
-
-
-
 .side-menu a {
     display: block;
     padding: 1.2rem 1rem;
@@ -200,7 +197,7 @@
 }
 
 header {
-    position: none;
+    position: sticky;
     right: 0;
     top: 0;
     left: 173px;
@@ -803,6 +800,7 @@ a.action-edit:hover, a.action-delete:hover,  a.action-view:hover{
 
 .dataTables_length{
     display: block ruby;
+    padding-top: 25px;
 }
 
 div.modal {

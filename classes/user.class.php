@@ -2,6 +2,7 @@
 require_once 'database.php';
 
 Class Users{
+    public $id;
     public $profile_picture;
     public $background_image;
     public $firstname;
@@ -73,6 +74,16 @@ Class Users{
         return "error adding ";
     }
 
+    function fetchUser(){
+        $sql = "SELECT * FROM user_acc_data;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+ 
     function fetch($record_id){
         $sql = "SELECT * FROM user_acc_data WHERE id = :id;";
         $query=$this->db->connect()->prepare($sql);

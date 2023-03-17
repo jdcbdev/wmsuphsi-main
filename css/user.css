@@ -12,7 +12,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.8;
+    opacity: 0.5;
   }
   
   .profile-wrapper {
@@ -50,7 +50,7 @@
   
   .profile-description {
     font-size: 18px;
-    color: #5b5b5b;
+    color: #202020;
     margin-bottom: 20px;
   }
   

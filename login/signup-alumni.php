@@ -52,7 +52,7 @@
 <div class="signup">
   <div class="signup-container">
 
-    <div class="title">Sign Up Form</div>
+    <div class="title">Sign up form for WMSU alumni</div>
     
     <div class="content">
 
@@ -136,7 +136,7 @@
           </div>
         </div>
 
-        <div class="sub-title">Upload Profile Picture</div><br>
+        <div class="sub-title">Upload an ID</div><br>
         <div class="input-group">
           <input type="file" name="profile_picture" id="profile_picture" accept="image/*" onchange="showProfile(event)" required>
         </div>
@@ -146,7 +146,7 @@
           <img id="profile-preview">
         </div>
 
-        <div class="sub-title">Upload Background Image</div><br>
+        <div class="sub-title">Take a selfie</div><br>
         <div class="input-group">
           <input type="file" name="background_image" id="background_image" accept="image/*" onchange="showBackground(event)" required>
         </div>
@@ -155,7 +155,48 @@
         <div class="preview">
           <img id="background-preview">
         </div>
-              
+            
+        <!--WMSU STATUS
+          <div class="sub-title">WMSU Status <span> (Please Select all that Apply.)</span>
+          </div><br>
+          <div class="user-details">
+          <div class="status-container">
+
+          <label class="wmsu-status">WMSU Alumni
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="wmsu-status">WMSU Employee
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          
+          <label class="wmsu-status">WMSU Student
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="wmsu-status">WMSU Peace and Human Security Institute
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="wmsu-status">WMSU Youth Peace Mediators - UNESCO Club 
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="wmsu-status">WMSU Biosafety and Biosecurity Committee
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        </div>-->
+
+
+
+
            <!--ACCOUNT CREDENTIALS-->
           <div class="sub-title">Account Credentials</div><br>
           <div class="user-details">

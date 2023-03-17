@@ -23,12 +23,6 @@
    <link rel="stylesheet" href="../css/phsi.css">
    <link rel="stylesheet" href="../css/modal.css">
 
-    <!-- Swiper Js link  -->
-   <!-- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script> -->
-
-   <!-- Custom Js file link  -->
-   <!-- <script src="../js/script.js"></script> -->
-
    <!--Bootstrap-->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 

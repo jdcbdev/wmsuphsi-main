@@ -24,7 +24,7 @@ window.onclick = function(event) {
   }
 }
 
-//This will remove non-numeric characters bitches!
+//This will remove non-numeric characters!
 const numberInput = document.getElementById("contact");
 numberInput.addEventListener("input", function(event) {
   // Remove non-numeric characters

@@ -59,3 +59,51 @@ function validatePassword() {
     confirmPasswordInput.setCustomValidity("");
   }
 }
+
+var password_Input = document.getElementById("password-input");
+var passwordStrength = document.getElementById("password-strength");
+
+passwordInput.addEventListener("keyup", function() {
+  var password = passwordInput.value;
+  if (password === "") {
+    passwordStrength.style.display = "none";
+  } else {
+    passwordStrength.style.display = "inline";
+    var strength = checkPasswordStrength(password);
+    var strengthText = getStrengthText(strength);
+    passwordStrength.innerHTML = strengthText;
+    passwordStrength.style.color = getColor(strength);
+  }
+});
+
+function checkPasswordStrength(password) {
+  var hasUppercase = /[A-Z]/.test(password);
+  var hasLowercase = /[a-z]/.test(password);
+  var hasNumber = /\d/.test(password);
+  var hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+  
+  if (password.length < 8 || password.length > 12 || !hasUppercase || !hasLowercase || !hasNumber || !hasSpecialChar) {
+    return "weak";
+  } else {
+    return "strong";
+  }
+}
+
+function getStrengthText(strength) {
+  if (strength === "strong") {
+    return "Strong password";
+  } else {
+    return "Password is too weak. <br> (Include at least numbers, symbols, uppercase, and lowercase letter).";
+  }
+}   
+
+function getColor(strength) {
+  if (strength === "strong") {
+    return "green";
+  } else {
+    return "red";
+  }
+}
+
+
+

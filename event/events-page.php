@@ -1,21 +1,13 @@
 <?php
-    $page_title = 'Upcoming Events | WMSU - Peace and Human Security Institute';
-    require_once '../includes/head.php';
-    require_once '../includes/header.php';
-   require_once '../classes/user.class.php';
 
-   // print_r($_SESSION);
+	//resume session here to fetch session values
+   $page_title = 'Upcoming Events | WMSU - Peace and Human Security Institute';
+   require_once '../includes/head.php';
+   require_once '../includes/header.php';
+   require_once '../classes/user.class.php';
 
    $user = new Users;
    $userData = $user -> fetch($_SESSION['user_id']);
-
-
-
-
-
-
-
-
 
    if(isset($_POST['submit'])) {
       var_dump($_POST);
@@ -23,13 +15,12 @@
       // TABULATE DATA TO USER OBJECT
       $user -> user_id = $_SESSION['user_id'];
       $user -> event_id = $_POST['event_id'];
-      $user -> firstname = $_POST['first-name'];
-      $user -> middlename = $_POST['middle-name'];
-      $user -> lastname = $_POST['last-name'];
+      $user -> firstname = $_POST['firstname'];
+      $user -> middlename = $_POST['middlename'];
+      $user -> lastname = $_POST['lastname'];
       $user -> suffix = $_POST['suffix'];
       $user -> email = $_POST['email'];
       $user -> contact_number= $_POST['contact'];
-      
       $result = $user -> addUserToEvent();
 
    }
@@ -39,37 +30,42 @@
 <!-- Event Section Start  -->
 
 <section class="event-heading">
-    <div class="img"><img src="../images/content-images/unesco-ncm.png" alt="">
-    <div class="event-content">
-        <h2 class="event-title">Registration ends at Feb 18, 2023</h2>
+   <div class="event-banner-container">
+  <img src="../images/content-images/unesco-ncm.png" class="banner" alt="Background Image">
+  <div class="event-wrapper">
+    <div class="event-infos">
+      <h2 class="event-title"></h2>
     </div>
-    </div>
+  </div>
+</div>
 </section>
 
 
 <section class="rsvp-container">
     <div class="rsvp-box">
         <p>RSVP for this event now!</p>
-        <button class="btn"  id="open-modal-btn">RSVP</button>
+        
+        <button class="btn" id="open-modal-btn">RSVP</button>
 
         <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2 style="margin: auto; font-size: 3rem;">Attendee Information</h2>
             <form action="events-page.php" class="modal-form" id="modal-form" method="POST">
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" name="first-name" required
-                 value="<?php echo $userData['firstname'] ?>">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" required 
+                value="<?php echo $userData['firstname'] ?>">
 
-                <label for="middle-name">Middle Name:</label>
-                <input type="text" id="middle-name" name="middle-name" 
+                <label for="middlename">Middle Name:</label>
+                <input type="text" id="middlename" name="middlename" 
                 value="<?php echo isset($userData['middlename']) ?  $userData['middlename']: "" ?>">
 
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" name="last-name" required value='<?php echo $userData['lastname'] ?>'>
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" required 
+                value='<?php echo $userData['lastname'] ?>'>
 
                 <label for="suffix">Suffix:</label>
-                <input type="text" id="suffix" name="suffix"
+                <input type="text" id="suffix" name="suffix" 
                 value="<?php echo isset($userData['suffix']) ?  $userData['suffix']: "" ?>">
 
                 <label for="email">Email:</label>

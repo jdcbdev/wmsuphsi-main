@@ -31,17 +31,17 @@
                     <th>Event Name</th>
                     <th>Banner</th>
                     <!--<th>About</th>-->
-                    <th>Mode</th>
+                    <!--<th>Mode</th>-->
                     <th>Type</th>
-                    <th>Where</th>
+                    <!--<th>Where</th>-->
                     <th>When</th>
-                    <th>From - To</th>
+                    <!--<th>From - To</th>-->
                     <!--<th>To</th>-->
                     <th>Slots</th>
-                    <th>Scope</th>
-                    <th>Platform</th>
+                    <!--<th>Scope</th>-->
+                    <!--<th>Platform</th>-->
                     <!--<th>Agenda</th>-->
-                    <th>End Registration</th>
+                    <!--<th>End Registration</th>-->
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -139,17 +139,7 @@
             <div class="input-group">
                 <input class="form-control" type="text" name="event_platform" id="event_platform">
             </div>
-
-            <!--EVENT AGENDA-->
-            <label for="file">Upload Event Agenda</label>
-            <div class="preview">
-                <img id="file-preview">
-            </div>
-            
-            <!--EVENT AGENDA UPLOAD BUTTON-->
-            <div class="input-group">
-                <input type="file" name="event_agenda" id="event_agenda" accept="image/*" onchange="showPreview(event)" required>
-            </div>             
+      
 
             <!--EVENT REGISTRATION DUE-->
             <label for="event_reg_duedate" class="form-label">Registration Due</label>
@@ -165,7 +155,7 @@
                     <option value="Close">Close Registration</option>
                     <option value="Ongoing">Ongoing</option>
                     <option value="Postponed">Postponed</option>
-                    <option value="Cancelled">Cancelled</option>
+                    <option value="Cancelled">Cancel</option>
                     <option value="Ended">Ended</option>
                 </select>
             </div>

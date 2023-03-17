@@ -18,16 +18,15 @@
     <td><?php echo $value['event_title'] ?></td>
     <td><img src="../uploads/<?php echo $value['event_banner']; ?>"></td>
     <!--<td><?php echo $value['event_about'] ?></td>-->
-    <td><?php echo $value['event_mode'] ?></td>
+    <!--<td><?php echo $value['event_mode'] ?></td>-->
     <td><?php echo $value['event_type'] ?></td>
-    <td><?php echo $value['event_location'] ?></td>
+    <!--<td><?php echo $value['event_location'] ?></td>-->
     <td><?php echo $value['event_date'] ?></td>
-    <td><?php echo $value['event_start_time'].' '.$value['event_end_time']  ?></td>
+    <!--<td><?php echo $value['event_start_time'].' '.$value['event_end_time']  ?></td>-->
     <td><?php echo $value['event_slots'] ?></td>
-    <td><?php echo $value['event_scope'] ?></td>
-    <td><?php echo $value['event_platform'] ?></td>
-    <!--<td><img src="../uploads/<?php echo $value['event_agenda']; ?>"></td>-->
-    <td><?php echo $value['event_reg_duedate'] ?></td>
+    <!--<td><?php echo $value['event_scope'] ?></td>-->
+    <!--<td><?php echo $value['event_platform'] ?></td>-->
+    <!--<td><?php echo $value['event_reg_duedate'] ?></td>-->
     <td><?php echo $value['event_status'] ?></td>
 
     <td>
