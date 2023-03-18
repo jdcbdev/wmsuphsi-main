@@ -1,6 +1,6 @@
 <?php
     //CONNTECT TO DATABASE
-    require_once 'classes/database.php';
+    require_once 'database.php';
     
     //CREATE CLASS CAROUSEL
     Class Carousel{
