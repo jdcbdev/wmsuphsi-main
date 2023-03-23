@@ -13,31 +13,32 @@
         if(isset($_POST['submit'])) {
           //Sanitizing the inputs of the users. Mandatory to prevent injections!
             
-              $user = new Users;
-              $user -> firstname = htmlentities($_POST['firstname']);
-              $user -> middlename = htmlentities($_POST['middlename']);
-              $user -> lastname = htmlentities($_POST['lastname']);
-              $user -> suffix = htmlentities($_POST['suffix']);
-              $user -> sex = htmlentities($_POST['sex']);
-              $user -> email = htmlentities($_POST['email']);
-              $user -> contact_number = htmlentities($_POST['contact_number']); 
-              $user -> province = htmlentities($_POST['province']); 
-              $user -> city = htmlentities($_POST['city']); 
-              $user -> barangay = htmlentities($_POST['barangay']); 
-              $user -> street_name = htmlentities($_POST['street_name']); 
-              $user -> bldg_house_no = htmlentities($_POST['bldg_house_no']); 
-              $user -> username = htmlentities($_POST['username']); 
-              $user -> password = htmlentities($_POST['password']);
+          $user = new Users;
+          $user -> firstname = htmlentities($_POST['firstname']);
+          $user -> middlename = htmlentities($_POST['middlename']);
+          $user -> lastname = htmlentities($_POST['lastname']);
+          $user -> suffix = htmlentities($_POST['suffix']);
+          $user -> sex = htmlentities($_POST['sex']);
+          $user -> email = htmlentities($_POST['email']);
+          $user -> contact_number = htmlentities($_POST['contact_number']); 
+          $user -> province = htmlentities($_POST['province']); 
+          $user -> city = htmlentities($_POST['city']); 
+          $user -> barangay = htmlentities($_POST['barangay']); 
+          $user -> street_name = htmlentities($_POST['street_name']); 
+          $user -> bldg_house_no = htmlentities($_POST['bldg_house_no']); 
+          $user -> username = htmlentities($_POST['username']); 
+          $user -> password = htmlentities($_POST['password']);
+          $user -> member_type = htmlentities($_POST['member_type']);
 
-              $user -> profile_picture = $_FILES['profile_picture']['name'];
-              $user -> tempname_picture = $_FILES['profile_picture']['tmp_name'];
-              $user -> folder_picture = "../uploads/" . $user -> profile_picture;
+          $user -> verify_one = $_FILES['verify_one']['name'];
+          $user -> tempname_one = $_FILES['verify_one']['tmp_name'];
+          $user -> folder_one = "../uploads/" . $user -> verify_one;
 
-              $user -> background_image = $_FILES['background_image']['name'];
-              $user -> tempname_background = $_FILES['background_image']['tmp_name'];
-              $user -> folder_background = "../uploads/" . $user -> background_image;
+          $user -> verify_two = $_FILES['verify_two']['name'];
+          $user -> tempname_two = $_FILES['verify_two']['tmp_name'];
+          $user -> folder_two = "../uploads/" . $user -> verify_two;
 
-              if (move_uploaded_file($user -> tempname_picture, $user -> folder_picture) && move_uploaded_file($user -> tempname_background, $user -> folder_background)) {
+          if (move_uploaded_file($user -> tempname_one, $user -> folder_one) && move_uploaded_file($user -> tempname_two, $user -> folder_two)) {
                 if(validate_signup_user($_POST)){
                   if($user -> signup()){
                     //redirect user to program page after saving
@@ -58,9 +59,11 @@
 
     <!--PERSONAL INFORMATION-->
     <div class="sub-title">Personal Information</div>
-      <form action="signup.php" method="post" enctype="multipart/form-data">
+      <form action="signup-alumni.php" method="post" enctype="multipart/form-data">
 
         <div class="user-details">
+
+        <input type="hidden" id="member_type" name="member_type" value="Alumni">
 
           <div class="input-box">
             <span class="details">Firstname</span>
@@ -136,67 +139,26 @@
           </div>
         </div>
 
-        <div class="sub-title">Upload an ID</div><br>
+        <div class="sub-title">Upload Valid ID (Front)</div><br>
         <div class="input-group">
-          <input type="file" name="profile_picture" id="profile_picture" accept="image/*" onchange="showProfile(event)" required>
+          <input type="file" name="verify_one" id="verify_one" accept="image/*" onchange="showDisplayOne(event)" required>
         </div>
 
         <label for="file"></label>
         <div class="preview">
-          <img id="profile-preview">
+          <img id="preview-one">
         </div>
 
-        <div class="sub-title">Take a selfie</div><br>
+        <div class="sub-title">Upload Valid ID (Back)</div><br>
         <div class="input-group">
-          <input type="file" name="background_image" id="background_image" accept="image/*" onchange="showBackground(event)" required>
+          <input type="file" name="verify_two" id="verify_two" accept="image/*"  onchange="showDisplayTwo(event)" required>
         </div>
 
         <label for="file"></label>
         <div class="preview">
-          <img id="background-preview">
+          <img id="preview-two">
         </div>
             
-        <!--WMSU STATUS
-          <div class="sub-title">WMSU Status <span> (Please Select all that Apply.)</span>
-          </div><br>
-          <div class="user-details">
-          <div class="status-container">
-
-          <label class="wmsu-status">WMSU Alumni
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-          </label>
-
-          <label class="wmsu-status">WMSU Employee
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-          
-          <label class="wmsu-status">WMSU Student
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-
-          <label class="wmsu-status">WMSU Peace and Human Security Institute
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-
-          <label class="wmsu-status">WMSU Youth Peace Mediators - UNESCO Club 
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-
-          <label class="wmsu-status">WMSU Biosafety and Biosecurity Committee
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </div>
-        </div>-->
-
-
-
-
            <!--ACCOUNT CREDENTIALS-->
           <div class="sub-title">Account Credentials</div><br>
           <div class="user-details">

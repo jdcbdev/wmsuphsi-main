@@ -1,17 +1,45 @@
 <?php
+
     $page_title = "";
+
     $dashboard = "";
-    $content_management = "";
-    $history_page = "";
-    $misvis_page = "";
-    $home_carousel = "";
-    $administration_page = "";
-    $news_page = "";
-    $events_management = "";
+
+
+    $phsi_history = "";
+    $unesco_history = "";
+
+    $phsi_misvis = "";
+    $unesco_misvis = "";
+
+
+    $phsi_carousel = "";
+    $unesco_carousel = "";
+
+    $phsi_admins = "";
+    $unesco_admins = "";
+
+
     $organizations = "";
-    $feedback_management =  "";
+
+
+
     $user_management = "";
+
     $settings = "";
-    $carousel = "";
+
+
+    $profile = "";
+
+
+    $phsi_events = "";
+    $unesco_events = "";
+
+
+    $users = "";
+
+    $phsi_news = "";
+    $unesco_news = "";
+
+    $settings = "";
 
 ?>

@@ -11,27 +11,27 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
-    $history_page = 'active';
+    $page_title = 'PHSI Administration | WMSU - Peace and Human Security Institute';
+    $phsi_admins = 'active';
     require_once '../includes/admin-header.php';
-    require_once '../includes/sidebar.php';
-    require_once '../includes/topnav.php';
+    require_once '../includes/admin-sidebar.php';
+    require_once '../includes/admin-topnav.php';
 ?>
 
 
 <!--HISTORY START-->
-<section>
-    <div class="table-container" >
-        <div class="table-heading" >
-            <h3 class="table-title">History</h3>
-            <button class="button" id="add-new">Add New Content</button>
-        </div>
-        <table id="misvis-table" class="table display">
+<div class="gpt-table-container">
+            <div class="add-button-container">
+                <button class="gpt-add-button" id="add-new">Add New Content</button>
+            </div>
+            <table class="admin-table">
             <thead>
-                <tr>
+                <tr class="tr">
                     <th>#</th>
-                    <th>Thumbnail</th>
-                    <th>Title</th>
-                    <th>Description</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Organization</th>
+                    <th>Position</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -41,15 +41,16 @@
         
         <div id="edit-modal" class="modal"></div>
 
-<div id="add-modal" class="modal">
-    <div class="modal-content">
+<div id="add-modal" class="admin-modal">
+    <div class="admin-modal-content">
         <span class="close">&times;</span>
-        <h3 class="modal-title">Add New Content</h3>
+        <h3 class="admin-modal-title">Add New Admin</h3>
         <hr>
         <form id="addform" class="form-class" method="post" enctype="multipart/form-data">
-            <label for="history_title" class="form-label">Content Title</label>
+            
+            <label for="admin_name" class="form-label">Name</label>
             <div class="input-group">
-                <input class="form-control" type="text" name="history_title" id="history_title" required>
+                <input class="form-control" type="text" name="admin_name" id="admin_name" required>
             </div>
             
             <label for="file">Upload Image</label>
@@ -61,13 +62,18 @@
                 <input type="file" name="fileupload" id="fileupload" accept="image/*" onchange="showPreview(event)" required>
             </div>
 
-            <label for="history_description" class="form-label">Image Description</label>
+            <label for="admin_organization" class="form-label">Organization</label>
             <div class="input-group">
-                <textarea class="form-control" type="text" name="history_description" id="history_description" rows="4" cols="50" required> </textarea>
+                <input class="form-control" type="text" name="admin_organization" id="admin_organization" required>
+            </div>
+
+            <label for="admin_position" class="form-label">Position</label>
+            <div class="input-group">
+                <input class="form-control" type="text" name="admin_position" id="admin_position" required> 
             </div>
 
             <div class="input-group">
-                <input type="submit" id="submit" name="submit" value="Save Image" class="form-btn btn-primary">
+                <input type="submit" id="submit" name="submit" value="Save" class="form-btn btn-primary">
                 <input type="reset" id="btn-reset" name="btn-reset" hidden>
             </div>
         </form>
@@ -93,7 +99,7 @@
 <script src="js/script.js"></script>    
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="../js/history.js"></script>
+<script src="../js/administration.js"></script>
 
 
        

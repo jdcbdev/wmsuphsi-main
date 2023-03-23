@@ -20,50 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `phsi`
 --
-
--- --------------------------------------------------------
---
---
--- Table structure for table `user_type`
---
-
-CREATE TABLE `user_type` (
-  `id` int(11) NOT NULL,
-  `None` int(11) DEFAULT NULL,
-  `WMSU Student` int(11) DEFAULT NULL,
-  `WMSU Alumni` int(11) DEFAULT NULL,
-  `WMSU Employee` int(11) DEFAULT NULL,
-  `Crimson Peace Mediators` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `user_type`
---
-
-
-
-
---
--- Indexes for table `user_type`
---
-ALTER TABLE `user_type`
-  ADD PRIMARY KEY (`id`); 
-  
---
--- AUTO_INCREMENT for dumped tables
---
---
---
--- AUTO_INCREMENT for table `user_type`
---
-ALTER TABLE `user_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-COMMIT;
-
--- --------------------------------------------------------
-
--- --------------------------------------------------------
---
 -- --------------------------------------------------------
 --
 --
@@ -280,13 +236,6 @@ ALTER TABLE `rsvp`
   MODIFY `rsvp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 -- --------------------------------------------------------
-
-
-
-
-
-
-
 --
 --
 -- Table structure for table `history`
@@ -370,8 +319,8 @@ CREATE TABLE `user_acc_data` (
   `id` int(11) NOT NULL,
   `profile_picture`varchar(255) NOT NULL,
   `background_image`varchar(255) NOT NULL,
-  `identification_card`varchar(255) NOT NULL,
-  `selfie_image`varchar(255) NOT NULL,
+  `verify_one`varchar(255) NOT NULL,
+  `verify_two`varchar(255) NOT NULL,
   `firstname`varchar(50) NOT NULL,
   `middlename`varchar(50) DEFAULT NULL,
   `lastname`varchar(50) NOT NULL,
@@ -386,19 +335,19 @@ CREATE TABLE `user_acc_data` (
   `bldg_house_no` varchar(50) DEFAULT NULL,
   `username`varchar(50) NOT NULL,
   `password`varchar(50) NOT NULL,
-  `user_class`varchar(50) NOT NULL,
-  `type`varchar(50) NOT NULL,
-  `role` varchar(50) NOT NULL
+  `role` varchar(50) NOT NULL,
+  `is_agree`varchar(50) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `organization`varchar(50) NOT NULL,
+  `member_type` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_acc_data`
 --
-INSERT INTO `user_acc_data` (`id`, `profile_picture`, `background_image`, `firstname`, `middlename`, `lastname`, `suffix`, `sex`, `email`, `contact_number`, `province`, `city`, `barangay`, `street_name`, `bldg_house_no`, `username`, `password`, `role`) VALUES
-(1, 'meeee.jpg', 'uu7.jpg', 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjaymalaga990@gmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', '', 'super_admin', 'janus', 'super_admin'),
-(2, 'pic-1.png', 'uu7.jpg', 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjaymalaga990@gmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', '', 'user', 'janus', 'user');
-
-
+INSERT INTO `user_acc_data` (`id`, `profile_picture`, `background_image`, `verify_one`, `verify_two`, `firstname`, `middlename`, `lastname`, `suffix`, `sex`, `email`, `contact_number`, `province`, `city`, `barangay`, `street_name`, `bldg_house_no`, `username`, `password`, `role`, `is_agree`, `status`, `organization`, `member_type`) VALUES
+(1, 'meeee.jpg', 'phsi-carousel.jpg', 'rj1.jpg', 'rj2.jpg', 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjay.malagagmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', '', 'arjay', 'arjay', 'super_admin', 'Yes', 'Pending', 'None', 'Student'),
+(2, 'user-icon.png', 'phsi-carousel.jpg', 'jer1.jpg', 'jer2.jpg', 'Jericho', 'Bello', 'Sagdi', '', 'Male', 'jericho.sagdi@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'jericho', 'jericho', 'user', 'Yes', 'Pending', 'Student', 'Not');
 
 
 --

@@ -12,16 +12,16 @@
         //start of loop
     ?>
     
-    <tr>
+    <tr class="tr">
     <!-- always use echo to output PHP values -->
     <td><?php echo $i ?></td>
-    <td><img src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['carousel_title']; ?>"></td>
+    <td><img src="../uploads/<?php echo $value['filename']; ?> " alt="<?php echo $value['carousel_title']; ?>" ></td>
     <td><?php echo $value['carousel_title'] ?></td>
     <td><?php echo $value['carousel_content'] ?></td>
     <td>
         <div class="action">
-            <a class="action-edit" id="edit" value="<?php echo $value['id']; ?>">Edit</a>
-            <a class="action-delete" id="delete" value="<?php echo $value['id']; ?>">Delete</a>
+            <a class="green" id="edit" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a> <br>
+            <a class="green" id="delete" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-trash-can"></i></a>
         </div>
     </td>
 </tr>

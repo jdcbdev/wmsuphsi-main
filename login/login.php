@@ -25,8 +25,14 @@
         $output = $user -> login();
 
         if ($output) {
+            $_SESSION['verify_one'] = $output['verify_one'];
+            $_SESSION['verify_two'] = $output['verify_two'];
             $_SESSION['profile_picture'] = $output['profile_picture'];
             $_SESSION['background_image'] = $output['background_image'];
+            $_SESSION['organization'] = $output['organization'];
+            $_SESSION['member_type'] = $output['member_type'];
+            $_SESSION['is_agree'] = $output['is_agree'];
+            $_SESSION['status'] = $output['status'];
             $_SESSION['fullname'] = $output['firstname'] . ' ' . $output['middlename'].' '.$output['lastname'].' '.$output['suffix'];
             $_SESSION['fulladdress'] = $output['province'] . ' ' . $output['city'].' '.$output['barangay'].' '.$output['street_name'].' '.$output['bldg_house_no'];
             $_SESSION['sex'] = $output['sex'];
@@ -46,7 +52,7 @@
                     3. UNESCO Content Admin - This admin can only access the dashboard but is limited to content management system of their organization. This admin can't assign role.  
                 */
                 if($output['role'] == 'super_admin' || $output['role'] == 'unesco_admin' || $output['role'] == 'unesco_content_admin' || $output['role'] == 'phsi_admin' || $output['role'] == 'phsi_content_admin'){
-                    header('location: ../admin/dashboard.php');
+                    header('location: ../admin/admin.php');
                 /*
                     If the role is equal to 'user' - the system will redirect this 'user' to the home page of the system (not in the dashboard).
                 */

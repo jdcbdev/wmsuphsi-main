@@ -11,25 +11,23 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
-    $news_page = 'active';
+    $page_title = 'PHSI Carousel | WMSU - Peace and Human Security Institute';
+    $phsi_carousel = 'active';
     require_once '../includes/admin-header.php';
-    require_once '../includes/sidebar.php';
-    require_once '../includes/topnav.php';
+    require_once '../includes/admin-sidebar.php';
+    require_once '../includes/admin-topnav.php';
 ?>
 
-<!--MISSION AND VISION START-->
-<section>
-    <div class="table-container" >
-        <div class="table-heading" >
-            <h3 class="table-title">News and Features</h3>
-            <button class="button" id="add-new">Add New Content</button>
-        </div>
-        <table id="news-table" class="table display">
-            <thead>
-                <tr>
+<!--HOME CAROUSEL-->
+<div class="gpt-table-container">
+            <div class="add-button-container">
+                <button class="gpt-add-button" id="add-new">Add New Content</button>
+            </div>
+            <table class="admin-table">
+                <thead>
+                <tr class="tr">
                     <th>#</th>
                     <th>Thumbnail</th>
-                    <th>Description</th>
                     <th>Title</th>
                     <th>Content</th>
                     <th>Action</th>
@@ -41,15 +39,15 @@
         
         <div id="edit-modal" class="modal"></div>
 
-<div id="add-modal" class="modal">
-    <div class="modal-content">
+<div id="add-modal" class="admin-modal">
+    <div class="admin-modal-content">
         <span class="close">&times;</span>
-        <h3 class="modal-title">Add New Content</h3>
+        <h3 class="admin-modal-title">Add New Content</h3>
         <hr>
         <form id="addform" class="form-class" method="post" enctype="multipart/form-data">
-            <label for="news_title" class="form-label">News Title</label>
+            <label for="carousel_title" class="form-label">Content Title</label>
             <div class="input-group">
-                <input class="form-control" type="text" name="news_title" id="news_title" required>
+                <input class="form-control" type="text" name="carousel_title" id="carousel_title">
             </div>
             
             <label for="file">Upload Image</label>
@@ -61,14 +59,9 @@
                 <input type="file" name="fileupload" id="fileupload" accept="image/*" onchange="showPreview(event)" required>
             </div>
 
-            <label for="image_description" class="form-label">Image Description</label>
+            <label for="carousel_content" class="form-label">Image content</label>
             <div class="input-group">
-                <textarea class="form-control" type="text" name="image_description" id="image_description" rows="4" cols="50" required> </textarea>
-            </div>
-
-            <label for="news_content" class="form-label">News Content</label>
-            <div class="input-group">
-                <textarea class="form-control" type="text" name="news_content" id="news_content" rows="4" cols="50" required> </textarea>
+                <textarea class="form-control" type="text" name="carousel_content" id="carousel_content" rows="4" cols="50"> </textarea>
             </div>
 
             <div class="input-group">
@@ -79,7 +72,7 @@
     </div>
 </div>
 </section>
-<!--MISSION AND VISION END-->
+<!--HOME CAROUSEL END-->
 
 
 
@@ -100,7 +93,7 @@
 <script src="js/script.js"></script>    
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="../js/news.js"></script>
+<script src="../js/carousel.js"></script>
 
 
 

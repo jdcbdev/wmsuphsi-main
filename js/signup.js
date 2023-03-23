@@ -23,17 +23,17 @@ $(document).on('click', 'span.close', function(e){
     $("#add-modal").css('display', 'none');
 });
 
-function showProfile(event){
+function showDisplayOne(event){
     if(event.target.files.length > 0){
         var src = URL.createObjectURL(event.target.files[0]);
-        $("#profile-preview").attr('src', src);
+        $("#preview-one").attr('src', src);
     }
 }
 
-function showBackground(event){
+function showDisplayTwo(event){
     if(event.target.files.length > 0){
         var src = URL.createObjectURL(event.target.files[0]);
-        $("#background-preview").attr('src', src);
+        $("#preview-two").attr('src', src);
     }
 }
 

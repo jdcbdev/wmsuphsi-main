@@ -10,7 +10,7 @@
    $userData = $user -> fetch($_SESSION['user_id']);
 
    if(isset($_POST['submit'])) {
-      var_dump($_POST);
+      //var_dump($_POST);
 
       // TABULATE DATA TO USER OBJECT
       $user -> user_id = $_SESSION['user_id'];

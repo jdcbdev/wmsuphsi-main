@@ -21,8 +21,8 @@
     <td><?php echo $value['admin_position'] ?></td>
     <td>
         <div class="action">
-            <a class="action-edit" id="edit" value="<?php echo $value['id']; ?>">Edit</a>
-            <a class="action-delete" id="delete" value="<?php echo $value['id']; ?>">Delete</a>
+                <a class="green" id="edit" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a> <br>
+                <a class="green" id="delete" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-trash-can"></i></a>
         </div>
     </td>
 </tr>

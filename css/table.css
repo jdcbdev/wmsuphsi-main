@@ -1,0 +1,106 @@
+.gpt-table-container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 0 20px auto;
+    padding: 20px;
+  }
+  
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  .tr th, .tr td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #e9e4e4;
+  }
+  
+  .tr th {
+    font-weight: bold;
+  }
+  
+  .tr tbody .tr td:first-child {
+    font-weight: bold;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  .add-button-container {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  
+  .gpt-add-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #107869;  
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .admin-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .tr th, .tr td {
+      display: inline-block;
+    }
+    .tr td:first-child {
+      display: none;
+    }
+    .tr th:first-child, .tr td:first-child {
+      display: block;
+      font-weight: normal;
+      text-align: center;
+    }
+    .tr th:first-child {
+      margin-top: 20px;
+    }
+    .add-button-container {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+  }
+  
+
+.tr .action{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.action td a{
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    margin: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+a.action-edit{
+    background-color: orange;
+}
+  
+a.action-delete{
+    background-color: rgb(211, 79, 79);
+}
+
+a.action-view{
+    background-color: rgb(35, 190, 241);
+}
+  
+a.action-edit:hover, a.action-delete:hover,  a.action-view:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}

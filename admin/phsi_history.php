@@ -11,26 +11,28 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
-    $home_carousel = 'active';
+    $page_title = 'PHSI History | WMSU - Peace and Human Security Institute';
+    $phsi_history = 'active';
     require_once '../includes/admin-header.php';
-    require_once '../includes/sidebar.php';
-    require_once '../includes/topnav.php';
+    require_once '../includes/admin-sidebar.php';
+    require_once '../includes/admin-topnav.php';
 ?>
 
-<!--HOME CAROUSEL-->
+
+<!--HISTORY START-->
 <section>
     <div class="table-container" >
         <div class="table-heading" >
-            <h3 class="table-title">MANAGE CAROUSEL</h3>
+            <h3 class="table-title">History</h3>
             <button class="button" id="add-new">Add New Content</button>
         </div>
-        <table id="carousel-table" class="table display">
+        <table id="misvis-table" class="table display">
             <thead>
                 <tr>
                     <th>#</th>
                     <th>Thumbnail</th>
                     <th>Title</th>
-                    <th>Content</th>
+                    <th>Description</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -46,9 +48,9 @@
         <h3 class="modal-title">Add New Content</h3>
         <hr>
         <form id="addform" class="form-class" method="post" enctype="multipart/form-data">
-            <label for="carousel_title" class="form-label">Content Title</label>
+            <label for="history_title" class="form-label">Content Title</label>
             <div class="input-group">
-                <input class="form-control" type="text" name="carousel_title" id="carousel_title">
+                <input class="form-control" type="text" name="history_title" id="history_title" required>
             </div>
             
             <label for="file">Upload Image</label>
@@ -60,9 +62,9 @@
                 <input type="file" name="fileupload" id="fileupload" accept="image/*" onchange="showPreview(event)" required>
             </div>
 
-            <label for="carousel_content" class="form-label">Image content</label>
+            <label for="history_description" class="form-label">Image Description</label>
             <div class="input-group">
-                <textarea class="form-control" type="text" name="carousel_content" id="carousel_content" rows="4" cols="50"> </textarea>
+                <textarea class="form-control" type="text" name="history_description" id="history_description" rows="4" cols="50" required> </textarea>
             </div>
 
             <div class="input-group">
@@ -73,9 +75,7 @@
     </div>
 </div>
 </section>
-<!--HOME CAROUSEL END-->
-
-
+<!--HISTORY END-->
 
 
 
@@ -94,8 +94,7 @@
 <script src="js/script.js"></script>    
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="../js/carousel.js"></script>
-
+<script src="../js/history.js"></script>
 
 
        

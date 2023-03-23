@@ -11,10 +11,11 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
-    $events_management = 'active';
+    $page_title = 'PHSI Events | WMSU - Peace and Human Security Institute';
+    $phsi_events = 'active';
     require_once '../includes/admin-header.php';
-    require_once '../includes/sidebar.php';
-    require_once '../includes/topnav.php';
+    require_once '../includes/admin-sidebar.php';
+    require_once '../includes/admin-topnav.php';
 ?>
 
 <!--MISSION AND VISION START-->
@@ -30,18 +31,9 @@
                     <th>#</th>
                     <th>Event Name</th>
                     <th>Banner</th>
-                    <!--<th>About</th>-->
-                    <!--<th>Mode</th>-->
                     <th>Type</th>
-                    <!--<th>Where</th>-->
                     <th>When</th>
-                    <!--<th>From - To</th>-->
-                    <!--<th>To</th>-->
                     <th>Slots</th>
-                    <!--<th>Scope</th>-->
-                    <!--<th>Platform</th>-->
-                    <!--<th>Agenda</th>-->
-                    <!--<th>End Registration</th>-->
                     <th>Status</th>
                     <th>Action</th>
                 </tr>

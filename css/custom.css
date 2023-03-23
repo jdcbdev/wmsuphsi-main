@@ -1,10 +1,11 @@
 *, body{
     font-family: 'Lato', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
 }
 
+
+
 main{
-    background-image: url(../images/carousel-images/phsi-carousel.jpg);
     background-size: cover;
     background-position: initial;
     width: 100%;
@@ -153,24 +154,32 @@ upload-container{
     width: 0;
 }
 
-.next-button, .back-button{
+button.next-button, a.back-button{
     max-width: 100px;
 }
 
-.back-button:hover, .back-button:focus{
+button.next-button.submit{
+    max-width: 120px;
+    width: 120px;
+}
+
+a.back-button:hover, a.back-button:focus{
     background-color: #107869;
 }
 
-.next-button:hover, .next-button:focus{
+button.next-button:hover, button.next-button:focus{
     opacity: 0.9;
 }
 
-.logout-link{
+#logout-link{
     text-decoration: none;
     color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-.logout-link:hover, .logout-link:focus{
+#logout-link:hover, #logout-link:focus{
     text-decoration: none;
     color: white;
 }
@@ -267,7 +276,7 @@ p.justify{
 
 .background-color-green{
     background-color: #107869 !important;
-    border: #107869;
+    border-color: #107869;
 }
 
 .btn-login{
@@ -319,6 +328,59 @@ ul.application .counter{
     line-height: 15px;
 }
 
+ul.application #add-account{
+    position: sticky;
+    left: 100%;
+    font-weight: 300;
+}
+
+ul.application a.nav-link{
+    color: #107869;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+ul.application .counter{
+    background-color: #107869;
+    color: white;
+    margin: 0 0 0 4px;
+    padding: 5px;
+    border-radius: 100%;
+    line-height: 8px;
+    height: 20px;
+}
+
+ul.application #counter-pending{
+    background-color: #FFC107;
+    color: white;
+    margin: 0 0 0 4px;
+    padding: 5px;
+    border-radius: 100%;
+    line-height: 8px;
+    height: 20px;
+}
+
+ul.application #counter-verified{
+    background-color: #2196f3;
+    color: white;
+    margin: 0 0 0 4px;
+    padding: 5px;
+    border-radius: 100%;
+    line-height: 8px;
+    height: 20px;
+}
+
+ul.application #counter-all{
+    background-color:  #107869;
+    color: white;
+    margin: 0 0 0 4px;
+    padding: 5px;
+    border-radius: 100%;
+    line-height: 8px;
+    height: 20px;
+}
+
+
 .page-item.active .page-link{
     background-color: #107869;
     border-color: #107869;
@@ -329,40 +391,70 @@ ul.application .counter{
     color: #107869
 }
 
-.status-pending{
-    background-color: darkorange;
+.status-Pending{
+    background-color: #FFC107;
     padding: 6px;
     border-radius: 8px;
     color: white;
 }
 
-.status-qualified{
-    background-color: #107869;
+
+.status-Verified{
+    background-color:  #2196f3;
     padding: 6px;
     border-radius: 8px;
     color: white;
 }
 
-.status-declined{
-    background-color: #c51244;
+.org-unesco{
+    background-color:  #800000;
     padding: 6px;
     border-radius: 8px;
     color: white;
 }
 
-.status-interview{
-    background-color: #3367D6;
+.org-phsi{
+    background-color:  #107869;
     padding: 6px;
     border-radius: 8px;
     color: white;
 }
 
-.status-approved{
-    background-color: #107869;
+.org-none{
+    background-color:  rgb(203, 201, 201);
     padding: 6px;
     border-radius: 8px;
     color: white;
 }
+
+.type-Student{
+    background-color: #255e79 ;
+    padding: 6px;
+    border-radius: 8px;
+    color: white;
+}
+
+.type-Employee{
+    background-color: #82b4bb ;
+    padding: 6px;
+    border-radius: 8px;
+    color: white;
+}
+
+.type-Alumni{
+    background-color: #ac3c60 ;
+    padding: 6px;
+    border-radius: 8px;
+    color: white;
+}
+
+.type-Not{
+    background-color: #afa49d;
+    padding: 6px;
+    border-radius: 8px;
+    color: white;
+}
+
 
 td div.action-button{
     margin-left: 4px;
@@ -373,11 +465,11 @@ td div.action-button{
     align-items: center;
 }
 
-.table-filter-option{
+.table-filter-option {
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .table-container{
@@ -387,6 +479,40 @@ td div.action-button{
 table#table-pending tr td{
     vertical-align: middle;
 }
+
+table#table-faculty tr td{
+    vertical-align: middle;
+}
+
+table#table-interview tr td{
+    vertical-align: middle;
+}
+
+table#table-ranking tr td{
+    vertical-align: middle;
+}
+
+table#table-qualified tr td{
+    vertical-align: middle;
+}
+
+table#table-all tr td{
+    vertical-align: middle;
+}
+
+table#table-waiting tr td{
+    vertical-align: middle;
+}
+
+table#table-withdrawn tr td{
+    vertical-align: middle;
+}
+
+table#table-dashboard-student tr td{
+    vertical-align: middle;
+}
+
+
 
 .faculty h4{
     font-size: 1.3rem !important;
@@ -501,29 +627,26 @@ footer p, footer p a{
 main#home{
     margin-top: 0;
     padding-top: 0;
-    
 }
 
-div.card{
+ div.card{
     border: 1px solid lightgray;
     border-radius: none;
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     background: rgba(255,255,255,0.35);
     backdrop-filter: blur(9px);
-    cursor: pointer;
+    cursor: pointer;    
 }
 
-div.card.active {
+ div.card.active {
     -webkit-box-shadow: 0 0 40px #107869;
        -moz-box-shadow: 0 0 40px #107869;
             box-shadow: 0 0 40px #107869;
 }
 
-
 div.sign-up{
     max-width: 500px;
     padding-top: 1.5rem;
-    border: none;
 }
 
 div.sign-in{
@@ -544,7 +667,7 @@ div.card-hover{
     background-color: #F2F7F2;
 }
 
-div.card:hover{
+ div.card:hover{
     border: 1px solid #107869;
     background-color: #F2F7F2;
 }
@@ -577,7 +700,7 @@ p.continue{
     border-radius: 20px;
 }
 
-body#sign-up #container-parent{
+body #container-parent{
     height: calc(100vh);
 }
 
@@ -596,7 +719,7 @@ div.sign-in p.continue-google .fa-google{
     float: left;
 }
 
-body#sign-up{
+body .sign-up{
     padding-top: 0;
     padding-bottom: 3rem;
 }
@@ -817,6 +940,145 @@ input.upload-photo{
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 
+.instructions{
+    padding: 0 30px;
+}
+
+div.question-group .form-label{
+    margin-top: .25rem;
+}
+
+#form-settings .form-switch{
+    padding-left: 2.8em;
+}
+
+.apply-settings{
+    width: 100%;
+}
+
+.fab {
+    display: inline-block;
+    background-color: #107869;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+    z-index: 999;
+}
+  
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+  
+.fab i {
+    font-size: 24px;
+    line-height: 60px;
+}
+
+.card-title-total{
+    font-size: 18px;
+}
+
+.card-text-number{
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.view-all{
+    text-decoration: none;
+    color: #107869;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+span.pending{
+    background-color: #ffa500;
+    padding: 5px;
+    color: white;
+    border-radius: 6px;
+}
+
+span.interview{
+    background-color: #3367D6;
+    padding: 5px;
+    color: white;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+span.rejected{
+    background-color: #c51244;
+    padding: 5px;
+    color: white;
+    border-radius: 6px;
+}
+
+span.approved{
+    background-color: #107869;
+    padding: 5px;
+    color: white;
+    border-radius: 6px;
+}
+
+.chart-container {
+    height: 400px !important;
+    overflow: scroll;
+}
+
+.modal-open {
+    padding-right: 0 !important;
+    /* overflow: visible !important; */
+}
+
+.photo-holder{
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.photo-1{
+    background-image: url('../img/upload_files/cet.jpg');
+}
+
+.photo-2{
+    background-image: url('../img/upload_files/shs.jpeg');
+}
+
+.modal {
+    z-index: 1040;
+}
+
+.modal-backdrop{
+    z-index: 1039;
+}
+
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before{
+    background-color: #107869
+}
+
+.white{
+    color: white;
+}
+
+#keyword {
+    margin-left: 1px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.border-white{
+    border-right: 2px solid white;
+}
+
 @media (min-width: 576px) {
     .shortcut{
         display: block;
@@ -870,8 +1132,13 @@ input.upload-photo{
         height: 180px;
     }
 
-    .next-button, .back-button{
+    button.next-button, a.back-button{
         max-width: 100px;
+    }
+
+    button.next-button.submit{
+        max-width: 120px;
+        width: 120px;
     }
 
     .bd-placeholder-img-lg {
@@ -895,9 +1162,20 @@ input.upload-photo{
     .background-color-green-visible{
         background-color: white;
     }
+
+    .apply-settings{
+        width: fit-content;
+    }
+    
 }
 
 @media (min-width: 992px) {
+    .search-keyword{
+        width: auto;
+        max-width: 200px;
+        margin-left: 12px;
+    }
+
     .logo-name{
         font-size: 1.4rem;
     }
@@ -906,7 +1184,7 @@ input.upload-photo{
         height: 400px;
     }
 
-    .upload-container{
+    upload-container{
         height: 200px;
     }
 
@@ -946,3 +1224,295 @@ input.upload-photo{
         width: 33.3%;
     }
 }
+
+@media (min-width: 1024px) {
+    .search-keyword{
+        width: auto;
+        max-width: 300px;
+        margin-left: 12px;
+    }
+}
+
+
+td .client {
+    display: flex;
+    align-items: center;
+}
+
+td .client .client-img {
+    margin-right: .5rem;
+    border: 1px solid #9a8c8c;
+    height: 45px;
+    width: 45px;   
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    background-size: cover; 
+}
+
+.client-info h4 {
+    color: #555;
+    font-size: .95rem;
+    margin-bottom: 0px;
+}
+
+.client-info small {
+    color: #777;
+}
+
+
+
+
+.content{
+    margin: 30px;
+    width: 50%;
+    left: 20%;
+    position: sticky;
+}
+  
+.content .sub-title{
+    font-size: 25px;
+    font-weight: 400;
+    position: relative;
+    margin-top: 1.5rem;
+}
+
+.content .sub-title .back{
+    text-decoration: none;
+    color: #107869;
+    padding-left: 55%;
+}
+  
+.content .sub-title span{
+    font-size: 15px;
+}
+
+.content form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+form .input-box span.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+  
+form .input-box span.details-opt{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+  
+form .input-box span.details::after{
+    content: " *";
+    color: red;
+}
+  
+form .input-box .details-opt::after{
+    content: " *";
+    color: red;
+    display: none;
+}
+  
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+  
+.user-details .input-box select{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+  
+.user-details .input-box input:focus
+  /*.user-details .input-box input:valid*/{
+    border-color: var(--color-green);
+}
+   
+form .gender-details .gender-title{
+    font-size: 14px;
+    font-weight: 500;
+}
+  
+form .category{
+    display: flex;
+    width: 25%;
+    margin: 14px 0 ;
+    justify-content: space-between;
+}
+  
+form .category label{
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+}
+  
+form .category label .dot{
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background: #d9d9d9;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+}
+  
+form .category .gender{
+    font-size: 14px;
+}
+  
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three{
+    background: var(--color-green);
+    border-color: #d9d9d9;
+}
+   
+form input[type="radio"]{
+    display: none;
+}
+  
+form .button{
+    margin: 35px 0;
+    padding: 10px;
+}
+  
+form .button input{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #a5a5a5;
+    color: #107869;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    padding: 10px;
+}
+  
+form .button input:hover{
+   background: #107869;
+   color: white;
+} 
+
+/*--
+
+.admin-table-container{
+    padding: 40px;
+    margin-left: 14rem;
+  }
+
+.admin-table-heading{
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.admin-table-tile {
+    font-size: 20px;
+    text-align: left;
+    color: #333;
+    margin: 20px 0;
+    display: inline;
+}
+
+.admin-button{
+    width: fit-conten;
+    background-color: #107869;  
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+
+}
+
+.admin-table {
+    border-collapse: collapse;
+    border: 2px solid black;
+    text-align: left;
+    width: 100%;
+    overflow: auto;
+}
+
+.action{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.action td a{
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    margin: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+a.action-edit{
+    background-color: orange;
+}
+  
+a.action-delete{
+    background-color: rgb(211, 79, 79);
+}
+
+a.action-view{
+    background-color: rgb(35, 190, 241);
+}
+  
+a.action-edit:hover, a.action-delete:hover,  a.action-view:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-img {
+    border: 1px solid #9a8c8c;
+    height: 50px;
+    width: 100%;
+}
+
+.carousel-img .cr-img img {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carousel-info h4 {
+    color: #555;
+    font-size: .95rem;
+}
+
+.carousel-info small {
+    color: #777;
+} --*/

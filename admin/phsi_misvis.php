@@ -11,10 +11,11 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
-    $misvis_page = 'active';
+    $page_title = 'PHSI Mission and Vision | WMSU - Peace and Human Security Institute';
+    $phsi_misvis = 'active';
     require_once '../includes/admin-header.php';
-    require_once '../includes/sidebar.php';
-    require_once '../includes/topnav.php';
+    require_once '../includes/admin-sidebar.php';
+    require_once '../includes/admin-topnav.php';
 ?>
 
 <!--MISSION AND VISION START-->

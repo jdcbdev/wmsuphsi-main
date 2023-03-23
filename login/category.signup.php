@@ -34,26 +34,26 @@
         <div class="row card-container">
             <div class="col card mt-3 py-3 card-1">
                 <!--<i class="fa-solid fa-people-line green"></i>-->
-                <h3 class="text-start fw-bold mt-3">I am a WMSU student</h3>
-                <p class="justify">Bonafide student of Western Mindanao State University.</p>
+                <h3 class="text-start fw-bold mt-3">WMSU Student</h3>
+                <p class="justify">This option is for individuals who are currently studying or enrolled in any of the academic programs offered by WMSU.</p>
             </div>
             <div class="separator"></div>
             <div class="col card mt-3 py-3 card-2">
                 <!--<i class="fa-solid fa-right-left green"></i>-->
-                <h3 class="text-start fw-bold mt-3">I am a WMSU employee</h3>
-                <p class="justify">Bonafide employee of Western Mindanao State University.</p>
+                <h3 class="text-start fw-bold mt-3">WMSU Employee</h3>
+                <p class="justify">This option is for individuals who are currently working at WMSU or any of its affiliated organizations.</p>
             </div>
             <div class="separator"></div>
-            <div class="col card mt-3 py-3 card-3s">
+            <div class="col card mt-3 py-3 card-3">
                 <!--<i class="fa-solid fa-right-left green"></i>-->
-                <h3 class="text-start fw-bold mt-3">I am a WMSU alumni</h3>
-                <p class="justify">Graduates of Western Mindanao State Univesity.</p>
+                <h3 class="text-start fw-bold mt-3">WMSU Alumni </h3>
+                <p class="justify">This option is for individuals who have previously graduated or completed a program of study at WMSU.</p>
             </div>
             <div class="separator"></div>
             <div class="col card mt-3 py-3 card-4">
                 <!--<i class="fa-solid fa-right-left green"></i>-->
-                <h3 class="text-start fw-bold mt-3">I am not a WMSU chcuhu</h3>
-                <p class="justify">Mga outsider lang to dito pero wants to have an account.</p>
+                <h3 class="text-start fw-bold mt-3">Non-WMSU Affiliated User</h3>
+                <p class="justify">This option is for individuals who do not fit into any of the 3 options.</p>
             </div>   
         </div>
         <div class="row mt-3">
@@ -89,8 +89,8 @@
             });
             $('.card-3').on('click', function(){
                 $('.card-3').addClass('card-hover');
+                $('.card-1').removeClass('card-hover');
                 $('.card-2').removeClass('card-hover');
-                $('.card-3').removeClass('card-hover');
                 $('.card-4').removeClass('card-hover');
                 link = 'signup-alumni.php';
             });
