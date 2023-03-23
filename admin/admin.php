@@ -11,33 +11,10 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
-    require_once '../classes/basic.database.php';
     require_once '../tools/variables.php';
     $page_title = 'Admin Dasdboard | WMSU - Peace and Human Security Institute';
     $dashboard = 'active';
 
-    $users = array();
-    $news = array();
-    $events = array();
-    
-    $accountQuery = $db->query("SELECT COUNT(id) AS total_account FROM user_acc_data");
-    
-    while($row = $accountQuery->fetchObject()){
-        $users[] = $row->total_account;
-    }
-    
-    $newsQuery = $db->query("SELECT COUNT(id) AS total_account FROM news");
-    
-    while($row = $newsQuery->fetchObject()){
-        $news[] = $row->total_account;
-    }
-    
-    $eventQuery = $db->query("SELECT COUNT(id) AS total_account FROM event");
-    
-    while($row = $eventQuery->fetchObject()){
-        $events[] = $row->total_account;
-    }
-    
     
 
     require_once '../includes/admin-header.php';
@@ -55,22 +32,19 @@
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 align-items-stretch">
                     <div class="col d-flex flex-column">
                         <div class="card flex-grow-1">
-                        <?php foreach($users as $user){ ?>
                             <div class="card-body d-flex flex-column">
                             
                                 <h5 class="card-title card-title-total">Total Accounts</h5>
-                                <p class="card-text card-text-number"><?php echo $user; ?></p>
+                                <p class="card-text card-text-number">0</p>
                                 <p class="mb-0 mt-auto">
                                     <a class="view-all" href="">View All</a>
                                 </p>
                                
                             </div>
-                            <?php } ?>
                         </div>
                     </div>
                     <div class="col d-flex flex-column">
                         <div class="card flex-grow-1">
-                        <?php foreach($events as $event){ ?>
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title card-title-total">Total Events</h5>
                                 <p class="card-text card-text-number">0</p>
@@ -78,11 +52,9 @@
                                     <a class="view-all" href="">View All</a>
                                 </p>
                             </div>
-                            <?php } ?>
                         </div>
                     </div>
                     <div class="col d-flex flex-column">
-                    <?php foreach($news as $new){ ?>
                         <div class="card flex-grow-1">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title card-title-total">Total News</h5>
@@ -91,11 +63,9 @@
                                     <a class="view-all" href="">View All</a>
                                 </p>
                             </div>
-                            <?php } ?>
                         </div>
                     </div>
                     <div class="col d-flex flex-column">
-                    <?php foreach($users as $user){ ?>
                         <div class="card flex-grow-1">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title card-title-total">Pending Applications</h5>
@@ -104,7 +74,6 @@
                                     <a class="view-all" href="">Review Now</a>
                                 </p>
                             </div>
-                            <?php } ?>
                         </div>
                     </div>
                 </div>
