@@ -1,4 +1,4 @@
-<?php
+   <?php
 
 	//resume session here to fetch session values
    $page_title = 'Upcoming Events | WMSU - Peace and Human Security Institute';
@@ -39,6 +39,7 @@
   </div>
 </div>
 </section>
+
 
 <section class="rsvp-container">
     <div class="rsvp-box">

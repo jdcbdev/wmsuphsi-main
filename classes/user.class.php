@@ -29,6 +29,8 @@ Class Users{
     public $verify_one;
     public $verify_two;
 
+
+
     protected $db;
 
     function __construct()
@@ -58,11 +60,10 @@ Class Users{
         VALUES (:profile_picture, :background_image, :verify_one, :verify_two, :firstname, :middlename, :lastname, :suffix, :sex, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :username, :password, :role, :is_agree, :status, :organization, :member_type);";
 
         $query=$this->db->connect()->prepare($sql);
+
         $query->bindParam(':profile_picture', $this->profile_picture);
         $query->bindParam(':background_image', $this->background_image);
         $query->bindParam(':firstname', $this->firstname);
-        $query->bindParam(':middlename', $this->middlename);
-        $query->bindParam(':lastname', $this->lastname);
         $query->bindParam(':middlename', $this->middlename);
         $query->bindParam(':lastname', $this->lastname);
         $query->bindParam(':suffix', $this->suffix);
