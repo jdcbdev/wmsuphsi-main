@@ -16,7 +16,7 @@
     require_once '../includes/admin-header.php';
     require_once '../includes/admin-sidebar.php';
     require_once '../includes/admin-topnav.php';
-?>
+?> 
 
 <!--HOME CAROUSEL-->
 <div class="gpt-table-container">
