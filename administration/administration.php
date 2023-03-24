@@ -9,13 +9,15 @@
    <p> <a href="../home.php">Home</a> / Administration </p>
 </section>
 
-<!-- teachers section starts  -->
+<!-- administration section starts  -->
 
-<section class="event-organizers">
+<section class="administration">
 
+   <h1 class="heading">WMSU - Peace and Human Security Institute</h1>
 
+   <div class="swiper administration-slider">
 
-   <div class="box-container container">
+      <div class="swiper-wrapper">
 
    <?php 
     require_once '../classes/administration_model.php';
@@ -27,25 +29,31 @@
     foreach ($administration->fetchAllRecords() as $value) { //start of loop
     ?>
 
-
-      <div class="box">
-         <img src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['admin_name']; ?>">
-         <div class="admin-info">
-         <h3><?php echo $value['admin_name'] ?></h3>
-         <p><?php echo $value['admin_position'] ?></p>
+         <div class="swiper-slide slide">
+            <div class="image">
+            <img src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['admin_name']; ?>">
+               <!--<div class="share">
+                  <a href="#" class="fab fa-facebook-f"></a>
+                  <a href="#" class="fab fa-twitter"></a>
+                  <a href="#" class="fab fa-instagram"></a>
+                  <a href="#" class="fab fa-linkedin"></a>
+               </div>-->
+            </div>
+            <div class="content">
+               <h3><?php echo $value['admin_name'] ?></h3>
+               <span><?php echo $value['admin_position'] ?></span>
+            </div>
          </div>
-      </div>
-      <?php
-   $i++;
-    }
-    //end loop
-?>
+         
+         <?php $i++; } ?>
 
-  
+         
+      </div>
    </div>
 
-
 </section>
+
+
 
 <!-- Administration Section Ends -->
 

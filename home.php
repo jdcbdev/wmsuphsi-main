@@ -1,4 +1,4 @@
-<?php
+   <?php
     //resume session here to fetch session values
     session_start();
 ?>
@@ -100,18 +100,66 @@
 <!------------------------------------------- Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES Start -------------------------------------------------------------------------------------------->
 <section class="free_content">
    <div class="image">
-      <img src="images/content-images/unesco-donations.png"alt="">
+      <img src="images/content-images/unesco-p2.jpg"alt="">
    </div>
    <div class="content">
-      <h3 class="about-title">Share and Save Life</h3>
-      <p>WMSU Youth Peace Mediator-UNESCO Club together with it's partnered organization: Rotaract Club of Metro Zamboanga, Jovenes Allianza De Zamboanga (JADZ), WMSU - Political Science Society (PSS) and Arts for Peace Education CALLS FOR DONATION for the affected individuals and families that happened yesterday (January 11, 2023) due to flash floods. This CALL FOR DONATION was supported by Western Mindanao State University and Peace and Human Security Institute office (PHSI). <br> <br>
-      We are knocking on your hearts to help those who are affected. Let us remind them that HOPE is still PRESENT.
-      </p>
-      <a href="free/callfordonations.php" class="btn">I want to donate</a>
+      <h3 class="about-title">WMSU UNESCO Club Member?</h3>
+      <p>As a member of WMSU UNESCO Club, make sure to stay informed about upcoming events and activities by hitting the button below. Don't miss out on the chance to be part of meaningful initiatives and engage with like-minded individuals.</p>
+      <a href="#" class="btn">I am a Peace Mediator</a>
    </div>
 </section>
 <!-------------------------------------------  Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES End -------------------------------------------------------------------------------------------->
 
+
+<section class="home-courses">
+
+   <h1 class="heading" style="font-size: 5rem;color: #41453e;"> CALL FOR ACTIONS</h1>
+
+   <div class="swiper home-courses-slider">
+
+      <div class="swiper-wrapper">
+
+         <div class="swiper-slide slide">
+            <div class="image">
+               <img src="images/content-images/unesco-p3.jpg" alt="">
+               <h3>Call for Donations</h3>
+            </div>
+            <div class="content">
+               <h3>Call for Donations</h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, ratione?</p>
+               <a href="#" class="btn">Donate</a>
+            </div>
+         </div>
+
+         <div class="swiper-slide slide">
+            <div class="image">
+               <img src="images/content-images/unesco-donations.png" alt="">
+               <h3>Call for Volunteers</h3>
+            </div>
+            <div class="content">
+               <h3>Call for Volunteers</h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, ratione?</p>
+               <a href="#" class="btn">Volunteer</a>
+            </div>
+         </div>
+
+         <div class="swiper-slide slide">
+            <div class="image">
+               <img src="images/content-images/peace-edukasyon.jpg" alt="">
+               <h3>Call for Donations</h3>
+            </div>
+            <div class="content">
+               <h3>Call for Donations</h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, ratione?</p>
+               <a href="#" class="btn">Donate</a>
+            </div>
+         </div>
+
+      </div>
+
+   </div>
+
+</section>
 
 
 <!--------------------------------------------- Announcements Section Start ----------------------------------------------------------------------------->
@@ -126,7 +174,7 @@
          <div class="content">
             <h3>In the Light of the Recent Flood in Zamboanga City</h3>
             <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="#" class="btn">read more</a>
+            <a href="#" class="btn">Read more</a>
          </div>
       </div>
 
@@ -138,7 +186,7 @@
          <div class="content">
             <h3>Harnessing our Peace Efforts: Towards Solidarity in Service</h3>
             <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="news/news-page.php" class="btn">read more</a>
+            <a href="news/news-page.php" class="btn">Read more</a>
          </div>
       </div>
 
@@ -150,7 +198,7 @@
          <div class="content">
          <h3>2022 UNESCO Club Outstanding Youth Leader (College Level)!</h3>
             <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="#" class="btn">read more</a>
+            <a href="#" class="btn">Read more</a>
          </div>
       </div>
 </section>

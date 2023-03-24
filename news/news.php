@@ -30,7 +30,7 @@
          <div class="content">
             <h3><?php echo $value['news_title']; ?></h3>
             <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="news-page.php" class="btn">read more</a>
+            <a href="news-page.php" class="btn">Read more</a>
          </div>
       </div>
 
