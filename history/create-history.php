@@ -1,11 +1,11 @@
 <?php
 
-    require_once '../classes/news_model.php';
+    require_once '../classes/history_model.php';
     require_once '../tools/functions.php';
 
-    $news = new News();
+    $history = new History();
 
-    $create = $news->insert();    
+    $create = $history->insert();    
 
 
 ?>

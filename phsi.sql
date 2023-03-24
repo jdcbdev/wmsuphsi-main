@@ -20,6 +20,13 @@ SET time_zone = "+00:00";
 --
 -- Database: `phsi`
 --
+
+
+
+
+
+
+
 -- --------------------------------------------------------
 --
 --
@@ -63,6 +70,48 @@ ALTER TABLE `event`
 ALTER TABLE `event`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
+
+-- --------------------------------------------------------
+--
+--
+-- Table structure for table `unesco_administration`
+--
+
+CREATE TABLE `unesco_administration` (
+  `id` int(11) NOT NULL,
+  `admin_name`varchar(50) NOT NULL,
+  `filename`varchar(255) NOT NULL,
+  `admin_position`varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `unesco_administration`
+--
+INSERT INTO `unesco_administration` (`id`, `admin_name`, `filename`, `admin_position`) VALUES
+(1, 'Dr. Ma. Carla A. Ochotorena', 'phsi-carla.png', 'University President'),
+(2, 'Asst. Prof. Ludivina Borja-Dekit', 'phsi-ludi.png', 'Director'),
+(3, 'Engr. Marlon Grande', 'phsi-marlon.png', 'Asst. Director');
+
+
+
+--
+-- Indexes for table `unesco_administration`
+--
+ALTER TABLE `unesco_administration`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `unesco_administration`
+--
+ALTER TABLE `unesco_administration`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+-- --------------------------------------------------------
 
 -- --------------------------------------------------------
 --

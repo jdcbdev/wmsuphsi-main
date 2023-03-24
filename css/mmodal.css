@@ -41,7 +41,7 @@ div.admin-modal {
     font-weight: 400;
   }
   
-  input[type=text], select, textarea {
+  .form-class input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -53,23 +53,22 @@ div.admin-modal {
     font-size: 1rem;
   }
   
-  input[type=submit] {
-    background-color: #5DADE2;
+  .form-class input[type=submit] {
+    background-color: #107869;
     color: white;
     padding: 12px 20px;
     border: none;
-    border-radius: 12px;
     font-size: 1rem;
-    margin-left: auto;
     margin-right: 0;
     display: block;
+    width: 100%;
   }
   
   input[type=submit]:hover{
     opacity: 0.6;
   }
   
-  input[type=file]{
+  .form-class input[type=file]{
     display: block;
     padding: 8px;
     font-size: 1rem;
@@ -80,7 +79,7 @@ div.admin-modal {
     box-sizing: border-box;
   }
   
-  input[type=file]:hover{
+  .form-class input[type=file]:hover{
     opacity: 0.6;
   }
   

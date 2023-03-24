@@ -12,7 +12,7 @@
 
 ?>
 
-<div class="modal-content">
+<div class="admin-modal-content">
     <span class="close">&times;</span>
     <h3 class="modal-title">Edit Content</h3>
     <hr>

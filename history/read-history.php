@@ -14,16 +14,15 @@
     
     <tr>
     <!-- always use echo to output PHP values -->
-    <td><?php echo $i ?></td>
-    <td><img src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['history_title']; ?>"></td>
+    <td>
+        <div class="action-button">
+            <a title="Edit" href="#" class="me-2 green" id="edit" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+            <a title="Delete" href="#" class="green" id="delete" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-trash-can"></i></a>
+            </div>
+    </td>
+    <td style="width: 20%;"><img src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['history_title']; ?>" style="width: 100%;"></td>
     <td><?php echo $value['history_title'] ?></td>
     <td><?php echo $value['history_description'] ?></td>
-    <td>
-        <div class="action">
-            <a class="action-edit" id="edit" value="<?php echo $value['id']; ?>">Edit</a>
-            <a class="action-delete" id="delete" value="<?php echo $value['id']; ?>">Delete</a>
-        </div>
-    </td>
 </tr>
 <?php
 $i++;

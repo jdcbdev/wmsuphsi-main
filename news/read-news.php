@@ -12,19 +12,18 @@
         //start of loop
     ?>
     
-    <tr class="tr">
+    <tr>
     <!-- always use echo to output PHP values -->
-    <td><?php echo $i ?></td>
+    <td>
+        <div class="action-button">
+            <a title="Edit" href="#" class="me-2 green" id="edit" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+            <a title="Delete" href="#" class="green" id="delete" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-trash-can"></i></a>
+        </div>
+    </td>
     <td><img src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['news_title']; ?>" style="width: 90%;"></td>
     <td><?php echo $value['image_description'] ?></td>
     <td><?php echo $value['news_title'] ?></td>
     <td><?php echo $value['news_content'] ?></td>
-    <td>
-        <div class="action">
-             <a class="green" id="edit" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a> <br>
-            <a class="green" id="delete" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-trash-can"></i></a>
-        </div>
-    </td>
 </tr>
 <?php
 $i++;

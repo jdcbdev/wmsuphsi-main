@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../classes/administration_model.php';
+    require_once '../classes/unesco_administration_model.php';
 
     $update_id = $_POST['update_id'];
 
@@ -32,11 +32,6 @@
 
             <div class="preview">
                 <img id="file-preview" src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['admin_name']; ?>">
-            </div>
-
-            <label for="edit_organization" class="form-label">Organization</label>
-            <div class="input-group">
-                <input class="form-control" type="text" name="edit_organization" id="edit_organization" value="<?php echo $value['admin_organization']; ?>" required>
             </div>
 
             <label for="edit_position" class="form-label">Position</label>

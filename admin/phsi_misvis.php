@@ -11,40 +11,66 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
+
+    require_once '../tools/variables.php';
     $page_title = 'PHSI Mission and Vision | WMSU - Peace and Human Security Institute';
     $phsi_misvis = 'active';
+
     require_once '../includes/admin-header.php';
-    require_once '../includes/admin-sidebar.php';
-    require_once '../includes/admin-topnav.php';
 ?>
 
-<!--MISSION AND VISION START-->
-<section>
-    <div class="table-container" >
-        <div class="table-heading" >
-            <h3 class="table-title">Mission and Vision</h3>
-            <button class="button" id="add-new">Add New Content</button>
-        </div>
-        <table id="misvis-table" class="table display">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Thumbnail</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="fetch"></tbody>
+<body>
+
+    <?php require_once '../includes/admin-topnav.php'; ?>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <?php require_once '../includes/admin-sidebar.php'; ?>
+
+            <main class="col-md-9 ms-sm-auto col-lg-9 col-xl-10 p-md-4">
+                <div class="w-100">
+                    <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Mission and Vision | WMSU - Peace and Human Security Institute</h5>
+                    <ul class="nav nav-tabs application">
+
+                        <li class="nav-item active" id="li-pending">
+                            <a class="nav-link">Mission and Vision<span class="counter" id="counter-all">3</span></a>
+                        </li>
+
+                        <li class="nav-item" id="add-account">
+                            <a class="nav-link" id="add-new">Add New</a>
+                        </li>
+                    </ul>
+                    <div class="table-responsive py-3 table-container">
+                    <div class="row g-2 mb-2 ">
+                        
+                    <div id="MyButtons" class="d-flex mb-md-2 mb-lg-0 col-12 col-md-auto"></div>
+                    
+                    <div class="input-group search-keyword col-12 flex-lg-grow-1">
+                        <input type="text" name="keyword" id="keyword" placeholder="Search Name" class="form-control">
+                        <button class="btn btn-outline-secondary background-color-green" type="button"><i class="fas fa-search white"></i></button>
+                    </div>
+                </div>
+                
+                <table class="table table-hover col-12" id="table-pending" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th scope="col">Action</th>
+                        <th scope="col">Thumbnail</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="fetch"></tbody>
             </table>
         </div>
         
         <div id="edit-modal" class="modal"></div>
 
-<div id="add-modal" class="modal">
-    <div class="modal-content">
+<div id="add-modal" class="admin-modal">
+    <div class="admin-modal-content">
         <span class="close">&times;</span>
-        <h3 class="modal-title">Add New Content</h3>
+        <h3 class="admin-modal-title">Add New Content</h3>
         <hr>
         <form id="addform" class="form-class" method="post" enctype="multipart/form-data">
             <label for="misvis_title" class="form-label">Content Title</label>

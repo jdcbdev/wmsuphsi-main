@@ -10,7 +10,7 @@
     if (!isset($_SESSION['logged-in'])){
         header('location: ../home.php');
     }
-    //if the above code is false then html below will be displayed
+    //if the above code i   s false then html below will be displayed
 
     require_once '../tools/variables.php';
     $page_title = 'User Management | WMSU - Peace and Human Security Institute';

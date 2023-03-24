@@ -24,8 +24,8 @@
     <!-- Custom styles for this template -->
     <link href="../css/features.css" rel="stylesheet">
     <link href="../css/custom.css" rel="stylesheet">
-    <link href="../css/table.css" rel="stylesheet">
-   <link href="../css/mmodal.css" rel="stylesheet">
+    <!--<link href="../css/table.css" rel="stylesheet">-->
+    <link href="../css/mmodal.css" rel="stylesheet">
     
 
     <!-- jquery -->

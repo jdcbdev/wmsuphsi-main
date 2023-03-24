@@ -11,31 +11,58 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
+
+    require_once '../tools/variables.php';
     $page_title = 'PHSI Administration | WMSU - Peace and Human Security Institute';
     $phsi_admins = 'active';
+
     require_once '../includes/admin-header.php';
-    require_once '../includes/admin-sidebar.php';
-    require_once '../includes/admin-topnav.php';
 ?>
 
+<body>
 
-<!--HISTORY START-->
-<div class="gpt-table-container">
-            <div class="add-button-container">
-                <button class="gpt-add-button" id="add-new">Add New Content</button>
-            </div>
-            <table class="admin-table">
-            <thead>
-                <tr class="tr">
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Image</th>
-                    <th>Organization</th>
-                    <th>Position</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="fetch"></tbody>
+    <?php require_once '../includes/admin-topnav.php'; ?>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <?php require_once '../includes/admin-sidebar.php'; ?>
+
+            <main class="col-md-9 ms-sm-auto col-lg-9 col-xl-10 p-md-4">
+                <div class="w-100">
+                    <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Administration | WMSU - Peace and Human Security Institute</h5>
+                    <ul class="nav nav-tabs application">
+
+                        <li class="nav-item active" id="li-pending">
+                            <a class="nav-link">Administration<span class="counter" id="counter-all">3</span></a>
+                        </li>
+
+                        <li class="nav-item" id="add-account">
+                            <a class="nav-link" id="add-new">Add New</a>
+                        </li>
+                    </ul>
+                    <div class="table-responsive py-3 table-container">
+                    <div class="row g-2 mb-2 ">
+                        
+                    <div id="MyButtons" class="d-flex mb-md-2 mb-lg-0 col-12 col-md-auto"></div>
+                    
+                    <div class="input-group search-keyword col-12 flex-lg-grow-1">
+                        <input type="text" name="keyword" id="keyword" placeholder="Search Name" class="form-control">
+                        <button class="btn btn-outline-secondary background-color-green" type="button"><i class="fas fa-search white"></i></button>
+                    </div>
+                </div>
+                
+                <table class="table table-hover col-12" id="table-pending" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th scope="col">Action</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Organization</th>
+                        <th scope="col">Position</th>
+                    </tr>
+                </thead>
+                <tbody id="fetch"></tbody>
             </table>
         </div>
         
