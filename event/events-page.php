@@ -22,8 +22,13 @@
       $user -> email = $_POST['email'];
       $user -> contact_number= $_POST['contact'];
       $result = $user -> addUserToEvent();
-
    }
+   // Check if user is logged in
+   if (!isset($_SESSION['user_id'])) {
+   // User is not logged in, redirect to login page
+   header('Location: ../login/login.php');
+   exit();
+ }
 ?>
 
 
@@ -80,10 +85,42 @@
 
                 <input type="submit" id="submit" name="submit" value="Submit">  
             </form>
+
+
+
         </div>
     </div>
     </div>
 </section>
+
+
+<script>
+  const modal = document.getElementById("modal");
+  const btn = document.getElementById("open-modal-btn");
+  const closeBtn = modal.querySelector(".close");
+  const form = document.getElementById("modal-form");
+  const rsvpBox = document.querySelector(".rsvp-box");
+
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    modal.style.display = "none";
+    rsvpBox.innerHTML = "<p>You're in! See you at the venue.</p>";
+  });
+</script>
 
 <section class="about-event">
     <p class="about-heading">About this event</p>
@@ -278,6 +315,8 @@
 </section>
 
 <script src="../js/modal.js"></script>
+
+
 
 <!-- Event Section End -->
 

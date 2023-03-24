@@ -93,7 +93,7 @@
                         <div class="card flex-grow-1">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title card-title-total">Total User Type Breakdown</h5>
-                                <canvas id="myChart1""></canvas>
+                                <canvas id="myChart1"></canvas>
                                 <p class="mb-0 mt-auto">
                                     <a class="view-all" href="">View Report</a>
                                 </p>
@@ -103,7 +103,7 @@
                 </div>
                 <div class="row">
                     <div class="table-responsive">
-                        <table class="table table-hover responsive" id="table-dashboard-student">
+                        <table class="table table-hover responsive" id="table-dashboard-student" style="width: 100%;">
                             <thead>
                                 <tr>
                                     <th scope="col">Rank No.</th>
