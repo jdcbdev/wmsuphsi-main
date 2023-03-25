@@ -13,7 +13,7 @@
     //if the above code is false then html below will be displayed
 
     require_once '../tools/variables.php';
-    $page_title = 'PHSI Carousel | WMSU - Peace and Human Security Institute';
+    $page_title = 'Carousel | WMSU UNESCO Club';
     $phsi_carousel = 'active';	
 
     require_once '../includes/admin-header.php';
@@ -30,7 +30,7 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-9 col-xl-10 p-md-4">
                 <div class="w-100">
-                    <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Carousel | WMSU - Peace and Human Security Institute</h5>
+                    <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Carousel | WMSU UNESCO Club</h5>
                     <ul class="nav nav-tabs application">
 
                         <li class="nav-item active" id="li-pending">

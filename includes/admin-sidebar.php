@@ -1,4 +1,11 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-3 col-xl-2 d-md-block background-color-green sidebar collapse">
+<?php if($_SESSION['role'] == 'super_admin'){ ?>
+<nav id="sidebarMenu" class="col-md-3 col-lg-3 col-xl-2 d-md-block background-super-admin sidebar collapse">
+
+<?php } else if($_SESSION['role'] == 'phsi_admin' || ($_SESSION['role'] == 'phsi_content_admin')) { ?>
+    <nav id="sidebarMenu" class="col-md-3 col-lg-3 col-xl-2 d-md-block background-color-green sidebar-phsi collapse">
+<?php } ?>
+
+
     <div class="position-sticky h-100">
         <ul class="nav flex-column">
 

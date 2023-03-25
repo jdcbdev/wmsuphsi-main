@@ -159,6 +159,46 @@ COMMIT;
 -- --------------------------------------------------------
 --
 --
+-- Table structure for table `unesco_carousel`
+--
+
+CREATE TABLE `unesco_carousel` (
+  `id` int(11) NOT NULL,
+  `carousel_title` text NOT NULL,
+  `filename`varchar(255) NOT NULL,
+  `carousel_content` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `unesco_carousel`
+--
+INSERT INTO `unesco_carousel` (`id`, `carousel_title`, `filename`, `carousel_content`) VALUES
+(1, 'Peace and Human Security Institute', 'phsi-carousel.jpg', 'Peace is more than the absence of war, it is living together with our differences – of sex, race, language, religion or culture – while furthering universal respect for justice and human rights on which such coexistence depends – Tap Tant, UNESCO');
+
+
+
+--
+-- Indexes for table `unesco_carousel`
+--
+ALTER TABLE `unesco_carousel`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `unesco_carousel`
+--
+ALTER TABLE `unesco_carousel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
+--
 -- Table structure for table `carousel`
 --
 
@@ -193,6 +233,58 @@ ALTER TABLE `carousel`
 ALTER TABLE `carousel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
+--
+-- Table structure for table `unesco_news`
+--
+
+CREATE TABLE `unesco_news` (
+  `id` int(11) NOT NULL,
+  `news_title`varchar(255) NOT NULL,
+  `filename`varchar(255) NOT NULL,
+  `image_description` text DEFAULT NULL,
+  `news_content` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `unesco_news`
+--
+INSERT INTO `unesco_news` (`id`, `news_title`, `filename`, `image_description`, `news_content`) VALUES
+(1, 'Harnessing our Peace Efforts: Towards Solidarity in Service', 'phsi-dialogue.jpg', '"Mr. Hirotaka Sekiguchi recieving a certificate. He is the Senior Official of the National Federation of UNESCO Associations in JAPAN."', 'In line with the opening of the Mindanao Week of Peace 2022, on the 24th of November, the WMSU PHSI conducted a Peace Dialogue with the theme, "Harnessing our Peace Efforts: Towards Solidarity in Service". with the participation of Mr. Hirotaka Sekiguchi, the senior Official of the National Federation of UNESCO. The Peace Dialogue took place at the College of Teacher Education Social Hall, with the attendance of the WMSU-UNESCO Club members and Officers and different representatives from the College of Liberal Arts (CLA) , College of Education (CTE) , College of Islamic Studies ( CAIS) and College of Social Work and Community Development.
+Let us commemorate this week of Peace as a remembrance and celebration of unity and solidarity through peace.'),
+(2, 'In the Light of the Recent Flood in Zamboanga City', 'unesco-chr.jpg', '"Peace Mediators on their new WMSU UNESCO Club shirt."', 'On 17th of February, the Commission on human rights have successfully conducted an orientation that revved up the members of WMSU Youth Peace Mediators UNESCO Club. 
+The event was spearheaded by Hon. Daniel S. Paculanang, Information Officer III and Hon. Ronaele L. Ventus, Training Specialist I, and was  under the supervision of PHSI Office, headed by Ms. Ludy Borja and Engr. Marlon Grande.  On top of that, the CHR committee donated one BROTHER Printer and  sponsored  sublimated t-shirts to the club. 
+The orientation was fruitful as the speakers and spectators shared their knowledge and insights  towards human rights — civil, political, economic, social, and cultural rightsand also tackled Gender and Development, which is  prevalent among the WMSU Youth Peace Mediator  members. This is congruent to the goal of the CHR which is to ensure the peace and security of each and every human being- moreso in a campus level.
+Gracias CHR ! and together, we preserve and fight the rights of mankind!'),
+(3, 'Peace Edukasyon', 'peace-edukasyon.jpg', '"If we want to reach real peace in this world, we should start educating children."', 'The WMSU Peace and Human Security Institute in collaboration with the WMSU Youth Peace Mediators -UNESCO Club together with our partners: EDUCO, Ateneo Center for Leadership and Governance,  Supreme Student Council Society of the Philippines, and Tactical Operations Wing Western Mindanao Philippine - Air Force,  held the PeacEdukasyon: Fun-aral for Children this 18th of February 2023 at Padayon Center Martha Drive, Sta. Catalina Zamboanga City. 
+In connection with our goal to establish strong communities of practice in child-friendly local governance and social accountability, the WMSU Youth Peace Mediators -UNESCO Club decided to implement this community project with the objectives centered to provide access to alternative learning environments, engaging the children in recreational activities, and promote cultural diversity awareness through Peacebuilding. 
+The beneficiary of the project was the 150 children who are bonafide residents of the Padayon center ranging from 7-13 years of age (Grades 1-6). The activities consist of 3 sessions: 1st session was centered on a seminar on Children rights, followed by a coloring session, and a thumb painting session. Additionally, we turned over grade school books and storybooks from our partners in Manila. The activities helped the children bond together through various educational games, helping them to foster awareness and solidarity among one another.
+This event will not be possible without the help of our various partners and our esteemed and ever-supportive WMSU President, Ma. Carla A. Ochotorena for her unwavering support. We would also like to acknowledge the WMSU-PHSI Director, Asst. Prof. Ludivina Borja-Dekit, and our WMSU-UNESCO Club Adviser, Engr. Marlon Grande for their unending dedication and commitment to making this event a success.
+Indeed, learning comes best when experienced. With this regard, experiencing PeacEdukasyon equips these children with the best learning towards peace!');
+
+--
+-- Indexes for table `unesco_news`
+--
+ALTER TABLE `unesco_news`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `unesco_news`
+--
+ALTER TABLE `unesco_news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+-- --------------------------------------------------------
 
 -- --------------------------------------------------------
 --
@@ -283,6 +375,47 @@ ALTER TABLE `rsvp`
 --
 ALTER TABLE `rsvp`
   MODIFY `rsvp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+--
+--
+-- Table structure for table `unesco_history`
+--
+
+CREATE TABLE `unesco_history` (
+  `id` int(11) NOT NULL,
+  `history_title`varchar(255) NOT NULL,
+  `filename`varchar(255) NOT NULL,
+  `history_description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `unesco_history`
+--
+INSERT INTO `unesco_history` (`id`, `history_title`, `filename`, `history_description`) VALUES
+(1, 'The History of Peace and Human Security Institute', 'phsi.png', 'Western Mindanao State University (WMSU) created the Center for Peace and Development (CPD) in January 2000, to generate well- rounded and productive people for the region, ensuring the good welfare of the society grounded on democratic and peaceful initiative. In 2010, it was renamed as Peace and Human Security Institute (PHSI), becoming the peace-building arm of the Office of the University President. Today, under Dr. Ma. Carla A. Ochotorena, the office takes the lead in engaging WMSU in the government-led peace efforts to be the main protagonist in peace education and research on the resolution of local conflicts.');
+
+
+
+--
+-- Indexes for table `unesco_history`
+--
+ALTER TABLE `unesco_history`
+  ADD PRIMARY KEY (`id`);   
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `unesco_history`
+--
+ALTER TABLE `unesco_history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+-- --------------------------------------------------------
 
 -- --------------------------------------------------------
 --
@@ -321,6 +454,47 @@ ALTER TABLE `history`
 ALTER TABLE `history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+
+--
+--
+-- Table structure for table `unesco_misvis`
+--
+
+CREATE TABLE `unesco_misvis` (
+  `id` int(11) NOT NULL,
+  `misvis_title`varchar(255) NOT NULL,
+  `filename`varchar(255) NOT NULL,
+  `misvis_description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `unesco_misvis`
+--
+INSERT INTO `unesco_misvis` (`id`, `misvis_title`, `filename`, `misvis_description`) VALUES
+(1, 'Vision', 'phsi-p5.png', 'A group of men and women in WMSU working in the field of instruction, research, and extension, towards the promotion of a Culture of Peace and the provision of the opportunities and caring spaces that facilitate the development and expression of the potentials, capabilities, and talents of the people of Mindanao and the country.'),
+(2, 'Mission', 'phsi-p7.png', 'The WMSU-PHSI seeks to expand and deepen the commitment, engagement, and involvement of individuals and groups inside and outside the university not only within the region but even in the national and international community, thru the offering of peace studies, integration of peace education, and other peace and development initiatives.');
+
+--
+-- Indexes for table `unesco_misvis`
+--
+ALTER TABLE `unesco_misvis`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `unesco_misvis`
+--
+ALTER TABLE `unesco_misvis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+-- --------------------------------------------------------
+
 
 -- --------------------------------------------------------
 
