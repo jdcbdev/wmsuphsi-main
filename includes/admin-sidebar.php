@@ -3,6 +3,9 @@
 
 <?php } else if($_SESSION['role'] == 'phsi_admin' || ($_SESSION['role'] == 'phsi_content_admin')) { ?>
     <nav id="sidebarMenu" class="col-md-3 col-lg-3 col-xl-2 d-md-block background-color-green sidebar-phsi collapse">
+        
+<?php } else if ($_SESSION['role'] == 'unesco_admin' || ($_SESSION['role'] == 'unesco_content_admin')) { ?>
+    <nav id="sidebarMenu" class="col-md-3 col-lg-3 col-xl-2 d-md-block background-color-maroon sidebar-unesco collapse">
 <?php } ?>
 
 

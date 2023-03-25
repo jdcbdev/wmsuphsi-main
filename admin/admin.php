@@ -127,7 +127,7 @@
                                         </div>
                                     </td>
                                     <td>john.smith@abc.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-unesco">UNESCO</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -150,7 +150,7 @@
                                     </td>
                                     <td>jennifer.lee@xyz.com</td>
                                     
-                                    <td><span class="type-ALUMNI">WMSU ALUMNI</span></td>
+                                    <td><span class="type-Alumni">WMSU ALUMNI</span></td>
                                     <td><span class="org-unesco">UNESCO</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -172,7 +172,7 @@
                                         </div>
                                     </td>
                                     <td>juan.garcia@mno.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-unesco">UNESCO</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -193,7 +193,7 @@
                                         </div>
                                     </td>
                                     <td>hyejin.chung@pqr.com</td>
-                                    <td><span class="type-EMPLOYEE">WMSU EMPLOYEE</span></td>
+                                    <td><span class="type-Employee">WMSU EMPLOYEE</span></td>
                                     <td><span class="org-phsi">PHSI</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -214,7 +214,7 @@
                                         </div>
                                     </td>
                                     <td>hiroshi.tanaka@def.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -235,7 +235,7 @@
                                         </div>
                                     </td>
                                     <td>minji.kim@lmn.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-unesco">UNESCO</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -256,7 +256,7 @@
                                         </div>
                                     </td>
                                     <td>minh.nguyen@rst.com</td>
-                                    <td><span class="type-ALUMNI">WMSU ALUMNI</span></td>
+                                    <td><span class="type-Alumni">WMSU ALUMNI</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -277,7 +277,7 @@
                                         </div>
                                     </td>
                                     <td>yukihiro.sato@uvw.com</td>
-                                    <td><span class="type-EMPLOYEE">WMSU EMPLOYEE</span></td>
+                                    <td><span class="type-Employee">WMSU EMPLOYEE</span></td>
                                     <td><span class="org-phsi">PHSI</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -298,7 +298,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -319,7 +319,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -340,7 +340,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -361,7 +361,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -382,7 +382,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -403,7 +403,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -424,7 +424,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -445,7 +445,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -466,7 +466,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -487,7 +487,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -508,7 +508,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>
@@ -529,7 +529,7 @@
                                         </div>
                                     </td>
                                     <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-STUDENT">WMSU STUDENT</span></td>
+                                    <td><span class="type-Student">WMSU STUDENT</span></td>
                                     <td><span class="org-none">NONE</span></td>
                                     <td>09237567813</td>
                                     <td>

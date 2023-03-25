@@ -8,6 +8,8 @@
 
         <?php } else if($_SESSION['role'] == 'phsi_admin' || ($_SESSION['role'] == 'phsi_content_admin')) { ?>
             <a class="navbar-brand col-md-3 col-lg-3 col-xl-2 me-0 px-3 py-3 background-color-green" href="../home/">
+        <?php } else if($_SESSION['role'] == 'unesco_admin' || ($_SESSION['role'] == 'unesco_content_admin')) { ?>
+            <a class="navbar-brand col-md-3 col-lg-3 col-xl-2 me-0 px-3 py-3 background-color-maroon" href="../home/">
         <?php } ?>
 
             
@@ -18,7 +20,10 @@
         <?php  } else if($_SESSION['role'] == 'phsi_admin') { ?>
         <!--<img class="logo-icon" src="../images/logos/new-unesco.png" alt="">-->
         <span class="ms-2 logo-name">PHSI Admin</span>
-        <?php  }  ?>
+        <?php  } else if($_SESSION['role'] == 'unesco_admin') { ?>
+        <!--<img class="logo-icon" src="../images/logos/new-unesco.png" alt="">-->
+        <span class="ms-2 logo-name">UNESCO Admin</span>
+        <?php } ?>
 
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">

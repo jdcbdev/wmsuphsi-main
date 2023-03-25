@@ -96,7 +96,7 @@
    require_once 'carousel/carousel.php';
 ?>
 
-
+<?php    if(isset($_SESSION['logged-in'])) { ?>
 <!------------------------------------------- Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES Start -------------------------------------------------------------------------------------------->
 <section class="free_content">
    <div class="image">
@@ -108,6 +108,7 @@
       <a href="#" class="btn">I am a Peace Mediator</a>
    </div>
 </section>
+<?php } ?>
 <!-------------------------------------------  Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES End -------------------------------------------------------------------------------------------->
 
 
