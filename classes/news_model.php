@@ -64,6 +64,14 @@
 			return $data;
         }
 
+        public function fetchRecordById($id) {
+            $select_stmt = $this->db->connect()->prepare('SELECT id, news_title, image_description, news_content, created_at, updated_at, filename FROM news WHERE id = :id');
+            $select_stmt->bindParam(':id', $id);
+            $select_stmt->execute();
+            $data = $select_stmt->fetch(PDO::FETCH_ASSOC);
+            return $data;
+        }
+
 		//DELETE RECORD FROM DATABASE "PHSI" AND HANDLE AJAX REQUEST
         public function deleteRecords($delete_id) {
             $delete_stmt = $this->db->connect()->prepare('DELETE FROM news WHERE id = :sid ');
@@ -75,6 +83,9 @@
                 echo 'Failed to delete the record.';
 			}
         }
+
+
+
 
         //FETCH RECORD FROM DATABASE "PHSI" AND HANDLE AJAX REQUEST
         public function edit($update_id) {

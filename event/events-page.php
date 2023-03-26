@@ -32,11 +32,26 @@
 ?>
 
 
+<?php
+  require_once '../classes/event_model.php'; 
+  $event = new Event();
+
+  // Check if the article ID is set in the URL
+  if (isset($_GET['id'])) {
+    $article_id = $_GET['id'];
+    $article = $event->fetchRecordById($article_id);
+
+    if ($article) {
+?>
+
+
+
+
 <!-- Event Section Start  -->
 
 <section class="event-heading">
    <div class="event-banner-container">
-  <img src="../images/content-images/unesco-ncm.png" class="banner" alt="Background Image">
+  <img src="../uploads/<?php echo $article['event_banner']; ?>" class="banner" alt="Background Image">
   <div class="event-wrapper">
     <div class="event-infos">
       <h2 class="event-title"></h2>
@@ -56,6 +71,7 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2 style="margin: auto; font-size: 3rem;">Attendee Information</h2>
+            
             <form action="events-page.php" class="modal-form" id="modal-form" method="POST">
                 <label for="firstname">First Name:</label>
                 <input type="text" id="firstname" name="firstname" required 
@@ -124,7 +140,7 @@
 
 <section class="about-event">
     <p class="about-heading">About this event</p>
-    <p>With the theme: "Pagkakaisa at Paghilom: Isang Bansa para sa Kapayapaan," held at the Juanito Bruno Gymnasium from 11 AM to 5 PM. The celebration aims to bring Filipinos together and join hands in healing the wounds of the past and using those lessons to pave the way for a bright future free of violence, prejudice, and hatred.</p>
+    <p><?php echo $article['event_about'] ?></p>
 </section>
 
 <section class="event-information">
@@ -132,13 +148,13 @@
         <i class="bi bi-clock"><span>When</span></i>
         <p>Sept 28, 2022 11:00 AM - 5:00 PM</p>
         <i class="bi bi-geo-alt"><span>Where</span></i>
-        <p>Normal Rd, Zamboanga, WMSU Juanito Bruno Gymnasium</p>
+        <p><?php echo $article['event_location'] ?></p>
         <i class="bi bi-eye"><span>Scope</span></i>
-        <p>WMSU Students</p>
+        <p><?php echo $article['event_scope'] ?></p>
         <i class="bi bi-people"><span>Slots</span></i>
-        <p>100 / 100</p>
+        <p><?php echo $article['event_slots'] ?></p>
         <i class="bi bi-laptop"><span>Platform</span></i>
-        <p>The event will be conducted at its location.</p>
+        <p><?php echo $article['event_platform'] ?></p>
     </div>
     <div class="event-agenda-container">
         <i class="bi bi-pencil-square"><span>Agenda</span></i>
@@ -313,6 +329,17 @@
       </div>
    </div>
 </section>
+
+<?php
+    } else {
+      // Display error message if article is not found
+      echo 'Article not found.';
+    }
+  } else {
+    // Display error message if article ID is not set in URL
+    echo 'Invalid article ID.';
+  }
+?>
 
 <script src="../js/modal.js"></script>
 

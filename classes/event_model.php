@@ -14,58 +14,62 @@
         }
 		//INSERT A NEW RECORD INTO THE DATABASE "PHSI" & HADLE AJAX REQUEST
         public function insert() {
-            
             if(isset($_POST['event_title'])) {
                 if(isset($_FILES['event_banner']) && $_FILES['event_banner']['error'] === UPLOAD_ERR_OK) {
-
-                    
-                    $event_title =  htmlentities($_POST['event_title']);
-                    $event_about =  htmlentities($_POST['event_about']);
-                    $event_mode =  htmlentities($_POST['event_mode']);
-                    $event_location =  htmlentities($_POST['event_location']);
-                    $event_platform =  htmlentities($_POST['event_platform']);
-                    $event_type =  htmlentities($_POST['event_type']);
-                    $event_slots =  htmlentities($_POST['event_slots']);
-                    $event_status =  htmlentities($_POST['event_status']);
-                    $event_scope =  htmlentities($_POST['event_scope']);
-                    $event_date =  htmlentities($_POST['event_date']);
-                    $event_start_time =  htmlentities($_POST['event_start_time']);
-                    $event_end_time =  htmlentities($_POST['event_end_time']);
-                    $event_reg_duedate =  htmlentities($_POST['event_reg_duedate']);
+                    $event_title = htmlentities($_POST['event_title']);
+                    $event_about = htmlentities($_POST['event_about']);
+                    $event_mode = htmlentities($_POST['event_mode']);
+                    $event_location = htmlentities($_POST['event_location']);
+                    $event_platform = htmlentities($_POST['event_platform']);
+                    $event_type = htmlentities($_POST['event_type']);
+                    $event_slots = htmlentities($_POST['event_slots']);
+                    $event_status = htmlentities($_POST['event_status']);
+                    $event_scope = htmlentities($_POST['event_scope']);
+                    $event_date = htmlentities($_POST['event_date']);
+                    $event_start_time = htmlentities($_POST['event_start_time']);
+                    $event_end_time = htmlentities($_POST['event_end_time']);
+                    $event_reg_duedate = htmlentities($_POST['event_reg_duedate']);
                     $event_banner = $_FILES['event_banner']['name'];
                     $tempname_banner = $_FILES['event_banner']['tmp_name'];
                     $folder = "../uploads/" . $event_banner;
-
-                    if (move_uploaded_file($tempname_banner, $folder)) {
-                        $insert_stmt=$this->db->connect()->prepare("INSERT INTO event (event_title, event_banner, event_about, event_mode, event_location, event_scope, event_platform, event_type, event_slots, event_status, event_date, event_start_time, event_end_time, event_reg_duedate) VALUES (:event_title, :event_banner, :event_about, :event_mode, :event_location, :event_scope, :event_platform, :event_type, :event_slots, :event_status, :event_date, :event_start_time, :event_end_time, :event_reg_duedate)");
-                        $insert_stmt->bindParam(':event_title', $event_title);
-                        $insert_stmt->bindParam(':event_banner', $event_banner);
-                        $insert_stmt->bindParam(':event_about', $event_about);
-                        $insert_stmt->bindParam(':event_mode', $event_mode);
-                        $insert_stmt->bindParam(':event_scope', $event_scope);
-                        $insert_stmt->bindParam(':event_location', $event_location);
-                        $insert_stmt->bindParam(':event_platform', $event_platform);
-                        $insert_stmt->bindParam(':event_type', $event_type);
-                        $insert_stmt->bindParam(':event_slots', $event_slots);
-                        $insert_stmt->bindParam(':event_status', $event_status);
-                        $insert_stmt->bindParam(':event_date', $event_date);
-                        $insert_stmt->bindParam(':event_start_time', $event_start_time);
-                        $insert_stmt->bindParam(':event_end_time', $event_end_time);
-                        $insert_stmt->bindParam(':event_reg_duedate', $event_reg_duedate);
-
-
-                        if($insert_stmt->execute()) {
-                            echo 'Successfully saved.';
+                    $max_file_size = 5242880; // Maximum file size in bytes (2MB)
+        
+                    // Check the file size before uploading the image
+                    if ($_FILES['event_banner']['size'] > $max_file_size) {
+                        echo 'File size exceeds maximum allowed size of 5MB.';
+                    } else {
+                                        // Check if the file already exists
+                if (file_exists($folder . $event_banner)) {
+                    $filename_parts = pathinfo($event_banner);
+                    $event_banner = $filename_parts['filename'] . '_' . uniqid() . '.' . $filename_parts['extension'];
+                }
+                        if (move_uploaded_file($tempname_banner, $folder)) {
+                            $insert_stmt=$this->db->connect()->prepare("INSERT INTO event (event_title, event_banner, event_about, event_mode, event_location, event_scope, event_platform, event_type, event_slots, event_status, event_date, event_start_time, event_end_time, event_reg_duedate) VALUES (:event_title, :event_banner, :event_about, :event_mode, :event_location, :event_scope, :event_platform, :event_type, :event_slots, :event_status, :event_date, :event_start_time, :event_end_time, :event_reg_duedate)");
+                            $insert_stmt->bindParam(':event_title', $event_title);
+                            $insert_stmt->bindParam(':event_banner', $event_banner);
+                            $insert_stmt->bindParam(':event_about', $event_about);
+                            $insert_stmt->bindParam(':event_mode', $event_mode);
+                            $insert_stmt->bindParam(':event_scope', $event_scope);
+                            $insert_stmt->bindParam(':event_location', $event_location);
+                            $insert_stmt->bindParam(':event_platform', $event_platform);
+                            $insert_stmt->bindParam(':event_type', $event_type);
+                            $insert_stmt->bindParam(':event_slots', $event_slots);
+                            $insert_stmt->bindParam(':event_status', $event_status);
+                            $insert_stmt->bindParam(':event_date', $event_date);
+                            $insert_stmt->bindParam(':event_start_time', $event_start_time);
+                            $insert_stmt->bindParam(':event_end_time', $event_end_time);
+                            $insert_stmt->bindParam(':event_reg_duedate', $event_reg_duedate);
+        
+                            if($insert_stmt->execute()) {
+                                echo 'Successfully saved.';
+                            } else {
+                                echo 'Failed saving.';
+                            }
                         } else {
-                            echo 'Failed saving.';
+                            echo 'Failed moving file.';
                         }
                     }
-
-                    else {
-                        echo 'Failed moving file.';
-                    }
-                }
-                else {
+                } else {
                     echo 'No file has been uploaded.';
                 }
             }
@@ -82,6 +86,14 @@
 			$data = $select_stmt->fetchAll();
 
 			return $data;
+        }
+
+        public function fetchRecordById($id) {
+            $select_stmt = $this->db->connect()->prepare('SELECT id, event_title, event_banner, event_about, event_mode, event_location, event_platform, event_scope, event_type, event_slots, event_status, event_date, event_start_time, event_end_time, event_reg_duedate FROM event WHERE id = :id');
+            $select_stmt->bindParam(':id', $id);
+            $select_stmt->execute();
+            $data = $select_stmt->fetch(PDO::FETCH_ASSOC);
+            return $data;
         }
 
 		//DELETE RECORD FROM DATABASE "PHSI" AND HANDLE AJAX REQUEST

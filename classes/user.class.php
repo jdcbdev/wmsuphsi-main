@@ -164,13 +164,11 @@ Class Users{
     }
     
     function edit(){
-        $sql = "UPDATE user_acc_data SET verify_one=:verify_one, verify_two=:verify_two, profile_picture=:profile_picture, background_image=:background_image, firstname=:firstname, lastname=:lastname, email=:email, middlename=:middlename, suffix=:suffix, sex=:sex, contact_number=:contact_number, province=:province, city=:city, barangay=:barangay, street_name=:street_name, bldg_house_no=:bldg_house_no, username=:username, password=:password, role=:role, status=:status, member_type=:member_type WHERE id = :id;";
+        $sql = "UPDATE user_acc_data SET verify_one=:verify_one, verify_two=:verify_two, firstname=:firstname, lastname=:lastname, email=:email, middlename=:middlename, suffix=:suffix, sex=:sex, contact_number=:contact_number, province=:province, city=:city, barangay=:barangay, street_name=:street_name, bldg_house_no=:bldg_house_no, username=:username, password=:password, role=:role, status=:status, member_type=:member_type WHERE id = :id;";
         
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':verify_one', $this->verify_one);
         $query->bindParam(':verify_two', $this->verify_two);
-        $query->bindParam(':profile_picture', $this->profile_picture);
-        $query->bindParam(':background_image', $this->background_image);
         $query->bindParam(':firstname', $this->firstname);
         $query->bindParam(':lastname', $this->lastname);
         $query->bindParam(':email', $this->email);

@@ -12,7 +12,7 @@
 
 ?>
 
-<div class="modal-content">
+<div class="admin-modal-content">
     <span class="close">&times;</span>
     <h3 class="modal-title">Edit Content</h3>
     <hr>
@@ -20,26 +20,32 @@
     <input type="hidden" id="edit_id" name="edit_id" value="<?php echo $value['id']; ?>">
 
 <!--EVENT TITLEL-->
-<label for="event_title" class="form-label">Event Name</label>
+<label for="edit_title" class="form-label">Event Name</label>
 <div class="input-group">
-    <input class="form-control" type="text" name="event_title" id="event_title" value="<?php echo $value['event_title']; ?>" required>
+    <input class="form-control" type="text" name="edit_title" id="edit_title" value="<?php echo $value['event_title']; ?>" required>
+</div>
+
+ 
+
+<!--EVENT BANNER-->
+<label for="file">Upload Event Banner</label>
+<div class="hidden-preview">
+    <img id="current-file-preview" src="../uploads/<?php echo $value['event_banner']; ?>" >
+</div>
+
+<div class="preview">
+    <img id="file-preview" src="../uploads/<?php echo $value['event_banner']; ?>" alt="<?php echo $value['event_title']; ?>">
 </div>
 
 <!--EVENT BANNER UPLOAD BUTTON-->
 <div class="input-group">
-    <input type="file" name="event_banner" id="event_banner" accept="image/*" onchange="showPreview(event)" required>
-</div>  
-
-<!--EVENT BANNER-->
-<label for="file">Upload Event Banner</label>
-<div class="preview">
-    <img id="file-preview" src="../uploads/<?php echo $value['event_banner']; ?>" >
-</div>
+    <input type="file" name="file_upload" id="event_banner" accept="image/*" onchange="showPreview(event)" >
+</div> 
 
 <!--EVENT ABOUT-->
-<label for="event_about" class="form-label">About this Event</label>
+<label for="edit_about" class="form-label">About this Event</label>
 <div class="input-group">
-    <textarea class="form-control" type="text" name="event_about" id="event_about" rows="4" cols="50" required><?php echo $value['event_about']; ?></textarea>
+    <textarea class="form-control" type="text" name="edit_about" id="edit_about" rows="4" cols="50" required><?php echo $value['event_about']; ?></textarea>
 </div>
 
 <!--EVENT MODE: ACTUAL OR VIRTUAL-->
@@ -47,8 +53,8 @@
 <div class="input-group">
 <select id="event_mode" name="event_mode" value="<?php echo $value['event_mode']; ?>">
     <option value="none">--Select Mode--</option>
-    <option value="actual">On-site</option>
-    <option value="virtual">Virtual</option>
+    <option value="Actual">On-site</option>
+    <option value="Virtual">Virtual</option>
 </select>
 </div> 
 

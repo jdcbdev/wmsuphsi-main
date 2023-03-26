@@ -1392,8 +1392,9 @@ form .user-details .input-box{
 .news .news-content .image {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
   width: 50%;
+  margin: auto;
+  padding-top: 3rem;
 }
 
 .news .news-content .desc {

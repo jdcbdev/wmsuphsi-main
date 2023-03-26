@@ -1,6 +1,7 @@
 <?php
 
     //resume session here to fetch session values
+    ob_start(); // start output buffering
     session_start();
     /*
         if user is not login then redirect to login page,
@@ -46,6 +47,8 @@
 
                 //sanitize user inputs
                 $user->id = $_GET['id'];
+                //
+                //
                 $user->firstname = htmlentities($_POST['firstname']);
                 $user->middlename = htmlentities($_POST['middlename']);
                 $user->lastname = htmlentities($_POST['lastname']);
@@ -77,22 +80,19 @@
                 if(isset($_POST['member_type'])){
                     $user->member_type = $_POST['member_type'];
                 }
-
-
                 // edit now / update
                 if($user->edit()){  
                     //redirect user to user page after saving
                         header('location: index.php');
                     }
+                    ob_end_flush(); // end output buffering and send output to browser
 
             }else {
                 if ($user->fetch($_GET['id'])){
                     $data = $user->fetch($_GET['id']);
 
-
-                    $_POST['profile_picture'] = $data['profile_picture'];
-                    $_POST['background_image'] = $data['background_image'];
-
+                    //
+                    //
                     $_POST['verify_one'] = $data['verify_one'];
                     $_POST['verify_two'] = $data['verify_two'];
 
@@ -118,18 +118,14 @@
                     $_POST['member_type'] = $data['member_type'];
 
                 }
-            }
 
+            }
 
 
             ?>
 
             <form action="edit.php?id=<?php echo $_GET['id']?>" method="post" enctype="multipart/form-data">
-            
 
-           <div style="width:100%; background: url('../uploads/<?php echo $background_image; ?>'); background-size:cover; background-position:center; height:150px; display:flex; justify-content:center; align-items:center; margin-top: 20px;">
-                <img src="../uploads/<?php echo $profile_picture; ?>" alt="profile picture" style="width:100px; height:100px; border-radius:50%;">
-            </div>
 
                 <div class="user-details">
                     

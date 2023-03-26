@@ -11,43 +11,73 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
-    $page_title = 'PHSI Events | WMSU - Peace and Human Security Institute';
+
+    require_once '../tools/variables.php';
+    $page_title = 'Events | WMSU - Peace and Human Security Institute';
     $phsi_events = 'active';
+
     require_once '../includes/admin-header.php';
-    require_once '../includes/admin-sidebar.php';
-    require_once '../includes/admin-topnav.php';
 ?>
 
-<!--MISSION AND VISION START-->
-<section>
-    <div class="table-container" >
-        <div class="table-heading" >
-            <h3 class="table-title">Event</h3>
-            <button class="button" id="add-new">Add New Event</button>
-        </div>
-        <table id="news-table" class="table display">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Event Name</th>
-                    <th>Banner</th>
-                    <th>Type</th>
-                    <th>When</th>
-                    <th>Slots</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+<body>
+
+    <?php require_once '../includes/admin-topnav.php'; ?>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <?php require_once '../includes/admin-sidebar.php'; ?>
+
+            <main class="col-md-9 ms-sm-auto col-lg-9 col-xl-10 p-md-4">
+                <div class="w-100">
+                    <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Events</h5>
+                    <ul class="nav nav-tabs application">
+
+                        <li class="nav-item active" id="li-pending">
+                            <a class="nav-link">Upcoming Events<span class="counter" id="counter-all">3</span></a>
+                        </li>
+
+                        <li class="nav-item" id="li-past">
+                            <a class="nav-link">All<span class="counter" id="counter-all">3</span></a>
+                        </li>
+
+                        <li class="nav-item" id="add-account">
+                            <a class="nav-link" id="add-new">Add New</a>
+                        </li>
+                    </ul>
+                    <div class="table-responsive py-3 table-container">
+                    <div class="row g-2 mb-2 ">
+                        
+                    <div id="MyButtons" class="d-flex mb-md-2 mb-lg-0 col-12 col-md-auto"></div>
+                    
+                    <div class="input-group search-keyword col-12 flex-lg-grow-1">
+                        <input type="text" name="keyword" id="keyword" placeholder="Search Name" class="form-control">
+                        <button class="btn btn-outline-secondary background-color-green" type="button"><i class="fas fa-search white"></i></button>
+                    </div>
+                </div>
+                
+                <table class="table table-hover col-12" id="table-pending" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th scope="col">Action</th>
+                        <th scope="col">Event Name</th>
+                        <th scope="col">Banner</th>
+                        <th scope="col">Mode</th>
+                        <th scope="col">When</th>
+                        <th scope="col">Slots</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
             <tbody id="fetch"></tbody>
             </table>
         </div>
         
         <div id="edit-modal" class="modal"></div>
 
-<div id="add-modal" class="modal">
-    <div class="modal-content">
+<div id="add-modal" class="admin-modal">
+    <div class="admin-modal-content">
         <span class="close">&times;</span>
-        <h3 class="modal-title">Add New Content</h3>
+        <h3 class="admin-modal-title">Add New Event</h3>
         <hr>
         <form id="addform" class="form-class" method="post" enctype="multipart/form-data">
 
@@ -79,15 +109,23 @@
             <div class="input-group">
             <select id="event_mode" name="event_mode">
                 <option value="">--Select Mode--</option>
-                <option value="actual">On-site</option>
-                <option value="virtual">Virtual</option>
+                <option value="Actual">On-site</option>
+                <option value="Virtual">Virtual</option>
             </select>
             </div> 
+
 
             <!--EVENT TYPE-->
             <label for="event_type" class="form-label">Event Type</label>
             <div class="input-group">
-                <input class="form-control" type="text" name="event_type" id="event_type" required>
+                <select id="event_type" name="event_type" onchange="showHideOtherInput()">
+                <option value="">--Select Type--</option>
+                <option value="Type 1">Type 1</option>
+                <option value="Type 2">Type 2</option>
+                <option value="Type 3">Type 3</option>
+                <option value="Other">Other</option>
+                </select>
+                <input class="form-control" type="text" name="event_type_other" id="event_type_other" style="display: none;">
             </div>
 
             <!--EVENT LOCATION (VENUE)-->
@@ -158,13 +196,79 @@
                 <input type="reset" id="btn-reset" name="btn-reset" hidden>
             </div>
         </form>
+
+<script>
+    function showHidePlatformInput(){
+    var mode = document.getElementById("event_mode").value;
+    var platformInput = document.getElementById("event_platform");
+    var platformLabel = document.querySelector("label[for='event_platform']");
+
+    if(mode === "Virtual"){
+      platformInput.style.display = "block";
+      platformLabel.style.display = "block";
+    } else {
+      platformInput.style.display = "none";
+      platformLabel.style.display = "none";
+    }
+  }
+
+  function showHideOtherInput(){
+    var type = document.getElementById("event_type").value;
+    var otherInput = document.getElementById("event_type_other");
+
+    if(type === "Other"){
+      otherInput.style.display = "block";
+    } else {
+      otherInput.style.display = "none";
+    }
+  }
+</script>
     </div>
 </div>
 </section>
 <!--MISSION AND VISION END-->
 
 
+<style>
+  .form-label {
+    display: block;
+    margin-top: 1em;
+  }
 
+  .input-group {
+    margin-bottom: 1em;
+  }
+
+  .preview {
+    margin-bottom: 1em;
+  }
+
+  .preview img {
+    max-width: 100%;
+    max-height: 20em;
+  }
+
+  .submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .submit-button:hover {
+    background-color: #3e8e41;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+</style>
 
 
 
@@ -196,7 +300,7 @@
     } else if (eventModeSelect.value === "virtual") {
       locationInput.style.display = "none";
       platformInput.style.display = "block";
-    }
+    }   
   });
 </script>
 
