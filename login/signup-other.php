@@ -145,7 +145,7 @@
         </div>
 
         <label for="file"></label>
-        <div class="preview">
+        <div class="preview" style="width: 20%;">
           <img id="preview-one">
         </div>
 
@@ -155,7 +155,7 @@
         </div>
 
         <label for="file"></label>
-        <div class="preview">
+        <div class="preview" style="width: 20%;">
           <img id="preview-two">
         </div>
             

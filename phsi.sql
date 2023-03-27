@@ -20,7 +20,74 @@ SET time_zone = "+00:00";
 --
 -- Database: `phsi`
 --
+-- ------------------------------------------------------
 
+CREATE TABLE `unesco_action` (
+  `id` int(11) NOT NULL,
+  `unesco_type`varchar(255) NOT NULL,
+  `filename`varchar(255) NOT NULL,
+  `unesco_title` text DEFAULT NULL,
+  `unesco_details` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `unesco_action`
+--
+
+--
+-- Indexes for table `unesco_action`
+--
+ALTER TABLE `unesco_action`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `unesco_action`
+--
+ALTER TABLE `unesco_action`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+-- --------------------------------------------------------
+-- ------------------------------------------------------
+
+CREATE TABLE `phsi_action` (
+  `id` int(11) NOT NULL,
+  `action_type`varchar(255) NOT NULL,
+  `filename`varchar(255) NOT NULL,
+  `title` text DEFAULT NULL,
+  `details` text DEFAULT NULL,  
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `phsi_action`
+--
+
+--
+-- Indexes for table `phsi_action`
+--
+ALTER TABLE `phsi_action`
+  ADD PRIMARY KEY (`id`); 
+  
+--
+-- AUTO_INCREMENT for dumped tables
+--
+--
+--
+-- AUTO_INCREMENT for table `phsi_action`
+--
+ALTER TABLE `phsi_action`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+COMMIT;
+
+-- --------------------------------------------------------
 
 
 
@@ -46,6 +113,7 @@ CREATE TABLE `event` (
   `event_start_time` TIME NOT NULL,
   `event_end_time` TIME NOT NULL,
   `event_reg_duedate` timestamp NOT NULL,
+  `rsvp_id` INT(11) NOT NULL,
 	`created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 	)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -88,9 +156,26 @@ CREATE TABLE `unesco_administration` (
 -- Dumping data for table `unesco_administration`
 --
 INSERT INTO `unesco_administration` (`id`, `admin_name`, `filename`, `admin_position`) VALUES
-(1, 'Dr. Ma. Carla A. Ochotorena', 'phsi-carla.png', 'University President'),
-(2, 'Asst. Prof. Ludivina Borja-Dekit', 'phsi-ludi.png', 'Director'),
-(3, 'Engr. Marlon Grande', 'phsi-marlon.png', 'Asst. Director');
+
+(1, 'Asst. Prof. Ludivina Borja-Dekit', 'phsi-ludi.png', 'Director'),
+(2, 'Engr. Marlon Grande', 'phsi-marlon.png', 'Asst. Director'),
+(3, 'Clarise Jane Tayao', 'unesco-clarise.png', 'President'),
+(4, 'Araffi Suhaide', 'unesco-arafi.png', 'Vice-President'),
+(5, 'Krisha Joy Elumir', 'unesco-krisha.png', 'General Secretary'),
+(6, 'Ahmad Alawi', 'unesco-ahmad.png', 'PIO'),
+(7, 'Juniel Anoso', 'unesco-juniel.png', 'External Finance'),
+(8, 'Amir Nashireen', 'unesco-amir.png', 'Internal Finance'),
+(9, 'Lowel Jay Recto', 'unesco-lowel.png', "Auditor"),
+(10, 'Kin Gerald Lugas', 'unesco-kin.png', 'Project Manager'),
+(11, 'Almuhaim Jahama', 'unesco-almuha.png', 'Ambassador'),
+(12, 'Elvina Vanessa Kairan', 'unesco-elvina.png', 'Ambassadress'),
+(13, 'Vanessa Pascua', 'dp3.jpg', 'Content Comittee'),
+(14, 'Kristine Joy Esteban', 'unesco-kristine.png', 'Creative Comittee Head'),
+(15, 'Myrtle Pama', 'dp1.jpg', 'Creative Comittee Asst. Head'),
+(16, 'Clark Satander', 'unesco-clark.png', 'Creative Comittee'),
+(17, 'Jenevie Baendres', 'unesco-jenevie.png', 'Creative Comittee'),
+(18, 'Gloria Escote', 'unesco-gloria.png', 'Membership Comittee'),
+(19, 'Monique Dancel', 'dp2.jpg', 'Membership Comittee');
 
 
 
@@ -285,7 +370,6 @@ ALTER TABLE `unesco_news`
 COMMIT;
 
 -- --------------------------------------------------------
-
 -- --------------------------------------------------------
 --
 --
@@ -346,13 +430,14 @@ COMMIT;
 CREATE TABLE `rsvp` (
   `rsvp_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `middlename` varchar(35) NOT NULL,
   `lastname` varchar(35) NOT NULL,
   `suffix` varchar(35) NOT NULL,
   `email` varchar(35) NOT NULL,
-  `contact_number` int(11) NOT NULL
+  `contact_number` int(11) NOT NULL,
+  `attendance` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -569,8 +654,13 @@ CREATE TABLE `user_acc_data` (
 -- Dumping data for table `user_acc_data`
 --
 INSERT INTO `user_acc_data` (`id`, `profile_picture`, `background_image`, `verify_one`, `verify_two`, `firstname`, `middlename`, `lastname`, `suffix`, `sex`, `email`, `contact_number`, `province`, `city`, `barangay`, `street_name`, `bldg_house_no`, `username`, `password`, `role`, `is_agree`, `status`, `organization`, `member_type`) VALUES
-(1, 'meeee.jpg', 'phsi-carousel.jpg', 'rj1.jpg', 'rj2.jpg', 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjay.malagagmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', '', 'arjay', 'arjay', 'super_admin', 'Yes', 'Pending', 'None', 'Student'),
-(2, 'user-icon.png', 'phsi-carousel.jpg', 'jer1.jpg', 'jer2.jpg', 'Jericho', 'Bello', 'Sagdi', '', 'Male', 'jericho.sagdi@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'jericho', 'jericho', 'user', 'Yes', 'Pending', 'Student', 'Not');
+(1, 'dp8.jpg', 'phsi-carousel.jpg', 'rj1.jpg', 'rj2.jpg', 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjay.malagagmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', '', 'arjay', 'arjay', 'super_admin', 'Yes', 'Pending', 'None', 'Student'),
+(2, 'dp2.jpg', 'phsi-carousel.jpg', 'jer1.jpg', 'jer2.jpg', 'Jericho', 'Bello', 'Sagdi', '', 'Male', 'jericho.sagdi@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'jericho', 'jericho', 'phsi_admin', 'Yes', 'Pending', 'Student', 'Not'),
+(3, 'dp1.jpg', 'phsi-carousel.jpg', 'ben1.jpg', 'ben2.jpg', 'Bennett', 'Gelacio', 'Chan', '', 'Male', 'gelacio.chan@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'ben', 'ben', 'unesco_admin', 'Yes', 'Pending', 'Student', 'Not'),
+(4, 'dp3.jpg', 'phsi-carousel.jpg', 'hadz1.jpg', 'hadz2.jpg', 'Hadzramar', 'Iblang', 'Jaafar', '', 'Male', 'hadzramar.iblang@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'hadz', 'hadz', 'phsi_content_admin', 'Yes', 'Pending', 'Student', 'Not'),
+(5, 'dp4.jpg', 'phsi-carousel.jpg', 'kat1.jpg', 'kat2.jpg', 'Kaitlyn', 'Quimbo', 'Mira', '', 'Female', 'mira.kaitlyn@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'mira', 'mira', 'unesco_content_admin', 'Yes', 'Pending', 'Student', 'Not'),
+(6, 'dp5.jpg', 'phsi-carousel.jpg', 'ange1.jpg', 'ange2.jpg', 'Angelica', '', 'Deoric', '', 'Female', 'deoric.angelica@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'angelica', 'angelica', 'user', 'Yes', 'Pending', 'Student', 'Not'),
+
 
 
 --

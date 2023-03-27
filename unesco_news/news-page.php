@@ -9,7 +9,7 @@
 <section class="news">
 
 <?php
-  require_once '../classes/news_model.php'; 
+    require_once '../classes/unesco_news_model.php';
   $news = new News();
   //We will now fetch all the records in the array using loop
   //use as a counter, not required but suggested for the table

@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../classes/news_model.php';
+require_once '../classes/unesco_news_model.php';
 
     $delete_id = $_POST['delete_id'];
 

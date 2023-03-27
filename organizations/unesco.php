@@ -95,7 +95,7 @@
 
 <!-- about section ends -->
 
-<!-- services section starts  -->
+<!-- NEWS AND FEATURES UNESCO -->
 
 <section class="services" id="news">
 
@@ -103,29 +103,37 @@
 
    <div class="box-container container">
 
-      <div class="box">
-         <img src="../images/content-images/unesco-p3.jpg" alt="">
-         <h3>News Title</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, non?</p>
-      </div>
+   <?php
+    
+    require_once '../classes/unesco_news_model.php';
+    
+    $news = new News();
+    //We will now fetch all the records in the array using loop
+    //use as a counter, not required but suggested for the table
+    $i = 1;
+    //loop for each record found in the array
+    foreach ($news->fetchAllRecords() as $value){ 
+        //start of loop
+    ?>
 
       <div class="box">
-         <img src="../images/content-images/unesco-p4.jpg" alt="">
-         <h3>News Title</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, non?</p>
-
+         <img src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['news_title']; ?>">
+         <h3><?php echo $value['news_title']; ?></h3>
+         <a href="" class="login-btn">Read More</a>
+      </div>
+      <?php $i++; } ?> 
       </div>
 
-      <div class="box">
-         <img src="../images/content-images/unesco-p5.jpg" alt="">
-         <h3>News Title</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, minima?</p>
-      </div>
    </div>
 
 </section>
 
-<!-- services section ends -->
+<!-- NEWS AND FEATURES UNESCO -->
+
+
+
+
+
 
 <!-- process section starts  -->
 
@@ -135,116 +143,29 @@
 
    <div class="box-container container">
 
+   <?php
+   require_once '../classes/unesco_administration_model.php';
+    
+    $administration = new Administration();
+    //We will now fetch all the records in the array using loop
+    //use as a counter, not required but suggested for the table
+    $i = 1;
+    //loop for each record found in the array
+    foreach ($administration->fetchAllRecords() as $value){ 
+        //start of loop
+    ?>
+
 
       <div class="box">
-         <img src="../images/administration-profile/phsi-marlon.png" alt="">
+         <img src="../uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['admin_name']; ?>">
          <div class="admin-info">
-         <h3>Engr. Marlon Grande</h3>
-         <p>Club Adviser</p>
+         <h3><?php echo $value['admin_name'] ?></h3>
+         <p><?php echo $value['admin_position'] ?></p>
          </div>
       </div>
+      <?php $i++; } ?> 
 
-      <div class="box">
-         <img src="../images/administration-profile/unesco-clarise.png" alt="">
-         <h3>Clarise Jane Tayao</h3>
-         <p>President</p>
-      </div>
 
-      <div class="box">
-         <img src="../images/administration-profile/unesco-arafi.png" alt="">
-         <h3>Araffi Suhaide</h3>
-         <p>Vice President</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-krisha.png" alt="">
-         <h3>Krisha Joy Elumir</h3>
-         <p>General Secretary</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-ahmad.png" alt="">
-         <h3>Ahmad Alawi</h3>
-         <p>PIO</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-juniel.png" alt="">
-         <h3>Juniel Anoso</h3>
-         <p>External Finance</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-amir.png" alt="">
-         <h3>Amir Nashireen Tadjul</h3>
-         <p>Internal Finance</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-lowel.png" alt="">
-         <h3>Lowel Jay Recto</h3>
-         <p>Auditor</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-kin.png" alt="">
-         <h3>Kin Gerald Lugas</h3>
-         <p>Project Manager</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-almuha.png" alt="">
-         <h3>Almuhaimin Jahama</h3>
-         <p>Ambassador</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-elvina.png" alt="">
-         <h3>Elvina Vanessa Kairan</h3>
-         <p>Ambassadress</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/student-profile/user-icon.png"" alt="">
-         <h3>Vanessa Pascua</h3>
-         <p>Content Committee</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-kristine.png" alt="">
-         <h3>Kristine Joy Esteban</h3>
-         <p>Creative Committee Head</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/student-profile/user-icon.png" alt="">
-         <h3>Myrtle Pama</h3>
-         <p>Creative Committee Asst. Head</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-clark.png" alt="">
-         <h3>Clark Santander</h3>
-         <p>Creative Committee</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-jenevie.png" alt="">
-         <h3>Jenevie Balendres</h3>
-         <p>Creative Committee</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/unesco-gloria.png" alt="">
-         <h3>Gloria Louie Escote</h3>
-         <p>Membership Committee</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/student-profile/user-icon.png" alt="">
-         <h3>Monique Dancel</h3>
-         <p>Membership Committee</p>
-      </div>
    </div>
 </section>
 

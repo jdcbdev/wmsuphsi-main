@@ -108,7 +108,7 @@
       <a href="#" class="btn">I am a Peace Mediator</a>
    </div>
 </section>
-<?php } ?>
+
 <!-------------------------------------------  Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES End -------------------------------------------------------------------------------------------->
 
 
@@ -119,48 +119,39 @@
    <div class="swiper home-courses-slider">
 
       <div class="swiper-wrapper">
-
+   <?php
+    
+    require_once 'classes/phsi_action_model.php';
+    
+    $action = new Action();
+    //We will now fetch all the records in the array using loop
+    //use as a counter, not required but suggested for the table
+    $i = 1;
+    //loop for each record found in the array
+    foreach ($action->fetchAllRecords() as $value){ 
+        //start of loop
+    ?>
          <div class="swiper-slide slide">
             <div class="image">
-               <img src="images/content-images/unesco-p3.jpg" alt="">
-               <h3>Call for Donations</h3>
+               <img src="uploads/<?php echo $value['filename']; ?>" alt="">
+               <h3><?php echo $value['action_type'] ?></h3>
             </div>
             <div class="content">
-               <h3>Call for Donations</h3>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, ratione?</p>
-               <a href="#" class="btn">Donate</a>
+               <h3><?php echo $value['action_type'] ?></h3>
+               <p><?php echo $value['title'] ?></p>
+               <a href="phsi_action/action-page.php?id=<?php echo $value['id']; ?>" class="btn">Donate</a>
             </div>
          </div>
 
-         <div class="swiper-slide slide">
-            <div class="image">
-               <img src="images/content-images/unesco-donations.png" alt="">
-               <h3>Call for Volunteers</h3>
-            </div>
-            <div class="content">
-               <h3>Call for Volunteers</h3>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, ratione?</p>
-               <a href="#" class="btn">Volunteer</a>
-            </div>
-         </div>
-
-         <div class="swiper-slide slide">
-            <div class="image">
-               <img src="images/content-images/peace-edukasyon.jpg" alt="">
-               <h3>Call for Donations</h3>
-            </div>
-            <div class="content">
-               <h3>Call for Donations</h3>
-               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, ratione?</p>
-               <a href="#" class="btn">Donate</a>
-            </div>
-         </div>
+         <?php $i++;  } ?>  
 
       </div>
 
    </div>
 
 </section>
+
+<?php } ?>
 
 
 <!--------------------------------------------- Announcements Section Start ----------------------------------------------------------------------------->
@@ -203,6 +194,8 @@
          </div>
       </div>
 </section>
+
+      <a href="news/news.php" class="btn" style="margin: auto;justify-content: center;display: flex;width: 15%;">View All</a>
 <!---------------------------------------------- Announcements Section Start ----------------------------------------------------------------------------------->
 
 <!---------------------------------------------- Organizations Section Start  ------------------------------------------------------------------------------------------->
@@ -217,9 +210,9 @@
          <!--<p>Lorem ipsum</p>-->
       </div>
 
-      <div class="box" id="biorisk">
+      <!--<div class="box" id="biorisk">
          <img src="images/logos/biorisk.png" alt="">
-         <h3>WMSU Biosafety and Biosecurity Committee</h3>
+         <h3>WMSU Biosafety and Biosecurity Committee</h3>-->
          <!--<p>Lorem ipsum</p>-->
       </div>
    </div>

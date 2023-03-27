@@ -791,6 +791,8 @@ form .user-details .input-box{
   -ms-grid-columns: (minmax(16rem, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 2rem;
+  width: 50%;
+margin: auto;
 }
 
 .organization .box-container .box {

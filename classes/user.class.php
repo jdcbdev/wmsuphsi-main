@@ -103,6 +103,14 @@ Class Users{
         return $data;
     }
 
+    public function fetchRecordById($id) {
+        $select_stmt = $this->db->connect()->prepare('SELECT id, profile_picture, background_image, verify_one, verify_two, firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role, is_agree, status, organization, member_type FROM user_acc_data WHERE id = :id');
+        $select_stmt->bindParam(':id', $id);
+        $select_stmt->execute();
+        $data = $select_stmt->fetch(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
     function pending(){
         $sql = "SELECT * FROM user_acc_data WHERE status = 'Pending';";
         $query=$this->db->connect()->prepare($sql);

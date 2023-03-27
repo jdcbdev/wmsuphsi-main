@@ -46,6 +46,26 @@
                 </a>
             </li>
             <?php } ?>
+
+            <?php if($_SESSION['role'] == 'super_admin' || $_SESSION['role'] == 'phsi_admin' || $_SESSION['role'] == 'phsi_content_admin'){ ?>
+            <li class="nav-item">
+                <a href="../admin/phsi_action.php" class="nav-link <?php echo $phsi_action; ?>" title="PHSI Mission & Vison">
+                    <i class='bx bxs-bookmarks'></i>
+                    <span class="links-name">PHSI Call for Actions</span>
+                </a>
+            </li>
+            <?php } ?>
+
+
+            <?php if($_SESSION['role'] == 'super_admin' || $_SESSION['role'] == 'unesco_admin' || $_SESSION['role'] == 'unesco_content_admin'){ ?>
+            <li class="nav-item">
+                <a href="../admin/unesco_action.php" class="nav-link <?php echo $unesco_action; ?>" title="UNESCO Mission & Vison">
+                    <i class='bx bxs-bookmarks'></i>
+                    <span class="links-name">UNESCO Call for Actions</span>
+                </a>
+            </li>
+            <?php } ?>
+
             
             <?php if($_SESSION['role'] == 'super_admin' || $_SESSION['role'] == 'phsi_admin' || $_SESSION['role'] == 'phsi_content_admin'){ ?>
             <li class="nav-item">

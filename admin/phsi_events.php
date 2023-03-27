@@ -125,7 +125,7 @@
                 <option value="Type 3">Type 3</option>
                 <option value="Other">Other</option>
                 </select>
-                <input class="form-control" type="text" name="event_type_other" id="event_type_other" style="display: none;">
+                <input class="form-control" type="text" name="event_type_other" id="event_type_other" placeholder="Other" style="display: none;">
             </div>
 
             <!--EVENT LOCATION (VENUE)-->
@@ -160,9 +160,33 @@
 
             <!--EVENT SCOPE-->
             <label for="event_scope" class="form-label">Scope</label>
-            <div class="input-group">
-                <input class="form-control" type="text" name="event_scope" id="event_scope"  required>
+            <div class="input-group" style="gap: 1rem;">
+                <div>
+                    <input type="checkbox" name="event_scope[]" id="wmsu_unesco" value="WMSU UNESCO">
+                    <label for="wmsu_unesco">WMSU UNESCO</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="event_scope[]" id="phsi" value="PHSI">
+                    <label for="phsi">PHSI</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="event_scope[]" id="alumni" value="ALUMNI">
+                    <label for="alumni">ALUMNI</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="event_scope[]" id="student" value="STUDENT">
+                    <label for="student">STUDENT</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="event_scope[]" id="employee" value="EMPLOYEE">
+                    <label for="employee">EMPLOYEE</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="event_scope[]" id="all" value="ALL">
+                    <label for="all">ALL</label>
+                </div>
             </div>
+
 
             <!--EVENT ONLINE PLATFORM (LINK)-->
             <label for="event_platform" class="form-label">Online Platform (if event mode is virtual)</label>

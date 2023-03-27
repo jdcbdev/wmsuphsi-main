@@ -182,7 +182,7 @@
 </section>
 
 
-<section class="event-organizers">
+<!--<section class="event-organizers">
 
    <h1 class="heading">Speakers</h1>
 
@@ -209,7 +209,7 @@
          <p>Vice President</p>
       </div>
    </div>
-</section>
+</section>-->
 
 <section class="event-organizers">
 
@@ -333,7 +333,7 @@
 <?php
     } else {
       // Display error message if article is not found
-      echo 'Article not found.';
+      echo 'We apologize, but we could not locate the article you are trying to access. It may no longer be available or may have been moved to a different location.';
     }
   } else {
     // Display error message if article ID is not set in URL

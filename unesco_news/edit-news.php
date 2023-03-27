@@ -1,6 +1,6 @@
 <?php
 
-    require_once '../classes/news_model.php';
+require_once '../classes/unesco_news_model.php';
 
     $update_id = $_POST['update_id'];
 
