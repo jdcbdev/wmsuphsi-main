@@ -158,7 +158,7 @@
                 <input class="form-control" type="number" name="event_slots" id="event_slots" required>
             </div>
 
-            <!--EVENT SCOPE-->
+            <!--EVENT SCOPE
             <label for="event_scope" class="form-label">Scope</label>
             <div class="input-group" style="gap: 1rem;">
                 <div>
@@ -185,6 +185,12 @@
                     <input type="checkbox" name="event_scope[]" id="all" value="ALL">
                     <label for="all">ALL</label>
                 </div>
+            </div>-->
+
+            <!--EVENT ONLINE PLATFORM (LINK)-->
+            <label for="event_scope" class="form-label">Scope</label>
+            <div class="input-group">
+                <input class="form-control" type="text" name="event_scope" id="event_scope">
             </div>
 
 
