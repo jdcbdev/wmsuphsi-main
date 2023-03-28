@@ -159,9 +159,9 @@ if(isset($_POST['submit'])) {
   }
 
   form.addEventListener("submit", function(event) {
-   event.preventDefault();   
-   modal.style.display = "none";
-   srsvpBox.innerHTML = "<p>You're in! See you at the venue.</p>";
+   //event.preventDefault();   
+   //modal.style.display = "none";
+   //srsvpBox.innerHTML = "<p>You're in! See you at the venue.</p>";
   });
 
 
