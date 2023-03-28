@@ -25,7 +25,10 @@
 
    <!--Bootstrap-->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
+   
+   <!--Recaptcha-->
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   
    <!-- Title and Logo in tab -->
    <link rel="icon" type="image/png" href="../images/logos/phsi.png">
    <title><?php echo $page_title; ?></title>

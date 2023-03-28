@@ -63,10 +63,10 @@ if(isset($_POST['submit'])) {
    $user->lastname = htmlentities($_POST['lastname']);
    $user->suffix = htmlentities($_POST['suffix']);
    $user->email = htmlentities($_POST['email']);
-   $user->contact_number = htmlentities($_POST['contact']);
+   $user->contact_number = htmlentities($_POST['contact_number']);
 
-   print_r($user);
-   print_r("test 111");  
+   //print_r($user);
+   //print_r("test 111");  
 
 
    if ($user->addUserToEvent()) {
@@ -81,7 +81,6 @@ if(isset($_POST['submit'])) {
       $_POST['lastname']= $data['lastname'];
       $_POST['suffix']= $data['suffix'];
       $_POST['email'] = $data['email'];
-      $_POST['middlename'] = $data['middlename'];
       $_POST['contact_number'] = $data['contact_number'];
 
    }
@@ -120,8 +119,8 @@ if(isset($_POST['submit'])) {
                 <input type="email" id="email" name="email" required 
                 value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
 
-                <label for="contact">Contact:</label>
-                <input type="text" id="contact" name="contact" required 
+                <label for="contact_number">Contact:</label>
+                <input type="text" id="contact_number" name="contact_number" required 
                 value="<?php if(isset($_POST['contact_number'])) { echo $_POST['contact_number']; } ?>">
                   
                 <input type="hidden" name='event_id' value="<?php echo $_GET['id']; ?>">
