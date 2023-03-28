@@ -153,7 +153,7 @@ Class Users{
 
     function addUserToEvent() {
         $sql = "INSERT INTO rsvp (id, event_id, firstname, middlename, lastname, suffix, email, contact_number)
-         VALUES (NULL, :event_id, :firstname, :middlename, :lastname, :suffix,  :email, :contact_number);";
+         VALUES (NULL, :event_id, :firstname, :middlename, :lastname, :suffix, :email, :contact_number);";
         $query=$this->db->connect()->prepare($sql);
 
         $query->bindParam(':event_id', $this->event_id);

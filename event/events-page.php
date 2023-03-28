@@ -10,7 +10,7 @@
    //$userData = $user -> fetch($_SESSION['user_id']);
 
    // Check if user is logged in
-   if (!isset($_SESSION['user_id'])) {
+   if (!isset($_SESSION['logged-in'])) {
    // User is not logged in, redirect to login page
    header('Location: ../login/login.php');
    exit();
@@ -48,55 +48,52 @@
 
 <?php
 
-//print_r("test");  
+
 
 $user = new Users;
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$userData = $user -> fetch($_SESSION['user_id']);
 if(isset($_POST['submit'])) {
-   //var_dump($_POST);
-      // Verify the reCAPTCHA response
-      $recaptcha_secret = '6Ley7zslAAAAAAzfUOiWUDuKPlagO_F2ODAAUcaY';
-      $recaptcha_response = $_POST['g-recaptcha-response'];
+   
+   // Verify the reCAPTCHA response
+   $recaptcha_secret = '6Ley7zslAAAAAAzfUOiWUDuKPlagO_F2ODAAUcaY';
+   $recaptcha_response = $_POST['g-recaptcha-response'];
 
-      $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response");
-      $response_data = json_decode($response);
+   $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response");
+   $response_data = json_decode($response);
 
-      if (!$response_data->success) {
-         // The reCAPTCHA verification failed
-         // Handle the error accordingly
-      } else {
-         // The reCAPTCHA verification succeeded
-         // Process the form submission
-         // ...
-      } 
-   // TABULATE DATA TO USER OBJECT
-
-   $user->id = $_GET['id'];
-   $user -> event_id = htmlentities($_POST['event_id']);
-   $user->firstname = htmlentities($_POST['firstname']);
-   $user->middlename = htmlentities($_POST['middlename']);
-   $user->lastname = htmlentities($_POST['lastname']);
-   $user->suffix = htmlentities($_POST['suffix']);
-   $user->email = htmlentities($_POST['email']);
-   $user->contact_number = htmlentities($_POST['contact_number']);
-
-   //print_r($user);
-   //print_r("test 111");  
-
-
+   if (!$response_data->success) {
+     // The reCAPTCHA verification failed
+     // Handle the error accordingly
+   } else {
+      // The reCAPTCHA verification succeeded
+      // Process the form submission
+      // ...
+   } 
+      // TABULATE DATA TO USER OBJECT
+      $user->id = $id;
+      $user->event_id = htmlentities($_POST['event_id']);
+      $user->firstname = htmlentities($_POST['firstname']);
+      $user->middlename = htmlentities($_POST['middlename']);
+      $user->lastname = htmlentities($_POST['lastname']);
+      $user->suffix = htmlentities($_POST['suffix']);
+      $user->email = htmlentities($_POST['email']);
+      $user->contact_number = htmlentities($_POST['contact_number']);
+   
    if ($user->addUserToEvent()) {
-      header('location: events-page.php');
+      header('location: registered-event.php');
+      exit;
    }
 } else {
-   if ($user->fetch($_GET['id'])){
-      $data = $user->fetch($_GET['id']);
+   if ($id && $user->fetch($id)){
+      $data = $user->fetch($id);
 
       $_POST['firstname'] = $data['firstname'];
-      $_POST['middlename']= $data['middlename'];
-      $_POST['lastname']= $data['lastname'];
-      $_POST['suffix']= $data['suffix'];
+      $_POST['middlename'] = $data['middlename'];
+      $_POST['lastname'] = $data['lastname'];
+      $_POST['suffix'] = $data['suffix'];
       $_POST['email'] = $data['email'];
       $_POST['contact_number'] = $data['contact_number'];
-
    }
 }
 ?>
@@ -112,40 +109,38 @@ if(isset($_POST['submit'])) {
             <span class="close">&times;</span>
             <h2 style="margin: auto; font-size: 3rem;">Attendee Information</h2>
             
-            <form action="events-page.php?id=<?php echo $_GET['id']?>" class="modal-form" id="modal-form" method="post">
-                <label for="firstname">First Name:</label>
+            <form action="events-page.php?id=<?php echo $id; ?>" class="modal-form" id="modal-form" method="post">
+               
+               <label for="firstname">First Name:</label>
                 <input type="text" id="firstname" name="firstname" required 
-                value="<?php if(isset($_POST['firstname'])) { echo $_POST['firstname']; } ?>">
+                value="<?php echo $userData['firstname'] ?>">
 
                 <label for="middlename">Middle Name:</label>
                 <input type="text" id="middlename" name="middlename" 
-                value="<?php if(isset($_POST['middlename'])) { echo $_POST['middlename']; } ?>">
+                value="<?php echo isset($userData['middlename']) ?  $userData['middlename']: "" ?>">
 
                 <label for="lastname">Last Name:</label>
                 <input type="text" id="lastname" name="lastname" required 
-                value="<?php if(isset($_POST['lastname'])) { echo $_POST['lastname']; } ?>">
+                value='<?php echo $userData['lastname'] ?>'>
 
                 <label for="suffix">Suffix:</label>
                 <input type="text" id="suffix" name="suffix" 
-                value="<?php if(isset($_POST['suffix'])) { echo $_POST['suffix']; } ?>">
+                value="<?php echo isset($userData['suffix']) ?  $userData['suffix']: "" ?>">
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required 
-                value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
+                value="<?php echo $userData['email'] ?>">
 
                 <label for="contact_number">Contact:</label>
                 <input type="text" id="contact_number" name="contact_number" required 
-                value="<?php if(isset($_POST['contact_number'])) { echo $_POST['contact_number']; } ?>">
-                  
-                <input type="hidden" name='event_id' value="<?php echo $_GET['id']; ?>">
+                value="<?php echo $userData['contact_number'] ?> ">
+
+                <input type="hidden" name='event_id' value="<?php echo $id; ?>">
                 
                 <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem;"></div>
 
                 <input type="submit" id="submit" name="submit" value="Submit">  
             </form>
-
-
-
         </div>
     </div>
     </div>
@@ -176,7 +171,7 @@ if(isset($_POST['submit'])) {
   form.addEventListener("submit", function(event) {
    //event.preventDefault();   
    //modal.style.display = "none";
-   //srsvpBox.innerHTML = "<p>You're in! See you at the venue.</p>";
+   //srsvpBox.innerHTML = "<p>Registration Successful! See you at the venue.</p>";
   });
 
 

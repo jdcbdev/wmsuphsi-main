@@ -424,18 +424,26 @@ COMMIT;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rsvp`
+-- Table structure for table `rsvp` 
 --
 
 CREATE TABLE `rsvp` (
   `id` int(11) NOT NULL, 
   `event_id` int(11) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `middlename` varchar(35) NOT NULL,
-  `lastname` varchar(35) NOT NULL,
-  `suffix` varchar(35) NOT NULL,
-  `email` varchar(35) NOT NULL,
-  `contact_number` int(11) NOT NULL,
+  `firstname` varchar(50) NOT NULL,
+  `middlename` varchar(50) NOT NULL,
+  `lastname` varchar(50) NOT NULL,
+  `suffix` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `contact_number` varchar(11) NOT NULL,
+  `province` varchar(50) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `barangay` varchar(50) NOT NULL,
+  `street_name` varchar(50) DEFAULT NULL,
+  `bldg_house_no` varchar(50) DEFAULT NULL,
+  `status` varchar(50) NOT NULL,
+  `organization`varchar(50) NOT NULL,
+  `member_type` varchar(50) NOT NULL,
   `attendance` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -448,6 +456,7 @@ CREATE TABLE `rsvp` (
 --
 ALTER TABLE `rsvp`
   ADD PRIMARY KEY (`id`);
+
 
 --
 -- AUTO_INCREMENT for table `rsvp`
