@@ -53,7 +53,21 @@
 $user = new Users;
 if(isset($_POST['submit'])) {
    //var_dump($_POST);
+      // Verify the reCAPTCHA response
+      $recaptcha_secret = '6Ley7zslAAAAAAzfUOiWUDuKPlagO_F2ODAAUcaY';
+      $recaptcha_response = $_POST['g-recaptcha-response'];
 
+      $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response");
+      $response_data = json_decode($response);
+
+      if (!$response_data->success) {
+         // The reCAPTCHA verification failed
+         // Handle the error accordingly
+      } else {
+         // The reCAPTCHA verification succeeded
+         // Process the form submission
+         // ...
+      } 
    // TABULATE DATA TO USER OBJECT
 
    $user->id = $_GET['id'];
@@ -124,6 +138,8 @@ if(isset($_POST['submit'])) {
                 value="<?php if(isset($_POST['contact_number'])) { echo $_POST['contact_number']; } ?>">
                   
                 <input type="hidden" name='event_id' value="<?php echo $_GET['id']; ?>">
+                
+                <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS"></div>
 
                 <input type="submit" id="submit" name="submit" value="Submit">  
             </form>
