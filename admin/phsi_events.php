@@ -120,9 +120,9 @@
             <div class="input-group">
                 <select id="event_type" name="event_type" onchange="showHideOtherInput()">
                 <option value="">--Select Type--</option>
-                <option value="Type 1">Type 1</option>
-                <option value="Type 2">Type 2</option>
-                <option value="Type 3">Type 3</option>
+                <option value="Webinar">Webinar</option>
+                <option value="Symposium">Symposium</option>
+                <option value="Workshop">Workshop</option>
                 <option value="Other">Other</option>
                 </select>
                 <input class="form-control" type="text" name="event_type_other" id="event_type_other" placeholder="Other" style="display: none;">

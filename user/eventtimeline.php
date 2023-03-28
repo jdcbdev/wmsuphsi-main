@@ -44,37 +44,6 @@
 	</div>     
 </div>
 
-<div class="events-container">
-	<div class="event">
-		<div class="event-image-container">
-            <img src="../images/content-images/unesco-peacte.jpg" alt="">
-		</div>
-		<div class="event-info">
-			<h6>Oct 22, 2022 - CALL FOR VOLUNTEERS  - <span>WMSU Youth Peace Mediators - UNESCO Club</span></h6>
-			<h2>PEACE-ta sa UNESCO: Pagkakaisa tungo sa Matibay na Samahan</h2>
-            <div class="event-content">
-                <p>This year's GENERAL ASSEMBLY aims to strengthen the members' relationship and build a strong camaraderie through team-building activities with the theme PEACE-ta sa UNESCO: Pagkakaisa tungo sa Matibay na Samahan.</p>
-            </div>
-			<a href="events-page.php" class="btn">View details</a>
-		</div>
-	</div>     
-</div>
-
-<div class="events-container">
-	<div class="event">
-		<div class="event-image-container">
-            <img src="../images/content-images/unesco-peacte.jpg" alt="">
-		</div>
-		<div class="event-info">
-			<h6>Oct 22, 2022 - CALL FOR VOLUNTEERS  - <span>WMSU Youth Peace Mediators - UNESCO Club</span></h6>
-			<h2>PEACE-ta sa UNESCO: Pagkakaisa tungo sa Matibay na Samahan</h2>
-            <div class="event-content">
-                <p>This year's GENERAL ASSEMBLY aims to strengthen the members' relationship and build a strong camaraderie through team-building activities with the theme PEACE-ta sa UNESCO: Pagkakaisa tungo sa Matibay na Samahan.</p>
-            </div>
-			<a href="events-page.php" class="btn">View details</a>
-		</div>
-	</div>     
-</div>
 
 </section>
 
