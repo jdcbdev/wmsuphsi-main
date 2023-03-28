@@ -139,7 +139,7 @@ if(isset($_POST['submit'])) {
                   
                 <input type="hidden" name='event_id' value="<?php echo $_GET['id']; ?>">
                 
-                <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS"></div>
+                <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem;"></div>
 
                 <input type="submit" id="submit" name="submit" value="Submit">  
             </form>
