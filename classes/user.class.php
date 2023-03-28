@@ -152,12 +152,11 @@ Class Users{
     }
 
     function addUserToEvent() {
-        $sql = "INSERT INTO rsvp (rsvp_id, event_id, id, firstname, middlename, lastname, suffix, email, contact_number)
-         VALUES (null, :event_id, :id, :firstname, :middlename, :lastname, :suffix,  :email, :contact_number);";
+        $sql = "INSERT INTO rsvp (id, event_id, firstname, middlename, lastname, suffix, email, contact_number)
+         VALUES (NULL, :event_id, :firstname, :middlename, :lastname, :suffix,  :email, :contact_number);";
         $query=$this->db->connect()->prepare($sql);
 
         $query->bindParam(':event_id', $this->event_id);
-        $query->bindParam(':id', $this->user_id);
         $query->bindParam(':firstname', $this->firstname);
         $query->bindParam(':middlename', $this->middlename);
         $query->bindParam(':lastname', $this->lastname);
@@ -169,7 +168,9 @@ Class Users{
             return true;
         } 
         return false;
-    }
+    }    
+
+
     
     function edit(){
         $sql = "UPDATE user_acc_data SET verify_one=:verify_one, verify_two=:verify_two, firstname=:firstname, lastname=:lastname, email=:email, middlename=:middlename, suffix=:suffix, sex=:sex, contact_number=:contact_number, province=:province, city=:city, barangay=:barangay, street_name=:street_name, bldg_house_no=:bldg_house_no, username=:username, password=:password, role=:role, status=:status, member_type=:member_type WHERE id = :id;";

@@ -6,29 +6,15 @@
    require_once '../includes/header.php';
    require_once '../classes/user.class.php';
 
-   $user = new Users;
-   $userData = $user -> fetch($_SESSION['user_id']);
+   //$user = new Users;
+   //$userData = $user -> fetch($_SESSION['user_id']);
 
-   if(isset($_POST['submit'])) {
-      //var_dump($_POST);
-
-      // TABULATE DATA TO USER OBJECT
-      $user -> user_id = $_SESSION['user_id'];
-      $user -> event_id = $_POST['event_id'];
-      $user -> firstname = $_POST['firstname'];
-      $user -> middlename = $_POST['middlename'];
-      $user -> lastname = $_POST['lastname'];
-      $user -> suffix = $_POST['suffix'];
-      $user -> email = $_POST['email'];
-      $user -> contact_number= $_POST['contact'];
-      $result = $user -> addUserToEvent();
-   }
    // Check if user is logged in
    if (!isset($_SESSION['user_id'])) {
    // User is not logged in, redirect to login page
    header('Location: ../login/login.php');
    exit();
- }
+ } 
 ?>
 
 
@@ -60,6 +46,47 @@
 </div>
 </section>
 
+<?php
+
+//print_r("test");  
+
+$user = new Users;
+if(isset($_POST['submit'])) {
+   //var_dump($_POST);
+
+   // TABULATE DATA TO USER OBJECT
+
+   $user->id = $_GET['id'];
+   $user -> event_id = htmlentities($_POST['event_id']);
+   $user->firstname = htmlentities($_POST['firstname']);
+   $user->middlename = htmlentities($_POST['middlename']);
+   $user->lastname = htmlentities($_POST['lastname']);
+   $user->suffix = htmlentities($_POST['suffix']);
+   $user->email = htmlentities($_POST['email']);
+   $user->contact_number = htmlentities($_POST['contact']);
+
+   print_r($user);
+   print_r("test 111");  
+
+
+   if ($user->addUserToEvent()) {
+      header('location: events-page.php');
+   }
+} else {
+   if ($user->fetch($_GET['id'])){
+      $data = $user->fetch($_GET['id']);
+
+      $_POST['firstname'] = $data['firstname'];
+      $_POST['middlename']= $data['middlename'];
+      $_POST['lastname']= $data['lastname'];
+      $_POST['suffix']= $data['suffix'];
+      $_POST['email'] = $data['email'];
+      $_POST['middlename'] = $data['middlename'];
+      $_POST['contact_number'] = $data['contact_number'];
+
+   }
+}
+?>
 
 <section class="rsvp-container">
     <div class="rsvp-box">
@@ -72,32 +99,32 @@
             <span class="close">&times;</span>
             <h2 style="margin: auto; font-size: 3rem;">Attendee Information</h2>
             
-            <form action="events-page.php" class="modal-form" id="modal-form" method="POST">
+            <form action="events-page.php?id=<?php echo $_GET['id']?>" class="modal-form" id="modal-form" method="post">
                 <label for="firstname">First Name:</label>
                 <input type="text" id="firstname" name="firstname" required 
-                value="<?php echo $userData['firstname'] ?>">
+                value="<?php if(isset($_POST['firstname'])) { echo $_POST['firstname']; } ?>">
 
                 <label for="middlename">Middle Name:</label>
                 <input type="text" id="middlename" name="middlename" 
-                value="<?php echo isset($userData['middlename']) ?  $userData['middlename']: "" ?>">
+                value="<?php if(isset($_POST['middlename'])) { echo $_POST['middlename']; } ?>">
 
                 <label for="lastname">Last Name:</label>
                 <input type="text" id="lastname" name="lastname" required 
-                value='<?php echo $userData['lastname'] ?>'>
+                value="<?php if(isset($_POST['lastname'])) { echo $_POST['lastname']; } ?>">
 
                 <label for="suffix">Suffix:</label>
                 <input type="text" id="suffix" name="suffix" 
-                value="<?php echo isset($userData['suffix']) ?  $userData['suffix']: "" ?>">
+                value="<?php if(isset($_POST['suffix'])) { echo $_POST['suffix']; } ?>">
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required 
-                value="<?php echo $userData['email'] ?>">
+                value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
 
                 <label for="contact">Contact:</label>
                 <input type="text" id="contact" name="contact" required 
-                value="<?php echo $userData['contact_number'] ?> ">
+                value="<?php if(isset($_POST['contact_number'])) { echo $_POST['contact_number']; } ?>">
                   
-                <input type="hidden" name='event_id' value="1">
+                <input type="hidden" name='event_id' value="<?php echo $_GET['id']; ?>">
 
                 <input type="submit" id="submit" name="submit" value="Submit">  
             </form>
@@ -132,10 +159,15 @@
   }
 
   form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    modal.style.display = "none";
-    rsvpBox.innerHTML = "<p>You're in! See you at the venue.</p>";
+   event.preventDefault();   
+   modal.style.display = "none";
+   srsvpBox.innerHTML = "<p>You're in! See you at the venue.</p>";
   });
+
+
+
+
+
 </script>
 
 <section class="about-event">
@@ -181,35 +213,6 @@
     </div>
 </section>
 
-
-<!--<section class="event-organizers">
-
-   <h1 class="heading">Speakers</h1>
-
-   <div class="box-container container">
-
-
-      <div class="box">
-         <img src="../images/administration-profile/phsi-carla.png" alt="">
-         <div class="admin-info">
-         <h3>Engr. Marlon Grande</h3>
-         <p>Club Adviser</p>
-         </div>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/phsi-marlon.png" alt="">
-         <h3>Clarise Jane Tayao</h3>
-         <p>President</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/administration-profile/phsi-ludi.png" alt="">
-         <h3>Araffi Suhaide</h3>
-         <p>Vice President</p>
-      </div>
-   </div>
-</section>-->
 
 <section class="event-organizers">
 

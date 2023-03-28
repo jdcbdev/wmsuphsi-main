@@ -38,12 +38,12 @@
                     if ($_FILES['event_banner']['size'] > $max_file_size) {
                         echo 'File size exceeds maximum allowed size of 5MB.';
                     } else {
-                                        // Check if the file already exists
-                if (file_exists($folder . $event_banner)) {
-                    $filename_parts = pathinfo($event_banner);
-                    $event_banner = $filename_parts['filename'] . '_' . uniqid() . '.' . $filename_parts['extension'];
-                }
-                        if (move_uploaded_file($tempname_banner, $folder)) {
+                     if (move_uploaded_file($tempname_banner, $folder)) {
+                        // Check if the file already exists
+                        if (file_exists($folder . $event_banner)) {
+                            $filename_parts = pathinfo($event_banner);
+                            $event_banner = $filename_parts['filename'] . '_' . uniqid() . '.' . $filename_parts['extension'];
+                        }   
                             $insert_stmt=$this->db->connect()->prepare("INSERT INTO event (event_title, event_banner, event_about, event_mode, event_location, event_scope, event_platform, event_type, event_slots, event_status, event_date, event_start_time, event_end_time, event_reg_duedate) VALUES (:event_title, :event_banner, :event_about, :event_mode, :event_location, :event_scope, :event_platform, :event_type, :event_slots, :event_status, :event_date, :event_start_time, :event_end_time, :event_reg_duedate)");
                             $insert_stmt->bindParam(':event_title', $event_title);
                             $insert_stmt->bindParam(':event_banner', $event_banner);

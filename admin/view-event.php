@@ -67,14 +67,16 @@
                 <tbody>
                 <?php
     
-    require_once '../classes/user.class.php';
+    require_once '../classes/rsvp_model.php';
     
-    $user = new Users();
+    $rsvp = new Rsvp();
+    $rsvp -> event_id = $_GET['id'];
+    $listOfAttendees = $rsvp -> fetchAttendee();
     //We will now fetch all the records in the array using loop
     //use as a counter, not required but suggested for the table
     $i = 1;
     //loop for each record found in the array
-    foreach ($user->addUserToEvent() as $value){ 
+    foreach ($listOfAttendees as $value){ 
         //start of loop
     ?>
     

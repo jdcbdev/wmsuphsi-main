@@ -428,9 +428,8 @@ COMMIT;
 --
 
 CREATE TABLE `rsvp` (
-  `rsvp_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL, 
   `event_id` int(11) NOT NULL,
-  `id` int(11) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `middlename` varchar(35) NOT NULL,
   `lastname` varchar(35) NOT NULL,
@@ -444,22 +443,17 @@ CREATE TABLE `rsvp` (
 -- Dumping data for table `rsvp`
 --
 
-INSERT INTO `rsvp` (`rsvp_id`, `event_id`, `id`, `firstname`, `middlename`, `lastname`, `suffix`, `email`, `contact_number`) VALUES
-(1, 0, 1, 'Jericho', '', '', '', '', 0),
-(2, 0, NULL, 'Arjay', '', '', '', '', 0),
-(4, 1, 5, 'Janus', 'Janis', 'Janas', 'III', 'janus5@gmail.com', 2147483647);
-
 --
 -- Indexes for table `rsvp`
 --
 ALTER TABLE `rsvp`
-  ADD PRIMARY KEY (`rsvp_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for table `rsvp`
 --
 ALTER TABLE `rsvp`
-  MODIFY `rsvp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 -- --------------------------------------------------------
 
 -- --------------------------------------------------------
@@ -659,7 +653,7 @@ INSERT INTO `user_acc_data` (`id`, `profile_picture`, `background_image`, `verif
 (3, 'dp1.jpg', 'phsi-carousel.jpg', 'ben1.jpg', 'ben2.jpg', 'Bennett', 'Gelacio', 'Chan', '', 'Male', 'gelacio.chan@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'ben', 'ben', 'unesco_admin', 'Yes', 'Pending', 'Student', 'Not'),
 (4, 'dp3.jpg', 'phsi-carousel.jpg', 'hadz1.jpg', 'hadz2.jpg', 'Hadzramar', 'Iblang', 'Jaafar', '', 'Male', 'hadzramar.iblang@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'hadz', 'hadz', 'phsi_content_admin', 'Yes', 'Pending', 'Student', 'Not'),
 (5, 'dp4.jpg', 'phsi-carousel.jpg', 'kat1.jpg', 'kat2.jpg', 'Kaitlyn', 'Quimbo', 'Mira', '', 'Female', 'mira.kaitlyn@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'mira', 'mira', 'unesco_content_admin', 'Yes', 'Pending', 'Student', 'Not'),
-(6, 'dp5.jpg', 'phsi-carousel.jpg', 'ange1.jpg', 'ange2.jpg', 'Angelica', '', 'Deoric', '', 'Female', 'deoric.angelica@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'angelica', 'angelica', 'user', 'Yes', 'Pending', 'Student', 'Not'),
+(6, 'dp5.jpg', 'phsi-carousel.jpg', 'ange1.jpg', 'ange2.jpg', 'Angelica', '', 'Deoric', '', 'Female', 'deoric.angelica@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'angelica', 'angelica', 'user', 'Yes', 'Pending', 'Student', 'Not');
 
 
 
