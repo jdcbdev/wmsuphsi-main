@@ -30,7 +30,7 @@
 
             <main class="col-md-9 ms-sm-auto col-lg-9 col-xl-10 p-md-4">
                 <div class="w-100">
-                    <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Peace Edukasyon</h5>
+                    <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Event Attedance</h5>
                     <ul class="nav nav-tabs application">
 
                         <li class="nav-item active" id="li-pending">
@@ -153,12 +153,6 @@
 </section>
 <!--HISTORY END-->
 
-
-<!-- Custom Js file link  -->
-<script src="js/script.js"></script>    
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="../js/history.js"></script>
-
 <script>
         function load(status){
             if(status == 'pending')
@@ -207,6 +201,11 @@
                 });
         }  
 </script>
+
+<!-- Custom Js file link  -->
+<script src="js/script.js"></script>    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
        
 <?php
     require_once '../includes/admin-footer.php';
