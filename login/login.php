@@ -23,6 +23,22 @@
         $user -> password = htmlentities($_POST['password']); 
 
         $output = $user -> login();
+        
+        // Verify the reCAPTCHA response
+        $recaptcha_secret = '6Ley7zslAAAAAAzfUOiWUDuKPlagO_F2ODAAUcaY';
+        $recaptcha_response = $_POST['g-recaptcha-response'];
+
+        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret&response=$recaptcha_response");
+        $response_data = json_decode($response);
+        
+        if (!$response_data->success) {
+            // The reCAPTCHA verification failed
+            // Handle the error accordingly
+        } else {
+            // The reCAPTCHA verification succeeded
+            // Process the form submission
+            // ...
+        } 
 
         if ($output) {
             $_SESSION['verify_one'] = $output['verify_one'];
@@ -78,6 +94,9 @@
             
             <label for="password" style="color: black;" ></label>
             <input type="password" id="password" name="password" placeholder="Enter password" required tabindex="2">
+
+            <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem;"></div>
+
             <div class="flex" style="display: flex; padding: 10px 10px 10px 1px;">
                 <a href="#">Forgot password?</a>
             </div>

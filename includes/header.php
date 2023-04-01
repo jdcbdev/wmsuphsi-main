@@ -32,13 +32,14 @@
          </div>
       </div> 
       <a href="../news/news.php">News & Features</a>
-      <div class="dropdown">
+      <!--<div class="dropdown">
          <button class="dropbtn">Organizations</button>
          <div class="dropdown-content">
             <a href="../organizations/unesco.php">WMSU   UNESCO Club</a>
             <a href="../organizations/biorisk.php">Biorisk Management and Security</a>
          </div>
-      </div> 
+      </div> -->
+      <!--<a href="../organizations/unesco.php">WMSU UNESCO Club</a>  -->
       <a href="../event/events.php">Upcoming Events</a>  
    </nav>
 
