@@ -95,7 +95,7 @@
             <label for="password" style="color: black;" ></label>
             <input type="password" id="password" name="password" placeholder="Enter password" required tabindex="2">
 
-            <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem;"></div>
+            <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem;" required></div>
 
             <div class="flex" style="display: flex; padding: 10px 10px 10px 1px;">
                 <a href="#">Forgot password?</a>
