@@ -360,7 +360,7 @@ display: block;
     justify-content: center;
     text-align: center;
     display: grid;
-    padding-top: 10%;
+    /*padding-top: 10%;*/
 }
 
 .login-form .logo-details i{
