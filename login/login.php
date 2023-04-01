@@ -113,7 +113,6 @@
             
         </form>
     </div>
-
     <script>
     function checkRecaptcha() {
         var response = grecaptcha.getResponse();
@@ -129,29 +128,33 @@
             modal.style.justifyContent = "center";
             modal.style.alignItems = "center";
             
+            var modalBox = document.createElement("div");
+            modalBox.style.position = "relative";
+            modalBox.style.backgroundColor = "white";
+            modalBox.style.padding = "20px";
+            modalBox.style.borderRadius = "10px";
+            modal.appendChild(modalBox);
+            
             var message = document.createElement("p");
-            message.style.backgroundColor = "white";
-            message.style.padding = "20px";
-            message.style.borderRadius = "10px";
             message.textContent = "Please click the reCAPTCHA checkbox to prove you are not a robot.";
+            modalBox.appendChild(message);
             
-           // var closeButton = document.createElement("button");
-           // closeButton.textContent = "x";
-           // closeButton.style.marginTop = "10px";
-           // closeButton.addEventListener("click", function() {
-           //     document.body.removeChild(modal);
-           // });
-            
-            modal.appendChild(message);
-            modal.appendChild(closeButton);
-            document.body.appendChild(modal);
-
-            // Close the modal when the user clicks outside it
-            modal.addEventListener("click", function(event) {
-                if (event.target === modal) {
-                    document.body.removeChild(modal);
-                }
+            var closeButton = document.createElement("button");
+            closeButton.textContent = "X";
+            closeButton.style.position = "absolute";
+            closeButton.style.top = "10px";
+            closeButton.style.right = "10px";
+            closeButton.style.borderRadius = "50%";
+            closeButton.style.width = "25px";
+            closeButton.style.height = "25px";
+            closeButton.style.backgroundColor = "red";
+            closeButton.style.color = "white";
+            closeButton.addEventListener("click", function() {
+                document.body.removeChild(modal);
             });
+            modalBox.appendChild(closeButton);
+            
+            document.body.appendChild(modal);
             
             return false;
         } else {
@@ -159,4 +162,5 @@
         }
     }
 </script>
+
 
