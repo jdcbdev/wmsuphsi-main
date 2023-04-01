@@ -82,7 +82,7 @@
 ?>
 
     <div class="login-container">
-        <form class="login-form" action="login.php" method="post">
+        <form class="login-form" action="login.php" method="post" onsubmit="return checkRecaptcha()">
             <div class="logo-details">
             <img src="../images/logos/phsi.png"  alt="PHSI-LOGO">
                 <!--<i class='bx bx-meteor'></i>-->
@@ -114,3 +114,14 @@
         </form>
     </div>
 
+<script>
+    function checkRecaptcha() {
+        var response = grecaptcha.getResponse();
+        if (response.length === 0) {
+            alert("Please click the reCAPTCHA checkbox to prove you are not a robot.");
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
