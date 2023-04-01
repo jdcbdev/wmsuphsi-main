@@ -135,12 +135,12 @@
             message.style.borderRadius = "10px";
             message.textContent = "Please click the reCAPTCHA checkbox to prove you are not a robot.";
             
-            var closeButton = document.createElement("button");
-            closeButton.textContent = "Close";
-            closeButton.style.marginTop = "10px";
-            closeButton.addEventListener("click", function() {
-                document.body.removeChild(modal);
-            });
+           // var closeButton = document.createElement("button");
+           // closeButton.textContent = "x";
+           // closeButton.style.marginTop = "10px";
+           // closeButton.addEventListener("click", function() {
+           //     document.body.removeChild(modal);
+           // });
             
             modal.appendChild(message);
             modal.appendChild(closeButton);
