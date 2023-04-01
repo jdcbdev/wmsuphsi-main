@@ -114,11 +114,30 @@
         </form>
     </div>
 
-<script>
+    <script>
     function checkRecaptcha() {
         var response = grecaptcha.getResponse();
         if (response.length === 0) {
-            alert("Please click the reCAPTCHA checkbox to prove you are not a robot.");
+            var modal = document.createElement("div");
+            modal.style.position = "fixed";
+            modal.style.top = "0";
+            modal.style.left = "0";
+            modal.style.width = "100%";
+            modal.style.height = "100%";
+            modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+            modal.style.display = "flex";
+            modal.style.justifyContent = "center";
+            modal.style.alignItems = "center";
+            
+            var message = document.createElement("p");
+            message.style.backgroundColor = "white";
+            message.style.padding = "20px";
+            message.style.borderRadius = "10px";
+            message.textContent = "Please click the reCAPTCHA checkbox to prove you are not a robot.";
+            
+            modal.appendChild(message);
+            document.body.appendChild(modal);
+            
             return false;
         } else {
             return true;
