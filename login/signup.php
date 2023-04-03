@@ -83,12 +83,14 @@
                             </div>
                             <label class="fieldlabels details">First Name:</label>
                             <input type="text" name="firstname" required/>
+       
 
                             <label class="fieldlabels">Middle Name: </label>
                             <input type="text" name="middlename"/>
 
                             <label class="fieldlabels details">Last Name:</label>
                             <input type="text" name="lastname" required/>
+       
 
                             <label class="fieldlabels">Suffix: </label>
                             <input type="text" name="suffix"/>
@@ -99,9 +101,12 @@
                               <option value="Male" >Male</option>
                               <option value="Female">Female</option>
                             </select>
+          
+       
 
                             <label class="fieldlabels details"> Contact No.:</label>
                             <input type="text" name="contact_number"required/>
+       
 
                             <label class="fieldlabels details">Province: </label>
                             <select name="province" id="province" style="padding: 12px;" required>
@@ -111,16 +116,19 @@
                               <option value="Zamboanga Sibugay">Zamboanga Sibugay</option>
                               <option value="Zamboanga del Sur">Zamboanga del Sur</option>
                             </select>
+       
 
                             <label class="fieldlabels details">City/Municipality: </label>
                             <select name="city" id="city" style="padding: 12px;" disabled required>
                               <option value="">--Select City/Municipality--</option>
                             </select>
+       
 
                             <label class="fieldlabels details">Barangay: </label>
                             <select name="barangay" id="barangay" style="padding: 12px;" disabled required>
                                <option value="">--Select Barangay--</option>
                             </select>
+                            
 
                             <label class="fieldlabels">Street Name:</label>
                             <input type="text" name="bldg_house_no" placeholder=""/>
@@ -225,34 +233,37 @@
 
 
     <script>
-		$(document).ready(function(){
-			var current_fs, next_fs, previous_fs; //fieldsets
-			var opacity;
-			var current = 1;
-			var steps = $("fieldset").length;
-			setProgressBar(current);
-			$(".next").click(function(){
-				current_fs = $(this).parent();
-				next_fs = $(this).parent().next();
-				//Add Class Active
-				$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-				//show the next fieldset
-				next_fs.show(); 
-				//hide the current fieldset with style
-				current_fs.animate({opacity: 0}, {
-					step: function(now) {
-						// for making fielset appear animation
-						opacity = 1 - now;
-						current_fs.css({
-							'display': 'none',
-							'position': 'relative'
-						});
-						next_fs.css({'opacity': opacity});
-					}, 
-					duration: 500
-				});
-				setProgressBar(++current);
-			});
+        $(document).ready(function(){
+            var current_fs, next_fs, previous_fs; //fieldsets
+            var opacity;
+            var current = 1;
+            var steps = $("fieldset").length;
+            setProgressBar(current);
+            
+            $(".next").click(function(){
+                if(validateForm(current)){ // check if all required fields are filled before going to the next step
+                    current_fs = $(this).parent();
+                    next_fs = $(this).parent().next();
+                    //Add Class Active
+                    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+                    //show the next fieldset
+                    next_fs.show(); 
+                    //hide the current fieldset with style
+                    current_fs.animate({opacity: 0}, {
+                        step: function(now) {
+                            // for making fielset appear animation
+                            opacity = 1 - now;
+                            current_fs.css({
+                                'display': 'none',
+                                'position': 'relative'
+                            });
+                            next_fs.css({'opacity': opacity});
+                        }, 
+                        duration: 500
+                    });
+                    setProgressBar(++current);
+                }
+            });
 
             $(".previous").click(function(){
                 
@@ -290,30 +301,48 @@
             }
 
             $(".submit").click(function() {
-                // validate form fields and submit the form data to the server
-                var form_data = $("#msform").serialize();
-                
-                // send AJAX request to the server
-                $.ajax({
-                    url: "signup.php",
-                    type: "POST",
-                    data: form_data,
-                    success: function(res) {
-                        console.table(res);
-                        // handle response from the server
-                        if (res.success) {
-                            // redirect to the success page
-                            window.location.href = "success.html";
-                        } else {
-                            // display error message
-                            $("#error-message").html(res.message);
+                if(validateForm(current)){ // check if all required fields are filled before submitting the form data
+                    // serialize form data
+                    var form_data = $("#msform").serialize();
+                    
+                    // send AJAX request to the server
+                    $.ajax({
+                        url: "signup.php",
+                        type: "POST",
+                        data: form_data,
+                        success: function(res) {
+                            console.table(res);
+                            // handle response from the server
+                            if (res.success) {
+                                // redirect to the success page
+                                window.location.href = "success.html";
+                            } else {
+                                // display error message
+                                $("#input-error").html(res.message);
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(error);
                         }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(error);
+                    });
+                }
+            });
+
+            function validateForm(step) {
+                var valid = true;
+                $("fieldset:eq(" + (step - 1) + ")").find("input[required], ").each(function() {
+                    if($.trim($(this).val()) == '') {
+                        valid = false;
+                        $(this).addClass('input-error');
+                        $(this).css('border-color', 'red');
+                    }
+                    else {
+                        $(this).removeClass('input-error');
+                        $(this).css('border-color', '');
                     }
                 });
-            });
+                return valid;
+            }
         });
 </script>
 
@@ -543,6 +572,14 @@
 .fit-image{
     width: 100%;
     object-fit: cover;
+}
+
+input.error {
+    border: 2px solid red;
+}
+
+input.error:focus {
+    outline: none;
 }
 </style>
 

@@ -105,7 +105,7 @@ function getColor(strength) {
   }
 }
 
-//PROGRESS SIGN UP FORM
+//PROGRESS SIGN UP FORM REQUIRED ERROR FIELDS
 
 
 
