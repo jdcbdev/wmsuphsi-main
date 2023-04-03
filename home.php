@@ -75,7 +75,9 @@
       
       <?php  if(isset($_SESSION['logged-in'])) { 
       ?>
-      <div class="uil uil-signout"><a href="login/logout.php">Logout</a></div>
+      <div>
+         <a href="login/logout.php"><i class="uil uil-signout"></i></a>
+      </div>
       <?php
       }
       ?>
@@ -86,7 +88,10 @@
       <?php
       }
       ?>
-      <div id="menu-btn">Menu</div>
+      <!--<div id="menu-btn">Menu</div>-->
+      <div id="menu-btn">
+         <a><i class="uil uil-bars" style="font-size: 30px;"></i></a>
+      </div>
    </div>
 </header>
 <!-- Header Section End -->

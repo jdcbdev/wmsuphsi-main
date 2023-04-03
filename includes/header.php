@@ -51,7 +51,9 @@
 
       <a href="../user/user-profile.php"><img src="../uploads/<?php echo $_SESSION['profile_picture']; ?>" alt=""></a>
 
-      <div class="uil uil-signout"><a href="../login/logout.php">Logout</a></div>
+      <div>
+         <a href="login/logout.php"><i class="uil uil-signout"></i></a>
+      </div>
 
       <?php
       }
