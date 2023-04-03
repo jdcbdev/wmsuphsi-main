@@ -375,13 +375,13 @@ display: block;
     display: flex;
     height: 120px;
     width: 130px;
-    margin-left: 35px;
-    margin-bottom: none;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 .login-form .logo-details .logo-name{
     color: #107869;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 500;
     font-family: Montserrat;
     text-align: center;
