@@ -50,8 +50,282 @@
       }
 ?>
 
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2 id="heading">Sign Up Your User Account</h2>
+                <p>Fill all form field to go to next step</p>
+
+                <form id="msform" action="signup.php" method="post" enctype="multipart/form-data">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                        <li id="personal" class="active" ><strong>Personal</strong></li>
+                        <li id="payment"><strong>Verify</strong></li>
+                        <li id="account"><strong >Account</strong></li>
+                        <li id="confirm"><strong>Finish</strong></li>
+                    </ul>
+                    <div class="progress">
+                    	<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                	</div>
+                    <br>
+
+                    <!-- fieldsets -->
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                        		<div class="col-7">
+                            		<h2 class="fs-title" style="color: #107869;">Personal Information:</h2>
+                            	</div>
+                            	<div class="col-5">
+                            		<h2 class="steps">Step 1 - 4</h2>
+                            	</div>
+                            </div>
+                            <label class="fieldlabels details">First Name:</label>
+                            <input type="text" name="firstname" required/>
+
+                            <label class="fieldlabels">Middle Name: </label>
+                            <input type="text" name="middlename"/>
+
+                            <label class="fieldlabels details">Last Name:</label>
+                            <input type="text" name="lastname" required/>
+
+                            <label class="fieldlabels">Suffix: </label>
+                            <input type="text" name="suffix"/>
+
+                            <label class="fieldlabels details">Sex: </label>
+                            <select name="sex" id="sex" style="padding: 12px;" required>
+                              <option value="">--Select Sex--</option>
+                              <option value="Male" >Male</option>
+                              <option value="Female">Female</option>
+                            </select>
+
+                            <label class="fieldlabels details"> Contact No.:</label>
+                            <input type="text" name="contact_number"required/>
+
+                            <label class="fieldlabels details">Province: </label>
+                            <select name="province" id="province" style="padding: 12px;" required>
+                              <option value="">--Select Province--</option>
+                              <option value="City of Isabela">City of Isabela</option>
+                              <option value="Zamboanga del Norte">Zamboanga del Norte</option>
+                              <option value="Zamboanga Sibugay">Zamboanga Sibugay</option>
+                              <option value="Zamboanga del Sur">Zamboanga del Sur</option>
+                            </select>
+
+                            <label class="fieldlabels details">City/Municipality: </label>
+                            <select name="city" id="city" style="padding: 12px;" disabled required>
+                              <option value="">--Select City/Municipality--</option>
+                            </select>
+
+                            <label class="fieldlabels details">Barangay: </label>
+                            <select name="barangay" id="barangay" style="padding: 12px;" disabled required>
+                               <option value="">--Select Barangay--</option>
+                            </select>
+
+                            <label class="fieldlabels">Street Name:</label>
+                            <input type="text" name="bldg_house_no" placeholder=""/>
+                        </div>
+                        <input type="button" name="next" class="next action-button" value="Next" style="margin-top: 3rem;"/>
+                        <!--<input type="button" name="previous" class="previous action-button-previous" value="Previous"/>-->
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                        		<div class="col-7">
+                            		<h2 class="fs-title" style="color: #107869;">ID's Upload:</h2>
+                            	</div>
+                            	<div class="col-5">
+                            		<h2 class="steps">Step 2 - 4</h2>
+                            	</div>
+                            </div>
+
+                            <label class="fieldlabels">Upload Your Student ID (Front):</label>
+                            
+                            <div class="input-group">
+                              <input type="file" name="verify_one" id="verify_one" accept="image/*" onchange="showDisplayOne(event)" required>
+                            </div>
+
+                            <label for="file"></label>
+                            <div class="preview" style="width: 30%; margin: auto;">
+                              <img id="preview-one">
+                            </div>
+
+                            <label class="fieldlabels">Upload Your Student ID (Back):</label>
+                            
+                            <div class="input-group">
+                              <input type="file" name="verify_two" id="verify_two" accept="image/*" onchange="showDisplayTwo(event)" required>
+                            </div>
+
+                            <label for="file"></label>
+                            <div class="preview" style="width: 30%; margin: auto;">
+                              <img id="preview-two">
+                            </div>
+                        </div>
+                        <input type="button" name="next" class="next action-button" value="Next"/>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <div class="form-card">
+                        	<div class="row">
+                        		<div class="col-7">
+                            		<h2 class="fs-title" style="color: #107869;">Account Information:</h2>
+                            	</div>
+                            	<div class="col-5">
+                            		<h2 class="steps">Step 3 - 4</h2>
+                            	</div>
+                            </div>
+                            <label class="fieldlabels details ">Username:</label>
+                            <input type="text" name="username" placeholder="" required/>
+
+                            <label class="fieldlabels details">Email: </label>
+                            <input type="email" name="email" required/>
+
+                            <label class="fieldlabels details">Password:</label>
+                            <input type="password" id="password" name="password" maxlength="12" placeholder="">
+                            <span id="password-strength"></span>
+
+                            <label class="fieldlabels details">Confirm Password:</label>
+                            <input type="password" name="confirm_password" id="confirm_password" placeholder="" maxlength="12" required/>
+                        </div>
+                        <input type="submit" name="submit" class="submit action-button" value="Submit" style="margin-top: 3rem;"/>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" style="margin-top: 3rem;"/>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-card">
+                        	<div class="row">
+                        		<div class="col-7">
+                            		<h2 class="fs-title" style="color: #107869;">Email Verication:</h2>
+                            	</div>
+                            	<div class="col-5">
+                            		<h2 class="steps">Step 4 - 4</h2>
+                            	</div>
+                            </div>
+                            <br><br>
+                            <h2 class="purple-text text-center"><strong>ALMOST THERE!</strong></h2>
+                            <div class="row justify-content-center">
+                                <div class="col-3">
+                                    <img src="../images/logos/phsi.png" class="fit-image">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row justify-content-center">
+                                <div class="col-7 text-center">
+                                    <h5 class="purple-text text-center" style="color: black;">
+                                      Thank you for signing up! We've sent a verification email to <span style="color= #107869;">arjay.malaga990@gmail.com</spam> 
+                                      Please click the link in the email to activate your account.</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </form>
+
+
+    <script>
+		$(document).ready(function(){
+			var current_fs, next_fs, previous_fs; //fieldsets
+			var opacity;
+			var current = 1;
+			var steps = $("fieldset").length;
+			setProgressBar(current);
+			$(".next").click(function(){
+				current_fs = $(this).parent();
+				next_fs = $(this).parent().next();
+				//Add Class Active
+				$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+				//show the next fieldset
+				next_fs.show(); 
+				//hide the current fieldset with style
+				current_fs.animate({opacity: 0}, {
+					step: function(now) {
+						// for making fielset appear animation
+						opacity = 1 - now;
+						current_fs.css({
+							'display': 'none',
+							'position': 'relative'
+						});
+						next_fs.css({'opacity': opacity});
+					}, 
+					duration: 500
+				});
+				setProgressBar(++current);
+			});
+
+            $(".previous").click(function(){
+                
+                current_fs = $(this).parent();
+                previous_fs = $(this).parent().prev();
+                
+                //Remove class active
+                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+                
+                //show the previous fieldset
+                previous_fs.show();
+
+                //hide the current fieldset with style
+                current_fs.animate({opacity: 0}, {
+                    step: function(now) {
+                        // for making fielset appear animation
+                        opacity = 1 - now;
+
+                        current_fs.css({
+                            'display': 'none',
+                            'position': 'relative'
+                        });
+                        previous_fs.css({'opacity': opacity});
+                    }, 
+                    duration: 500
+                });
+                setProgressBar(--current);
+            });
+
+            function setProgressBar(curStep){
+                var percent = parseFloat(100 / steps) * curStep;
+                percent = percent.toFixed();
+                $(".progress-bar")
+                .css("width",percent+"%")   
+            }
+
+            $(".submit").click(function() {
+                // validate form fields and submit the form data to the server
+                var form_data = $("#msform").serialize();
+                
+                // send AJAX request to the server
+                $.ajax({
+                    url: "signup.php",
+                    type: "POST",
+                    data: form_data,
+                    success: function(res) {
+                        console.table(res);
+                        // handle response from the server
+                        if (res.success) {
+                            // redirect to the success page
+                            window.location.href = "success.html";
+                        } else {
+                            // display error message
+                            $("#error-message").html(res.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+</script>
+
+
+
+            </div>
+        </div>
+	</div>
+</div>
+
 <style>
-  #heading {
+#heading {
 	text-transform: uppercase;
 	color: #107869;
 	font-weight: normal;
@@ -270,372 +544,12 @@
     width: 100%;
     object-fit: cover;
 }
-
-
 </style>
-
-<div class="container-fluid">
-	<div class="row justify-content-center">
-		<div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
-            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-                <h2 id="heading">Sign Up Your User Account</h2>
-                <p>Fill all form field to go to next step</p>
-
-                <form id="msform" action="signup.php" method="post" enctype="multipart/form-data">
-                    <!-- progressbar -->
-                    <ul id="progressbar">
-                        <li id="personal" class="active" ><strong>Personal</strong></li>
-                        <li id="payment"><strong>Image</strong></li>
-                        <li id="account"><strong >Account</strong></li>
-                        <li id="confirm"><strong>Finish</strong></li>
-                    </ul>
-                    <div class="progress">
-                    	<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                	</div>
-                    <br>
-
-                    <!-- fieldsets -->
-                    <fieldset>
-                        <div class="form-card">
-                            <div class="row">
-                        		<div class="col-7">
-                            		<h2 class="fs-title" style="color: #107869;">Personal Information:</h2>
-                            	</div>
-                            	<div class="col-5">
-                            		<h2 class="steps">Step 1 - 4</h2>
-                            	</div>
-                            </div>
-                            <label class="fieldlabels details">First Name:</label>
-                            <input type="text" name="firstname" required/>
-
-                            <label class="fieldlabels">Middle Name: </label>
-                            <input type="text" name="middlename"/>
-
-                            <label class="fieldlabels details">Last Name:</label>
-                            <input type="text" name="lastname" required/>
-
-                            <label class="fieldlabels">Suffix: </label>
-                            <input type="text" name="suffix"/>
-                            
-                            <label class="fieldlabels details">Email: </label>
-                            <input type="email" name="email" required/>
-
-                            <label class="fieldlabels details">Sex: </label>
-                            <select name="sex" id="sex" style="padding: 12px;" required>
-                              <option value="">--Select--</option>
-                              <option value="Male" >Male</option>
-                              <option value="Female">Female</option>
-                            </select>
-
-                            <label class="fieldlabels details"> Contact No.:</label>
-                            <input type="text" name="contact_number"required/>
-
-                            <label class="fieldlabels details">Province: </label>
-                            <select name="province" id="province" style="padding: 12px;" required>
-                              <option value="">Select Province</option>
-                              <option value="City of Isabela">City of Isabela</option>
-                              <option value="Zamboanga del Norte">Zamboanga del Norte</option>
-                              <option value="Zamboanga Sibugay">Zamboanga Sibugay</option>
-                              <option value="Zamboanga del Sur">Zamboanga del Sur</option>
-                            </select>
-
-                            <label class="fieldlabels details">City/Municipality: </label>
-                            <select name="city" id="city" style="padding: 12px;" disabled required>
-                              <option value="">Select City/Municipality</option>
-                            </select>
-
-                            <label class="fieldlabels details">Barangay: </label>
-                            <select name="barangay" id="barangay" style="padding: 12px;" disabled required>
-                               <option value="">Select Barangay</option>
-                            </select>
-
-                            <label class="fieldlabels">Street Name:</label>
-                            <input type="text" name="bldg_house_no" placeholder="Street Name" required/>
-                        </div>
-                        <input type="button" name="next" class="next action-button" value="Next" style="margin-top: 3rem;"/>
-                        <!--<input type="button" name="previous" class="previous action-button-previous" value="Previous"/>-->
-                    </fieldset>
-
-                    <fieldset>
-                        <div class="form-card">
-                            <div class="row">
-                        		<div class="col-7">
-                            		<h2 class="fs-title" style="color: #107869;">ID's Upload:</h2>
-                            	</div>
-                            	<div class="col-5">
-                            		<h2 class="steps">Step 2 - 4</h2>
-                            	</div>
-                            </div>
-
-                            <label class="fieldlabels">Upload Your Photo:</label>
-                            
-                            <div class="input-group">
-                              <input type="file" name="verify_one" id="verify_one" accept="image/*" onchange="showDisplayOne(event)" required>
-                            </div>
-
-                            <label for="file"></label>
-                            <div class="preview" style="width: 20%;">
-                              <img id="preview-one">
-                            </div>
-
-                            <label class="fieldlabels">Upload Signature Photo:</label>
-                            
-                            <div class="input-group">
-                              <input type="file" name="verify_two" id="verify_two" accept="image/*" onchange="showDisplayTwo(event)" required>
-                            </div>
-
-                            <label for="file"></label>
-                            <div class="preview" style="width: 20%;">
-                              <img id="preview-two">
-                            </div>
-                        </div>
-                        <input type="button" name="next" class="next action-button" value="Next"/>
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                    </fieldset>
-                    
-                    <fieldset>
-                        <div class="form-card">
-                        	<div class="row">
-                        		<div class="col-7">
-                            		<h2 class="fs-title" style="color: #107869;">Account Information:</h2>
-                            	</div>
-                            	<div class="col-5">
-                            		<h2 class="steps">Step 3 - 4</h2>
-                            	</div>
-                            </div>
-                            <label class="fieldlabels details ">Username:</label>
-                            <input type="text" name="username" placeholder="ex. urname143" required/>
-
-                            <label class="fieldlabels details">Password:</label>
-                            <input type="password" id="password" name="password" maxlength="12" placeholder="">
-                            <span id="password-strength"></span>
-
-                            <label class="fieldlabels details">Confirm Password:</label>
-                            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" maxlength="12" required/>
-                        </div>
-                        <input type="submit" name="submit" class="submit action-button" value="Submit" style="margin-top: 3rem;"/>
-                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" style="margin-top: 3rem;"/>
-                    </fieldset>
-                    <fieldset>
-                        <div class="form-card">
-                        	<div class="row">
-                        		<div class="col-7">
-                            		<h2 class="fs-title" style="color: #107869;">Email Verication:</h2>
-                            	</div>
-                            	<div class="col-5">
-                            		<h2 class="steps">Step 4 - 4</h2>
-                            	</div>
-                            </div>
-                            <br><br>
-                            <h2 class="purple-text text-center"><strong>ALMOST THERE!</strong></h2>
-                            <div class="row justify-content-center">
-                                <div class="col-3">
-                                    <img src="../images/logos/phsi.png" class="fit-image">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row justify-content-center">
-                                <div class="col-7 text-center">
-                                    <h5 class="purple-text text-center" style="color: black;">
-                                      Thank you for signing up! We've sent a verification email to <span style="color= #107869;">arjay.malaga990@gmail.com</spam> 
-                                      Please click the link in the email to activate your account.</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-                
-
-                <script>
-                    $(document).ready(function(){
-
-                        var current_fs, next_fs, previous_fs; //fieldsets
-                        var opacity;
-                        var current = 1;
-                        var steps = $("fieldset").length;
-
-                        setProgressBar(current);
-
-                        $(".next").click(function(){
-
-                            current_fs = $(this).parent();
-                            next_fs = $(this).parent().next();
-
-                            //Add Class Active
-                            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-                            //show the next fieldset
-                            next_fs.show(); 
-                            //hide the current fieldset with style
-                            current_fs.animate({opacity: 0}, {
-                                step: function(now) {
-                                    // for making fielset appear animation
-                                    opacity = 1 - now;
-
-                                    current_fs.css({
-                                        'display': 'none',
-                                        'position': 'relative'
-                                    });
-                                    next_fs.css({'opacity': opacity});
-                                }, 
-                                duration: 500
-                            });
-                            setProgressBar(++current);
-                        });
-
-                        $(".previous").click(function(){
-
-                            current_fs = $(this).parent();
-                            previous_fs = $(this).parent().prev();
-
-                            //Remove class active
-                            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-                            //show the previous fieldset
-                            previous_fs.show();
-
-                            //hide the current fieldset with style
-                            current_fs.animate({opacity: 0}, {
-                                step: function(now) {
-                                    // for making fielset appear animation
-                                    opacity = 1 - now;
-
-                                    current_fs.css({
-                                        'display': 'none',
-                                        'position': 'relative'
-                                    });
-                                    previous_fs.css({'opacity': opacity});
-                                }, 
-                                duration: 500
-                            });
-                            setProgressBar(--current);
-                        });
-
-                        function setProgressBar(curStep){
-                            var percent = parseFloat(100 / steps) * curStep;
-                            percent = percent.toFixed();
-                            $(".progress-bar")
-                            .css("width",percent+"%")   
-                        }
-
-                        $(".submit").click(function(event){
-                            event.preventDefault(); // prevent the default form submission behavior
-
-                            // create an object to store the form data
-                            var formData = {};
-
-                            // loop through each input field in the current fieldset and add its value to the formData object
-                            $(this).parent().find('input').each(function(){
-                                formData[$(this).attr('name')] = $(this).val();
-                            });
-
-                            // send the formData object to the server via AJAX
-                            $.ajax({
-                                type: "POST",
-                                url: "signup.php",
-                                data: formData,
-                                success: function(response){
-                                    // handle the server's response
-                                }
-                            });
-
-                            return false;
-                        });
-
-                        });
-                </script>
-
-
-
-                <!--<script type="text/javascript">
-                    $(document).ready(function(){
-                        
-                        var current_fs, next_fs, previous_fs; //fieldsets
-                        var opacity;
-                        var current = 1;
-                        var steps = $("fieldset").length;
-                        
-                        setProgressBar(current);
-                        
-                        $(".next").click(function(){
-                            
-                            current_fs = $(this).parent();
-                            next_fs = $(this).parent().next();
-                            
-                            //Add Class Active
-                            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-                            
-                            //show the next fieldset
-                            next_fs.show(); 
-                            //hide the current fieldset with style
-                            current_fs.animate({opacity: 0}, {
-                                step: function(now) {
-                                    // for making fielset appear animation
-                                    opacity = 1 - now;
-                        
-                                    current_fs.css({
-                                        'display': 'none',
-                                        'position': 'relative'
-                                    });
-                                    next_fs.css({'opacity': opacity});
-                                }, 
-                                duration: 500
-                            });
-                            setProgressBar(++current);
-                        });
-                        
-                        $(".previous").click(function(){
-                            
-                            current_fs = $(this).parent();
-                            previous_fs = $(this).parent().prev();
-                            
-                            //Remove class active
-                            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-                            
-                            //show the previous fieldset
-                            previous_fs.show();
-                        
-                            //hide the current fieldset with style
-                            current_fs.animate({opacity: 0}, {
-                                step: function(now) {
-                                    // for making fielset appear animation
-                                    opacity = 1 - now;
-                        
-                                    current_fs.css({
-                                        'display': 'none',
-                                        'position': 'relative'
-                                    });
-                                    previous_fs.css({'opacity': opacity});
-                                }, 
-                                duration: 500
-                            });
-                            setProgressBar(--current);
-                        });
-                        
-                        function setProgressBar(curStep){
-                            var percent = parseFloat(100 / steps) * curStep;
-                            percent = percent.toFixed();
-                            $(".progress-bar")
-                              .css("width",percent+"%")   
-                        }
-                        
-                        $(".submit").click(function(){
-                            return true;
-                        })
-                            
-                        });
-                </script>-->
-
-            </div>
-        </div>
-	</div>
-</div>
-
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="../js/signup.js"></script>
 <script src="../js/address.js"></script>
+<!--<script src="../multiform.js"></script>-->
 
 
 
