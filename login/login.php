@@ -89,10 +89,9 @@
                 <span class="logo-name">WMSU-PHSI</span>
             </div>
             
-            <label for="username" style="color: black;"></label>
-            <input type="text" id="username" name="username" placeholder="Enter username" required tabindex="1">
+
+            <input type="text" id="username" name="username" placeholder="Enter username" required tabindex="1" style="margin-top: 10px;margin-bottom: 15px;">
             
-            <label for="password" style="color: black;" ></label>
             <input type="password" id="password" name="password" placeholder="Enter password" required tabindex="2">
 
             <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem; display: flex;justify-content: center;" required></div>
