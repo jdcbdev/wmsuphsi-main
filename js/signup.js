@@ -77,7 +77,7 @@ passwordInput.addEventListener("keyup", function() {
 });
 
 function checkPasswordStrength(password) {
-  var hasUppercase = /[A-Z]/.test(password);
+  var hasUppercase = /[A-Z]/.test(password);  
   var hasLowercase = /[a-z]/.test(password);
   var hasNumber = /\d/.test(password);
   var hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
@@ -104,6 +104,9 @@ function getColor(strength) {
     return "red";
   }
 }
+
+//PROGRESS SIGN UP FORM
+
 
 
 

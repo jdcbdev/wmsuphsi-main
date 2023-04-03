@@ -82,7 +82,7 @@
                         <div class="card flex-grow-1">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title card-title-total">Total Organizations Account</h5>
-                                <canvas id="status-chart-1""></canvas>
+                                <canvas id="status-chart-1"></canvas>
                                 <p class="mb-0 mt-auto">
                                     <a class="view-all" href="">View Report</a>
                                 </p>
@@ -90,17 +90,10 @@
                         </div>
                     </div>
                     <div class="col-12 col-md-8 mb-4 mt-0 d-flex flex-column mt-md-4">
-                        <div class="card flex-grow-1">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title card-title-total">Total User Type Breakdown</h5>
-                                <canvas id="myChart1"></canvas>
-                                <p class="mb-0 mt-auto">
-                                    <a class="view-all" href="">View Report</a>
-                                </p>
-                            </div>
-                        </div>
+                    <iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FManila&src=MDIzNjEyZTgwNjA0MTNjMDQwMTk1ZDI2ZWIzZGNlN2JmMzQ0NDdlZmNiY2IwNDMxNTI5MTIwMWFmNjc1Y2ZlZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border:solid 1px #777" width="668" height="400" frameborder="0" scrolling="no"></iframe>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="table-responsive">
                         <table class="table table-hover responsive" id="table-dashboard-student" style="width: 100%;">
@@ -559,10 +552,10 @@
         var statusChart = new Chart(document.getElementById('status-chart-1'), {
         type: 'doughnut',
         data: {
-            labels: ['PHSI', 'UNESCO']  ,
+            labels: ['WMSU ALUMNI', 'WMSU EMPLOYEE', 'WMSU STUDENT', 'OUTSIDE WMSU']  ,
             datasets: [{
-                data: [20, 30],
-                backgroundColor: ['#107869', '#800000'],
+                data: [20, 30, 100, 25],
+                backgroundColor: ['#ac3c60', '#82b4bb', '#255e79', '#ffa500'],
             }]
         },
         options: {

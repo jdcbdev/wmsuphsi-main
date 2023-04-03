@@ -107,37 +107,37 @@ if(isset($_POST['submit'])) {
         <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2 style="margin: auto; font-size: 3rem;">Attendee Information</h2>
+            <h2 style="margin: auto; font-size: 3rem;">I AM NOT A ROBOT</h2>
             
             <form action="events-page.php?id=<?php echo $id; ?>" class="modal-form" id="modal-form" method="post">
                
-               <label for="firstname">First Name:</label>
-                <input type="text" id="firstname" name="firstname" required 
+               <label for="firstname" style="display: none;">First Name:</label>
+                <input type="hidden" id="firstname" name="firstname" required 
                 value="<?php echo $userData['firstname'] ?>">
 
-                <label for="middlename">Middle Name:</label>
-                <input type="text" id="middlename" name="middlename" 
+                <label for="middlename" style="display: none;">Middle Name:</label>
+                <input type="hidden" id="middlename" name="middlename" 
                 value="<?php echo isset($userData['middlename']) ?  $userData['middlename']: "" ?>">
 
-                <label for="lastname">Last Name:</label>
-                <input type="text" id="lastname" name="lastname" required 
+                <label for="lastname" style="display: none;">Last Name:</label>
+                <input type="hidden" id="lastname" name="lastname" required 
                 value='<?php echo $userData['lastname'] ?>'>
 
-                <label for="suffix">Suffix:</label>
-                <input type="text" id="suffix" name="suffix" 
+                <label for="suffix" style="display: none;">Suffix:</label>
+                <input type="hidden" id="suffix" name="suffix" 
                 value="<?php echo isset($userData['suffix']) ?  $userData['suffix']: "" ?>">
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required 
+                <label for="email" style="display: none;">Email:</label>
+                <input type="hidden" id="email" name="email" required 
                 value="<?php echo $userData['email'] ?>">
 
-                <label for="contact_number">Contact:</label>
-                <input type="text" id="contact_number" name="contact_number" required 
+                <label for="contact_number" style="display: none;">Contact:</label>
+                <input type="hidden" id="contact_number" name="contact_number" required 
                 value="<?php echo $userData['contact_number'] ?> ">
 
                 <input type="hidden" name='event_id' value="<?php echo $id; ?>">
                 
-                <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem;"></div>
+                <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem;justify-content: center;display: flex;"></div>
 
                 <input type="submit" id="submit" name="submit" value="Submit">  
             </form>
