@@ -89,8 +89,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-md-8 mb-4 mt-0 d-flex flex-column mt-md-4">
-                    <iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FManila&src=MDIzNjEyZTgwNjA0MTNjMDQwMTk1ZDI2ZWIzZGNlN2JmMzQ0NDdlZmNiY2IwNDMxNTI5MTIwMWFmNjc1Y2ZlZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="border:solid 1px #777" width="668" height="400" frameborder="0" scrolling="no"></iframe>
+                    <div class="col-12 col-md-8 mb-4 mt-0 d-flex flex-column mt-md-4" style="box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
+                    <iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FManila&src=MDIzNjEyZTgwNjA0MTNjMDQwMTk1ZDI2ZWIzZGNlN2JmMzQ0NDdlZmNiY2IwNDMxNTI5MTIwMWFmNjc1Y2ZlZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" style="padding: 10px" width="auto" height="100%" frameborder="0" scrolling="no"></iframe>
                     </div>
                 </div>
                 
