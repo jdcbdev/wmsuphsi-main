@@ -64,9 +64,9 @@
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <li id="personal" class="active" ><strong>Personal</strong></li>
-                        <li id="payment"><strong>Verify</strong></li>
+                        <li id="payment"><strong>Upload</strong></li>
                         <li id="account"><strong >Account</strong></li>
-                        <li id="confirm"><strong>Finish</strong></li>
+                        <li id="confirm"><strong>Verify</strong></li>
                     </ul>
                     <div class="progress">
                     	<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
