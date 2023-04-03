@@ -55,7 +55,7 @@
 		<div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
             <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
             <div class="logo-details">
-            <img src="../images/logos/phsi.png"  alt="PHSI-LOGO">
+            <img src="../images/logos/phsi.png"  alt="PHSI-LOGO" style="width: 20%;margin: auto;">
             </div>
                 <h2 id="heading">Sign Up Your User Account</h2>
                 <p>Fill all form field to go to next step</p>
