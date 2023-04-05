@@ -20,6 +20,9 @@
    
    <!-- Custom IconScunt for this template-->
    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+   <!-- fontawesome -->
+   <script src="https://kit.fontawesome.com/30ff5f2a0c.js" crossorigin="anonymous"></script>
    
    <!-- Custom css file link  -->
    <link rel="stylesheet" href="css/phsi.css"> 
@@ -31,6 +34,56 @@
 
 </head>
 <body>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-sharp fa-solid fa-angle-up"></i></button>
+
+<script>
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  // Calculate the distance to scroll
+  const scrollDistance = document.documentElement.scrollTop || document.body.scrollTop;
+  
+  // Divide the distance into smaller increments
+  const scrollStep = Math.PI / (500 / 15);
+
+  // Create a variable to keep track of the current scroll position
+  let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+  // Scroll the page up until the top of the document is reached
+  const scrollInterval = setInterval(function() {
+    // Calculate the new scroll position
+    scrollPosition -= scrollStep * scrollDistance;
+    
+    // Check if the top of the document has been reached
+    if (scrollPosition <= 0) {
+      // Stop scrolling
+      clearInterval(scrollInterval);
+      // Set the scroll position to 0 to ensure accuracy
+      scrollPosition = 0;
+    }
+    
+    // Scroll the page up
+    document.documentElement.scrollTop = scrollPosition;
+    document.body.scrollTop = scrollPosition;
+  }, 15);
+}
+
+</script>
+
+
 
 <!-- Header Section Start -->
 <header class="header">
