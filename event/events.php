@@ -33,7 +33,7 @@
             <div class="event-content">
                 <p><?php echo $value['event_about'] ?></p>
             </div>
-			<a href="events-page.php?id=<?php echo $value['id']; ?>" class="btn">Join Event</a>
+			<a href="events-page.php?id=<?php echo $value['id']; ?>" class="btn">View Details</a>
 		</div>
 
 	</div>

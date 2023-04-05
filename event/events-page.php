@@ -102,7 +102,7 @@ if(isset($_POST['submit'])) {
     <div class="rsvp-box">
         <p>RSVP for this event now!</p>
         
-        <button class="btn" id="open-modal-btn">RSVP</button>
+        <button class="btn" id="open-modal-btn">RSVP TO JOIN THIS EVENT</button>
 
         <div id="modal" class="modal">
         <div class="modal-content">
