@@ -73,7 +73,7 @@
                 	</div>
                     <br>
 
-                    <!-- fieldsets -->
+                    <!--STEP1: PERSONAL INFORMATION -->
                     <fieldset>
                         <div class="form-card">
                             <div class="row">
@@ -108,7 +108,7 @@
        
 
                             <label class="fieldlabels details"> Contact No.:</label>
-                            <input type="text" name="contact_number"required/>
+                            <input type="text" id="contact_number" name="contact_number"required/>
        
 
                             <label class="fieldlabels details">Province: </label>
@@ -132,14 +132,16 @@
                                <option value="">--Select Barangay--</option>
                             </select>
                             
-
                             <label class="fieldlabels">Street Name:</label>
+                            <input type="text" name="street_name" placeholder=""/>
+
+                            <label class="fieldlabels">Building/House No.:</label>
                             <input type="text" name="bldg_house_no" placeholder=""/>
                         </div>
                         <input type="button" name="next" class="next action-button" value="Next" style="margin-top: 3rem;"/>
-                        <!--<input type="button" name="previous" class="previous action-button-previous" value="Previous"/>-->
                     </fieldset>
 
+                    <!--STEP2: USER TYPE UPLOAD ID FOR VALIDATION-->
                     <fieldset>
                         <div class="form-card">
                             <div class="row">
@@ -158,7 +160,7 @@
                             </div>
 
                             <label for="file"></label>
-                            <div class="preview" style="width: 30%; margin: auto;">
+                            <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
                               <img id="preview-one">
                             </div>
 
@@ -169,14 +171,15 @@
                             </div>
 
                             <label for="file"></label>
-                            <div class="preview" style="width: 30%; margin: auto;">
+                            <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); margin-bottom: 2rem;">
                               <img id="preview-two">
                             </div>
                         </div>
                         <input type="button" name="next" class="next action-button" value="Next"/>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                     </fieldset>
-                    
+
+                    <!--STEP3: ACCOUNT INFORMATION-->
                     <fieldset>
                         <div class="form-card">
                         	<div class="row">
@@ -194,8 +197,9 @@
                             <input type="email" name="email" required/>
 
                             <label class="fieldlabels details">Password:</label>
-                            <input type="password" id="password" name="password" maxlength="12" placeholder="">
                             <span id="password-strength"></span>
+                            <input type="password" id="password" name="password" maxlength="12" placeholder="">
+                            
 
                             <label class="fieldlabels details">Confirm Password:</label>
                             <input type="password" name="confirm_password" id="confirm_password" placeholder="" maxlength="12" required/>
@@ -204,6 +208,7 @@
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" style="margin-top: 3rem;"/>
                     </fieldset>
 
+                    <!--STEP4:EMAIL ACCOUNT VERIFICATION -->
                     <fieldset>
                         <div class="form-card">
                         	<div class="row">
@@ -333,7 +338,7 @@
 
             function validateForm(step) {
                 var valid = true;
-                $("fieldset:eq(" + (step - 1) + ")").find("input[required], ").each(function() {
+                $("fieldset:eq(" + (step - 1) + ")").find("input[required], select[required]").each(function() {
                     if($.trim($(this).val()) == '') {
                         valid = false;
                         $(this).addClass('input-error');
@@ -458,7 +463,7 @@
 
 /*FieldSet headings*/
 .fs-title {
-    font-size: 25px;
+    font-size: 18px;
     color: #673AB7;
     margin-bottom: 15px;
     font-weight: normal;
@@ -523,7 +528,7 @@
 
 #progressbar #payment:before {
     font-family: FontAwesome;
-    content: "\f030";
+    content: "\f016";
 }
 
 #progressbar #confirm:before {
@@ -577,13 +582,8 @@
     object-fit: cover;
 }
 
-input.error {
-    border: 2px solid red;
-}
 
-input.error:focus {
-    outline: none;
-}
+
 </style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
