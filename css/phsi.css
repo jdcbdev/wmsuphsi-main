@@ -1657,7 +1657,7 @@ margin: auto;
   float: right;
 }
 
-.rsvp-container .rsvp-box .btn{
+/*.rsvp-container .rsvp-box .btn{
   display: inline-block;
   margin-top: 1rem;
   padding: 1rem 3rem;
@@ -1668,6 +1668,11 @@ margin: auto;
   cursor: pointer;
   text-transform: none;
   border-radius: 0;
+}*/
+
+.rsvp-container .rsvp-box button:hover{
+background: var(--color-green);
+color: #fff;
 }
 
 .about-event .about-heading{
