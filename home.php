@@ -358,7 +358,7 @@ function topFunction() {
        </div>
  
     </div>
-    <div class="credit"><span>PHSI</span> | All Rights reserved! </div>
+    <!--<div class="credit"><span>PHSI</span> | All Rights reserved! </div>-->
  </section>
  <!-- Footer section Ends -->
 

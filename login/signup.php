@@ -4,7 +4,7 @@
     //resume session here to fetch session values
     session_start();
     $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
-    require_once '../includes/head.php';
+    require_once '../includes/signup-head.php';
 ?>
 
 

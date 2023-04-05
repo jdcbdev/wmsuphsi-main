@@ -5,18 +5,17 @@
        <div class="box">
           <h3>Quick links</h3>
           <a href="#" class="link">Home</a>
-          <a href="#" class="link">About PHSI</a>
-          <a href="#" class="link">News and Features</a>
-          <a href="#" class="link">Organizations</a>
-          <a href="#" class="link">Upcoming Events</a>
+          <a href="#" class="link">Terms and Conditions</a>
+          <a href="#" class="link">Privacy Policy</a>
+          <a href="#" class="link">Contact</a>
        </div>
  
        <div class="box">
           <h3>PHSI</h3>
+          <a href="#" class="link">News and Features</a>
           <a href="#" class="link">History</a>
           <a href="#" class="link">Mission & Vision</a>
           <a href="#" class="link">Administrations</a>
-          <a href="#" class="link">Contact</a>
        </div>
  
        <div class="box">
@@ -36,7 +35,7 @@
        </div>
  
     </div>
-    <div class="credit"><span>PHSI</span> | All Rights reserved! </div>
+    <!--<div class="credit"><span>PHSI</span> | All Rights reserved! </div>-->
  </section>
  <!-- Footer section Ends -->
 
