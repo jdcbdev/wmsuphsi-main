@@ -89,11 +89,6 @@ COMMIT;
 
 -- --------------------------------------------------------
 
-
-
-
-
-
 -- --------------------------------------------------------
 --
 --
@@ -630,8 +625,14 @@ CREATE TABLE `user_acc_data` (
   `id` int(11) NOT NULL,
   `profile_picture`varchar(255) NOT NULL,
   `background_image`varchar(255) NOT NULL,
-  `verify_one`varchar(255) NOT NULL,
-  `verify_two`varchar(255) NOT NULL,
+  `verify_one`varchar(255) DEFAULT NULL,
+  `verify_two`varchar(255) DEFAULT NULL,
+  `verify_three`varchar(255) DEFAULT NULL,
+  `verify_four`varchar(255) DEFAULT NULL,
+  `verify_five`varchar(255) DEFAULT NULL,
+  `verify_six`varchar(255) DEFAULT NULL,
+  `verify_seven`varchar(255) DEFAULT NULL,
+  `verify_eight`varchar(255) DEFAULT NULL,
   `firstname`varchar(50) NOT NULL,
   `middlename`varchar(50) DEFAULT NULL,
   `lastname`varchar(50) NOT NULL,
@@ -650,19 +651,19 @@ CREATE TABLE `user_acc_data` (
   `is_agree`varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
   `organization`varchar(50) NOT NULL,
-  `member_type` varchar(50) NOT NULL
+  `member_type` SET('Student', 'Employee', 'Alumni', 'None') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_acc_data`
 --
-INSERT INTO `user_acc_data` (`id`, `profile_picture`, `background_image`, `verify_one`, `verify_two`, `firstname`, `middlename`, `lastname`, `suffix`, `sex`, `email`, `contact_number`, `province`, `city`, `barangay`, `street_name`, `bldg_house_no`, `username`, `password`, `role`, `is_agree`, `status`, `organization`, `member_type`) VALUES
-(1, 'dp8.jpg', 'phsi-carousel.jpg', 'rj1.jpg', 'rj2.jpg', 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjay.malagagmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', '', 'arjay', 'arjay', 'super_admin', 'Yes', 'Pending', 'None', 'Student'),
-(2, 'dp2.jpg', 'phsi-carousel.jpg', 'jer1.jpg', 'jer2.jpg', 'Jericho', 'Bello', 'Sagdi', '', 'Male', 'jericho.sagdi@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'jericho', 'jericho', 'phsi_admin', 'Yes', 'Pending', 'Student', 'Not'),
-(3, 'dp1.jpg', 'phsi-carousel.jpg', 'ben1.jpg', 'ben2.jpg', 'Bennett', 'Gelacio', 'Chan', '', 'Male', 'gelacio.chan@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'ben', 'ben', 'unesco_admin', 'Yes', 'Pending', 'Student', 'Not'),
-(4, 'dp3.jpg', 'phsi-carousel.jpg', 'hadz1.jpg', 'hadz2.jpg', 'Hadzramar', 'Iblang', 'Jaafar', '', 'Male', 'hadzramar.iblang@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'hadz', 'hadz', 'phsi_content_admin', 'Yes', 'Pending', 'Student', 'Not'),
-(5, 'dp4.jpg', 'phsi-carousel.jpg', 'kat1.jpg', 'kat2.jpg', 'Kaitlyn', 'Quimbo', 'Mira', '', 'Female', 'mira.kaitlyn@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'mira', 'mira', 'unesco_content_admin', 'Yes', 'Pending', 'Student', 'Not'),
-(6, 'dp5.jpg', 'phsi-carousel.jpg', 'ange1.jpg', 'ange2.jpg', 'Angelica', '', 'Deoric', '', 'Female', 'deoric.angelica@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'angelica', 'angelica', 'user', 'Yes', 'Pending', 'Student', 'Not');
+INSERT INTO `user_acc_data` (`id`, `profile_picture`, `background_image`, `verify_one`, `verify_two`, `verify_three`, `verify_four`, `verify_five`, `verify_six`, `verify_seven`, `verify_eight`, `firstname`, `middlename`, `lastname`, `suffix`, `sex`, `email`, `contact_number`, `province`, `city`, `barangay`, `street_name`, `bldg_house_no`, `username`, `password`, `role`, `is_agree`, `status`, `organization`, `member_type`) VALUES
+(1, 'dp8.jpg', 'phsi-carousel.jpg', 'rj1.jpg', 'rj2.jpg', '', '', '', '', '', '', 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjay.malagagmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', '', 'arjay', 'arjay', 'super_admin', 'Yes', 'Pending', '', ''),
+(2, 'dp2.jpg', 'phsi-carousel.jpg', 'jer1.jpg', 'jer2.jpg', '', '', '', '', '', '', 'Jericho', 'Bello', 'Sagdi', '', 'Male', 'jericho.sagdi@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'jericho', 'jericho', 'phsi_admin', 'Yes', 'Pending', '', ''),
+(3, 'dp1.jpg', 'phsi-carousel.jpg', 'ben1.jpg', 'ben2.jpg', '', '', '', '', '', '', 'Bennett', 'Gelacio', 'Chan', '', 'Male', 'gelacio.chan@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'ben', 'ben', 'unesco_admin', 'Yes', 'Pending', '', ''),
+(4, 'dp3.jpg', 'phsi-carousel.jpg', 'hadz1.jpg', 'hadz2.jpg', '', '', '', '', '', '', 'Hadzramar', 'Iblang', 'Jaafar', '', 'Male', 'hadzramar.iblang@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'hadz', 'hadz', 'phsi_content_admin', 'Yes', 'Pending', '', ''),
+(5, 'dp4.jpg', 'phsi-carousel.jpg', 'kat1.jpg', 'kat2.jpg', '', '', '', '', '', '', 'Kaitlyn', 'Quimbo', 'Mira', '', 'Female', 'mira.kaitlyn@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'mira', 'mira', 'unesco_content_admin', 'Yes', 'Pending', '', ''),
+(6, 'dp5.jpg', 'phsi-carousel.jpg', 'ange1.jpg', 'ange2.jpg', '', '', '', '', '', '', 'Angelica', '', 'Deoric', '', 'Female', 'deoric.angelica@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'angelica', 'angelica', 'user', 'Yes', 'Pending', '', '');
 
 
 

@@ -37,6 +37,52 @@ function showDisplayTwo(event){
     }
 }
 
+function showDisplayThree(event){
+  if(event.target.files.length > 0){
+      var src = URL.createObjectURL(event.target.files[0]);
+      $("#preview-three").attr('src', src);
+  }
+}
+
+function showDisplayFour(event){
+  if(event.target.files.length > 0){
+      var src = URL.createObjectURL(event.target.files[0]);
+      $("#preview-four").attr('src', src);
+  }
+}
+
+function showDisplayFive(event){
+  if(event.target.files.length > 0){
+      var src = URL.createObjectURL(event.target.files[0]);
+      $("#preview-five").attr('src', src);
+  }
+}
+
+
+function showDisplaySix(event){
+  if(event.target.files.length > 0){
+      var src = URL.createObjectURL(event.target.files[0]);
+      $("#preview-six").attr('src', src);
+  }
+}
+
+
+function showDisplaySeven(event){
+  if(event.target.files.length > 0){
+      var src = URL.createObjectURL(event.target.files[0]);
+      $("#preview-seven").attr('src', src);
+  }
+}
+
+
+function showDisplayEight(event){
+  if(event.target.files.length > 0){
+      var src = URL.createObjectURL(event.target.files[0]);
+      $("#preview-eight").attr('src', src);
+  }
+}
+
+
 
 
 

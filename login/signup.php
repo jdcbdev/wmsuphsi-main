@@ -10,38 +10,99 @@
 
 <?php 
 
-        if(isset($_POST['submit'])) {
-          //Sanitizing the inputs of the users. Mandatory to prevent injections!
-            
-              $user = new Users;
-              $user -> firstname = htmlentities($_POST['firstname']);
-              $user -> middlename = htmlentities($_POST['middlename']);
-              $user -> lastname = htmlentities($_POST['lastname']);
-              $user -> suffix = htmlentities($_POST['suffix']);
-              $user -> sex = htmlentities($_POST['sex']);
-              $user -> email = htmlentities($_POST['email']);
-              $user -> contact_number = htmlentities($_POST['contact_number']); 
-              $user -> province = htmlentities($_POST['province']); 
-              $user -> city = htmlentities($_POST['city']); 
-              $user -> barangay = htmlentities($_POST['barangay']); 
-              $user -> street_name = htmlentities($_POST['street_name']); 
-              $user -> bldg_house_no = htmlentities($_POST['bldg_house_no']); 
-              $user -> username = htmlentities($_POST['username']); 
-              $user -> password = htmlentities($_POST['password']);
-              $user -> member_type = htmlentities($_POST['member_type']);
+if(isset($_POST['submit'])) {
+  //Sanitizing the inputs of the users. Mandatory to prevent injections!
 
-              $user -> verify_one = $_FILES['verify_one']['name'];
-              $user -> tempname_one = $_FILES['verify_one']['tmp_name'];
-              $user -> folder_one = "../uploads/" . $user -> verify_one;
+  $user = new Users;
+  $user -> firstname = htmlentities($_POST['firstname']);
+  $user -> middlename = htmlentities($_POST['middlename']);
+  $user -> lastname = htmlentities($_POST['lastname']);
+  $user -> suffix = htmlentities($_POST['suffix']);
+  $user -> sex = htmlentities($_POST['sex']);
+  $user -> email = htmlentities($_POST['email']);
+  $user -> contact_number = htmlentities($_POST['contact_number']); 
+  $user -> province = htmlentities($_POST['province']); 
+  $user -> city = htmlentities($_POST['city']); 
+  $user -> barangay = htmlentities($_POST['barangay']); 
+  $user -> street_name = htmlentities($_POST['street_name']); 
+  $user -> bldg_house_no = htmlentities($_POST['bldg_house_no']); 
+  $user -> username = htmlentities($_POST['username']); 
+  $user -> password = htmlentities($_POST['password']);
+  $user -> member_type = is_array($_POST['member_type']) ? implode(',', $_POST['member_type']) : $_POST['member_type'];
 
-              $user -> verify_two = $_FILES['verify_two']['name'];
-              $user -> tempname_two = $_FILES['verify_two']['tmp_name'];
-              $user -> folder_two = "../uploads/" . $user -> verify_two;
+  // Upload verification photos based on member type
+  if (in_array('Student', $_POST['member_type'])) {
+    $user -> verify_one = $_FILES['verify_one']['name'];
+    $user -> tempname_one = $_FILES['verify_one']['tmp_name'];
+    $user -> folder_one = "../uploads/" . $user -> verify_one;
 
-              if (move_uploaded_file($user -> tempname_one, $user -> folder_one) && move_uploaded_file($user -> tempname_two, $user -> folder_two)) {
-                if(validate_signup_user($_POST)){
-                  if($user -> signup()){
-                    //redirect user to program page after saving
+    $user -> verify_two = $_FILES['verify_two']['name'];
+    $user -> tempname_two = $_FILES['verify_two']['tmp_name'];
+    $user -> folder_two = "../uploads/" . $user -> verify_two;
+    
+    if (empty($user -> verify_one) || empty($user -> verify_two)) {
+      // Handle error: missing verification photo
+    }
+  }
+
+  if (in_array('Alumni', $_POST['member_type'])) {
+    $user -> verify_three = $_FILES['verify_three']['name'];
+    $user -> tempname_three = $_FILES['verify_three']['tmp_name'];
+    $user -> folder_three = "../uploads/" . $user -> verify_three;
+
+    $user -> verify_four = $_FILES['verify_four']['name'];
+    $user -> tempname_four = $_FILES['verify_four']['tmp_name'];
+    $user -> folder_four = "../uploads/" . $user -> verify_four;
+
+    if (empty($user -> verify_three) || empty($user -> verify_four)) {
+      // Handle error: missing verification photo
+    }
+  }
+
+  if (in_array('Employee', $_POST['member_type'])) {
+    $user -> verify_five = $_FILES['verify_five']['name'];
+    $user -> tempname_five = $_FILES['verify_five']['tmp_name'];
+    $user -> folder_five = "../uploads/" . $user -> verify_five;
+
+    $user -> verify_six = $_FILES['verify_six']['name'];
+    $user -> tempname_six = $_FILES['verify_six']['tmp_name'];
+    $user -> folder_six = "../uploads/" . $user -> verify_six;
+
+    if (empty($user -> verify_five) || empty($user -> verify_six)) {
+      // Handle error: missing verification photo
+    }
+  }
+
+  if (in_array('None', $_POST['member_type'])) {
+    $user -> verify_seven = $_FILES['verify_seven']['name'];
+    $user -> tempname_seven = $_FILES['verify_seven']['tmp_name'];
+    $user -> folder_seven = "../uploads/" . $user -> verify_seven;
+
+    $user -> verify_eight = $_FILES['verify_eight']['name'];
+    $user -> tempname_eight = $_FILES['verify_eight']['tmp_name'];
+    $user -> folder_eight = "../uploads/" . $user -> verify_eight;
+
+    if (empty($user -> verify_seven) || empty($user -> verify_eight)) {
+      // Handle error: missing verification photo
+    }
+  }
+
+  // Move uploaded files and validate/signup user
+  if (
+    (empty($user -> verify_one) || move_uploaded_file($user -> tempname_one, $user -> folder_one))
+    && (empty($user -> verify_two) || move_uploaded_file($user -> tempname_two, $user -> folder_two))
+    && (empty($user -> verify_three) || move_uploaded_file($user -> tempname_three, $user -> folder_three))
+    && (empty($user -> verify_four) || move_uploaded_file($user -> tempname_four, $user -> folder_four))
+    && (empty($user -> verify_five) || move_uploaded_file($user -> tempname_five, $user -> folder_five))
+    && (empty($user -> verify_six) || move_uploaded_file($user -> tempname_six, $user -> folder_six))
+    && (empty($user -> verify_seven) || move_uploaded_file($user -> tempname_seven, $user -> folder_seven))
+    && (empty($user -> verify_eight) || move_uploaded_file($user -> tempname_eight, $user -> folder_eight))
+  ) {
+    if(validate_signup_user($_POST)){
+      if($user -> signup()){
+        //redirect user to signup
+
+                    //redirect user to signup page after saving
                     header('location: login.php');
                 }
             }
@@ -146,34 +207,164 @@
                         <div class="form-card">
                             <div class="row">
                         		<div class="col-7">
-                            		<h2 class="fs-title" style="color: #107869;">ID's Upload:</h2>
+                            		<h2 class="fs-title" style="color: #107869;">Upload Requirements:</h2>
                             	</div>
                             	<div class="col-5">
                             		<h2 class="steps">Step 2 - 4</h2>
                             	</div>
                             </div>
 
-                            <label class="fieldlabels">Upload Your Student ID (Front):</label>
-                            
-                            <div class="input-group">
-                              <input type="file" name="verify_one" id="verify_one" accept="image/*" onchange="showDisplayOne(event)" required>
-                            </div>
+                            <style>
+                            .checkbox-container {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                            }
+                            .checkbox-container label {
+                                margin-right: 20px;
+                                margin-bottom: 12px;
+                            }
 
+                            .id-upload {
+                            display: none; /* hide the ID upload fields by default */
+                            }
+                            </style>
+
+                            <label for="member_type">Select all status that applies to you:</label>
+                            <div class="checkbox-container">
+                            <input type="checkbox" id="student" name="member_type[]" value="Student" class="member-type">
+                            <label for="student">Student</label>
+                            <input type="checkbox" id="alumni" name="member_type[]" value="Alumni" class="member-type">
+                            <label for="alumni">Alumni</label>
+                            <input type="checkbox" id="employee" name="member_type[]" value="Employee" class="member-type">
+                            <label for="employee">Employee</label>
+                            <input type="checkbox" id="none" name="member_type[]" value="None" class="member-type">
+                            <label for="none">None</label>
+                            </div>
+                             
+                            <hr>
+                               
+
+                            <div class="id-upload Student">
+                            <label class="fieldlabels">Upload Your Student ID (Front):</label>
+                            <div class="input-group">
+                                <input type="file" name="verify_one" id="verify_one" accept="image/*" onchange="showDisplayOne(event)"  >
+                            </div>
                             <label for="file"></label>
                             <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
-                              <img id="preview-one">
+                                <img id="preview-one">
                             </div>
-
-                            <label class="fieldlabels">Upload Your Student ID (Back):</label>
                             
+                            <label class="fieldlabels">Upload Your Student ID (Back):</label>
                             <div class="input-group">
-                              <input type="file" name="verify_two" id="verify_two" accept="image/*" onchange="showDisplayTwo(event)" required>
+                                <input type="file" name="verify_two" id="verify_two" accept="image/*" onchange="showDisplayTwo(event)" >
                             </div>
-
                             <label for="file"></label>
                             <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); margin-bottom: 2rem;">
-                              <img id="preview-two">
+                                <img id="preview-two">
                             </div>
+                            </div>
+
+        
+
+                            <div class="id-upload Alumni">
+                            <label class="fieldlabels">Upload Your Alumni ID (Front):</label>
+                            <div class="input-group">
+                                <input type="file" name="verify_three" id="verify_three" accept="image/*" onchange="showDisplayThree(event)"  >
+                            </div>
+                            <label for="file"></label>
+                            <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
+                                <img id="preview-three">
+                            </div>
+
+                            <label class="fieldlabels">Upload Your Alumni ID (Back):</label>
+                            <div class="input-group">
+                                <input type="file" name="verify_four" id="verify_four" accept="image/*" onchange="showDisplayFour(event)" >
+                            </div>
+                            <label for="file"></label>
+                            <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); margin-bottom: 2rem;">
+                                <img id="preview-four">
+                            </div>
+                            </div>
+
+                            
+                            
+
+                            <div class="id-upload Employee">
+                            <label class="fieldlabels">Upload Your Employee ID (Front):</label>
+                            <div class="input-group">
+                                <input type="file" name="verify_five" id="verify_five" accept="image/*" onchange="showDisplayFive(event)" >
+                            </div>
+                            <label for="file"></label>
+                            <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
+                                <img id="preview-five">
+                            </div>
+                            
+                            <label class="fieldlabels">Upload Your Employee ID (Back):</label>
+                            <div class="input-group">
+                                <input type="file" name="verify_six" id="verify_six" accept="image/*" onchange="showDisplaySix(event)" >
+                            </div>
+                            <label for="file"></label>
+                            <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); margin-bottom: 2rem;">
+                                <img id="preview-six">
+                            </div>
+                            </div>
+
+                            <div class="id-upload None">
+                            <label class="fieldlabels">Upload National ID (Front):</label>
+                            <div class="input-group">
+                                <input type="file" name="verify_seven" id="verify_seven" accept="image/*" onchange="showDisplaySeven(event)" >
+                            </div>
+                            <label for="file"></label>
+                            <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
+                                <img id="preview-seven">
+                            </div>
+
+                            <label class="fieldlabels">Upload National ID (Back):</label>
+                            <div class="input-group">
+                                <input type="file" name="verify_eight" id="verify_eight" accept="image/*" onchange="showDisplayEight(event)" >
+                            </div>
+                            <label for="file"></label>
+                            <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); margin-bottom: 2rem;">
+                                <img id="preview-eight">
+                            </div>
+                            </div>
+
+                            <script>
+                            // select all the member type checkboxes
+                            const memberTypeCheckboxes = document.querySelectorAll('.member-type');
+
+                            // add an event listener to each checkbox
+                            memberTypeCheckboxes.forEach(checkbox => {
+                                checkbox.addEventListener('change', () => {
+                                    // get the value of the checkbox that was clicked
+                                    const checkboxValue = checkbox.value;
+
+                                    // select the ID upload field container that corresponds to the clicked checkbox
+                                    const idUploadFieldContainer = document.querySelector(`.id-upload.${checkboxValue}`);
+
+                                    // show or hide the ID upload field container based on whether the checkbox is checked
+                                    if (checkbox.checked) {
+                                        idUploadFieldContainer.style.display = 'block';
+                                    } else {
+                                        idUploadFieldContainer.style.display = 'none';
+                                    }
+
+                                    // reset the file inputs in the ID upload field container
+                                    const fileInputs = idUploadFieldContainer.querySelectorAll('input[type=file]');
+                                    fileInputs.forEach(input => {
+                                        input.value = '';
+                                    });
+
+                                    // reset the preview images in the ID upload field container
+                                    const previewImages = idUploadFieldContainer.querySelectorAll('.preview img');
+                                    previewImages.forEach(img => {
+                                        img.src = '';
+                                    });
+                                });
+                            });
+                            </script>
+
                         </div>
                         <input type="button" name="next" class="next action-button" value="Next"/>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>

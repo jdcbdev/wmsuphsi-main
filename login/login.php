@@ -43,6 +43,12 @@
         if ($output) {
             $_SESSION['verify_one'] = $output['verify_one'];
             $_SESSION['verify_two'] = $output['verify_two'];
+            $_SESSION['verify_three'] = $output['verify_three'];
+            $_SESSION['verify_four'] = $output['verify_four'];
+            $_SESSION['verify_five'] = $output['verify_five'];
+            $_SESSION['verify_six'] = $output['verify_six'];
+            $_SESSION['verify_seven'] = $output['verify_seven'];
+            $_SESSION['verify_eight'] = $output['verify_eight'];
             $_SESSION['profile_picture'] = $output['profile_picture'];
             $_SESSION['background_image'] = $output['background_image'];
             $_SESSION['organization'] = $output['organization'];
@@ -94,7 +100,7 @@
             
             <input type="password" id="password" name="password" placeholder="Enter password" required tabindex="2">
 
-            <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem; display: flex;justify-content: center;" required></div>
+            <!--<div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem; display: flex;justify-content: center;" required></div>-->   
 
             <div class="flex" style="display: flex; padding: 10px 10px 10px 1px;">
                 <a href="#">Forgot password?</a>

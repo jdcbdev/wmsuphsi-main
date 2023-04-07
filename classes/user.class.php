@@ -28,6 +28,13 @@ Class Users{
     public $organization = 'None';
     public $verify_one;
     public $verify_two;
+    public $verify_three;
+    public $verify_four;
+    public $verify_five;
+    public $verify_six;
+    public $verify_seven;
+    public $verify_eight;
+
 
 
 
@@ -53,11 +60,9 @@ Class Users{
     //INSERT A NEW USER  INTO THE DATABASE "PHSI" & HADLE AJAX REQUEST
     function signup(){
 
-        
 
-
-        $sql = "INSERT INTO user_acc_data (profile_picture, background_image, verify_one, verify_two, firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role, is_agree, status, organization, member_type) 
-        VALUES (:profile_picture, :background_image, :verify_one, :verify_two, :firstname, :middlename, :lastname, :suffix, :sex, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :username, :password, :role, :is_agree, :status, :organization, :member_type);";
+        $sql = "INSERT INTO user_acc_data (profile_picture, background_image, verify_one, verify_two, verify_three, verify_four, verify_five, verify_six, verify_seven, verify_eight, firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role, is_agree, status, organization, member_type) 
+        VALUES (:profile_picture, :background_image, :verify_one, :verify_two, :verify_three, :verify_four, :verify_five, :verify_six, :verify_seven, :verify_eight, :firstname, :middlename, :lastname, :suffix, :sex, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :username, :password, :role, :is_agree, :status, :organization, :member_type);";
 
         $query=$this->db->connect()->prepare($sql);
 
@@ -82,9 +87,14 @@ Class Users{
         $query->bindParam(':organization', $this->organization);
         $query->bindParam(':member_type', $this->member_type);
         $query->bindParam(':status', $this->status);
-
         $query->bindParam(':verify_one', $this->verify_one);
         $query->bindParam(':verify_two', $this->verify_two);
+        $query->bindParam(':verify_three', $this->verify_three);
+        $query->bindParam(':verify_four', $this->verify_four);
+        $query->bindParam(':verify_five', $this->verify_five);
+        $query->bindParam(':verify_six', $this->verify_six);
+        $query->bindParam(':verify_seven', $this->verify_seven);
+        $query->bindParam(':verify_eight', $this->verify_eight);
        
         if($query->execute()){
             return "added successfully 1";
@@ -104,7 +114,7 @@ Class Users{
     }
 
     public function fetchRecordById($id) {
-        $select_stmt = $this->db->connect()->prepare('SELECT id, profile_picture, background_image, verify_one, verify_two, firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role, is_agree, status, organization, member_type FROM user_acc_data WHERE id = :id');
+        $select_stmt = $this->db->connect()->prepare('SELECT id, profile_picture, background_image, verify_one, verify_two, verify_three, verify_four, verify_five, verify_six, verify_seven, verify_eight, firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role, is_agree, status, organization, member_type FROM user_acc_data WHERE id = :id');
         $select_stmt->bindParam(':id', $id);
         $select_stmt->execute();
         $data = $select_stmt->fetch(PDO::FETCH_ASSOC);
@@ -173,11 +183,17 @@ Class Users{
 
     
     function edit(){
-        $sql = "UPDATE user_acc_data SET verify_one=:verify_one, verify_two=:verify_two, firstname=:firstname, lastname=:lastname, email=:email, middlename=:middlename, suffix=:suffix, sex=:sex, contact_number=:contact_number, province=:province, city=:city, barangay=:barangay, street_name=:street_name, bldg_house_no=:bldg_house_no, username=:username, password=:password, role=:role, status=:status, member_type=:member_type WHERE id = :id;";
+        $sql = "UPDATE user_acc_data SET verify_one=:verify_one, verify_two=:verify_two, verify_three=:verify_three, verify_four=:verify_four, verify_five=:verify_five, verify_six=:verify_six, verify_seven=:verify_seven, verify_eight=:veriy_eight, firstname=:firstname, lastname=:lastname, email=:email, middlename=:middlename, suffix=:suffix, sex=:sex, contact_number=:contact_number, province=:province, city=:city, barangay=:barangay, street_name=:street_name, bldg_house_no=:bldg_house_no, username=:username, password=:password, role=:role, status=:status, member_type=:member_type WHERE id = :id;";
         
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':verify_one', $this->verify_one);
         $query->bindParam(':verify_two', $this->verify_two);
+        $query->bindParam(':verify_three', $this->verify_three);
+        $query->bindParam(':verify_four', $this->verify_four);
+        $query->bindParam(':verify_five', $this->verify_five);
+        $query->bindParam(':verify_six', $this->verify_six);
+        $query->bindParam(':verify_seven', $this->verify_seven);
+        $query->bindParam(':verify_eight', $this->verify_eight);
         $query->bindParam(':firstname', $this->firstname);
         $query->bindParam(':lastname', $this->lastname);
         $query->bindParam(':email', $this->email);
