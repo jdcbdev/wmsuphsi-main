@@ -254,7 +254,6 @@ function topFunction() {
       </div>
 </section>
 
-      <a href="news/news.php" class="btn" style="margin: auto;justify-content: center;display: flex;width: 15%;">View All</a>
 <!---------------------------------------------- Announcements Section Start ----------------------------------------------------------------------------------->
 
 <!---------------------------------------------- Organizations Section Start  ------------------------------------------------------------------------------------------->
@@ -293,7 +292,7 @@ function topFunction() {
             <img src="images/student-profile/pic-1.png" alt="">
             <h3>Arjay Sagdi</h3>
             <div class="label">
-               PHSI
+               Student
             </div>
          </div>
 
@@ -302,7 +301,7 @@ function topFunction() {
             <img src="images/student-profile/pic-2.jpg" alt="">
             <h3>Arjay Ole</h3>
             <div class="label">
-              UNESCO Club
+              Alumni & Employee
             </div>
          </div>
 
@@ -311,7 +310,7 @@ function topFunction() {
             <img src="images/student-profile/pic-3.jpg" alt="">
             <h3>Arjay Orias</h3>
             <div class="label">
-            UNESCO Club
+            Employee
             </div>
          </div>
       </div>

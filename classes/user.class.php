@@ -10,14 +10,14 @@ Class Users{
     public $lastname;
     public $suffix;
     public $sex;
-    public $email;
+    public $email = "";
     public $contact_number;
     public $province;
     public $city;
     public $barangay;
     public $street_name;
     public $bldg_house_no;
-    public $username;
+    public $username = "";
     public $password;
     public $event_id;
     public $user_id;
@@ -34,6 +34,8 @@ Class Users{
     public $verify_six;
     public $verify_seven;
     public $verify_eight;
+    public $errors = [];
+    public $token;
 
 
 
@@ -61,8 +63,8 @@ Class Users{
     function signup(){
 
 
-        $sql = "INSERT INTO user_acc_data (profile_picture, background_image, verify_one, verify_two, verify_three, verify_four, verify_five, verify_six, verify_seven, verify_eight, firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role, is_agree, status, organization, member_type) 
-        VALUES (:profile_picture, :background_image, :verify_one, :verify_two, :verify_three, :verify_four, :verify_five, :verify_six, :verify_seven, :verify_eight, :firstname, :middlename, :lastname, :suffix, :sex, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :username, :password, :role, :is_agree, :status, :organization, :member_type);";
+        $sql = "INSERT INTO user_acc_data (profile_picture, background_image, verify_one, verify_two, verify_three, verify_four, verify_five, verify_six, verify_seven, verify_eight, firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role, is_agree, status, organization, member_type, token) 
+        VALUES (:profile_picture, :background_image, :verify_one, :verify_two, :verify_three, :verify_four, :verify_five, :verify_six, :verify_seven, :verify_eight, :firstname, :middlename, :lastname, :suffix, :sex, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :username, :password, :role, :is_agree, :status, :organization, :member_type, :token);";
 
         $query=$this->db->connect()->prepare($sql);
 
@@ -95,6 +97,7 @@ Class Users{
         $query->bindParam(':verify_six', $this->verify_six);
         $query->bindParam(':verify_seven', $this->verify_seven);
         $query->bindParam(':verify_eight', $this->verify_eight);
+        $query->bindParam(':token', $this->token);
        
         if($query->execute()){
             return "added successfully 1";
@@ -102,7 +105,15 @@ Class Users{
         return "error adding ";
     }
 
-
+    function verify_email(){
+        $sql = "SELECT * FROM user_acc_data WHERE email=:email LIMIT 1";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':email', $this->email);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 
     function fetchUser(){
         $sql = "SELECT * FROM user_acc_data;";

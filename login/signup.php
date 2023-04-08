@@ -1,10 +1,12 @@
-<?php
+<?php   
+
    require_once '../classes/user.class.php';
    require_once '../tools/functions.php';
     //resume session here to fetch session values
     session_start();
     $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
     require_once '../includes/signup-head.php';
+    require_once '../controllers/sendEmails.php';
 ?>
 
 
@@ -98,10 +100,22 @@ if(isset($_POST['submit'])) {
     && (empty($user -> verify_seven) || move_uploaded_file($user -> tempname_seven, $user -> folder_seven))
     && (empty($user -> verify_eight) || move_uploaded_file($user -> tempname_eight, $user -> folder_eight))
   ) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $token = bin2hex(random_bytes(50)); // generate unique token
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //encrypt password
+    
+    // Check if email already exists
+    if($user -> verify_email()){
+      if (mysqli_num_rows($result) > 0) {
+          $errors['email'] = "Email already exists";
+      }
+    }
     if(validate_signup_user($_POST)){
       if($user -> signup()){
         //redirect user to signup
-
+            // TO DO: send verification email to user
+            sendVerificationEmail($email, $token);
                     //redirect user to signup page after saving
                     header('location: login.php');
                 }

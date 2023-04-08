@@ -651,7 +651,9 @@ CREATE TABLE `user_acc_data` (
   `is_agree`varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL,
   `organization`varchar(50) NOT NULL,
-  `member_type` SET('Student', 'Employee', 'Alumni', 'None') NOT NULL
+  `member_type` SET('Student', 'Employee', 'Alumni', 'None') NOT NULL,
+  `verified` tinyint(1) NOT NULL DEFAULT '0',
+  `token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
