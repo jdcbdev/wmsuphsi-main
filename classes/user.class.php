@@ -36,6 +36,8 @@ Class Users{
     public $verify_eight;
     public $errors = [];
     public $token;
+    public $result;
+    public $verified;
 
 
 
@@ -60,7 +62,7 @@ Class Users{
     }
    
     //INSERT A NEW USER  INTO THE DATABASE "PHSI" & HADLE AJAX REQUEST
-    function signup(){
+    function signup($token){
 
 
         $sql = "INSERT INTO user_acc_data (profile_picture, background_image, verify_one, verify_two, verify_three, verify_four, verify_five, verify_six, verify_seven, verify_eight, firstname, middlename, lastname, suffix, sex, email, contact_number, province, city, barangay, street_name, bldg_house_no, username, password, role, is_agree, status, organization, member_type, token) 
@@ -97,7 +99,8 @@ Class Users{
         $query->bindParam(':verify_six', $this->verify_six);
         $query->bindParam(':verify_seven', $this->verify_seven);
         $query->bindParam(':verify_eight', $this->verify_eight);
-        $query->bindParam(':token', $this->token);
+        $query->bindValue(':token', $token);
+
        
         if($query->execute()){
             return "added successfully 1";
@@ -105,7 +108,7 @@ Class Users{
         return "error adding ";
     }
 
-    function verify_email(){
+    function to_check_email(){
         $sql = "SELECT * FROM user_acc_data WHERE email=:email LIMIT 1";
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':email', $this->email);
@@ -114,6 +117,73 @@ Class Users{
         }
         return $data;
     }
+
+   /* function verify_email(){
+        $token = $_GET['token'];
+        $sql = "SELECT * FROM user_acc_data WHERE token=:token LIMIT 1";
+        $query = $this->db->connect()->prepare($sql);
+        $query->bindParam(':token', $this->token);
+        if($query->execute()){
+            $data = $query->fetchAll();
+            return $data;
+        }
+        return false;
+    }*/
+
+    function verify_email(){
+        $token = $_GET['token'];
+        $sql = "SELECT * FROM user_acc_data WHERE token=:token LIMIT 1";
+        $query = $this->db->connect()->prepare($sql);
+        $query->bindParam(':token', $token);
+        if($query->execute()){
+            $data = $query->fetchAll();
+            return $data;
+        }
+        return false;
+    }
+    
+    function insert_token($token) {
+        $sql = "INSERT INTO user_acc_data (token) VALUES (:token)";
+        $query = $this->db->connect()->prepare($sql);
+        $query->bindValue(':token', $token);
+        if ($query->execute()) {
+          return "added successfully";
+        } else {
+          return "error adding ";
+        }
+      }
+
+    /*function update_token(){
+        $sql = "UPDATE user_acc_data SET verified=1 WHERE token=:token";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':token', $this->token);
+        //$query->bindParam(':id', $this->id);
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }*/
+
+    public function update_token() {
+        $token = $_GET['token'];
+        $query = "UPDATE user_acc_data SET verified=1 WHERE token=:token";
+        $stmt = $this->db->connect()->prepare($query);
+        $stmt->bindParam(':token', $token);
+    
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            echo "Failed to update token!";
+            return false;
+        }
+    }
+    
+    
+
+
 
     function fetchUser(){
         $sql = "SELECT * FROM user_acc_data;";

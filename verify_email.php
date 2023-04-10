@@ -1,66 +1,55 @@
-
-
 <?php
-require_once './vendor/autoload.php';
 
-define('SENDER_EMAIL', 'arjaymalaga990@gmail.com');
-define('SENDER_PASSWORD', 'mmdxwthytcedpsyz');
+session_start();
+require_once 'classes/user.class.php';
 
 
-// Create the Transport
-$transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-    ->setUsername(SENDER_EMAIL, SENDER_EMAIL)
-    ->setPassword(SENDER_PASSWORD, SENDER_PASSWORD);
-
-// Create the Mailer using your created Transport
-$mailer = new Swift_Mailer($transport);
-
-function sendVerificationEmail($userEmail, $token)
-{
-    global $mailer;
-    $body = '<!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-      <meta charset="UTF-8">
-      <title>Test mail</title>
-      <style>
-        .wrapper {
-          padding: 20px;
-          color: #444;
-          font-size: 1.3em;
+if (isset($_GET['token'])) {
+    $token = $_GET['token'];
+    $user = new Users();
+    if($user -> verify_email($token)) {
+        if($user -> update_token($token)){
+            $_SESSION['id'] = $user->id;
+            $_SESSION['username'] = $user->username;
+            $_SESSION['email'] = $user->email;
+            $_SESSION['verified'] = true;
+            $_SESSION['message'] = "Your email address has been verified successfully";
+            $_SESSION['type'] = 'alert-success';
+            header('location: login/login.php');
+            exit(0);
         }
-        a {
-          background: #592f80;
-          text-decoration: none;
-          padding: 8px 15px;
-          border-radius: 5px;
-          color: #fff;
-        }
-      </style>
-    </head>
-
-    <body>
-      <div class="wrapper">
-        <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-        <a href="http://wmsuphsi.online/verify_email.php?token=' . $token . '">Verify Email!</a>
-      </div>
-    </body>
-
-    </html>';
-
-    // Create a message
-    $message = (new Swift_Message('Verify your email'))
-        ->setFrom([SENDER_EMAIL => 'Heylow'])
-        ->setTo($userEmail)
-        ->setBody($body, 'text/html');
-
-    // Send the message
-    $result = $mailer->send($message);
-
-    if ($result > 0) {
-        return true;
     } else {
-        return false;
+        echo "User not found!";
     }
+} else {
+    echo "No token provided!";
 }
+
+/*if (isset($_GET['token'])) {
+    $token = $_GET['token'];
+    $user = new Users();
+    if($user -> verify_email()) {
+    //if (mysqli_num_rows($result) > 0) {
+        //$user = mysqli_fetch_assoc($result);
+        //$query = "UPDATE user_acc_data SET verified=1 WHERE token='$token'";
+        if($user -> update_token()){
+        //if (mysqli_query($conn, $query)) {
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['verified'] = true;
+            $_SESSION['message'] = "Your email address has been verified successfully";
+            $_SESSION['type'] = 'alert-success';
+            header('location: ../login/login.php');
+            exit(0);
+        //}
+    } else {
+        echo "User not found!";
+    }
+} else {
+    echo "No token provided!";
+}
+}
+//}*/   
+
+?>

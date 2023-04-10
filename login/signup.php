@@ -1,16 +1,17 @@
 <?php   
-
-   require_once '../classes/user.class.php';
-   require_once '../tools/functions.php';
     //resume session here to fetch session values
     session_start();
-    $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
-    require_once '../includes/signup-head.php';
-    require_once '../controllers/sendEmails.php';
+   require_once '../classes/user.class.php';
+   require_once '../tools/functions.php';
+   $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
+   require_once '../includes/signup-head.php';
+   require_once '../controllers/sendEmails.php';
 ?>
 
 
 <?php 
+
+
 
 if(isset($_POST['submit'])) {
   //Sanitizing the inputs of the users. Mandatory to prevent injections!
@@ -31,6 +32,8 @@ if(isset($_POST['submit'])) {
   $user -> username = htmlentities($_POST['username']); 
   $user -> password = htmlentities($_POST['password']);
   $user -> member_type = is_array($_POST['member_type']) ? implode(',', $_POST['member_type']) : $_POST['member_type'];
+  //$user -> token = htmlentities($_POST['token']);
+
 
   // Upload verification photos based on member type
   if (in_array('Student', $_POST['member_type'])) {
@@ -106,23 +109,32 @@ if(isset($_POST['submit'])) {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //encrypt password
     
     // Check if email already exists
-    if($user -> verify_email()){
-      if (mysqli_num_rows($result) > 0) {
-          $errors['email'] = "Email already exists";
-      }
+    if($user -> to_check_email()){
+      //if (mysqli_num_rows($result) > 0) {
+          //$errors['email'] = "Email already exists";
+      //}
     }
     if(validate_signup_user($_POST)){
-      if($user -> signup()){
+      if($user -> signup($token)){
+        //if($user -> insert_token($token)){
+        //$result = $stmt->execute();
         //redirect user to signup
             // TO DO: send verification email to user
             sendVerificationEmail($email, $token);
                     //redirect user to signup page after saving
-                    header('location: login.php');
+                    $_SESSION['id'] = $user_id;
+                    $_SESSION['username'] = $username;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['verified'] = false;
+                    $_SESSION['message'] = 'You are logged in!';
+                    $_SESSION['type'] = 'alert-success';
+                    header('location: verifying.php');
                 }
             }
+        }
               
-          }
-      }
+       }
+     // }
 ?>
 
 <div class="container-fluid">
@@ -790,6 +802,9 @@ if(isset($_POST['submit'])) {
 
 
 </style>
+
+
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="../js/signup.js"></script>

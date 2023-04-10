@@ -62,6 +62,7 @@
             $_SESSION['contact_number'] = $output['contact_number'];
             $_SESSION['logged-in'] = $output['username']. ' ' . $output['password'];
             $_SESSION['role'] = $output['role'];
+            $_SESSION['token'] = $output['token'];
             $_SESSION['user_id'] = $output['id'];
 
             //display the appropriate dashboard page for the following role:
