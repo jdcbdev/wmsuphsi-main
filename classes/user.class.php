@@ -39,9 +39,6 @@ Class Users{
     public $result;
     public $verified;
 
-
-
-
     protected $db;
 
     function __construct()
@@ -108,27 +105,25 @@ Class Users{
         return "error adding ";
     }
 
-    function to_check_email(){
-        $sql = "SELECT * FROM user_acc_data WHERE email=:email LIMIT 1";
-        $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':email', $this->email);
-        if($query->execute()){
-            $data = $query->fetchAll();
-        }
-        return $data;
-    }
 
-   /* function verify_email(){
-        $token = $_GET['token'];
-        $sql = "SELECT * FROM user_acc_data WHERE token=:token LIMIT 1";
-        $query = $this->db->connect()->prepare($sql);
-        $query->bindParam(':token', $this->token);
+    function to_check_duplicates(){
+        $sql = "SELECT * FROM user_acc_data WHERE email=:email OR username=:username OR password=:password LIMIT 1";
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':username', $this->username);
+        $query->bindParam(':email', $this->email);
+        $query->bindParam(':password', $this->password);
         if($query->execute()){
-            $data = $query->fetchAll();
-            return $data;
+            $data = $query->fetch(PDO::FETCH_ASSOC);
+            if($data){
+                return true; // duplicates exist
+            } else {
+                return false; // no duplicates found
+            }
+        } else {
+            return false; // database query failed
         }
-        return false;
-    }*/
+    }
+    
 
     function verify_email(){
         $token = $_GET['token'];
@@ -153,21 +148,7 @@ Class Users{
         }
       }
 
-    /*function update_token(){
-        $sql = "UPDATE user_acc_data SET verified=1 WHERE token=:token";
-        $query=$this->db->connect()->prepare($sql);
-        $query->bindParam(':token', $this->token);
-        //$query->bindParam(':id', $this->id);
-        if($query->execute()){
-            return true;
-        }
-        else {
-            return false;
-        }
-
-    }*/
-
-    public function update_token() {
+    function update_token() {
         $token = $_GET['token'];
         $query = "UPDATE user_acc_data SET verified=1 WHERE token=:token";
         $stmt = $this->db->connect()->prepare($query);
@@ -181,10 +162,6 @@ Class Users{
         }
     }
     
-    
-
-
-
     function fetchUser(){
         $sql = "SELECT * FROM user_acc_data;";
         $query=$this->db->connect()->prepare($sql);

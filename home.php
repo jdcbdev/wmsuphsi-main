@@ -83,12 +83,9 @@ function topFunction() {
 
 </script>
 
-
-
 <!-- Header Section Start -->
 <header class="header">
    <!-- Logo -->
-   <!--<img src="phsi.png" alt="">-->
    <a href="home.php" class="logo">PHSI</a>
    <!-- Navbar -->
    <nav class="navbar">

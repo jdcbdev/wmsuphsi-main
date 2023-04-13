@@ -6,6 +6,7 @@
    $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
    require_once '../includes/signup-head.php';
    require_once '../controllers/sendEmails.php';
+
 ?>
 
 
@@ -108,33 +109,25 @@ if(isset($_POST['submit'])) {
     $token = bin2hex(random_bytes(50)); // generate unique token
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //encrypt password
     
-    // Check if email already exists
-    if($user -> to_check_email()){
-      //if (mysqli_num_rows($result) > 0) {
-          //$errors['email'] = "Email already exists";
-      //}
-    }
-    if(validate_signup_user($_POST)){
-      if($user -> signup($token)){
-        //if($user -> insert_token($token)){
-        //$result = $stmt->execute();
-        //redirect user to signup
+    if($user->to_check_duplicates()){
+        echo "Error: Username, email or password already exists. Please choose a different one.";
+    } else {
+        if($user->signup($token)){
             // TO DO: send verification email to user
             sendVerificationEmail($email, $token);
-                    //redirect user to signup page after saving
-                    $_SESSION['id'] = $user_id;
-                    $_SESSION['username'] = $username;
-                    $_SESSION['email'] = $email;
-                    $_SESSION['verified'] = false;
-                    $_SESSION['message'] = 'You are logged in!';
-                    $_SESSION['type'] = 'alert-success';
-                    header('location: verifying.php');
-                }
-            }
+            $_SESSION['id'] = $user_id;
+            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $email;
+            $_SESSION['verified'] = false;
+            $_SESSION['message'] = 'You are logged in!';
+            $_SESSION['type'] = 'alert-success';
+            //redirect user to verifying page after saving
+            header('location: verifying.php');
         }
-              
-       }
-     // }
+    }
+}
+}
+     
 ?>
 
 <div class="container-fluid">
@@ -339,7 +332,7 @@ if(isset($_POST['submit'])) {
                             <div class="id-upload None">
                             <label class="fieldlabels">Upload National ID (Front):</label>
                             <div class="input-group">
-                                <input type="file" name="verify_seven" id="verify_seven" accept="image/*" onchange="showDisplaySeven(event)" >
+                                <input type="file" name="verify_seven" id="verify_seven" accept="image/*" onchange="showDisplaySeven(event)">
                             </div>
                             <label for="file"></label>
                             <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
@@ -348,7 +341,7 @@ if(isset($_POST['submit'])) {
 
                             <label class="fieldlabels">Upload National ID (Back):</label>
                             <div class="input-group">
-                                <input type="file" name="verify_eight" id="verify_eight" accept="image/*" onchange="showDisplayEight(event)" >
+                                <input type="file" name="verify_eight" id="verify_eight" accept="image/*" onchange="showDisplayEight(event)">
                             </div>
                             <label for="file"></label>
                             <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); margin-bottom: 2rem;">
@@ -391,6 +384,63 @@ if(isset($_POST['submit'])) {
                             });
                             </script>
 
+                            <script>
+                            // Get the file upload elements
+                            var verifyOne = document.getElementById('verify_one');
+                            var verifyTwo = document.getElementById('verify_two');
+                            var verifyThree = document.getElementById('verify_three');
+                            var verifyFour = document.getElementById('verify_four');
+                            var verifyFive = document.getElementById('verify_five');
+                            var verifySix = document.getElementById('verify_six');
+                            var verifySeven = document.getElementById('verify_seven');
+                            var verifyEight = document.getElementById('verify_eight');
+
+                            // Get the checkboxes for student, alumni, employee, and none
+                            var studentCheckbox = document.getElementById('student');
+                            var alumniCheckbox = document.getElementById('alumni');
+                            var employeeCheckbox = document.getElementById('employee');
+                            var noneCheckbox = document.getElementById('none');
+
+                            // Add event listeners to all checkboxes
+                            studentCheckbox.addEventListener('change', updateRequiredFields);
+                            alumniCheckbox.addEventListener('change', updateRequiredFields);
+                            employeeCheckbox.addEventListener('change', updateRequiredFields);
+                            noneCheckbox.addEventListener('change', updateRequiredFields);
+
+                            // Update the required fields based on which checkboxes are checked
+                            function updateRequiredFields() {
+                            // Reset the required attributes on all file upload elements
+                            verifyOne.required = false;
+                            verifyTwo.required = false;
+                            verifyThree.required = false;
+                            verifyFour.required = false;
+                            verifyFive.required = false;
+                            verifySix.required = false;
+                            verifySeven.required = false;
+                            verifyEight.required = false;
+
+                            // Set the required attributes based on which checkboxes are checked
+                            if (studentCheckbox.checked) {
+                                verifyOne.required = true;
+                                verifyTwo.required = true;
+                            }
+                            if (alumniCheckbox.checked) {
+                                verifyThree.required = true;
+                                verifyFour.required = true;
+                            }
+                            if (employeeCheckbox.checked) {
+                                verifyFive.required = true;
+                                verifySix.required = true;
+                            }
+                            if (noneCheckbox.checked) {
+                                verifySeven.required = true;
+                                verifyEight.required = true;
+                            }
+                            }
+                            </script>
+
+
+
                         </div>
                         <input type="button" name="next" class="next action-button" value="Next"/>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
@@ -415,7 +465,7 @@ if(isset($_POST['submit'])) {
 
                             <label class="fieldlabels details">Password:</label>
                             <span id="password-strength"></span>
-                            <input type="password" id="password" name="password" maxlength="12" placeholder="">
+                            <input type="password" id="password" name="password" maxlength="12" placeholder="" required>
                             
 
                             <label class="fieldlabels details">Confirm Password:</label>

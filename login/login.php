@@ -101,7 +101,7 @@
             
             <input type="password" id="password" name="password" placeholder="Enter password" required tabindex="2">
 
-            <!--<div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem; display: flex;justify-content: center;" required></div>-->   
+            <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem; display: flex;justify-content: center;" required></div>
 
             <div class="flex" style="display: flex; padding: 10px 10px 10px 1px;">
                 <a href="#">Forgot password?</a>

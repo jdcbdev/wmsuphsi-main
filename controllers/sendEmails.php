@@ -42,8 +42,10 @@ function sendVerificationEmail($userEmail, $token)
 
     <body>
       <div class="wrapper">
-        <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-        <a href="https://wmsuphsi.online/verify_email.php?token=' . $token . '">Verify Email!</a>
+        <p>Thank you for signing up! We are thrilled to have you as a part of our community. In order to complete your registration and start enjoying the benefits of our website, please verify your account by clicking on the button below.</p>
+        <p>This will enable you to access your account, join events, and manage your account. You will redirect to the login page after clicking the button.</p>
+        <a href="https://wmsuphsi.online/verify_email.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">Verify Email!</a>
+
       </div>
     </body>
 
