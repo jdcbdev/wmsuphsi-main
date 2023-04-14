@@ -151,8 +151,63 @@ function getColor(strength) {
   }
 }
 
-//PROGRESS SIGN UP FORM REQUIRED ERROR FIELDS
 
 
+
+
+//PROGRESS SIGN UP FORM REQUIRED ERROR FIELDS IN STEP 2
+
+// Get the file upload elements
+var verifyOne = document.getElementById('verify_one');
+var verifyTwo = document.getElementById('verify_two');
+var verifyThree = document.getElementById('verify_three');
+var verifyFour = document.getElementById('verify_four');
+var verifyFive = document.getElementById('verify_five');
+var verifySix = document.getElementById('verify_six');
+var verifySeven = document.getElementById('verify_seven');
+var verifyEight = document.getElementById('verify_eight');
+
+// Get the checkboxes for student, alumni, employee, and none
+var studentCheckbox = document.getElementById('student');
+var alumniCheckbox = document.getElementById('alumni');
+var employeeCheckbox = document.getElementById('employee');
+var noneCheckbox = document.getElementById('none');
+
+// Add event listeners to all checkboxes
+studentCheckbox.addEventListener('change', updateRequiredFields);
+alumniCheckbox.addEventListener('change', updateRequiredFields);
+employeeCheckbox.addEventListener('change', updateRequiredFields);
+noneCheckbox.addEventListener('change', updateRequiredFields);
+
+// Update the required fields based on which checkboxes are checked
+function updateRequiredFields() {
+// Reset the required attributes on all file upload elements
+verifyOne.required = false;
+verifyTwo.required = false;
+verifyThree.required = false;
+verifyFour.required = false;
+verifyFive.required = false;
+verifySix.required = false;
+verifySeven.required = false;
+verifyEight.required = false;
+
+// Set the required attributes based on which checkboxes are checked
+if (studentCheckbox.checked) {
+    verifyOne.required = true;
+    verifyTwo.required = true;
+}
+if (alumniCheckbox.checked) {
+    verifyThree.required = true;
+    verifyFour.required = true;
+}
+if (employeeCheckbox.checked) {
+    verifyFive.required = true;
+    verifySix.required = true;
+}
+if (noneCheckbox.checked) {
+    verifySeven.required = true;
+    verifyEight.required = true;
+}
+}
 
 
