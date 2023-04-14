@@ -104,7 +104,7 @@ CREATE TABLE `event` (
 	`event_slots` int(11) DEFAULT NULL,
 	`event_status`varchar(50) NOT NULL,
 	`event_date` DATE NOT NULL,
-  `event_scope` varchar(50) NOT NULL,
+  `event_scope` SET('Unesco', 'Student', 'Employee', 'Alumni', 'Non-affiliate', 'All') NOT NULL,
   `event_start_time` TIME NOT NULL,
   `event_end_time` TIME NOT NULL,
   `event_reg_duedate` timestamp NOT NULL,

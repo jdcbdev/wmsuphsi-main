@@ -104,35 +104,46 @@
                 <textarea class="form-control" type="text" name="event_about" id="event_about" rows="4" cols="50" required> </textarea>
             </div>
 
-            <!--EVENT MODE: ACTUAL OR VIRTUAL-->
             <label for="event_mode">Event Mode</label>
             <div class="input-group">
-            <select id="event_mode" name="event_mode">
-                <option value="">--Select Mode--</option>
-                <option value="Actual">On-site</option>
-                <option value="Virtual">Virtual</option>
-            </select>
-            </div> 
-
-
-            <!--EVENT TYPE-->
-            <label for="event_type" class="form-label">Event Type</label>
-            <div class="input-group">
-                <select id="event_type" name="event_type" onchange="showHideOtherInput()">
-                <option value="">--Select Type--</option>
-                <option value="Webinar">Webinar</option>
-                <option value="Symposium">Symposium</option>
-                <option value="Workshop">Workshop</option>
-                <option value="Other">Other</option>
+                <select id="event_mode" name="event_mode" onchange="displayInputBox()">
+                    <option value="">--Select Mode--</option>
+                    <option value="On-site">On-site</option>
+                    <option value="Virtual">Virtual</option>
                 </select>
-                <input class="form-control" type="text" name="event_type_other" id="event_type_other" placeholder="Other" style="display: none;">
             </div>
 
-            <!--EVENT LOCATION (VENUE)-->
-            <label for="event_location" class="form-label">Where</label>
-            <div class="input-group">
-                <input class="form-control" type="text" name="event_location" id="event_location">
+            <div id="event_platform_input" style="display:none;">
+                <label for="event_platform" class="form-label">Online Platform Link</label>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="event_platform" id="event_platform">
+                </div>
             </div>
+
+            <div id="event_location_input" style="display:none;">
+                <label for="event_location" class="form-label">Location</label>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="event_location" id="event_location">
+                </div>
+            </div>
+
+            <script>
+                function displayInputBox() {
+                    var eventMode = document.getElementById("event_mode").value;
+
+                    if (eventMode == "On-site") {
+                        document.getElementById("event_location_input").style.display = "block";
+                        document.getElementById("event_platform_input").style.display = "none";
+                    } else if (eventMode == "Virtual") {
+                        document.getElementById("event_platform_input").style.display = "block";
+                        document.getElementById("event_location_input").style.display = "none";
+                    } else {
+                        document.getElementById("event_platform_input").style.display = "none";
+                        document.getElementById("event_location_input").style.display = "none";
+                    }
+                }
+            </script>
+
 
             <!--WHEN IS THE EVENT (DATE)-->
             <label for="event_date" class="form-label">When</label>
@@ -158,46 +169,33 @@
                 <input class="form-control" type="number" name="event_slots" id="event_slots" required>
             </div>
 
-            <!--EVENT SCOPE
+            <!--EVENT SCOPE-->
             <label for="event_scope" class="form-label">Scope</label>
             <div class="input-group" style="gap: 1rem;">
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="wmsu_unesco" value="WMSU UNESCO">
-                    <label for="wmsu_unesco">WMSU UNESCO</label>
+                    <input type="checkbox" name="event_scope[]" id="unesco" value="Unesco">
+                    <label for="unesco">WMSU UNESCO Club</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="phsi" value="PHSI">
-                    <label for="phsi">PHSI</label>
+                    <input type="checkbox" name="event_scope[]" id="student" value="Student">
+                    <label for="student">Student</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="alumni" value="ALUMNI">
-                    <label for="alumni">ALUMNI</label>
+                    <input type="checkbox" name="event_scope[]" id="employee" value="Employee">
+                    <label for="none">Employee</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="student" value="STUDENT">
-                    <label for="student">STUDENT</label>
+                    <input type="checkbox" name="event_scope[]" id="alumni" value="Alumni">
+                    <label for="alumni">Alumni</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="employee" value="EMPLOYEE">
-                    <label for="employee">EMPLOYEE</label>
+                    <input type="checkbox" name="event_scope[]" id="non-affiliate" value="Non-affiliate">
+                    <label for="non-affiliate">Non-affiliate</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="all" value="ALL">
-                    <label for="all">ALL</label>
+                    <input type="checkbox" name="event_scope[]" id="all" value="All">
+                    <label for="all">All</label>
                 </div>
-            </div>-->
-
-            <!--EVENT ONLINE PLATFORM (LINK)-->
-            <label for="event_scope" class="form-label">Scope</label>
-            <div class="input-group">
-                <input class="form-control" type="text" name="event_scope" id="event_scope">
-            </div>
-
-
-            <!--EVENT ONLINE PLATFORM (LINK)-->
-            <label for="event_platform" class="form-label">Online Platform (if event mode is virtual)</label>
-            <div class="input-group">
-                <input class="form-control" type="text" name="event_platform" id="event_platform">
             </div>
       
 
@@ -207,110 +205,64 @@
                 <input class="form-control" type="datetime-local" name="event_reg_duedate" id="event_reg_duedate" required>
             </div>
 
-            <!--EVENT STATUS-->
-            <label for="event_status" class="form-label">Event Status</label>
-             <div class="input-group">
-                <select name="event_status" id="event_status" required>
-                    <option value="Accepting">Accepting Attendees</option>
-                    <option value="Close">Close Registration</option>
-                    <option value="Ongoing">Ongoing</option>
-                    <option value="Postponed">Postponed</option>
-                    <option value="Cancelled">Cancel</option>
-                    <option value="Ended">Ended</option>
-                </select>
-            </div>
-
-
             <div class="input-group">
                 <input type="submit" id="submit" name="submit" value="Add Event" class="form-btn btn-primary">
                 <input type="reset" id="btn-reset" name="btn-reset" hidden>
             </div>
         </form>
 
-<script>
-    function showHidePlatformInput(){
-    var mode = document.getElementById("event_mode").value;
-    var platformInput = document.getElementById("event_platform");
-    var platformLabel = document.querySelector("label[for='event_platform']");
-
-    if(mode === "Virtual"){
-      platformInput.style.display = "block";
-      platformLabel.style.display = "block";
-    } else {
-      platformInput.style.display = "none";
-      platformLabel.style.display = "none";
-    }
-  }
-
-  function showHideOtherInput(){
-    var type = document.getElementById("event_type").value;
-    var otherInput = document.getElementById("event_type_other");
-
-    if(type === "Other"){
-      otherInput.style.display = "block";
-    } else {
-      otherInput.style.display = "none";
-    }
-  }
-</script>
     </div>
 </div>
 </section>
-<!--MISSION AND VISION END-->
+
 
 
 <style>
-  .form-label {
-    display: block;
-    margin-top: 1em;
-  }
+    .form-label {
+        display: block;
+        margin-top: 1em;
+    }
 
-  .input-group {
-    margin-bottom: 1em;
-  }
+    .input-group {
+        margin-bottom: 1em;
+    }
 
-  .preview {
-    margin-bottom: 1em;
-  }
+    .preview {
+        margin-bottom: 1em;
+    }
 
-  .preview img {
-    max-width: 100%;
-    max-height: 20em;
-  }
+    .preview img {
+        max-width: 100%;
+        max-height: 20em;
+    }
 
-  .submit-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 0.5em 1em;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+    .submit-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 0.5em 1em;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-  .submit-button:hover {
-    background-color: #3e8e41;
-  }
+    .submit-button:hover {
+        background-color: #3e8e41;
+    }
 
-  .form-control {
-    width: 100%;
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+    .form-control {
+        width: 100%;
+        padding: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
 </style>
 
 
 
-
-
-
-
-
-
-
- <!-- Swiper Js link  -->
- <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<!-- Swiper Js link  -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 <!-- Custom Js file link  -->
 <script src="js/script.js"></script>    
@@ -318,23 +270,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="../js/events.js"></script>
 
-<script>
-  var eventModeSelect = document.getElementById("event_mode");
-  var locationInput = document.getElementById("location_input");
-  var platformInput = document.getElementById("platform_input");
-
-  eventModeSelect.addEventListener("change", function() {
-    if (eventModeSelect.value === "actual") {
-      locationInput.style.display = "block";
-      platformInput.style.display = "none";
-    } else if (eventModeSelect.value === "virtual") {
-      locationInput.style.display = "none";
-      platformInput.style.display = "block";
-    }   
-  });
-</script>
-
-       
 <?php
     require_once '../includes/admin-footer.php';
 ?>
@@ -343,39 +278,3 @@
 
 
 
-
-<!--DELETE ANNOUNCEMENT WARNING BOX
-<div id="delete-dialog" class="dialog" title="Delete Content">
-    <p><span>Are you sure you want to delete the selected record?</span></p>
-</div>
-
-<script>
-    $(document).ready(function() {
-        $("#delete-dialog").dialog({
-            resizable: false,
-            draggable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            autoOpen: false
-        });
-        $(".action-delete").on('click', function(e) {
-            e.preventDefault();
-            var theHREF = $(this).attr("href");
-
-            $("#delete-dialog").dialog('option', 'buttons', {
-                "Yes" : function() {
-                    window.location.href = theHREF;
-                },
-                "Cancel" : function() {
-                    $(this).dialog("close");
-                }
-            });
-
-            $("#delete-dialog").dialog("open");
-        });
-    });   
-</script>-->
-
-
-    

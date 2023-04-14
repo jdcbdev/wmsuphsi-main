@@ -37,6 +37,10 @@
                             <a class="nav-link">Event Attendees<span class="counter" id="counter-all">3</span></a>
                         </li>
 
+                        <li class="nav-item" id="li-pending">
+                            <a class="nav-link">Attendace<span class="counter" id="counter-all">3</span></a>
+                        </li>
+
                         <li class="nav-item" id="add-account">
                             <a class="nav-link" id="add-new">Add Attendee</a>
                         </li>
