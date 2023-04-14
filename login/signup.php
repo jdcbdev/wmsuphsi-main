@@ -382,9 +382,7 @@ if(isset($_POST['submit'])) {
                                     });
                                 });
                             });
-                            </script>
 
-                            <script>
                             // Get the file upload elements
                             var verifyOne = document.getElementById('verify_one');
                             var verifyTwo = document.getElementById('verify_two');
@@ -438,6 +436,8 @@ if(isset($_POST['submit'])) {
                             }
                             }
                             </script>
+
+
 
 
 
