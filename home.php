@@ -195,7 +195,7 @@ function topFunction() {
             <div class="content">
                <h3><?php echo $value['action_type'] ?></h3>
                <p><?php echo $value['title'] ?></p>
-               <a href="phsi_action/action-page.php?id=<?php echo $value['id']; ?>" class="btn">Donate</a>
+               <a href="phsi_action/action-page.php?id=<?php echo $value['id']; ?>" class="btn">View Details</a>
             </div>
          </div>
 

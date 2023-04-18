@@ -22,6 +22,8 @@ Class Rsvp{
     public $role = 'user';
     public $member_type;
     public $organization = 'None';
+    public $status = 'rsvp';
+    public $confirm = 'No';
 
 
     protected $db;
@@ -37,6 +39,16 @@ Class Rsvp{
         $query = $this->db->connect()->prepare($sql);
         
         $query->bindParam(':event_id', $this->event_id);
+    
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function getRsvp() {
+        $sql = "SELECT * FROM `rsvp` WHERE `status` = 'rsvp'";
+        $query = $this->db->connect()->prepare($sql);
     
         if($query->execute()){
             $data = $query->fetchAll();

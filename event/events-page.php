@@ -100,14 +100,15 @@ if(isset($_POST['submit'])) {
 
 <section class="rsvp-container">
     <div class="rsvp-box">
-        <p>RSVP for this event now!</p>
+        <p style="text-align: center;font-size: 18px;font-weight: bold;"><?php echo $article['event_title'] ?></p>
         
         <button class="btn" id="open-modal-btn">RSVP TO JOIN THIS EVENT</button>
 
         <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h2 style="margin: auto; font-size: 3rem;">I AM NOT A ROBOT</h2>
+            <h2 style="margin: auto; font-size: 3rem;">You're almost there!</h2>
+            <p style="font-size: 12px; justify-content: center; display: flex; margin: auto; width: 50;padding: 2rem; text-align: center;">To help us fight spam, please complete this verification step. </p>
             
             <form action="events-page.php?id=<?php echo $id; ?>" class="modal-form" id="modal-form" method="post">
                
@@ -137,7 +138,7 @@ if(isset($_POST['submit'])) {
 
                 <input type="hidden" name='event_id' value="<?php echo $id; ?>">
                 
-                <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem;justify-content: center;display: flex;"></div>
+                <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="justify-content: center;display: flex;"></div>
 
                 <input type="submit" id="submit" name="submit" value="Submit">  
             </form>
@@ -198,7 +199,7 @@ if(isset($_POST['submit'])) {
         <i class="bi bi-laptop"><span>Platform</span></i>
         <p><?php echo $article['event_platform'] ?></p>
     </div>
-    <div class="event-agenda-container">
+    <!--<div class="event-agenda-container">
         <i class="bi bi-pencil-square"><span>Agenda</span></i>
         <div class="agenda-info">
             <p class="agenda-time">9:00 AM</p>
@@ -220,13 +221,15 @@ if(isset($_POST['submit'])) {
             <p class="agenda-label">Closing Remarks</p>
             <p class="agenda-host">MR. FLORETO B. QUINITO JR. MSIT, Office of the Student Affairs Director</p>
         </div>
-    </div>
+    </div>-->
 </section>
+
 
 
 <section class="event-organizers">
 
    <h1 class="heading">Organizers</h1>
+
 
    <div class="box-container container">
 
@@ -341,7 +344,11 @@ if(isset($_POST['submit'])) {
          <p>Membership Committee</p>
       </div>
    </div>
+
 </section>
+
+
+
 
 <?php
     } else {

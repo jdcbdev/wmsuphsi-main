@@ -100,15 +100,14 @@ CREATE TABLE `event` (
 	`event_mode`varchar(35) NOT NULL,
   `event_location`varchar(50) DEFAULT NULL,
   `event_platform`varchar(50) DEFAULT NULL,
-	`event_type`varchar(50) NOT NULL,
 	`event_slots` int(11) DEFAULT NULL,
-	`event_status`varchar(50) NOT NULL,
-	`event_date` DATE NOT NULL,
-  `event_scope` SET('Unesco', 'Student', 'Employee', 'Alumni', 'Non-affiliate', 'All') NOT NULL,
+	`event_organizer`SET('WMSU-PHSI', 'WMSU UNESCO Club') NOT NULL,
+	`event_start_date` DATE NOT NULL,
+  `event_end_date` DATE NOT NULL,
   `event_start_time` TIME NOT NULL,
   `event_end_time` TIME NOT NULL,
-  `event_reg_duedate` timestamp NOT NULL,
-  `rsvp_id` INT(11) NOT NULL,
+  `event_scope` SET('Unesco', 'Student', 'Employee', 'Alumni', 'Non-affiliate', 'All') NOT NULL,
+  `event_reg_duedate` DATE NOT NULL,
 	`created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 	)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -116,6 +115,7 @@ CREATE TABLE `event` (
 --
 -- Dumping data for table `event`
 --
+
 
 --
 -- Indexes for table `event`

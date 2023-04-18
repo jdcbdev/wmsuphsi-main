@@ -98,7 +98,7 @@
     <!-- always use echo to output PHP values -->
     <td>
         <div class="action-button">
-            <a title="Attend" href="" class="me-2 green" id="Attend" value="#"><i class='bx bxs-hand'></i> Confirm Attendance</a>
+            <a name="confirm_attendance" type="submit" class="me-2 green" id="confirm_attendance" value="#"><i class='bx bxs-hand'></i> Confirm Attendance</a>
         </div>
     </td>
     <td><?php echo $value['firstname'].' '.$value['middlename'].' '.$value['lastname'].' '.$value['suffix'] ?></td>

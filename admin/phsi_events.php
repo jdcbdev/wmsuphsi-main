@@ -60,11 +60,16 @@
                 <thead>
                     <tr>
                         <th scope="col">Action</th>
-                        <th scope="col">Event Name</th>
                         <th scope="col">Banner</th>
+                        <th scope="col">Event Name</th>
+                        <th scope="col">Event Organizer</th>
                         <th scope="col">Mode</th>
-                        <th scope="col">When</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Link</th>
+                        <th scope="col">Schedule</th>
+                        <th scope="col">Scope</th>
                         <th scope="col">Slots</th>
+                        <th scope="col">Registration Due Date</th>
                         <th scope="col">Status</th>
                     </tr>
                 </thead>
@@ -81,14 +86,27 @@
         <hr>
         <form id="addform" class="form-class" method="post" enctype="multipart/form-data">
 
+            <!--EVENT ORGANIZER-->
+            <label for="event_organizer" class="form-label" style="font-weight: bold;">Organizer</label>
+            <div class="input-group" style="gap: 1rem;">
+                <div>
+                    <input type="checkbox" name="event_organizer[]" id="unesco" value="WMSU-PHSI">
+                    <label for="unesco">WMSU-PHSI</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="event_organizer[]" id="phsi" value="WMSU UNESCO Club">
+                    <label for="phsi">WMSU UNESCO Club</label>
+                </div>
+            </div>
+
             <!--EVENT TITLEL-->
-            <label for="event_title" class="form-label">Event Name</label>
+            <label for="event_title" class="form-label" style="font-weight: bold;">Event Name</label>
             <div class="input-group">
                 <input class="form-control" type="text" name="event_title" id="event_title" required>
             </div>
             
             <!--EVENT BANNER-->
-            <label for="file">Upload Event Banner</label>
+            <label for="file" style="font-weight: bold;">Upload Event Banner</label>
             <div class="preview">
                 <img id="file-preview">
             </div>
@@ -99,12 +117,12 @@
             </div>  
 
             <!--EVENT ABOUT-->
-            <label for="event_about" class="form-label">About this Event</label>
+            <label for="event_about" class="form-label" style="font-weight: bold;">About this Event</label>
             <div class="input-group">
                 <textarea class="form-control" type="text" name="event_about" id="event_about" rows="4" cols="50" required> </textarea>
             </div>
 
-            <label for="event_mode">Event Mode</label>
+            <label for="event_mode" style="font-weight: bold;">Event Mode</label>
             <div class="input-group">
                 <select id="event_mode" name="event_mode" onchange="displayInputBox()">
                     <option value="">--Select Mode--</option>
@@ -114,14 +132,14 @@
             </div>
 
             <div id="event_platform_input" style="display:none;">
-                <label for="event_platform" class="form-label">Online Platform Link</label>
+                <label for="event_platform" class="form-label" style="font-weight: bold;">Online Platform Link</label>
                 <div class="input-group">
                     <input class="form-control" type="text" name="event_platform" id="event_platform">
                 </div>
             </div>
 
             <div id="event_location_input" style="display:none;">
-                <label for="event_location" class="form-label">Location</label>
+                <label for="event_location" class="form-label" style="font-weight: bold;">Location</label>
                 <div class="input-group">
                     <input class="form-control" type="text" name="event_location" id="event_location">
                 </div>
@@ -145,32 +163,36 @@
             </script>
 
 
-            <!--WHEN IS THE EVENT (DATE)-->
-            <label for="event_date" class="form-label">When</label>
+            <label for="duration" class="form-label" style="font-weight: bold;">Event Schedule</label>
+            <label for="event_start_date" class="form-label">From</label>
             <div class="input-group">
-                <input class="form-control" type="date" name="event_date" id="event_date" required>
+                <input class="form-control" type="date" name="event_start_date" id="event_start_date" required>
+            </div>
+            <label for="event_end_date" class="form-label">To</label>
+            <div class="input-group">
+                <input class="form-control" type="date" name="event_end_date" id="event_end_date" required>
             </div>
 
-            <!--WHEN IS THE EVENT (START TIME)-->
+            
+            <label for="time" class="form-label" style="font-weight: bold;">Time</label>
             <label for="event_start_time" class="form-label">From</label>
             <div class="input-group">
                 <input class="form-control" type="time" name="event_start_time" id="event_start_time" required>
             </div>
-
-            <!--WHEN IS THE EVENT (END TIME)-->
             <label for="event_end_time" class="form-label">To</label>
             <div class="input-group">
                 <input class="form-control" type="time" name="event_end_time" id="event_end_time" required>
             </div>
 
+
             <!--EVENT SLOTS (CAPACITY)-->
-            <label for="event_slots" class="form-label">Slots</label>
+            <label for="event_slots" class="form-label" style="font-weight: bold;">Slots</label>
             <div class="input-group">
-                <input class="form-control" type="number" name="event_slots" id="event_slots" required>
+                <input class="form-control" type="number" name="event_slots" id="event_slots" min="1"  required>
             </div>
 
             <!--EVENT SCOPE-->
-            <label for="event_scope" class="form-label">Scope</label>
+            <label for="event_scope" class="form-label" style="font-weight: bold;">Scope</label>
             <div class="input-group" style="gap: 1rem;">
                 <div>
                     <input type="checkbox" name="event_scope[]" id="unesco" value="Unesco">
@@ -200,21 +222,53 @@
       
 
             <!--EVENT REGISTRATION DUE-->
-            <label for="event_reg_duedate" class="form-label">Registration Due</label>
+            <label for="event_reg_duedate" class="form-label" style="font-weight: bold;">Registration Due</label>
             <div class="input-group">
-                <input class="form-control" type="datetime-local" name="event_reg_duedate" id="event_reg_duedate" required>
+                <input class="form-control" type="date" name="event_reg_duedate" id="event_reg_duedate" required>
             </div>
 
             <div class="input-group">
                 <input type="submit" id="submit" name="submit" value="Add Event" class="form-btn btn-primary">
                 <input type="reset" id="btn-reset" name="btn-reset" hidden>
             </div>
+
         </form>
 
     </div>
 </div>
 </section>
 
+<script>
+  // Get the event date input element
+  const eventDateInput = document.getElementById('event_start_date');
+  // Get the registration due date input element
+  const regDueDateInput = document.getElementById('event_reg_duedate');
+  
+  // When the event date changes, update the minimum value of the registration due date input
+  eventDateInput.addEventListener('change', (event) => {
+    // Get the value of the event date input
+    const eventDate = new Date(event.target.value);
+    // Set the minimum value of the registration due date input to the event date
+    regDueDateInput.min = event.target.value;
+    // If the current value of the registration due date input is after the event date, reset it to the event date
+    if (new Date(regDueDateInput.value) > eventDate) {
+      regDueDateInput.value = event.target.value;
+    }
+  });
+  
+  // When the registration due date changes, validate that it is not after the event date
+  regDueDateInput.addEventListener('change', (event) => {
+    // Get the value of the event date input
+    const eventDate = new Date(eventDateInput.value);
+    // Get the value of the registration due date input
+    const regDueDate = new Date(event.target.value);
+    // If the registration due date is after the event date, show an error message and reset the input value
+    if (regDueDate > eventDate) {
+      alert('Registration due date cannot be after event date.');
+      event.target.value = eventDateInput.value;
+    }
+  });
+</script>
 
 
 <style>
