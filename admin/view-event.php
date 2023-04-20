@@ -73,7 +73,6 @@
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Type</th>
-                        <th scope="col">Organization</th>
                         <th scope="col">Contact</th>
                         <th scope="col">Address</th>
                     </tr>
@@ -103,10 +102,9 @@
     </td>
     <td><?php echo $value['firstname'].' '.$value['middlename'].' '.$value['lastname'].' '.$value['suffix'] ?></td>
     <td><?php echo $value['email'] ?></td>
-    <td><span class="type-Student">Student</span></td>
-    <td><span class="org-unesco">WMSU UNESCO Club</span></td>
+    <td><span class="type-Student"><?php echo $value['member_type']?></span></td>
     <td><?php echo $value['contact_number'] ?></td>
-    <td>Guiwan, Zamboanga City</td>
+    <td><?php echo $value['barangay'].', '.$value['city']?></td>
     </tr>
 
     
@@ -178,7 +176,7 @@
                                 },
                                 {
                                     extend: 'pdf',
-                                    text: 'PDF',
+                                    text: 'PDF',    
                                     className: 'border-white'
                                 },
                                 {
@@ -194,7 +192,7 @@
                             var status = $(this).val();
                             dataTable.columns([2]).search(status).draw();
                         });
-                        $('select#student_type').on('change', function(e){
+                        $('select#member_type').on('change', function(e){
                             var status = $(this).val();
                             dataTable.columns([3]).search(status).draw();
                         });
@@ -202,6 +200,17 @@
                     error: function(XMLHttpRequest, textStatus, errorThrown) { 
                         alert("Status: " + textStatus); alert("Error: " + errorThrown); 
                     }
+                });
+                $(document).ready(function(){
+            load('pending');
+            $('ul.application .nav-item').on('click', function(){
+                $('ul.application .nav-item').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            $('#li-pending').on('click', function(){
+                load('pending');
+            });
                 });
         }  
 </script>

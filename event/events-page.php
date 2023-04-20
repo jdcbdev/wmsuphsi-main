@@ -79,6 +79,13 @@ if(isset($_POST['submit'])) {
       $user->suffix = htmlentities($_POST['suffix']);
       $user->email = htmlentities($_POST['email']);
       $user->contact_number = htmlentities($_POST['contact_number']);
+
+      $user->province = htmlentities($_POST['province']);
+      $user->city = htmlentities($_POST['city']);
+      $user->barangay = htmlentities($_POST['barangay']);
+      $user->street_name = htmlentities($_POST['street_name']);
+      $user->bldg_house_no = htmlentities($_POST['bldg_house_no']);
+      $user->member_type = htmlentities($_POST['member_type']);
    
    if ($user->addUserToEvent()) {
       header('location: registered-event.php');
@@ -94,6 +101,12 @@ if(isset($_POST['submit'])) {
       $_POST['suffix'] = $data['suffix'];
       $_POST['email'] = $data['email'];
       $_POST['contact_number'] = $data['contact_number'];
+      $_POST['province'] = $data['province'];
+      $_POST['city'] = $data['city'];
+      $_POST['barangay'] = $data['barangay'];
+      $_POST['street_name'] = $data['street_name'];
+      $_POST['bldg_house_no'] = $data['bldg_house_no'];
+      $_POST['member_type'] = $data['member_type'];
    }
 }
 ?>
@@ -136,7 +149,32 @@ if(isset($_POST['submit'])) {
                 <input type="hidden" id="contact_number" name="contact_number" required 
                 value="<?php echo $userData['contact_number'] ?> ">
 
+                <label for="province" style="display: none;">Province:</label>
+                <input type="hidden" id="province" name="province" required 
+                value="<?php echo $userData['province'] ?> ">
+
+                <label for="city" style="display: none;">City:</label>
+                <input type="hidden" id="city" name="city" required 
+                value="<?php echo $userData['city'] ?> ">
+
+                <label for="barangay" style="display: none;">Barangay:</label>
+                <input type="hidden" id="barangay" name="barangay" required 
+                value="<?php echo $userData['barangay'] ?> ">
+
+                <label for="street_name" style="display: none;">Street Name:</label>
+                <input type="hidden" id="street_name" name="street_name" required 
+                value="<?php echo $userData['street_name'] ?> ">
+
+                <label for="bldg_house_no" style="display: none;">Bldg/House No.:</label>
+                <input type="hidden" id="bldg_house_no" name="bldg_house_no" required 
+                value="<?php echo $userData['bldg_house_no'] ?> ">
+
+                <label for="member_type" style="display: none;">Member Types:</label>
+                <input type="hidden" id="member_type" name="member_type" required 
+                value="<?php echo $userData['member_type'] ?> ">
+
                 <input type="hidden" name='event_id' value="<?php echo $id; ?>">
+                
                 
                 <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="justify-content: center;display: flex;"></div>
 

@@ -2,6 +2,7 @@
 
     //resume session here to fetch session values
     session_start();
+    
     /*
         if user is not login then redirect to login page,
         this is to prevent users from accessing pages that requires
@@ -13,7 +14,7 @@
     //if the above code is false then html below will be displayed
 
     require_once '../tools/variables.php';
-    $page_title = 'Peace Edukasyon | WMSU - Peace and Human Security Institute';
+    $page_title = 'Event Title | WMSU - Peace and Human Security Institute';
     $phsi_events = 'active';
 
     require_once '../includes/admin-header.php';
@@ -27,10 +28,20 @@
         <div class="row">
 
             <?php require_once '../includes/admin-sidebar.php'; ?>
+            
+            <?php
+                require_once '../classes/event_model.php'; 
+                $event = new Event();
+                // Check if the article ID is set in the URL
+                if (isset($_GET['id'])) {
+                    $article_id = $_GET['id'];
+                    $article = $event->fetchRecordById($article_id);
+                    if ($article) {
+            ?>
 
             <main class="col-md-9 ms-sm-auto col-lg-9 col-xl-10 p-md-4">
                 <div class="w-100">
-                    <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Event Attedance</h5>
+                    <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0"><?php echo $article['event_title'] ?></h5>
                     <ul class="nav nav-tabs application">
 
                         <li class="nav-item active" id="li-rsvp">
@@ -65,7 +76,7 @@
             if(status == 'rsvp'){
                 $.ajax({
                     type: "GET",
-                    url: 'rsvp.php',
+                    url: 'rsvp.php?id=<?php echo $article['id']; ?>',
                     success: function(result)
                     {
                         $('div.table-responsive').html(result);
@@ -197,7 +208,7 @@
             } else if(status == 'all'){
                 $.ajax({
                     type: "GET",
-                    url: 'all.php',
+                    url: 'all.php?id=<?php echo $article['id']; ?>',
                     success: function(result)
                     {
                         $('div.table-responsive').html(result);
@@ -314,5 +325,16 @@
             }); 
         });
     </script>
+
+<?php
+    } else {
+      // Display error message if article is not found
+      echo 'We apologize, but we could not locate the article you are trying to access. It may no longer be available or may have been moved to a different location.';
+    }
+  } else {
+    // Display error message if article ID is not set in URL
+    echo 'Invalid article ID.';
+  }
+?>
 </body>
 </html>

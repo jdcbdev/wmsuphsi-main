@@ -108,6 +108,8 @@ CREATE TABLE `event` (
   `event_end_time` TIME NOT NULL,
   `event_scope` SET('Unesco', 'Student', 'Employee', 'Alumni', 'Non-affiliate', 'All') NOT NULL,
   `event_reg_duedate` DATE NOT NULL,
+  `rsvp_id` int(11) NOT NULL,
+  `status` varchar(50) NOT NULL,
 	`created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 	)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

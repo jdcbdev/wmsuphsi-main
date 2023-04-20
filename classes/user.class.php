@@ -220,8 +220,8 @@ Class Users{
     }
 
     function addUserToEvent() {
-        $sql = "INSERT INTO rsvp (id, event_id, firstname, middlename, lastname, suffix, email, contact_number)
-         VALUES (NULL, :event_id, :firstname, :middlename, :lastname, :suffix, :email, :contact_number);";
+        $sql = "INSERT INTO rsvp (id, event_id, firstname, middlename, lastname, suffix, email, contact_number, province, city, barangay, street_name, bldg_house_no, member_type)
+         VALUES (NULL, :event_id, :firstname, :middlename, :lastname, :suffix, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :member_type);";
         $query=$this->db->connect()->prepare($sql);
 
         $query->bindParam(':event_id', $this->event_id);
@@ -231,6 +231,13 @@ Class Users{
         $query->bindParam(':suffix', $this->suffix);
         $query->bindParam(':email', $this->email);
         $query->bindParam(':contact_number', $this->contact_number);
+        $query->bindParam(':province', $this->province);
+        $query->bindParam(':city', $this->city);
+        $query->bindParam(':barangay', $this->barangay);
+        $query->bindParam(':street_name', $this->street_name);
+        $query->bindParam(':bldg_house_no', $this->bldg_house_no);
+        $query->bindParam(':member_type', $this->member_type);
+        //$query->bindParam(':status', $this->status);
 
         if($query->execute()){
             return true;
@@ -241,7 +248,7 @@ Class Users{
 
     
     function edit(){
-        $sql = "UPDATE user_acc_data SET verify_one=:verify_one, verify_two=:verify_two, verify_three=:verify_three, verify_four=:verify_four, verify_five=:verify_five, verify_six=:verify_six, verify_seven=:verify_seven, verify_eight=:veriy_eight, firstname=:firstname, lastname=:lastname, email=:email, middlename=:middlename, suffix=:suffix, sex=:sex, contact_number=:contact_number, province=:province, city=:city, barangay=:barangay, street_name=:street_name, bldg_house_no=:bldg_house_no, username=:username, password=:password, role=:role, status=:status, member_type=:member_type WHERE id = :id;";
+        $sql = "UPDATE user_acc_data SET verify_one=:verify_one, verify_two=:verify_two, verify_three=:verify_three, verify_four=:verify_four, verify_five=:verify_five, verify_six=:verify_six, verify_seven=:verify_seven, verify_eight=:verify_eight, firstname=:firstname, lastname=:lastname, email=:email, middlename=:middlename, suffix=:suffix, sex=:sex, contact_number=:contact_number, province=:province, city=:city, barangay=:barangay, street_name=:street_name, bldg_house_no=:bldg_house_no, username=:username, password=:password, role=:role, status=:status, member_type=:member_type WHERE id = :id;";
         
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':verify_one', $this->verify_one);
