@@ -7,5 +7,5 @@
     Kaitlyn June Mira
     Hadzramar Jaafar
     Angelica Deoric
-    
+    BSCS 3C
     
