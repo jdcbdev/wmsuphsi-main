@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
     //loop for each record found in the array
     foreach ($listOfAttendees as $value){ 
         //start of loop
-        $status = $value['status'];
+        $status = $value['join_status'];
 ?>
 
         <tr>

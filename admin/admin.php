@@ -1,5 +1,4 @@
 <?php
-
     //resume session here to fetch session values
     session_start();
     /*
@@ -12,11 +11,33 @@
     }
     //if the above code is false then html below will be displayed
     require_once '../tools/variables.php';
+    require_once '../classes/basic.database.php';
     $page_title = 'Admin Dasdboard | WMSU - Peace and Human Security Institute';
     $dashboard = 'active';
 
-    
+    $accountQuery = $db->query("SELECT COUNT(id) AS total_account FROM user_acc_data");
+    $users = [];
+    while($row = $accountQuery->fetchObject()){
+        $users[] = $row;
+    }
 
+    $newsQuery = $db->query("SELECT COUNT(id) AS total_news FROM news");
+    $news = [];
+    while($row = $newsQuery->fetchObject()){
+        $news[] = $row;
+    }
+
+    $eventQuery = $db->query("SELECT COUNT(id) AS total_events FROM event");
+    $events = [];
+    while($row = $eventQuery->fetchObject()){
+        $events[] = $row;
+    }
+    $accountPending = $db->query("SELECT COUNT(id) AS total_pending FROM user_acc_data WHERE status = 'pending'");
+    $pending = [];
+    while($row = $accountPending->fetchObject()){
+        $pending[] = $row;
+    }
+    
     require_once '../includes/admin-header.php';
 ?>
 <body>
@@ -33,46 +54,52 @@
                     <div class="col d-flex flex-column">
                         <div class="card flex-grow-1">
                             <div class="card-body d-flex flex-column">
-                            
+                            <?php foreach($users as $user){ ?>
                                 <h5 class="card-title card-title-total">Total Accounts</h5>
-                                <p class="card-text card-text-number">0</p>
+                                <p class="card-text card-text-number"><?php echo $user->total_account; ?></p>
                                 <p class="mb-0 mt-auto">
-                                    <a class="view-all" href="">View All</a>
+                                    <a class="view-all" href="../user_management">View All</a>
                                 </p>
-                               
+                             <?php } ?>
                             </div>
                         </div>
                     </div>
                     <div class="col d-flex flex-column">
                         <div class="card flex-grow-1">
                             <div class="card-body d-flex flex-column">
+                            <?php foreach($events as $event){ ?>
                                 <h5 class="card-title card-title-total">Total Events</h5>
-                                <p class="card-text card-text-number">0</p>
+                                <p class="card-text card-text-number"><?php echo $event->total_events; ?></p>
                                 <p class="mb-0 mt-auto">
-                                    <a class="view-all" href="">View All</a>
+                                    <a class="view-all" href="../event">View All</a>
                                 </p>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
                     <div class="col d-flex flex-column">
                         <div class="card flex-grow-1">
                             <div class="card-body d-flex flex-column">
+                            <?php foreach($news as $new){ ?>
                                 <h5 class="card-title card-title-total">Total News</h5>
-                                <p class="card-text card-text-number">0</p>
+                                <p class="card-text card-text-number"><?php echo $new->total_news; ?></p>
                                 <p class="mb-0">
-                                    <a class="view-all" href="">View All</a>
+                                    <a class="view-all" href="phsi_news.php">View All</a>
                                 </p>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
                     <div class="col d-flex flex-column">
                         <div class="card flex-grow-1">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title card-title-total">Pending Applications</h5>
-                                <p class="card-text card-text-number">0</p>
+                            <?php foreach($pending as $pending){ ?>
+                                <h5 class="card-title card-title-total">Pending Accounts</h5>
+                                <p class="card-text card-text-number"><?php echo $pending->total_pending; ?></p>
                                 <p class="mb-0">
                                     <a class="view-all" href="">Review Now</a>
                                 </p>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -81,7 +108,7 @@
                     <div class="col-12 col-md-4 my-4 d-flex flex-column">
                         <div class="card flex-grow-1">
                             <div class="card-body d-flex flex-column">
-                                <h5 class="card-title card-title-total">Total Organizations Account</h5>
+                                <h5 class="card-title card-title-total">Total Verified Account</h5>
                                 <canvas id="status-chart-1"></canvas>
                                 <p class="mb-0 mt-auto">
                                     <a class="view-all" href="">View Report</a>
@@ -580,51 +607,6 @@
     });
     });
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*var ctx = document.getElementById('myChart1');
-    var myChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['WMSU ALUMNI', 'WMSU EMPLOYEE', 'WMSU STUDENT', 'OUTSIDE WMSU'],
-                datasets: [{
-                    data: [20, 30, 100, 25],
-                    backgroundColor: ['#47B39C', '#EC6B56', '#3367D6', '#ffa500' ],
-                }]
-                },
-        
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-        });*/
 </script>
 </body>
 </html>

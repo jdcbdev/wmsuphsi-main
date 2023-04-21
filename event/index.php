@@ -1,5 +1,4 @@
 <?php
-
     //resume session here to fetch session values
     session_start();
     /*
@@ -33,11 +32,11 @@
                     <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Events</h5>
                     <ul class="nav nav-tabs application">
 
-                        <li class="nav-item active" id="li-pending">
+                        <li class="nav-item active" id="li-upcoming">
                             <a class="nav-link">Upcoming Events<span class="counter" id="counter-all">3</span></a>
                         </li>
 
-                        <li class="nav-item" id="li-past">
+                        <li class="nav-item" id="li-all">
                             <a class="nav-link">All<span class="counter" id="counter-all">3</span></a>
                         </li>
 
@@ -46,28 +45,173 @@
                         </li>
                     </ul>
                     <div class="table-responsive py-3 table-container">
-                <table class="table table-hover col-12" id="table-pending" style="width: 100%;">
-                <thead>
-                    <tr>
-                        <th scope="col">Action</th>
-                        <th scope="col">Banner</th>
-                        <th scope="col">Event Name</th>
-                        <th scope="col">Event Organizer</th>
-                        <th scope="col">Mode</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Link</th>
-                        <th scope="col">Schedule</th>
-                        <th scope="col">Scope</th>
-                        <th scope="col">Slots</th>
-                        <th scope="col">Registration Due Date</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
-            <tbody id="fetch"></tbody>
-            </table>
-        </div>
-        
-        <div id="edit-modal" class="modal"></div>
+                    </div>
+                </div>
+        </main>
+    </div>
+</div>
+<script>
+        function load(status){
+            if(status == 'upcoming'){
+                $.ajax({
+                    type: "GET",
+                    url: 'upcoming.php',
+                    success: function(result)
+                    {
+                        $('div.table-responsive').html(result);
+                        dataTable = $("#table-upcoming").DataTable({
+                            dom: 'Brtp',
+                            responsive: true,
+                            fixedHeader: true,
+                            buttons: [
+                                {
+                                    extend: 'excel',
+                                    text: 'Excel',
+                                    className: 'border-white'
+                                },
+                                {
+                                    extend: 'pdf',
+                                    text: 'PDF',
+                                    className: 'border-white'
+                                },
+                                {
+                                    extend: 'print',
+                                    text: 'Print',
+                                    className: 'border-white'
+                                }
+                            ],
+                        });
+                        dataTable.buttons().container().appendTo($('#MyButtons'));
+
+                        $('input#keyword').on('input', function(e){
+                            var status = $(this).val();
+                            dataTable.columns([1]).search(status).draw();
+                        });
+                        $('select#member_type').on('change', function(e){
+                            var status = $(this).val();
+                            dataTable.columns([3]).search(status).draw();
+                        });
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+                    }  
+                });
+            } else if(status == 'all'){
+                $.ajax({
+                    type: "GET",
+                    url: 'all.php',
+                    success: function(result)
+                    {
+                        $('div.table-responsive').html(result);
+                        dataTable = $("#table-all").DataTable({
+                            dom: 'Brtp',
+                            responsive: true,
+                            fixedHeader: true,
+                            buttons: [
+                                {
+                                    extend: 'excel',
+                                    text: 'Excel',
+                                    className: 'border-white'
+                                },
+                                {
+                                    extend: 'pdf',
+                                    text: 'PDF',
+                                    className: 'border-white'
+                                },
+                                {
+                                    extend: 'print',
+                                    text: 'Print',
+                                    className: 'border-white'
+                                }
+                            ],
+                        });
+                        dataTable.buttons().container().appendTo($('#MyButtons'));
+
+                        $('input#keyword').on('input', function(e){
+                            var status = $(this).val();
+                            dataTable.columns([1]).search(status).draw();
+                        });
+                        $('select#member_type').on('change', function(e){
+                            var status = $(this).val();
+                            dataTable.columns([3]).search(status).draw();
+                        });
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+                    }  
+                });
+            }
+        }
+        $(document).ready(function(){
+            load('upcoming');
+            $('ul.application .nav-item').on('click', function(){
+                $('ul.application .nav-item').removeClass('active');
+                $(this).addClass('active');
+            });
+
+            $('#li-upcoming').on('click', function(){
+                load('upcoming');
+            });
+
+            $('#li-all').on('click', function(){
+                load('all');
+            });
+
+            $('#comments').on('change', function(){
+                if ($(this).is(":checked")) {
+                    $('div.comments').show();
+                    $('#pending-submit').text("Decline Application")
+                }else{
+                    $('div.comments').hide();
+                    $('#pending-submit').text("Accept Application")
+                }
+            });
+
+            $('#Confirmed').on('click', function(){
+                $('div.documents').show();
+            });
+
+            $('#Withdrawn').on('click', function(){
+                $('div.documents').hide();
+            });
+
+            $('#Waiting-Rejected').on('click', function(){
+                $('#waiting-submit').text("Reject Application")
+            });
+
+            $('#ranking-comments').on('change', function(){
+                if ($(this).is(":checked")) {
+                    $('div.ranking-comments').show();
+                }else{
+                    $('div.ranking-comments').hide();
+                }
+            });
+
+            $('#waiting-comments').on('change', function(){
+                if ($(this).is(":checked")) {
+                    $('div.waiting-comments').show();
+                }else{
+                    $('div.waiting-comments').hide();
+                }
+            });
+
+            $('#qualified-comments').on('change', function(){
+                if ($(this).is(":checked")) {
+                    $('div.qualified-comments').show();
+                }else{
+                    $('div.qualified-comments').hide();
+                }
+            });
+
+            $('div.photo-container').lightGallery({
+                thumbnail: false,
+                animateThumb: false,
+                showThumbByDefault: false
+            }); 
+        });
+    </script>
+
+<div id="edit-modal" class="modal"></div>
 
 <div id="add-modal" class="admin-modal">
     <div class="admin-modal-content">
@@ -300,18 +444,10 @@
         border-radius: 4px;
         box-sizing: border-box;
     }
-
 </style>
 
+</body>
+</html>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="../js/events.js"></script>
-
-<?php
-    require_once '../includes/admin-footer.php';
-?>
-
-
-
-
-

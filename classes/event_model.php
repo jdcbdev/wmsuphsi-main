@@ -135,6 +135,18 @@
 			return $data;
         }
 
+        function countAttendees($event_id) {
+            $sql = "SELECT COUNT(*) FROM `rsvp` WHERE `event_id` = :event_id;";
+            $query = $this->db->connect()->prepare($sql);
+            
+            $query->bindParam(':event_id', $event_id);
+        
+            if($query->execute()){
+                $count = $query->fetchColumn();
+            }
+            return $count;
+        }
+
         //UPDATE RECORD AND HANDLE AJAX REQUEST
         public function update($id) {
 

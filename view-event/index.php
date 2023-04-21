@@ -56,9 +56,9 @@
                             <a class="nav-link">Attended<span class="counter" id="counter-attended">0</span></a>
                         </li>
 
-                        <li class="nav-item" id="li-all">
+                        <!--<li class="nav-item" id="li-all">
                             <a class="nav-link">All<span class="counter" id="counter-all">0</span></a>
-                        </li>
+                        </li>-->
 
                         <li class="nav-item" id="add-account">
                             <a class="nav-link" id="add-new">Add Guest</a>
@@ -120,7 +120,7 @@
             }else if(status == 'confirm'){
                 $.ajax({
                     type: "GET",
-                    url: 'confirm.php',
+                    url: 'confirm.php?id=<?php echo $article['id']; ?>',
                     success: function(result)
                     {
                         $('div.table-responsive').html(result);

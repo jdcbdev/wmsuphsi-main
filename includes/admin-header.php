@@ -24,23 +24,21 @@
     <!-- Custom styles for this template -->
     <link href="../css/features.css" rel="stylesheet">
     <link href="../css/custom.css" rel="stylesheet">
-    <!--<link href="../css/table.css" rel="stylesheet">-->
     <link href="../css/mmodal.css" rel="stylesheet">
     
-
-    <!-- jquery -->
+    <!-- JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
     <!-- JS bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Chart.js -->
+    <!-- ChartJS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 
-    <!-- fontawesome -->
+    <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/30ff5f2a0c.js" crossorigin="anonymous"></script>
 
-    <!-- recaptcha -->
+    <!-- ReCaptcha -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <!-- JS dataTables -->
@@ -48,7 +46,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.13.3/b-2.3.5/b-colvis-2.3.5/b-html5-2.3.5/b-print-2.3.5/fh-3.3.1/r-2.4.0/sp-2.1.1/sl-1.6.1/datatables.min.js"></script>
 
-    
     <!-- lightgallery -->
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/js/lightgallery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
@@ -59,5 +56,4 @@
 
     <link rel="icon" type="image/png" href="../images/logos/phsi.png">
     <title><?php echo $page_title; ?></title>
-
 </head>

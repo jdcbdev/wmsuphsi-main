@@ -38,6 +38,7 @@ Class Users{
     public $token;
     public $result;
     public $verified;
+    public $join_status = 'rsvp';
 
     protected $db;
 
@@ -220,8 +221,8 @@ Class Users{
     }
 
     function addUserToEvent() {
-        $sql = "INSERT INTO rsvp (id, event_id, firstname, middlename, lastname, suffix, email, contact_number, province, city, barangay, street_name, bldg_house_no, member_type)
-         VALUES (NULL, :event_id, :firstname, :middlename, :lastname, :suffix, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :member_type);";
+        $sql = "INSERT INTO rsvp (id, event_id, firstname, middlename, lastname, suffix, email, contact_number, province, city, barangay, street_name, bldg_house_no, member_type, join_status)
+         VALUES (NULL, :event_id, :firstname, :middlename, :lastname, :suffix, :email, :contact_number, :province, :city, :barangay, :street_name, :bldg_house_no, :member_type, :join_status);";
         $query=$this->db->connect()->prepare($sql);
 
         $query->bindParam(':event_id', $this->event_id);
@@ -237,7 +238,7 @@ Class Users{
         $query->bindParam(':street_name', $this->street_name);
         $query->bindParam(':bldg_house_no', $this->bldg_house_no);
         $query->bindParam(':member_type', $this->member_type);
-        //$query->bindParam(':status', $this->status);
+        $query->bindParam(':join_status', $this->join_status);
 
         if($query->execute()){
             return true;

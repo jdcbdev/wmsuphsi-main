@@ -17,7 +17,6 @@
  } 
 ?>
 
-
 <?php
   require_once '../classes/event_model.php'; 
   $event = new Event();
@@ -29,8 +28,6 @@
 
     if ($article) {
 ?>
-
-
 
 
 <!-- Event Section Start  -->
@@ -237,29 +234,6 @@ if(isset($_POST['submit'])) {
         <i class="bi bi-laptop"><span>Platform</span></i>
         <p><?php echo $article['event_platform'] ?></p>
     </div>
-    <!--<div class="event-agenda-container">
-        <i class="bi bi-pencil-square"><span>Agenda</span></i>
-        <div class="agenda-info">
-            <p class="agenda-time">9:00 AM</p>
-            <p class="agenda-label">Opening Remarks</p>
-            <p class="agenda-host">MR. FLORETO B. QUINITO JR. MSIT, Office of the Student Affairs Director</p> 
-        </div>
-        <div class="agenda-info">
-            <p class="agenda-time">11:00 AM</p>
-            <p class="agenda-label">Guest Speaker</p>
-            <p class="agenda-host">MR. FLORETO B. QUINITO JR. MSIT, Office of the Student Affairs Director</p>
-        </div>
-        <div class="agenda-info">
-            <p class="agenda-time">11:30 AM</p>
-            <p class="agenda-label">Program</p>
-            <p class="agenda-host">MR. FLORETO B. QUINITO JR. MSIT, Office of the Student Affairs Director</p>
-        </div>
-        <div class="agenda-info">
-            <p class="agenda-time">12:00 PM</p>
-            <p class="agenda-label">Closing Remarks</p>
-            <p class="agenda-host">MR. FLORETO B. QUINITO JR. MSIT, Office of the Student Affairs Director</p>
-        </div>
-    </div>-->
 </section>
 
 
@@ -401,10 +375,7 @@ if(isset($_POST['submit'])) {
 
 <script src="../js/modal.js"></script>
 
-
-
 <!-- Event Section End -->
-
 
 <?php
     require_once '../includes/footer.php';

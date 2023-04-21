@@ -31,7 +31,7 @@
 
             <?php if($_SESSION['role'] == 'super_admin' || $_SESSION['role'] == 'phsi_admin' || $_SESSION['role'] == 'phsi_content_admin'){ ?>
             <li class="nav-item">
-                <a href="../admin/phsi_events.php" class="nav-link <?php echo $phsi_events; ?>" title="PHSI Events">
+                <a href="../event/index.php" class="nav-link <?php echo $phsi_events; ?>" title="PHSI Events">
                     <i class='bx bx-send'></i>
                     <span class="links-name">PHSI Events</span>
                 </a>

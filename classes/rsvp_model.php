@@ -50,7 +50,7 @@ Class Rsvp{
             return []; // return an empty array if the event_id is not set
         }
     
-        $sql = "SELECT * FROM `rsvp` INNER JOIN event ON rsvp.event_id = event.id WHERE rsvp.event_id = :event_id AND rsvp.status = 'rsvp';";
+        $sql = "SELECT * FROM `rsvp` INNER JOIN event ON rsvp.event_id = event.id WHERE rsvp.event_id = :event_id AND rsvp.join_status = 'rsvp';";
         $query = $this->db->connect()->prepare($sql);
     
         $query->bindParam(':event_id', $this->event_id);
@@ -63,6 +63,58 @@ Class Rsvp{
             var_dump($error);
         }
         return $data;
+    }
+
+    function getConfirm() {
+        if (!$this->event_id) {
+            return []; // return an empty array if the event_id is not set
+        }
+    
+        $sql = "SELECT * FROM `rsvp` INNER JOIN event ON rsvp.event_id = event.id WHERE rsvp.event_id = :event_id AND rsvp.join_status = 'confirm';";
+        $query = $this->db->connect()->prepare($sql);
+    
+        $query->bindParam(':event_id', $this->event_id);
+    
+        if($query->execute()){
+            $data = $query->fetchAll();
+        } else {
+            // add some debug code to see if there are any errors
+            $error = $query->errorInfo();
+            var_dump($error);
+        }
+        return $data;
+    }
+
+    function getAttended() {
+        if (!$this->event_id) {
+            return []; // return an empty array if the event_id is not set
+        }
+    
+        $sql = "SELECT * FROM `rsvp` INNER JOIN event ON rsvp.event_id = event.id WHERE rsvp.event_id = :event_id AND rsvp.join_status = 'attended';";
+        $query = $this->db->connect()->prepare($sql);
+    
+        $query->bindParam(':event_id', $this->event_id);
+    
+        if($query->execute()){
+            $data = $query->fetchAll();
+        } else {
+            // add some debug code to see if there are any errors
+            $error = $query->errorInfo();
+            var_dump($error);
+        }
+        return $data;
+    }    
+
+    function countAttendees($event_id) {
+        $sql = "SELECT COUNT(*) FROM `rsvp` WHERE `event_id` = :event_id;";
+        $query = $this->db->connect()->prepare($sql);
+        
+        $query->bindParam(':event_id', $event_id);
+    
+        if($query->execute()){
+            $count = $query->fetchColumn();
+        }
+        return $count;
     }
     
 }

@@ -1,5 +1,4 @@
 <?php
-
     //resume session here to fetch session values
     session_start();
     /*
@@ -10,7 +9,7 @@
     if (!isset($_SESSION['logged-in'])){
         header('location: ../home.php');
     }
-    //if the above code i   s false then html below will be displayed
+    //if the above code is false then html below will be displayed
 
     require_once '../tools/variables.php';
     $page_title = 'User Management | WMSU - Peace and Human Security Institute';
@@ -40,12 +39,8 @@
                         <li class="nav-item" id="li-all">
                             <a class="nav-link">All<span class="counter" id="counter-all">0</span></a>
                         </li>
-                        <li class="nav-item" id="add-account">
-                            <a class="nav-link">Add Account</a>
-                        </li>
                     </ul>
                     <div class="table-responsive py-3 table-container">
-
                     </div>
                 </div>
             </main>
