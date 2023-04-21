@@ -11,8 +11,12 @@
     }
     //if the above code is false then html below will be displayed
     require_once '../tools/variables.php';
-    require_once '../classes/basic.database.php';
-    $page_title = 'Admin Dasdboard | WMSU - Peace and Human Security Institute';
+    require_once '../classes/database.php';
+    $database = new Database();
+    $db=$database->connect();
+
+
+    $page_title = 'Admin Dashboard | WMSU - Peace and Human Security Institute';
     $dashboard = 'active';
 
     $accountQuery = $db->query("SELECT COUNT(id) AS total_account FROM user_acc_data");
