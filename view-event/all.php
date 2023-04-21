@@ -38,7 +38,7 @@ if (isset($_GET['id'])) {
             </td>
             <td><?php echo $value['firstname'].' '.$value['middlename'].' '.$value['lastname'].' '.$value['suffix'] ?></td>
             <td><?php echo $value['email'] ?></td>
-            <td><span class="type-Student"><?php echo $value['member_type']?></span></td>
+            <td><span><?php echo $value['member_type']?></span></td>
             <td><?php echo $value['contact_number'] ?></td>
             <td><?php echo $value['barangay'].', '.$value['city']?></td>
             <td align="center"><span status="<?php echo $status; ?>"><?php echo $value['status'] ?></span></td>

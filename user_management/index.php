@@ -32,13 +32,13 @@
                     <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Users Account Management</h5>
                     <ul class="nav nav-tabs application">
                         <li class="nav-item active" id="li-pending">
-                            <a class="nav-link">New/Pending<span class="counter" id="counter-pending">3</span></a>
+                            <a class="nav-link">New/Pending<span class="counter" id="counter-pending">0</span></a>
                         </li>
                         <li class="nav-item" id="li-verified">
-                            <a class="nav-link">Verified <span class="counter" id="counter-verified">2</span></a>
+                            <a class="nav-link">Verified <span class="counter" id="counter-verified">0</span></a>
                         </li>
                         <li class="nav-item" id="li-all">
-                            <a class="nav-link">All<span class="counter" id="counter-all">5</span></a>
+                            <a class="nav-link">All<span class="counter" id="counter-all">0</span></a>
                         </li>
                         <li class="nav-item" id="add-account">
                             <a class="nav-link">Add Account</a>

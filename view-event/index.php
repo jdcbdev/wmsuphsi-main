@@ -45,23 +45,23 @@
                     <ul class="nav nav-tabs application">
 
                         <li class="nav-item active" id="li-rsvp">
-                            <a class="nav-link">RSVP<span class="counter" id="counter-rsvp">3</span></a>
+                            <a class="nav-link">RSVP<span class="counter" id="counter-rsvp">0</span></a>
                         </li>
 
                         <li class="nav-item" id="li-confirm">
-                            <a class="nav-link">Confirm<span class="counter" id="counter-confirm">3</span></a>
+                            <a class="nav-link">Confirm<span class="counter" id="counter-confirm">0</span></a>
                         </li>
 
                         <li class="nav-item" id="li-attended">
-                            <a class="nav-link">Attended<span class="counter" id="counter-attended">3</span></a>
+                            <a class="nav-link">Attended<span class="counter" id="counter-attended">0</span></a>
                         </li>
 
                         <li class="nav-item" id="li-all">
-                            <a class="nav-link">All<span class="counter" id="counter-all">3</span></a>
+                            <a class="nav-link">All<span class="counter" id="counter-all">0</span></a>
                         </li>
 
                         <li class="nav-item" id="add-account">
-                            <a class="nav-link" id="add-new">Add Attendee</a>
+                            <a class="nav-link" id="add-new">Add Guest</a>
                         </li>
                     </ul>
                     <div class="table-responsive py-3 table-container">
@@ -164,7 +164,7 @@
             }else if(status == 'attended'){
                 $.ajax({
                     type: "GET",
-                    url: 'attended.php',
+                    url: 'attended.php?id=<?php echo $article['id']; ?>',
                     success: function(result)
                     {
                         $('div.table-responsive').html(result);
