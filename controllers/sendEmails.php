@@ -51,8 +51,8 @@ function sendVerificationEmail($userEmail, $token)
     </html>';
 
     // Create a message
-    $message = (new Swift_Message('Verify your email'))
-        ->setFrom([SENDER_EMAIL => 'Heylow'])
+    $message = (new Swift_Message('Please verify your Email Address.'))
+        ->setFrom([SENDER_EMAIL => 'WMSU - Peace and Human Security Institute'])
         ->setTo($userEmail)
         ->setBody($body, 'text/html');
 

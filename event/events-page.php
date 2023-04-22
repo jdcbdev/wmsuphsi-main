@@ -45,7 +45,8 @@
 
 <?php
 
-
+require_once '../classes/rsvp_model.php';
+require_once '../controllers/slotConfirmationEmails.php';
 
 $user = new Users;
 $id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -83,8 +84,13 @@ if(isset($_POST['submit'])) {
       $user->street_name = htmlentities($_POST['street_name']);
       $user->bldg_house_no = htmlentities($_POST['bldg_house_no']);
       $user->member_type = htmlentities($_POST['member_type']);
-   
-   if ($user->addUserToEvent()) {
+      $user-> token = bin2hex(random_bytes(50)); // generate unique token
+      $token = $user->token;
+      $email = $user->email;
+   if ($user->addUserToEvent($token)) {
+      // TO DO: send slot confirmation mail to user
+      sendSlotConfirmation($email, $token);
+      //redirect user to verifying page after saving
       header('location: registered-event.php');
       exit;
    }
@@ -104,6 +110,8 @@ if(isset($_POST['submit'])) {
       $_POST['street_name'] = $data['street_name'];
       $_POST['bldg_house_no'] = $data['bldg_house_no'];
       $_POST['member_type'] = $data['member_type'];
+      $_POST['token']= $data['token'];
+      
    }
 }
 ?>
@@ -171,6 +179,7 @@ if(isset($_POST['submit'])) {
                 value="<?php echo $userData['member_type'] ?> ">
 
                 <input type="hidden" name='event_id' value="<?php echo $id; ?>">
+                
                 
                 
                 <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="justify-content: center;display: flex;"></div>

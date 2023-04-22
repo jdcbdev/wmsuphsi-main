@@ -203,7 +203,7 @@ CREATE TABLE `rsvp` (
   `status` varchar(50) NOT NULL,
   `organization` varchar(50) NOT NULL,
   `member_type` varchar(50) NOT NULL,
-  `attendance` varchar(35) NOT NULL,
+  `token` varchar(255) DEFAULT NULL,
   `join_status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

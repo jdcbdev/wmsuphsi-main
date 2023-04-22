@@ -1,5 +1,6 @@
 <?php 
     require_once 'filter.php'; 
+
 ?>
 <table class="table table-hover col-12" id="table-rsvp" style="width: 100%;">
 <thead>
@@ -29,7 +30,7 @@
     <tr>
         <td>
             <div class="action-button">
-                <a name="rsvp_confirmation" type="submit" class="me-2 green" id="rsvp_confirmation" value="#"><i class='bx bx-mail-send'></i> RSVP Confirmation</a>
+                <a name="slotConfirmation" type="submit" class="me-2 green" id="slotConfirmation" value="#"><i class='bx bx-mail-send'></i> Slot Confirmation</a>
             </div>
         </td>
         <td><?php echo $value['firstname'].' '.$value['middlename'].' '.$value['lastname'].' '.$value['suffix'] ?></td>

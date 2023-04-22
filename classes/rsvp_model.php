@@ -12,7 +12,7 @@ Class Rsvp{
     public $suffix;
     public $email;
     public $contact_number;
-    public $attendance = "Waiting";
+    public $token;
     public $attendance_timestamp;
     public $province;
     public $city;
@@ -105,17 +105,44 @@ Class Rsvp{
         return $data;
     }    
 
-    function countAttendees($event_id) {
-        $sql = "SELECT COUNT(*) FROM `rsvp` WHERE `event_id` = :event_id;";
+    function confirm_slot(){
+        $token = $_GET['token'];
+        $sql = "SELECT * FROM rsvp WHERE token=:token LIMIT 1";
         $query = $this->db->connect()->prepare($sql);
-        
-        $query->bindParam(':event_id', $event_id);
-    
+        $query->bindParam(':token', $token);
         if($query->execute()){
-            $count = $query->fetchColumn();
+            $data = $query->fetchAll();
+            return $data;
         }
-        return $count;
+        return false;
     }
+
+    function insert_token($token) {
+        $sql = "INSERT INTO rsvp (token) VALUES (:token)";
+        $query = $this->db->connect()->prepare($sql);
+        $query->bindValue(':token', $token);
+        if ($query->execute()) {
+          return "added successfully";
+        } else {
+          return "error adding ";
+        }
+      }
+
+    function update_token() {
+        $token = $_GET['token'];
+        $query = "UPDATE rsvp SET join_status='confirm' WHERE token=:token";
+        $stmt = $this->db->connect()->prepare($query);
+        $stmt->bindParam(':token', $token);
+    
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            echo "Failed to update token!";
+            return false;
+        }
+    }
+
+
     
 }
 

@@ -42,6 +42,40 @@
         $pending[] = $row;
     }
     
+    // Fetch data for charts
+    $alumniQuery = $db->query("SELECT COUNT(id) AS total_alumni FROM user_acc_data WHERE member_type = 'alumni'");
+    $total_alumni = 0;
+    $alumni = [];
+    while ($row = $alumniQuery->fetchObject()) {
+        $total_alumni = $row->total_alumni;
+        $alumni[] = $row;
+    }
+
+    $employeeQuery  = $db->query("SELECT COUNT(id) AS total_employee FROM user_acc_data WHERE member_type = 'employee'");
+    $total_employee = 0;
+    $employee = [];
+    while ($row = $employeeQuery->fetchObject()) {
+        $total_employee = $row->total_employee;
+        $employee[] = $row;
+    }
+
+    $studentQuery  = $db->query("SELECT COUNT(id) AS total_student FROM user_acc_data WHERE member_type = 'student'");
+    $total_student = 0;
+    $student = [];
+    while ($row = $studentQuery->fetchObject()) {
+        $total_student = $row->total_student;
+        $student[] = $row;
+    }
+
+    $noneQuery  = $db->query("SELECT COUNT(id) AS total_none FROM user_acc_data WHERE member_type = 'none'");
+    $total_none = 0;
+    $none = [];
+    while ($row = $noneQuery->fetchObject()) {
+        $total_none = $row->total_none;
+        $none[] = $row;
+    }
+
+
     require_once '../includes/admin-header.php';
 ?>
 <body>
@@ -127,450 +161,13 @@
                 
                 <div class="row">
                     <div class="table-responsive">
-                        <table class="table table-hover responsive" id="table-dashboard-student" style="width: 100%;">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Rank No.</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Organization</th>
-                                    <th scope="col">Contact No.</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 red"> 1</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>john.smith@abc.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-unesco">UNESCO</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    </td>                               
-                                    <td><i class="fa-solid fa-trophy me-2 orange"> 2</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>jennifer.lee@xyz.com</td>
-                                    
-                                    <td><span class="type-Alumni">WMSU ALUMNI</span></td>
-                                    <td><span class="org-unesco">UNESCO</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    </td>
-                                    <td><i class="fa-solid fa-trophy me-2 yellow"> 3</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>juan.garcia@mno.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-unesco">UNESCO</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 4</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>hyejin.chung@pqr.com</td>
-                                    <td><span class="type-Employee">WMSU EMPLOYEE</span></td>
-                                    <td><span class="org-phsi">PHSI</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr> 
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 5</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>hiroshi.tanaka@def.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 6</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>minji.kim@lmn.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-unesco">UNESCO</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 7</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>minh.nguyen@rst.com</td>
-                                    <td><span class="type-Alumni">WMSU ALUMNI</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 8</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>yukihiro.sato@uvw.com</td>
-                                    <td><span class="type-Employee">WMSU EMPLOYEE</span></td>
-                                    <td><span class="org-phsi">PHSI</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 9</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 10</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 11</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 12</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 13</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 14</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 15</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 16</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 17</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 18</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 19</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><i class="fa-solid fa-trophy me-2 green"> 20</i></td>
-                                    <td>
-                                        <div class="client">
-                                            <div class="client-img bg-img" style="background-image: url('../images/student-profile/user-icon.png');"></div>
-                                            <div class="client-info">
-                                                <h4>Malaga, Arjay L.</h4>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>maria.hernandez@xyz.com</td>
-                                    <td><span class="type-Student">WMSU STUDENT</span></td>
-                                    <td><span class="org-none">NONE</span></td>
-                                    <td>09237567813</td>
-                                    <td>
-                                        <div class="action-button">
-                                            <a title="View Application" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Ranking"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="View Profile" href="" class="me-2 green"><i class="fa-solid fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </main>
         </div>
     </div>
-<script>
+
+    <script>
     $(document).ready(function() {
         var table = $('#table-dashboard-student').DataTable({
             responsive: true,
@@ -612,5 +209,8 @@
     });
     
 </script>
+
 </body>
 </html>
+
+
