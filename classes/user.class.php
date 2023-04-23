@@ -247,6 +247,32 @@ Class Users{
         return false;
     }    
 
+    function showEmail(){
+        $sql = "SELECT * FROM user_acc_data ORDER BY email ASC;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function showPassword(){
+        $sql = "SELECT * FROM user_acc_data ORDER BY password ASC;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function showUsername(){
+        $sql = "SELECT * FROM user_acc_data ORDER BY username ASC;";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
 
     
     function edit(){

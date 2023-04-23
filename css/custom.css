@@ -360,6 +360,16 @@ ul.application #counter-pending{
     height: 20px;
 }
 
+ul.application #counter-rsvp{
+    background-color: #FFC107;
+    color: white;
+    margin: 0 0 0 4px;
+    padding: 5px;
+    border-radius: 100%;
+    line-height: 8px;
+    height: 20px;
+}
+
 ul.application #counter-verified{
     background-color: #2196f3;
     color: white;
@@ -370,7 +380,28 @@ ul.application #counter-verified{
     height: 20px;
 }
 
+ul.application #counter-confirm{
+    background-color: #2196f3;
+    color: white;
+    margin: 0 0 0 4px;
+    padding: 5px;
+    border-radius: 100%;
+    line-height: 8px;
+    height: 20px;
+}
+
+
 ul.application #counter-all{
+    background-color:  #107869;
+    color: white;
+    margin: 0 0 0 4px;
+    padding: 5px;
+    border-radius: 100%;
+    line-height: 8px;
+    height: 20px;
+}
+
+ul.application #counter-attended{
     background-color:  #107869;
     color: white;
     margin: 0 0 0 4px;

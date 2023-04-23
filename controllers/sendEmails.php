@@ -3,8 +3,8 @@ require_once '../vendor/autoload.php';
 require_once '../classes/user.class.php';
 
 
-define('SENDER_EMAIL', 'arjaymalaga990@gmail.com');
-define('SENDER_PASSWORD', 'mmdxwthytcedpsyz');
+define('SENDER_EMAIL', 'phsikemerut@gmail.com');
+define('SENDER_PASSWORD', 'olingelbmqrigrvp');
 
 
 // Create the Transport

@@ -9,14 +9,14 @@ function validate_firstname($POST){
 }
 
 
-/*function validate_middlename($POST){
+function validate_middlename($POST){
     if(!isset($POST['middlename'])){
         return false;
     }else if(strlen(trim($POST['middlename']))<1){
         return false;   
     }
     return true;
-}*/
+}
 
 function validate_lastname($POST){
     if(!isset($POST['lastname'])){
@@ -27,14 +27,32 @@ function validate_lastname($POST){
     return true;
 }
 
-/*function validate_suffix($POST){
+function validate_suffix($POST){
     if(!isset($POST['suffix'])){
         return false;
     }else if(strlen(trim($POST['suffix']))<1){
         return false;
     }
     return true;
-}*/
+}
+
+function validate_streetname($POST){
+    if(!isset($POST['street_name'])){
+        return false;
+    }else if(strlen(trim($POST['street_name']))<1){
+        return false;
+    }
+    return true;
+}
+
+function validate_houseNo($POST){
+    if(!isset($POST['bldg_house_no'])){
+        return false;
+    }else if(strlen(trim($POST['bldg_house_no']))<1){
+        return false;
+    }
+    return true;
+}
 
 
 function validate_email($POST){
@@ -56,17 +74,118 @@ function validate_email($POST){
 }
 
 
-/*function contactno($POST){
+function validate_email_duplicate($POST){
+    if(!isset($POST['email'])){
+        return false;
+    }
+    elseif(isset($POST['old-email'])){
+        if(strcmp(strtolower($POST['email']), strtolower($POST['old-email'])) == 0){
+            return true;
+        }else{
+            $user = new Users();
+            foreach ($user->showEmail() as $value){
+                if(strcmp(strtolower($value['email']), strtolower($POST['email'])) == 0){
+                    return false;
+                }
+            }
+        }
+    }else{
+        $user = new Users();
+        foreach ($user->showEmail() as $value){
+            if(strcmp(strtolower($value['email']), strtolower($POST['email'])) == 0){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function validate_password_duplicate($POST){
+    if(!isset($POST['password'])){
+        return false;
+    }
+    elseif(isset($POST['old-password'])){
+        if(strcmp(strtolower($POST['password']), strtolower($POST['old-password'])) == 0){
+            return true;
+        }else{
+            $user = new Users();
+            foreach ($user->showPassword() as $value){
+                if(strcmp(strtolower($value['password']), strtolower($POST['password'])) == 0){
+                    return false;
+                }
+            }
+        }
+    }else{
+        $user = new Users();
+        foreach ($user->showPassword() as $value){
+            if(strcmp(strtolower($value['password']), strtolower($POST['password'])) == 0){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+
+function validate_username_duplicate($POST){
+    if(!isset($POST['username'])){
+        return false;
+    }
+    elseif(isset($POST['old-username'])){
+        if(strcmp(strtolower($POST['username']), strtolower($POST['old-username'])) == 0){
+            return true;
+        }else{
+            $user = new Users();
+            foreach ($user->showUsername() as $value){
+                if(strcmp(strtolower($value['username']), strtolower($POST['username'])) == 0){
+                    return false;
+                }
+            }
+        }
+    }else{
+        $user = new Users();
+        foreach ($user->showUsername() as $value){
+            if(strcmp(strtolower($value['username']), strtolower($POST['username'])) == 0){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function validate_username($POST){
+    if(!isset($POST['username'])){
+        return false;
+    }else if(strlen(trim($POST['username']))<1){
+        return false;
+    }
+    return true;
+}
+
+function validate_password($POST){
+    if(!isset($POST['password'])){
+        return false;
+    }else if(strlen(trim($POST['password']))<1){
+        return false;
+    }
+    return true;
+}
+
+
+
+
+
+function contactno($POST){
     if(preg_match('/^[0-9]{11}+$/', $contact_number)) {
         echo "Valid Phone Number";
         } else {
         echo "Invalid Phone Number";
         }
-}*/
+}
 
-//VALIDATING ALL misvis FUNCTIONS
+//VALIDATING ALL FUNCTIONS
 function validate_signup_user($POST){
-    if(!validate_firstname($POST) || !validate_lastname($POST) || !validate_email($POST)){
+    if(!validate_email($POST) || !validate_email_duplicate($POST) || !validate_password_duplicate($POST) || !validate_password($POST) || !validate_username($POST) || !validate_username_duplicate($POST)){
         return false;
      }
     return true;

@@ -142,6 +142,20 @@ Class Rsvp{
         }
     }
 
+    function confirm_attendance($email, $event_id) {
+        $query = "UPDATE rsvp SET join_status='attended' WHERE email=:email AND event_id=:event_id";
+        $stmt = $this->db->connect()->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':event_id', $event_id);
+    
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            echo "Failed to update join status!";
+            return false;
+        }
+    }
+    
 
     
 }

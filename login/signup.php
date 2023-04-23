@@ -109,9 +109,7 @@ if(isset($_POST['submit'])) {
     $token = bin2hex(random_bytes(50)); // generate unique token
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //encrypt password
     
-    if($user->to_check_duplicates()){
-        echo "Error: Username, email or password already exists. Please choose a different one.";
-    } else {
+    if(validate_signup_user($_POST)){
         if($user->signup($token)){
             // TO DO: send verification email to user
             sendVerificationEmail($email, $token);
@@ -124,7 +122,8 @@ if(isset($_POST['submit'])) {
             //redirect user to verifying page after saving
             header('location: verifying.php');
         }
-    }
+
+    } 
 }
 }
      
@@ -170,10 +169,9 @@ if(isset($_POST['submit'])) {
 
                             <label class="fieldlabels">Middle Name: </label>
                             <input type="text" name="middlename"/>
-
+       
                             <label class="fieldlabels details">Last Name:</label>
                             <input type="text" name="lastname" required/>
-       
 
                             <label class="fieldlabels">Suffix: </label>
                             <input type="text" name="suffix"/>
@@ -217,6 +215,7 @@ if(isset($_POST['submit'])) {
 
                             <label class="fieldlabels">Building/House No.:</label>
                             <input type="text" name="bldg_house_no" placeholder=""/>
+
                         </div>
                         <input type="button" name="next" class="next action-button" value="Next" style="margin-top: 3rem;"/>
                     </fieldset>
@@ -406,14 +405,49 @@ if(isset($_POST['submit'])) {
                             </div>
                             <label class="fieldlabels details ">Username:</label>
                             <input type="text" name="username" placeholder="" required/>
+                            <?php
+                            if(isset($_POST['submit']) && !validate_username($_POST)){
+                                ?>
+                                <p class="error">Username is invalid. Trailing spaces will be ignored.</p>
+                                <?php
+                                }
+                                else if(isset($_POST['submit']) && !validate_username_duplicate($_POST)){
+                                ?>
+                                <p class="error">Username already exist.</p>
+                                <?php
+                                    }
+                                ?>
 
                             <label class="fieldlabels details">Email: </label>
                             <input type="email" name="email" required/>
+                            <?php
+                            if(isset($_POST['submit']) && !validate_email($_POST)){
+                                ?>
+                                <p class="error">Email is invalid. Trailing spaces will be ignored.</p>
+                                <?php
+                                }
+                                else if(isset($_POST['submit']) && !validate_email_duplicate($_POST)){
+                                ?>
+                                <p class="error">Email already exist.</p>
+                                <?php
+                                    }
+                                ?>
 
                             <label class="fieldlabels details">Password:</label>
                             <span id="password-strength"></span>
                             <input type="password" id="password" name="password" maxlength="12" placeholder="" required>
-                            
+                            <?php
+                            if(isset($_POST['submit']) && !validate_password($_POST)){
+                                ?>
+                                <p class="error">Password is invalid. Trailing spaces will be ignored.</p>
+                                <?php
+                                }
+                                else if(isset($_POST['submit']) && !validate_password_duplicate($_POST)){
+                                ?>
+                                <p class="error">Password already exist.</p>
+                                <?php
+                                    }
+                                ?>
 
                             <label class="fieldlabels details">Confirm Password:</label>
                             <input type="password" name="confirm_password" id="confirm_password" placeholder="" maxlength="12" required/>
@@ -794,6 +828,13 @@ if(isset($_POST['submit'])) {
 .fit-image{
     width: 100%;
     object-fit: cover;
+}
+
+.error{
+    color: #c51244;
+    text-align: center;
+    line-height: 20px;
+    padding-top: 8px;
 }
 </style>
 

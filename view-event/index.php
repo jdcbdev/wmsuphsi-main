@@ -39,21 +39,52 @@
                     if ($article) {
             ?>
 
+            <?php
+                require_once '../classes/database.php';
+                $database = new Database();
+                $db=$database->connect();
+
+                $rsvpQuery = $db->query("SELECT COUNT(id) AS total_rsvp FROM rsvp WHERE join_status = 'rsvp'");
+                $rsvp = [];
+                while($row = $rsvpQuery->fetchObject()){
+                    $rsvp[] = $row;
+                }
+
+                $confirmQuery = $db->query("SELECT COUNT(id) AS total_confirm FROM rsvp WHERE join_status = 'confirm'");
+                $confirm = [];
+                while($row = $confirmQuery->fetchObject()){
+                    $confirm[] = $row;
+                }
+
+                $attendedQuery = $db->query("SELECT COUNT(id) AS total_attended FROM rsvp WHERE join_status = 'attended'");
+                $attended = [];
+                while($row = $attendedQuery->fetchObject()){
+                    $attended[] = $row;
+                }
+
+            ?>
+
             <main class="col-md-9 ms-sm-auto col-lg-9 col-xl-10 p-md-4">
                 <div class="w-100">
                     <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0"><?php echo $article['event_title'] ?></h5>
                     <ul class="nav nav-tabs application">
 
                         <li class="nav-item active" id="li-rsvp">
-                            <a class="nav-link">RSVP<span class="counter" id="counter-rsvp">0</span></a>
+                        <?php foreach($rsvp as $rsvp){ ?>
+                            <a class="nav-link">RSVP<span class="counter" id="counter-rsvp"><?php echo $rsvp->total_rsvp; ?></span></a>
+                        <?php } ?>
                         </li>
 
                         <li class="nav-item" id="li-confirm">
-                            <a class="nav-link">Confirm<span class="counter" id="counter-confirm">0</span></a>
+                        <?php foreach($confirm as $confirm){ ?>
+                            <a class="nav-link">Confirm<span class="counter" id="counter-confirm"><?php echo $confirm->total_confirm; ?></span></a>
+                        <?php } ?>
                         </li>
 
                         <li class="nav-item" id="li-attended">
-                            <a class="nav-link">Attended<span class="counter" id="counter-attended">0</span></a>
+                        <?php foreach($attended as $attended){ ?>
+                            <a class="nav-link">Attended<span class="counter" id="counter-attended"><?php echo $attended->total_attended; ?></span></a>
+                        <?php } ?>
                         </li>
 
                         <!--<li class="nav-item" id="li-all">

@@ -5,7 +5,6 @@
 <table class="table table-hover col-12" id="table-rsvp" style="width: 100%;">
 <thead>
     <tr>
-        <th scope="col">Action</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Type</th>
@@ -28,11 +27,6 @@
             //start of loop
     ?>
     <tr>
-        <td>
-            <div class="action-button">
-                <a name="slotConfirmation" type="submit" class="me-2 green" id="slotConfirmation" value="#"><i class='bx bx-mail-send'></i> Slot Confirmation</a>
-            </div>
-        </td>
         <td><?php echo $value['firstname'].' '.$value['middlename'].' '.$value['lastname'].' '.$value['suffix'] ?></td>
         <td><?php echo $value['email'] ?></td>
         <td><span class="type-Student"><?php echo $value['member_type']?></span></td>
