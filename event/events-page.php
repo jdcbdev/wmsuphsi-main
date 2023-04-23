@@ -87,9 +87,10 @@ if(isset($_POST['submit'])) {
       $user-> token = bin2hex(random_bytes(50)); // generate unique token
       $token = $user->token;
       $email = $user->email;
+      $firstname = $user->firstname;
    if ($user->addUserToEvent($token)) {
       // TO DO: send slot confirmation mail to user
-      sendSlotConfirmation($email, $token);
+      sendSlotConfirmation($email, $token, $firstname);
       //redirect user to verifying page after saving
       header('location: registered-event.php');
       exit;

@@ -16,7 +16,7 @@ $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
 // Create the Mailer using your created Transport
 $mailer = new Swift_Mailer($transport);
 
-function sendSlotConfirmation($userEmail, $token) 
+function sendSlotConfirmation($userEmail, $token, $firstname) 
 {
     global $mailer;
     $body = '<!DOCTYPE html>
@@ -43,27 +43,25 @@ function sendSlotConfirmation($userEmail, $token)
 
     <body>
       <div class="wrapper">
-        <p>Dear [Recipient’s Name],</p>
+        <p>Dear '. $firstname .',</p>
         <p>We are pleased to confirm that your slot for the [event/meeting/activity] on [date] has been reserved successfully. 
         We are thrilled to have you as a participant in this [event/meeting/activity], and we are looking forward to your presence.
-        
         To ensure your slot is secured, we kindly ask you to confirm your attendance by clicking on
         the button below within the next [time frame] to avoid cancellation of your slot.</p>
-
-        <a href="http://localhost/wmsuphsi-main/slot_confirmation.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">CONFIRM MY SLOT</a>
         
-        <p>If for any reason you cannot attend the [event/meeting/activity], please let us know as soon as possible by replying to this email so that we can offer your slot to someone else. This will help us to make sure that we have the right number of participants for the event.
-
-        Please note that if we do not hear back from you within the given time frame, your slot may be given to someone else on the waiting list.
+        <p>This will help us to make sure that we have the right number of participants for the event.
+        Please note that if we do not hear back from you within the given time frame, 
+        your slot may be given to someone else on the waiting list.
+        If you have any questions or concerns about the [event/meeting/activity], please do not hesitate to contact us. We are always happy to help.</p>
         
-        If you have any questions or concerns about the [event/meeting/activity], please do not hesitate to contact us. We are always happy to help.
+         <a href="http://localhost/wmsuphsi-main/slot_confirmation.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">CONFIRM MY SLOT</a>
+
+        <p>Thank you for your participation, and we look forward to seeing you soon.</p>
+
+        <p>Best regards,</p>
+
+        <p>WMSU - Peace and Human Security Institute</p>
         
-        Thank you for your participation, and we look forward to seeing you soon.
-
-        Best regards,
-
-        WMSU - Peace and Human Security Institute
-        </p>
     </body>
 
     </html>';
