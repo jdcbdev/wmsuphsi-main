@@ -1,50 +1,40 @@
 <?php   
     //resume session here to fetch session values
     session_start();
-   require_once '../classes/user.class.php';
-   require_once '../tools/functions.php';
-   $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
-   require_once '../includes/signup-head.php';
-   require_once '../controllers/sendEmails.php';
-
-?>
-
-
-<?php 
-
+    require_once '../classes/user.class.php';
+    require_once '../tools/functions.php';
+    $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
+    require_once '../includes/signup-head.php';
+    require_once '../controllers/sendEmails.php';
 
 
 if(isset($_POST['submit'])) {
-  //Sanitizing the inputs of the users. Mandatory to prevent injections!
+    //Sanitizing the inputs of the users. Mandatory to prevent injections!
+    $user = new Users;
+    $user -> firstname = trim(htmlentities($_POST['firstname']));
+    $user -> middlename = trim(htmlentities($_POST['middlename']));
+    $user -> lastname = trim(htmlentities($_POST['lastname']));
+    $user -> suffix = trim(htmlentities($_POST['suffix']));
+    $user -> sex = trim(htmlentities($_POST['sex']));
+    $user -> email = trim(htmlentities($_POST['email']));
+    $user -> contact_number = trim(htmlentities($_POST['contact_number'])); 
+    $user -> province = (htmlentities($_POST['province'])); 
+    $user -> city = (htmlentities($_POST['city'])); 
+    $user -> barangay = (htmlentities($_POST['barangay'])); 
+    $user -> street_name = trim(htmlentities($_POST['street_name'])); 
+    $user -> bldg_house_no = trim(htmlentities($_POST['bldg_house_no'])); 
+    $user -> username = trim(htmlentities($_POST['username'])); 
+    $user -> password = trim(htmlentities($_POST['password']));
+    $user -> member_type = is_array($_POST['member_type']) ? implode(',', $_POST['member_type']) : $_POST['member_type'];
 
-  $user = new Users;
-  $user -> firstname = htmlentities($_POST['firstname']);
-  $user -> middlename = htmlentities($_POST['middlename']);
-  $user -> lastname = htmlentities($_POST['lastname']);
-  $user -> suffix = htmlentities($_POST['suffix']);
-  $user -> sex = htmlentities($_POST['sex']);
-  $user -> email = htmlentities($_POST['email']);
-  $user -> contact_number = htmlentities($_POST['contact_number']); 
-  $user -> province = htmlentities($_POST['province']); 
-  $user -> city = htmlentities($_POST['city']); 
-  $user -> barangay = htmlentities($_POST['barangay']); 
-  $user -> street_name = htmlentities($_POST['street_name']); 
-  $user -> bldg_house_no = htmlentities($_POST['bldg_house_no']); 
-  $user -> username = htmlentities($_POST['username']); 
-  $user -> password = htmlentities($_POST['password']);
-  $user -> member_type = is_array($_POST['member_type']) ? implode(',', $_POST['member_type']) : $_POST['member_type'];
-  //$user -> token = htmlentities($_POST['token']);
-
-
-  // Upload verification photos based on member type
-  if (in_array('Student', $_POST['member_type'])) {
-    $user -> verify_one = $_FILES['verify_one']['name'];
-    $user -> tempname_one = $_FILES['verify_one']['tmp_name'];
-    $user -> folder_one = "../uploads/" . $user -> verify_one;
-
-    $user -> verify_two = $_FILES['verify_two']['name'];
-    $user -> tempname_two = $_FILES['verify_two']['tmp_name'];
-    $user -> folder_two = "../uploads/" . $user -> verify_two;
+    // Upload verification photos based on member type
+    if (in_array('Student', $_POST['member_type'])) {
+        $user -> verify_one = $_FILES['verify_one']['name'];
+        $user -> tempname_one = $_FILES['verify_one']['tmp_name'];
+        $user -> folder_one = "../uploads/" . $user -> verify_one;
+        $user -> verify_two = $_FILES['verify_two']['name'];
+        $user -> tempname_two = $_FILES['verify_two']['tmp_name'];
+        $user -> folder_two = "../uploads/" . $user -> verify_two;
     
     if (empty($user -> verify_one) || empty($user -> verify_two)) {
       // Handle error: missing verification photo
@@ -52,13 +42,12 @@ if(isset($_POST['submit'])) {
   }
 
   if (in_array('Alumni', $_POST['member_type'])) {
-    $user -> verify_three = $_FILES['verify_three']['name'];
-    $user -> tempname_three = $_FILES['verify_three']['tmp_name'];
-    $user -> folder_three = "../uploads/" . $user -> verify_three;
-
-    $user -> verify_four = $_FILES['verify_four']['name'];
-    $user -> tempname_four = $_FILES['verify_four']['tmp_name'];
-    $user -> folder_four = "../uploads/" . $user -> verify_four;
+        $user -> verify_three = $_FILES['verify_three']['name'];
+        $user -> tempname_three = $_FILES['verify_three']['tmp_name'];
+        $user -> folder_three = "../uploads/" . $user -> verify_three;
+        $user -> verify_four = $_FILES['verify_four']['name'];
+        $user -> tempname_four = $_FILES['verify_four']['tmp_name'];
+        $user -> folder_four = "../uploads/" . $user -> verify_four;
 
     if (empty($user -> verify_three) || empty($user -> verify_four)) {
       // Handle error: missing verification photo
@@ -66,13 +55,12 @@ if(isset($_POST['submit'])) {
   }
 
   if (in_array('Employee', $_POST['member_type'])) {
-    $user -> verify_five = $_FILES['verify_five']['name'];
-    $user -> tempname_five = $_FILES['verify_five']['tmp_name'];
-    $user -> folder_five = "../uploads/" . $user -> verify_five;
-
-    $user -> verify_six = $_FILES['verify_six']['name'];
-    $user -> tempname_six = $_FILES['verify_six']['tmp_name'];
-    $user -> folder_six = "../uploads/" . $user -> verify_six;
+        $user -> verify_five = $_FILES['verify_five']['name'];
+        $user -> tempname_five = $_FILES['verify_five']['tmp_name'];
+        $user -> folder_five = "../uploads/" . $user -> verify_five;
+        $user -> verify_six = $_FILES['verify_six']['name'];
+        $user -> tempname_six = $_FILES['verify_six']['tmp_name'];
+        $user -> folder_six = "../uploads/" . $user -> verify_six;
 
     if (empty($user -> verify_five) || empty($user -> verify_six)) {
       // Handle error: missing verification photo
@@ -80,13 +68,12 @@ if(isset($_POST['submit'])) {
   }
 
   if (in_array('None', $_POST['member_type'])) {
-    $user -> verify_seven = $_FILES['verify_seven']['name'];
-    $user -> tempname_seven = $_FILES['verify_seven']['tmp_name'];
-    $user -> folder_seven = "../uploads/" . $user -> verify_seven;
-
-    $user -> verify_eight = $_FILES['verify_eight']['name'];
-    $user -> tempname_eight = $_FILES['verify_eight']['tmp_name'];
-    $user -> folder_eight = "../uploads/" . $user -> verify_eight;
+        $user -> verify_seven = $_FILES['verify_seven']['name'];
+        $user -> tempname_seven = $_FILES['verify_seven']['tmp_name'];
+        $user -> folder_seven = "../uploads/" . $user -> verify_seven;
+        $user -> verify_eight = $_FILES['verify_eight']['name'];
+        $user -> tempname_eight = $_FILES['verify_eight']['tmp_name'];
+        $user -> folder_eight = "../uploads/" . $user -> verify_eight;
 
     if (empty($user -> verify_seven) || empty($user -> verify_eight)) {
       // Handle error: missing verification photo
@@ -109,25 +96,27 @@ if(isset($_POST['submit'])) {
     $token = bin2hex(random_bytes(50)); // generate unique token
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //encrypt password
     
-    if(validate_signup_user($_POST)){
-        if($user->signup($token)){
-            // TO DO: send verification email to user
-            sendVerificationEmail($email, $token);
-            $_SESSION['id'] = $user_id;
-            $_SESSION['username'] = $username;
-            $_SESSION['email'] = $email;
-            $_SESSION['verified'] = false;
-            $_SESSION['message'] = 'You are logged in!';
-            $_SESSION['type'] = 'alert-success';
-            //redirect user to verifying page after saving
-            header('location: verifying.php');
-        }
+        //if(validate_signup_user($_POST)){
+            if($user->signup($token)){
+                // TO DO: send verification email to user
+                sendVerificationEmail($email, $token);
+                $_SESSION['id'] = $user_id;
+                $_SESSION['username'] = $username;
+                $_SESSION['email'] = $email;
+                $_SESSION['verified'] = false;
+                $_SESSION['message'] = 'You are logged in!';
+                $_SESSION['type'] = 'alert-success';
+                //redirect user to verifying page after saving
+                header('location: verifying.php');
+            }
 
-    } 
-}
+        //} 
+    }
 }
      
 ?>
+
+<link rel="stylesheet" href="../css/sign_up.css"> 
 
 <div class="container-fluid">
 	<div class="row justify-content-center">
@@ -183,12 +172,9 @@ if(isset($_POST['submit'])) {
                               <option value="Female">Female</option>
                             </select>
           
-       
-
                             <label class="fieldlabels details"> Contact No.:</label>
                             <input type="text" id="contact_number" name="contact_number"required/>
        
-
                             <label class="fieldlabels details">Province: </label>
                             <select name="province" id="province" style="padding: 12px;" required>
                               <option value="">--Select Province--</option>
@@ -198,13 +184,11 @@ if(isset($_POST['submit'])) {
                               <option value="Zamboanga del Sur">Zamboanga del Sur</option>
                             </select>
        
-
                             <label class="fieldlabels details">City/Municipality: </label>
                             <select name="city" id="city" style="padding: 12px;" disabled required>
                               <option value="">--Select City/Municipality--</option>
                             </select>
        
-
                             <label class="fieldlabels details">Barangay: </label>
                             <select name="barangay" id="barangay" style="padding: 12px;" disabled required>
                                <option value="">--Select Barangay--</option>
@@ -232,22 +216,6 @@ if(isset($_POST['submit'])) {
                             	</div>
                             </div>
 
-                            <style>
-                            .checkbox-container {
-                                display: flex;
-                                flex-direction: row;
-                                align-items: center;
-                            }
-                            .checkbox-container label {
-                                margin-right: 20px;
-                                margin-bottom: 12px;
-                            }
-
-                            .id-upload {
-                            display: none; /* hide the ID upload fields by default */
-                            }
-                            </style>
-
                             <label for="member_type">Select all status that applies to you:</label>
                             <div class="checkbox-container">
                             <input type="checkbox" id="student" name="member_type[]" value="Student" class="member-type">
@@ -262,7 +230,6 @@ if(isset($_POST['submit'])) {
                              
                             <hr>
                                
-
                             <div class="id-upload Student">
                             <label class="fieldlabels">Upload Your Student ID (Front):</label>
                             <div class="input-group">
@@ -283,8 +250,6 @@ if(isset($_POST['submit'])) {
                             </div>
                             </div>
 
-        
-
                             <div class="id-upload Alumni">
                             <label class="fieldlabels">Upload Your Alumni ID (Front):</label>
                             <div class="input-group">
@@ -304,9 +269,6 @@ if(isset($_POST['submit'])) {
                                 <img id="preview-four">
                             </div>
                             </div>
-
-                            
-                            
 
                             <div class="id-upload Employee">
                             <label class="fieldlabels">Upload Your Employee ID (Front):</label>
@@ -347,46 +309,6 @@ if(isset($_POST['submit'])) {
                                 <img id="preview-eight">
                             </div>
                             </div>
-
-                            <script>
-                            // select all the member type checkboxes
-                            const memberTypeCheckboxes = document.querySelectorAll('.member-type');
-
-                            // add an event listener to each checkbox
-                            memberTypeCheckboxes.forEach(checkbox => {
-                                checkbox.addEventListener('change', () => {
-                                    // get the value of the checkbox that was clicked
-                                    const checkboxValue = checkbox.value;
-
-                                    // select the ID upload field container that corresponds to the clicked checkbox
-                                    const idUploadFieldContainer = document.querySelector(`.id-upload.${checkboxValue}`);
-
-                                    // show or hide the ID upload field container based on whether the checkbox is checked
-                                    if (checkbox.checked) {
-                                        idUploadFieldContainer.style.display = 'block';
-                                    } else {
-                                        idUploadFieldContainer.style.display = 'none';
-                                    }
-
-                                    // reset the file inputs in the ID upload field container
-                                    const fileInputs = idUploadFieldContainer.querySelectorAll('input[type=file]');
-                                    fileInputs.forEach(input => {
-                                        input.value = '';
-                                    });
-
-                                    // reset the preview images in the ID upload field container
-                                    const previewImages = idUploadFieldContainer.querySelectorAll('.preview img');
-                                    previewImages.forEach(img => {
-                                        img.src = '';
-                                    });
-                                });
-                            });
-                            </script>
-                            
-
-
-
-
                         </div>
                         <input type="button" name="next" class="next action-button" value="Next"/>
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
@@ -405,49 +327,13 @@ if(isset($_POST['submit'])) {
                             </div>
                             <label class="fieldlabels details ">Username:</label>
                             <input type="text" name="username" placeholder="" required/>
-                            <?php
-                            if(isset($_POST['submit']) && !validate_username($_POST)){
-                                ?>
-                                <p class="error">Username is invalid. Trailing spaces will be ignored.</p>
-                                <?php
-                                }
-                                else if(isset($_POST['submit']) && !validate_username_duplicate($_POST)){
-                                ?>
-                                <p class="error">Username already exist.</p>
-                                <?php
-                                    }
-                                ?>
 
                             <label class="fieldlabels details">Email: </label>
                             <input type="email" name="email" required/>
-                            <?php
-                            if(isset($_POST['submit']) && !validate_email($_POST)){
-                                ?>
-                                <p class="error">Email is invalid. Trailing spaces will be ignored.</p>
-                                <?php
-                                }
-                                else if(isset($_POST['submit']) && !validate_email_duplicate($_POST)){
-                                ?>
-                                <p class="error">Email already exist.</p>
-                                <?php
-                                    }
-                                ?>
 
                             <label class="fieldlabels details">Password:</label>
                             <span id="password-strength"></span>
                             <input type="password" id="password" name="password" maxlength="12" placeholder="" required>
-                            <?php
-                            if(isset($_POST['submit']) && !validate_password($_POST)){
-                                ?>
-                                <p class="error">Password is invalid. Trailing spaces will be ignored.</p>
-                                <?php
-                                }
-                                else if(isset($_POST['submit']) && !validate_password_duplicate($_POST)){
-                                ?>
-                                <p class="error">Password already exist.</p>
-                                <?php
-                                    }
-                                ?>
 
                             <label class="fieldlabels details">Confirm Password:</label>
                             <input type="password" name="confirm_password" id="confirm_password" placeholder="" maxlength="12" required/>
@@ -484,11 +370,46 @@ if(isset($_POST['submit'])) {
                             </div>
                         </div>
                     </fieldset>
-
                 </form>
+            </div>
+        </div>
+	</div>
+</div>
 
 
-    <script>
+<!-- SCRIPTS -->
+
+<script>
+    // select all the member type checkboxes
+    const memberTypeCheckboxes = document.querySelectorAll('.member-type');
+    // add an event listener to each checkbox
+    memberTypeCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            // get the value of the checkbox that was clicked
+            const checkboxValue = checkbox.value;
+            // select the ID upload field container that corresponds to the clicked checkbox
+            const idUploadFieldContainer = document.querySelector(`.id-upload.${checkboxValue}`);
+            // show or hide the ID upload field container based on whether the checkbox is checked
+            if (checkbox.checked) {
+                idUploadFieldContainer.style.display = 'block';
+            } else {
+                idUploadFieldContainer.style.display = 'none';
+            }
+            // reset the file inputs in the ID upload field container
+            const fileInputs = idUploadFieldContainer.querySelectorAll('input[type=file]');
+            fileInputs.forEach(input => {
+                input.value = '';
+            });
+            // reset the preview images in the ID upload field container
+            const previewImages = idUploadFieldContainer.querySelectorAll('.preview img');
+            previewImages.forEach(img => {
+                img.src = '';
+            })
+        });
+    });
+</script>
+
+<script>
         $(document).ready(function(){
             var current_fs, next_fs, previous_fs; //fieldsets
             var opacity;
@@ -584,7 +505,7 @@ if(isset($_POST['submit'])) {
                 }
             });
 
-            function validateForm(step) {
+           function validateForm(step) {
                 var valid = true;
                 $("fieldset:eq(" + (step - 1) + ")").find("input[required], select[required]").each(function() {
                     if($.trim($(this).val()) == '') {
@@ -600,250 +521,28 @@ if(isset($_POST['submit'])) {
                 return valid;
             }
         });
+        
+        /*function validateForm(step) { 
+            var valid = true;
+            $("fieldset:eq(" + (step - 1) + ")").find("input[required], select[required]").each(function() {
+                var inputVal = $.trim($(this).val());
+                $(this).val(inputVal); // remove trailing spaces
+                if(inputVal == '') {
+                    valid = false;
+                    $(this).addClass('input-error');
+                    $(this).css('border-color', 'red');
+                } else {
+                    $(this).removeClass('input-error');
+                    $(this).css('border-color', '');
+                }
+            });
+            return valid;
+        }*/
 </script>
-
-
-
-            </div>
-        </div>
-	</div>
-</div>
-
-<style>
-#heading {
-	text-transform: uppercase;
-	color: #107869;
-	font-weight: normal;
-}
-
-#msform {
-    text-align: center;
-    position: relative;
-    margin-top: 20px;
-}
-
-#msform fieldset {
-    background: white;
-    border: 0 none;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0;
-    padding-bottom: 20px;
-
-    /*stacking fieldsets above each other*/
-    position: relative;
-}
-
-.form-card {
-	text-align: left;
-}
-
-/*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
-    display: none;
-}
-
-#msform input, #msform textarea, #msform select {
-    padding: 8px 15px 8px 15px;
-    border: 1px solid #ccc;
-    border-radius: 0px;
-    margin-top: 2px;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: montserrat;
-    color: none;
-    background-color: #ECEFF1;
-    font-size: 16px;
-    letter-spacing: 1px;
-}
-
-#msform input:focus, #msform textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: 1px solid #107869;
-    outline-width: 0;
-}
-
-/*Next Buttons*/
-#msform .action-button {
-    width: 100px;
-    background: #107869;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 0px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 0px 10px 5px;
-    float: right;
-}
-
-#msform .action-button:hover, #msform .action-button:focus {
-    background-color: #0eb582;
-}
-
-/*Previous Buttons*/
-#msform .action-button-previous {
-    width: 100px;
-    background: #616161;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 0px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px 10px 0px;
-    float: right;
-}
-
-#msform .action-button-previous:hover, #msform .action-button-previous:focus {
-    background-color: #000000;
-}
-
-/*The background card*/
-.card {
-    z-index: 0;
-    border: none;
-    position: relative;
-}
-
-/*FieldSet headings*/
-.fs-title {
-    font-size: 18px;
-    color: #673AB7;
-    margin-bottom: 15px;
-    font-weight: normal;
-    text-align: left;
-}
-
-.purple-text {
-	color: #107869;
-    font-weight: normal;
-}
-
-/*Step Count*/
-.steps {
-	font-size: 18px;
-    color: gray;
-    margin-bottom: 10px;
-    font-weight: normal;
-    text-align: right;
-}
-
-/*Field names*/
-.fieldlabels {
-	color: gray;
-	text-align: left;
-}
-
-.details::after {
-  content: " *";
-  color: red;
-}
-
-/*Icon progressbar*/
-#progressbar {
-    margin-bottom: 30px;
-    overflow: hidden;
-    color: lightgrey;
-}
-
-#progressbar .active {
-    color: #107869;
-}
-
-#progressbar li {
-    list-style-type: none;
-    font-size: 15px;
-    width: 25%;
-    float: left;
-    position: relative;
-    font-weight: 400;
-}
-
-/*Icons in the ProgressBar*/
-#progressbar #account:before {
-    font-family: FontAwesome;
-    content: "\f13e";
-}
-
-#progressbar #personal:before {
-    font-family: FontAwesome;
-    content: "\f007";
-}
-
-#progressbar #payment:before {
-    font-family: FontAwesome;
-    content: "\f016";
-}
-
-#progressbar #confirm:before {
-    font-family: FontAwesome;
-    content: "\f00c";
-}
-
-/*Icon ProgressBar before any progress*/
-#progressbar li:before {
-    width: 50px;
-    height: 50px;
-    line-height: 45px;
-    display: block;
-    font-size: 20px;
-    color: #ffffff;
-    background: lightgray;
-    border-radius: 50%;
-    margin: 0 auto 10px auto;
-    padding: 2px;
-}
-
-/*ProgressBar connectors*/
-#progressbar li:after {
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: lightgray;
-    position: absolute;
-    left: 0;
-    top: 25px;
-    z-index: -1;
-}
-
-/*Color number of the step and the connector before it*/
-#progressbar li.active:before, #progressbar li.active:after {
-    background: #107869;
-}
-
-/*Animated Progress Bar*/
-.progress {
-	height: 20px;
-}
-
-.progress-bar {
-	background-color: #107869;
-}
-
-/*Fit image in bootstrap div*/
-.fit-image{
-    width: 100%;
-    object-fit: cover;
-}
-
-.error{
-    color: #c51244;
-    text-align: center;
-    line-height: 20px;
-    padding-top: 8px;
-}
-</style>
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="../js/signup.js"></script>
 <script src="../js/address.js"></script>
-<!--<script src="../multiform.js"></script>-->
-
 
 
 

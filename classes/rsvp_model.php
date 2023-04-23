@@ -155,6 +155,22 @@ Class Rsvp{
             return false;
         }
     }
+
+    function check_attendance($email, $event_id) {
+        $query = "SELECT * FROM rsvp WHERE email=:email AND event_id=:event_id AND join_status='confirm'";
+        $stmt = $this->db->connect()->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':event_id', $event_id);
+        
+        if ($stmt->execute()) {
+            $data = $stmt->fetchAll();
+            return $data;
+        } else {
+            echo "Failed to fetch attendance status!";
+            return false;
+        }
+    }
+    
     
 
     

@@ -120,7 +120,7 @@ if(isset($_POST['submit'])) {
 <section class="rsvp-container">
     <div class="rsvp-box">
         <p style="text-align: center;font-size: 18px;font-weight: bold;"><?php echo $article['event_title'] ?></p>
-        
+      
         <button class="btn" id="open-modal-btn">RSVP TO JOIN THIS EVENT</button>
 
         <div id="modal" class="modal">

@@ -74,7 +74,7 @@ function validate_email($POST){
 }
 
 
-function validate_email_duplicate($POST){
+/*function validate_email_duplicate($POST){
     if(!isset($POST['email'])){
         return false;
     }
@@ -151,7 +151,87 @@ function validate_username_duplicate($POST){
         }
     }
     return true;
+}*/
+
+function validate_username_duplicate($POST){
+    if(!isset($POST['username'])){
+        return false;
+    }
+    elseif(isset($POST['old-username'])){
+        if(strcmp(strtolower($POST['username']), strtolower($POST['old-username'])) == 0){
+            return true;
+        }else{
+            $user = new Users();
+            foreach ($user->showUsername() as $value){
+                if(strcmp(strtolower($value['username']), strtolower($POST['username'])) == 0){
+                    return false;
+                }
+            }
+        }
+    }else{
+        $user = new Users();
+        foreach ($user->showUsername() as $value){
+            if(strcmp(strtolower($value['username']), strtolower($POST['username'])) == 0){
+                return false;
+            }
+        }
+    }
+    return true;
 }
+
+function validate_email_duplicate($POST){
+    if(!isset($POST['email'])){
+        return false;
+    }
+    elseif(isset($POST['old-email'])){
+        if(strcmp(strtolower($POST['email']), strtolower($POST['old-email'])) == 0){
+            return true;
+        }else{
+            $user = new Users();
+            foreach ($user->showEmail() as $value){
+                if(strcmp(strtolower($value['email']), strtolower($POST['email'])) == 0){
+                    return false;
+                }
+            }
+        }
+    }else{
+        $user = new Users();
+        foreach ($user->showEmail() as $value){
+            if(strcmp(strtolower($value['email']), strtolower($POST['email'])) == 0){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+
+function validate_password_duplicate($POST){
+    if(!isset($POST['password'])){
+        return false;
+    }
+    elseif(isset($POST['old-password'])){
+        if(strcmp(strtolower($POST['password']), strtolower($POST['old-password'])) == 0){
+            return true;
+        }else{
+            $user = new Users();
+            foreach ($user->showPassword() as $value){
+                if(strcmp(strtolower($value['password']), strtolower($POST['password'])) == 0){
+                    return false;
+                }
+            }
+        }
+    }else{
+        $user = new Users();
+        foreach ($user->showPassword() as $value){
+            if(strcmp(strtolower($value['password']), strtolower($POST['password'])) == 0){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 
 function validate_username($POST){
     if(!isset($POST['username'])){

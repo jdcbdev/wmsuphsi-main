@@ -8,13 +8,23 @@ function showPw(){
     }
 }
 
-//This will remove non-numeric characters bitches!
 const numberInput = document.getElementById("contact_number");
-numberInput.addEventListener("input", function(event) {
+numberInput.addEventListener("blur", function(event) {
   // Remove non-numeric characters
-  const newValue = event.target.value.replace(/[^0-9]/g, '');
-  event.target.value = newValue;
+  let newValue = event.target.value.replace(/[^0-9]/g, '');
+
+  // Display pop-up message if input is not exactly 11 digits long
+  if (newValue.length !== 11) {
+    alert("Please enter 11 digits for your contact number.");
+    // Set focus back to input field
+    event.target.focus();
+  } else {
+    // Assign cleaned input value to input field
+    event.target.value = newValue;
+  }
 });
+
+
 
 
 //Modal Functions
