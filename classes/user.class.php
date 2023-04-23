@@ -283,7 +283,7 @@ Class Users{
     
     function showEmail(){
         $sql = "SELECT * FROM user_acc_data ORDER BY email ASC;";
-        $query=$this->db->query($sql);
+        $query=$this->db->query($sql);  
         $result=$query->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }

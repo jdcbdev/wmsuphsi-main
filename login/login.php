@@ -63,6 +63,7 @@
             $_SESSION['logged-in'] = $output['username']. ' ' . $output['password'];
             $_SESSION['role'] = $output['role'];
             $_SESSION['token'] = $output['token'];
+            $_SESSION['verified'] = $output['verified'];
             $_SESSION['user_id'] = $output['id'];
 
             //display the appropriate dashboard page for the following role:
@@ -74,12 +75,12 @@
                     4. UNESCO Admin - This admin can access only their organization features. This admin can ssign role to their users who is a member of UNESCO.
                     3. UNESCO Content Admin - This admin can only access the dashboard but is limited to content management system of their organization. This admin can't assign role.  
                 */
-                if($output['role'] == 'super_admin' || $output['role'] == 'unesco_admin' || $output['role'] == 'unesco_content_admin' || $output['role'] == 'phsi_admin' || $output['role'] == 'phsi_content_admin'){
+                if($output['role'] == 'super_admin' || $output['role'] == 'unesco_admin' || $output['role'] == 'phsi_admin' && $output['verified'] == 1){
                     header('location: ../admin/admin.php');
                 /*
                     If the role is equal to 'user' - the system will redirect this 'user' to the home page of the system (not in the dashboard).
                 */
-                }if ($output['role'] == 'user'){
+                }if ($output['role'] == 'user' && $output['verified'] == 1){
                     header('location: ../home.php');
                 }
             }
@@ -101,7 +102,7 @@
             
             <input type="password" id="password" name="password" placeholder="Enter password" required tabindex="2">
 
-            <!--<div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem; display: flex;justify-content: center;" required></div>-->
+            <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem; display: flex;justify-content: center;" required></div>
 
             <div class="flex" style="display: flex; padding: 10px 10px 10px 1px;">
                 <a href="#">Forgot password?</a>
