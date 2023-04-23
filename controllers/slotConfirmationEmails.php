@@ -54,7 +54,7 @@ function sendSlotConfirmation($userEmail, $token, $firstname)
         your slot may be given to someone else on the waiting list.
         If you have any questions or concerns about the [event/meeting/activity], please do not hesitate to contact us. We are always happy to help.</p>
         
-         <a href="http://localhost/wmsuphsi-main/slot_confirmation.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">CONFIRM MY SLOT</a>
+         <a href="https://wmsuphsi-main/slot_confirmation.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">CONFIRM MY SLOT</a>
 
         <p>Thank you for your participation, and we look forward to seeing you soon.</p>
 
@@ -81,4 +81,5 @@ function sendSlotConfirmation($userEmail, $token, $firstname)
         return false;
     }
 }
-//<a href="https://wmsuphsi.online/verify_email.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">Verify Email!</a></div>
+//<a href="http://localhost/wmsuphsi-main/slot_confirmation.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">CONFIRM MY SLOT</a>
+//<a href="https://wmsuphsi-main/slot_confirmation.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">CONFIRM MY SLOT</a>
