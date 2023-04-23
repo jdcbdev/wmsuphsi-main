@@ -1,6 +1,12 @@
 
+
+<section>
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-  <img src="../images/logos/phsi.png" alt="Logo" style="max-width: 10%; height: auto;">
-  <h2 style="text-align: center; font-size: 2rem;">Thank you for signing up!</h2>
-  <p style="text-align: center; font-size: 1.2rem;">Please check your email and click the verification button to verify your account.</p>
+  <h2 style="text-align: center; font-size: 2rem;">Verify Your Email</h2>
+  <p style="text-align: center;">Check your email as we have sent a verification email to the email address </br>  you provided us & click the button to activate your account.</p>
+  <img src="../images/content-images/mail.png" alt="">
+  <br>
+  <span style="margin: 10px;">Wanna learn more about Email verification? </span> 
+  <a href="#" class="btn">Click here!</a>
 </div>
+</section>
