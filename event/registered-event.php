@@ -8,7 +8,7 @@
 
 <div class="success-message">
     <h3 style="font-size: 6rem; color: black;">Registered Successfully!</h3>
-    <p style="font-size: 15px;padding-top: 20px;">Just a friendly reminder to check your Gmail to confirm your slot for the upcoming event. </br> Don't forget to do so as soon as possible to secure your spot!</p>
+    <p style="font-size: 15px;padding-top: 20px;">Just a friendly reminder to check your Gmail [] to confirm your slot for the upcoming event. </br> Don't forget to do so as soon as possible to secure your spot!</p>
 		<br>
 		<!--<a class="btn" href="../user/eventtimeline.php">View My Event Timeline</a>-->
 	</div>
