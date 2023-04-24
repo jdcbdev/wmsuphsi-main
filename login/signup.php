@@ -338,7 +338,7 @@ if(isset($_POST['submit'])) {
                             <label class="fieldlabels details">Confirm Password:</label>
                             <input type="password" name="confirm_password" id="confirm_password" placeholder="" maxlength="12" required/>
 
-                            <p style="margin-top: 10px;font-size: 14px;font-weight: normal;color: gray;">By clicking Submit, you agree to our <a href="terms.php">Terms and Conditions</a> and that you have read our <a href="privacy.php">Privacy Policy.</a></p>
+                            <p style="margin-top: 10px;font-size: 14px;font-weight: normal;color: gray;">By clicking Submit, you agree to our <a href="terms.php" target="_blank">Terms and Conditions</a> and that you have read our <a href="privacy.php" target="_blank">Privacy Policy.</a></p>
                             
                         </div>
                         <input type="submit" name="submit" class="submit action-button" value="Submit" style="margin-top: 3rem;"/>

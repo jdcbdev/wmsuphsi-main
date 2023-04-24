@@ -1,0 +1,1 @@
+<img src="../images/content-images/terms.png" alt="">
