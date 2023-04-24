@@ -3,12 +3,16 @@ require_once '../vendor/autoload.php';
 require_once '../classes/user.class.php';
 
 
-define('SENDER_EMAIL', 'phsikemerut@gmail.com');
-define('SENDER_PASSWORD', 'olingelbmqrigrvp');
+//define('SENDER_EMAIL', 'phsikemerut@gmail.com');
+//define('SENDER_PASSWORD', 'olingelbmqrigrvp');
+
+define('SENDER_EMAIL', 'wmsuphsi@wmsuphsi.online');
+define('SENDER_PASSWORD', '@wmsuPHS1');
 
 
 // Create the Transport
-$transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+//$transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
+$transport = (new Swift_SmtpTransport('smtp.hostinger.com', 465, 'ssl'))
     ->setUsername(SENDER_EMAIL, SENDER_EMAIL)
     ->setPassword(SENDER_PASSWORD, SENDER_PASSWORD);
 
