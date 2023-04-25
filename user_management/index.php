@@ -44,8 +44,6 @@
                     </div>
                 </div>
             </main>
-            <?php require_once './pending.modal.php'; ?>
-            <?php require_once './verified.modal.php'; ?>
         </div>
     </div>
     <script>

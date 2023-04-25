@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            <!--EVENT TITLEL-->
+            <!--EVENT TITLE-->
             <label for="event_title" class="form-label" style="font-weight: bold;">Event Name</label>
             <div class="input-group">
                 <input class="form-control" type="text" name="event_title" id="event_title" required>
@@ -239,10 +239,10 @@
     // Get the value of the event date input
     const eventDate = new Date(event.target.value);
     // Set the minimum value of the registration due date input to the event date
-    regDueDateInput.min = event.target.value;
+    regDueDateInput.min < event.target.value;
     // If the current value of the registration due date input is after the event date, reset it to the event date
-    if (new Date(regDueDateInput.value) > eventDate) {
-      regDueDateInput.value = event.target.value;
+    if (new Date(regDueDateInput.value) => eventDate) {
+      regDueDateInput.value < event.target.value;
     }
   });
   
@@ -253,12 +253,18 @@
     // Get the value of the registration due date input
     const regDueDate = new Date(event.target.value);
     // If the registration due date is after the event date, show an error message and reset the input value
-    if (regDueDate > eventDate) {
+    if (regDueDate => eventDate) {
       alert('Registration due date cannot be after event date.');
-      event.target.value = eventDateInput.value;
+      event.target.value < eventDateInput.value;
     }
   });
 </script>
+
+
+
+
+
+
 
 
 <style>

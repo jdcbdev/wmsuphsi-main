@@ -372,7 +372,7 @@
 </div>
 </section>
 
-<script>
+<!--<script>
   // Get the event date input element
   const eventDateInput = document.getElementById('event_start_date');
   // Get the registration due date input element
@@ -402,7 +402,55 @@
       event.target.value = eventDateInput.value;
     }
   });
+</script>-->
+
+<script>
+// Get the event date input element
+const eventDateInput = document.getElementById('event_start_date');
+// Get the registration due date input element
+const regDueDateInput = document.getElementById('event_reg_duedate');
+
+// Set the maximum value of the registration due date input to the event start date
+regDueDateInput.max = eventDateInput.value;
+
+// When the event date changes, update the minimum and maximum values of the registration due date input
+eventDateInput.addEventListener('change', (event) => {
+  // Get the value of the event date input
+  const eventDate = new Date(event.target.value);
+  // Set the minimum value of the registration due date input to the current date
+  const currentDate = new Date();
+  if (eventDate > currentDate) {
+    regDueDateInput.min = currentDate.toISOString().slice(0, 10);
+  } else {
+    regDueDateInput.min = event.target.value;
+  }
+  // Set the maximum value of the registration due date input to the event date
+  regDueDateInput.max = event.target.value;
+
+  // If the current value of the registration due date input is after the event date or before the current date, reset it to the event date or current date respectively
+  const regDueDate = new Date(regDueDateInput.value);
+  if (regDueDate > eventDate || regDueDate < currentDate) {
+    regDueDateInput.value = event.target.value;
+  }
+});
+
+// When the registration due date changes, validate that it is not after the event date or before the current date
+regDueDateInput.addEventListener('change', (event) => {
+  // Get the value of the event date input
+  const eventDate = new Date(eventDateInput.value);
+  // Get the value of the registration due date input
+  const regDueDate = new Date(event.target.value);
+  // Get the current date
+  const currentDate = new Date();
+
+  // If the registration due date is after the event date or before the current date, show an error message and reset the input value
+  if (regDueDate > eventDate || regDueDate < currentDate) {
+    alert('Registration due date should be on or before the event start date and after or equal to the current date.');
+    event.target.value = currentDate.toISOString().slice(0, 10);
+  }
+});
 </script>
+
 
 
 <style>

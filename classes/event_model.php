@@ -158,7 +158,13 @@
                     $edit_location =  htmlentities($_POST['event_location']);
                     $edit_platform =  htmlentities($_POST['event_platform']);
                     $edit_scope =  htmlentities($_POST['event_scope']);
-                    $edit_organizer =  htmlentities($_POST['event_organizer']);
+                    //$edit_organizer =  htmlentities($_POST['event_organizer']);
+                    $edit_organizer = isset($_POST['edit_organizer']) ? $_POST['edit_organizer'] : '';
+                    if (is_array($event_organizer)) {
+                        $edit_organizer = implode(',', array_map('htmlentities', $edit_organizer));
+                    } else {
+                        $edit_organizer = htmlentities($edit_organizer);
+                    }  
                     $edit_slots =  htmlentities($_POST['event_slots']);
                     $edit_start_date =  htmlentities($_POST['event_start_date']);
                     $edit_end_date =  htmlentities($_POST['event_end_date']);

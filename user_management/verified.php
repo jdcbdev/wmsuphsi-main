@@ -32,7 +32,8 @@
                 <div class="action-button">
                     <a title="Verify" href="" class="me-2 green" data-bs-toggle="modal" data-bs-target="#myModal-Verify"><i class="fa-solid fa-user-check"></i></a>
                     <a title="Edit" href="" class="me-2 green"><i class="fa-solid fa-pen-to-square"></i></a>
-                    <a title="Delete" href="" class="green"><i class="fa-solid fa-trash-can"></i></a>
+                    <a title="Delete" href="delete.php?id=<?php echo $value['id'] ?>
+                    " class="green"><i class="fa-solid fa-trash-can"></i></a>
                 </div>
             </td>
             <td>

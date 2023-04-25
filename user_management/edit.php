@@ -32,9 +32,8 @@
             <div class="content">
                 
             <!--PERSONAL INFORMATION-->
-            
+            <a class="back" href="index.php" style="color: #198754;text-decoration: none;"><i class='bx bx-caret-left'></i>Back</a>
             <div class="sub-title">Personal Information
-            <a class="back" href="index.php"><i class='bx bx-caret-left'></i>Back</a>
             </div>
             
             <?php
@@ -49,7 +48,7 @@
                 $user->id = $_GET['id'];
                 //
                 //
-                $user->firstname = htmlentities($_POST['firstname']);
+                /*$user->firstname = htmlentities($_POST['firstname']);
                 $user->middlename = htmlentities($_POST['middlename']);
                 $user->lastname = htmlentities($_POST['lastname']);
                 $user->suffix = htmlentities($_POST['suffix']);
@@ -59,6 +58,7 @@
                 $user->bldg_house_no = $_POST['bldg_house_no'];
                 $user->username = $_POST['username'];
                 $user->password = $_POST['password'];
+
                 if(isset($_POST['sex'])){
                     $user->sex = $_POST['sex'];
                 }
@@ -70,18 +70,18 @@
                 }
                 if(isset($_POST['barangay'])){
                     $user->barangay = $_POST['barangay'];
-                }
+                } */
                 if(isset($_POST['role'])){
                     $user->role = $_POST['role'];
                 }
                 if(isset($_POST['status'])){
                     $user->status = $_POST['status'];
                 }
-                if(isset($_POST['member_type'])){
+               /* if(isset($_POST['member_type'])){
                     $user->member_type = $_POST['member_type'];
-                }
+                }*/
                 // edit now / update
-                if($user->edit()){  
+                if($user->editRoleAndStatus()){  
                     //redirect user to user page after saving
                         header('location: index.php');
                     }
@@ -93,71 +93,78 @@
 
                     //
                     //
-                    $_POST['verify_one'] = $data['verify_one'];
-                    $_POST['verify_two'] = $data['verify_two'];
-
-                    $_POST['firstname'] = $data['firstname'];
-                    $_POST['middlename']= $data['middlename'];
-                    $_POST['lastname']= $data['lastname'];
-                    $_POST['suffix']= $data['suffix'];
-                    $_POST['email'] = $data['email'];
-                    $_POST['middlename'] = $data['middlename'];
-                    $_POST['contact_number'] = $data['contact_number'];
-                    $_POST['sex'] = $data['sex'];
-                    $_POST['email'] = $data['email'];
-                    $_POST['contact_number'] = $data['contact_number'];
-                    $_POST['province'] = $data['province'];
-                    $_POST['city'] = $data['city'];
-                    $_POST['barangay'] = $data['barangay'];
-                    $_POST['street_name'] = $data['street_name'];
-                    $_POST['bldg_house_no'] = $data['bldg_house_no'];
-                    $_POST['username'] = $data['username'];
-                    $_POST['password'] = $data['password'];
                     $_POST['role'] = $data['role'];
                     $_POST['status'] = $data['status'];
-                    $_POST['member_type'] = $data['member_type'];
 
                 }
 
             }
-
-
             ?>
 
+            <?php
+                require_once '../classes/user.class.php';
+                $user = new Users();
+                
+                // Check if the article ID is set in the URL
+                if (isset($_GET['id'])) {
+                    $article_id = $_GET['id'];
+                    $article = $user->fetchRecordById($article_id);
+
+                    if ($article) {
+
+                $profile_picture = $article['profile_picture'];
+                $background_image = $article['background_image'];
+                $verify_one = $article['verify_one'];
+                $verify_two = $article['verify_two'];
+                $verify_three = $article['verify_three'];
+                $verify_four = $article['verify_four'];     
+                $verify_five = $article['verify_five'];
+                $verify_six = $article['verify_six'];
+                $verify_seven = $article['verify_seven'];
+                $verify_eight = $article['verify_eight'];
+            ?>
+            <link rel="stylesheet" href="../css/user.css">
             <form action="edit.php?id=<?php echo $_GET['id']?>" method="post" enctype="multipart/form-data">
 
-
+            
                 <div class="user-details">
-                    
+
+                    <div class="profile-container" style="height: 200px; ;margin-bottom: 30px;">
+                        <img src="../uploads/<?php echo $background_image; ?>" class="background-image" alt="Background Image" disabled>
+                            <div class="profile-wrapper">
+                                <img src="../uploads/<?php echo $profile_picture; ?>" class="profile-image" alt="Profile Image" disabled>
+                            </div>
+                    </div>
+                                    
                     <div class="input-box">
                         <span class="details">Firstname</span>
-                        <input type="text" name="firstname" placeholder="" required value="<?php if(isset($_POST['firstname'])) { echo $_POST['firstname']; } ?>">
+                        <input type="text" name="firstname" placeholder=""  value="<?php echo $article['firstname'] ?>" disabled>
                     </div>
 
         
                     <div class="input-box">
                         <span class="details-opt">Middlename</span>
-                        <input type="text" name="middlename" placeholder="" value="<?php if(isset($_POST['middlename'])) { echo $_POST['middlename']; } ?>">
+                        <input type="text" name="middlename" placeholder="" value="<?php echo $article['middlename'] ?>" disabled>
                     </div>
 
                     <div class="input-box">
                         <span class="details">Lastname</span>
-                        <input type="text" name="lastname"  placeholder="" required value="<?php if(isset($_POST['lastname'])) { echo $_POST['lastname']; } ?>">
+                        <input type="text" name="lastname"  placeholder=""  value="<?php echo $article['lastname'] ?>" disabled>
                     </div>
 
                     <div class="input-box">
                         <span class="details-opt">Suffix</span>
-                        <input type="text" name="suffix" placeholder="" value="<?php if(isset($_POST['suffix'])) { echo $_POST['suffix']; } ?>">
+                        <input type="text" name="suffix" placeholder="" value="<?php echo $article['suffix'] ?>" disabled>
                     </div>
 
                     <div class="input-box">
                         <span class="details">Email</span>
-                        <input type="email" name="email" placeholder="" required value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>">
+                        <input type="email" name="email" placeholder=""  value="<?php echo $article['email'] ?>" disabled>
                     </div>
 
                     <div class="input-box">
                     <span class="details">Sex</span>
-                    <select name="sex" id="sex" required>
+                    <select name="sex" id="sex" disabled>
                         <option value="Male" <?php if(isset($_POST['sex']) && $_POST['sex'] == 'Male') { echo 'selected'; } ?> >Male</option>
                         <option value="Female" <?php if(isset($_POST['sex']) && $_POST['sex'] == 'Female') { echo 'selected'; } ?>>Female</option>
                     </select>
@@ -165,45 +172,75 @@
 
                     <div class="input-box">
                         <span class="details">Contact No.</span>
-                        <input type="text" name="contact_number" id="contact_number" placeholder="" required value="<?php if(isset($_POST['contact_number'])) { echo $_POST['contact_number']; } ?>">
+                        <input type="text" name="contact_number" id="contact_number" placeholder="" required value="<?php echo $article['contact_number'] ?>" disabled>
                     </div>
 
                     <div class="input-box">
                     <span class="details">Province</span>
-                    <select name="province" id="province" required>
+                    <select name="province" id="province" disabled>
                         <option value="">Select Province</option>
-                        <option value="City of Isabela" <?php if(isset($_POST['province']) && $_POST['province'] == 'City of Isabela') { echo 'selected'; } ?>>City of Isabela</option>
-                        <option value="Zamboanga del Norte" <?php if(isset($_POST['province']) && $_POST['province'] == 'Zamboanga del Norte') { echo 'selected'; } ?>>Zamboanga del Norte</option>
-                        <option value="Zamboanga Sibugay" <?php if(isset($_POST['province']) && $_POST['province'] == 'Zamboanga Sibugay') { echo 'selected'; } ?>>Zamboanga Sibugay</option>
-                        <option value="Zamboanga del Sur" <?php if(isset($_POST['province']) && $_POST['province'] == 'Zamboanga del Sur') { echo 'selected'; } ?>>Zamboanga del Sur</option>
+                        <option value="City of Isabela" <?php if ($article['province'] == 'City of Isabela') { echo 'selected'; } ?>>City of Isabela</option>
+                        <option value="Zamboanga del Norte" <?php if ($article['province'] == 'Zamboanga del Norte') { echo 'selected'; } ?>>Zamboanga del Norte</option>
+                        <option value="Zamboanga Sibugay" <?php if ($article['province'] == 'Zamboanga Sibugay') { echo 'selected'; } ?>>Zamboanga Sibugay</option>
+                        <option value="Zamboanga del Sur" <?php if ($article['province'] == 'Zamboanga del Sur') { echo 'selected'; } ?>>Zamboanga del Sur</option>
                     </select>
                     </div>
 
                     <div class="input-box">
                     <span class="details">City/Municipality</span>
-                    <select name="city" id="city" required>
-                        <option value=""  <?php if(isset($_POST['province']) && $_POST['province'] == '') { echo 'selected'; } ?>>Select City/Municipality</option>
+                    <select name="city" id="city" disabled>
+                        <option value=""  <?php if ($article['city'] == '') { echo 'selected'; } ?>>Select City/Municipality</option>
                     </select>
                     </div>
 
                     <div class="input-box">
                     <span class="details">Barangay</span>
-                    <select name="barangay" id="barangay" required value="<?php if(isset($_POST['barangay'])) { echo $_POST['barangay']; } ?>">
+                    <select name="barangay" id="barangay" disabled value="<?php if(isset($article['barangay'])) { echo $article['barangay']; } ?>">
                         <option value="">Select Barangay</option>
                     </select>
                     </div>
 
                     <div class="input-box">
                         <span class="details-opt">Street Name</span>
-                        <input type="text" name="street_name" placeholder=""  value="<?php if(isset($_POST['street_name'])) { echo $_POST['street_name']; } ?>">
+                        <input type="text" name="street_name"  disabled placeholder=""  value="<?php echo $article['street_name'] ?>">
                     </div>
 
                     <div class="input-box">
                         <span class="details-opt">Building/House No.</span>
-                        <input type="text" name="bldg_house_no" placeholder="" value="<?php if(isset($_POST['bldg_house_no'])) { echo $_POST['bldg_house_no']; } ?>">
+                        <input type="text" name="bldg_house_no" disabled placeholder="" value="<?php echo $article['bldg_house_no'] ?>">
                     </div>
+                    </div>
+                    
+                    <div class="sub-title">Member Types Application</div><br>
+                    <div class="input-box">
+
+                    <div class="user-details" style="display: contents;">
+                        <div class="image-container">
+                        <p>Student ID</p>
+                            <img src="../uploads/<?php echo $verify_one; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
+                            <img src="../uploads/<?php echo $verify_two; ?>" alt="" style="width: 25%; height: auto; ">
+                        </div>
+
+                    <div class="image-container">
+                    <p>Alumni ID</p>
+                            <img src="../uploads/<?php echo $verify_three; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
+                            <img src="../uploads/<?php echo $verify_four; ?>" alt="" style="width: 25%; height: auto; ">
+                    </div>
+                    <div class="image-container">
+                    <p>Employee ID</p>
+                            <img src="../uploads/<?php echo $verify_five; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
+                            <img src="../uploads/<?php echo $verify_six; ?>" alt="" style="width: 25%; height: auto; ">
                     </div>
 
+                    
+                    <div class="image-container">
+                    <p>Not-Affiliated (Outside WMSU) ID</p>
+                            <img src="../uploads/<?php echo $verify_seven; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
+                            <img src="../uploads/<?php echo $verify_eight; ?>" alt="" style="width: 25%; height: auto; ">
+                    </div>
+
+                    </div>
+                    
                     <div class="sub-title">User Privelages</div><br>
                     <div class="user-details">
 
@@ -218,17 +255,6 @@
                         <option value="unesco_c_admin" <?php if(isset($_POST['role']) && $_POST['role'] == 'unesco_c_admin') { echo 'selected'; } ?>>UNESCO Content Admin</option>
                     </select>
                     </div>
-
-                    <div class="input-box">
-                    <span class="details">Member Type</span>
-                    <select name="member_type" id="member_type" required>
-                        <option value="Alumni" <?php if(isset($_POST['member_type']) && $_POST['member_type'] == 'Alumni') { echo 'selected'; } ?>>Alumni</option>
-                        <option value="Employee" <?php if(isset($_POST['member_type']) && $_POST['member_type'] == 'Employee') { echo 'selected'; } ?>>Employee</option>
-                        <option value="Student" <?php if(isset($_POST['member_type']) && $_POST['member_type'] == 'Student') { echo 'selected'; } ?>>Student</option>
-                        <option value="None" <?php if(isset($_POST['member_type']) && $_POST['member_type'] == 'None') { echo 'selected'; } ?>>None</option>
-                    </select>
-                    </div>
-
                     
                     <div class="input-box">
                     <span class="details">Status</span>
@@ -237,39 +263,29 @@
                         <option value="Verified" <?php if(isset($_POST['status']) && $_POST['status'] == 'Verified') { echo 'selected'; } ?>>Verified</option>
                     </select>
                     </div>
-
                     </div>
-                        
-                    <!--ACCOUNT CREDENTIALS-->
-                    <div class="sub-title">Account Credentials</div><br>
-                    <div class="user-details">
-                    <div class="input-box">
-                        <span class="details">Username</span>
-                        <input type="text" name="username" placeholder="" required value="<?php if(isset($_POST['username'])) { echo $_POST['username']; } ?>">
-                    </div>
-                    <div class="input-box">
-                        <span class="details">Old Password</span> 
-                        <input type="password" id="password" name="password" maxlength="12" placeholder="" value="<?php if(isset($_POST['password'])) { echo $_POST['password']; } ?>" >
-                        <span id="password-strength"></span>
-                        
-                    </div>
-                        
-                    <div class="input-box">
-                        <span class="details">Create New Password</span>
-                        <input type="password" id="confirm_password" name="confirm_password" maxlength="12" placeholder="">
-                    </div>
-                    </div>
-
+        
                     <!--SIGN UP BUTTON-->
                     <div class="button">
                     <input type="submit" name="submit"  value="Save">
                     </div>
                 </form>
 
+                <?php
+                    } else {
+                    // Display error message if article is not found
+                    echo 'Article not found.';
+                    }
+                } else {
+                    // Display error message if article ID is not set in URL
+                    echo 'Invalid article ID.';
+                }
+                ?>
 
-                </div>
+
         </div>
     </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="../js/signup.js"></script>

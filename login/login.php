@@ -64,6 +64,14 @@
             $_SESSION['role'] = $output['role'];
             $_SESSION['token'] = $output['token'];
             $_SESSION['verified'] = $output['verified'];
+
+            $_SESSION['firstname'] = $output['firstname'];
+            $_SESSION['middlename'] = $output['middlename'];
+            $_SESSION['lastname'] = $output['lastname'];
+            $_SESSION['steet_name'] = $output['street_name'];
+            $_SESSION['bldg_house_no'] = $output['bldg_house_no'];
+            $_SESSION['suffix'] = $output['suffix'];
+            
             $_SESSION['user_id'] = $output['id'];
 
             //display the appropriate dashboard page for the following role:

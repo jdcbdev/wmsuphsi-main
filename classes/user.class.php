@@ -10,7 +10,7 @@ Class Users{
     public $lastname;
     public $suffix;
     public $sex;
-    public $email = "";
+    public $email;
     public $contact_number;
     public $province;
     public $city;
@@ -247,33 +247,6 @@ Class Users{
         return false;
     }    
 
-   /* function showEmail(){
-        $sql = "SELECT * FROM user_acc_data ORDER BY email ASC;";
-        $query=$this->db->connect()->prepare($sql);
-        if($query->execute()){
-            $data = $query->fetchAll();
-        }
-        return $data;
-    }
-
-    function showPassword(){
-        $sql = "SELECT * FROM user_acc_data ORDER BY password ASC;";
-        $query=$this->db->connect()->prepare($sql);
-        if($query->execute()){
-            $data = $query->fetchAll();
-        }
-        return $data;
-    }
-
-    function showUsername(){
-        $sql = "SELECT * FROM user_acc_data ORDER BY username ASC;";
-        $query=$this->db->connect()->prepare($sql);
-        if($query->execute()){
-            $data = $query->fetchAll();
-        }
-        return $data;
-    } */
-
     function showUsername(){
         $sql = "SELECT * FROM user_acc_data ORDER BY username ASC;";
         $query=$this->db->query($sql);
@@ -296,7 +269,7 @@ Class Users{
     }
 
     
-    function edit(){
+    /*function edit(){
         $sql = "UPDATE user_acc_data SET verify_one=:verify_one, verify_two=:verify_two, verify_three=:verify_three, verify_four=:verify_four, verify_five=:verify_five, verify_six=:verify_six, verify_seven=:verify_seven, verify_eight=:verify_eight, firstname=:firstname, lastname=:lastname, email=:email, middlename=:middlename, suffix=:suffix, sex=:sex, contact_number=:contact_number, province=:province, city=:city, barangay=:barangay, street_name=:street_name, bldg_house_no=:bldg_house_no, username=:username, password=:password, role=:role, status=:status, member_type=:member_type WHERE id = :id;";
         
         $query=$this->db->connect()->prepare($sql);
@@ -325,7 +298,61 @@ Class Users{
         $query->bindParam(':role', $this->role);
         $query->bindParam(':status', $this->status);
         $query->bindParam(':member_type', $this->member_type);
+        $query->bindParam(':id', $this->id);
 
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }*/
+
+        function editUser(){
+        $sql = "UPDATE user_acc_data SET verify_one=:verify_one, verify_two=:verify_two, verify_three=:verify_three, verify_four=:verify_four, verify_five=:verify_five, verify_six=:verify_six, verify_seven=:verify_seven, verify_eight=:verify_eight, firstname=:firstname, lastname=:lastname, email=:email, middlename=:middlename, suffix=:suffix, sex=:sex, contact_number=:contact_number, province=:province, city=:city, barangay=:barangay, street_name=:street_name, bldg_house_no=:bldg_house_no, username=:username, password=:password, role=:role, status=:status, member_type=:member_type WHERE id = :id;";
+        
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':verify_one', $this->verify_one);
+        $query->bindParam(':verify_two', $this->verify_two);
+        $query->bindParam(':verify_three', $this->verify_three);
+        $query->bindParam(':verify_four', $this->verify_four);
+        $query->bindParam(':verify_five', $this->verify_five);
+        $query->bindParam(':verify_six', $this->verify_six);
+        $query->bindParam(':verify_seven', $this->verify_seven);
+        $query->bindParam(':verify_eight', $this->verify_eight);
+        $query->bindParam(':firstname', $this->firstname);
+        $query->bindParam(':lastname', $this->lastname);
+        $query->bindParam(':email', $this->email);
+        $query->bindParam(':middlename', $this->middlename);
+        $query->bindParam(':suffix', $this->suffix);
+        $query->bindParam(':sex', $this->sex);
+        $query->bindParam(':contact_number', $this->contact_number);
+        $query->bindParam(':province', $this->province);
+        $query->bindParam(':city', $this->city);
+        $query->bindParam(':barangay', $this->barangay);
+        $query->bindParam(':street_name', $this->street_name);
+        $query->bindParam(':bldg_house_no', $this->bldg_house_no);
+        $query->bindParam(':username', $this->username);
+        $query->bindParam(':password', $this->password);
+        $query->bindParam(':role', $this->role);
+        $query->bindParam(':status', $this->status);
+        $query->bindParam(':member_type', $this->member_type);
+        $query->bindParam(':id', $this->id);
+
+        if($query->execute()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    function editRoleAndStatus(){
+        $sql = "UPDATE user_acc_data SET role=:role, status=:status, WHERE id = :id;";
+        
+        $query=$this->db->connect()->prepare($sql);
+        $query->bindParam(':role', $this->role);
+        $query->bindParam(':status', $this->status);
         $query->bindParam(':id', $this->id);
 
         if($query->execute()){
