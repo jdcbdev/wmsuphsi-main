@@ -348,7 +348,7 @@ Class Users{
     }
 
     function editRoleAndStatus(){
-        $sql = "UPDATE user_acc_data SET role=:role, status=:status, WHERE id = :id;";
+        $sql = "UPDATE user_acc_data SET role=:role, status=:status WHERE id = :id;";
         
         $query=$this->db->connect()->prepare($sql);
         $query->bindParam(':role', $this->role);

@@ -1,10 +1,10 @@
-<?php if($_SESSION['role'] == 'super_admin'){ ?>
+<?php if($_SESSION['role'] == 'super_admin' && $_SESSION['verified']== 1){ ?>
 <nav id="sidebarMenu" class="col-md-3 col-lg-3 col-xl-2 d-md-block background-super-admin sidebar collapse">
 
-<?php } else if($_SESSION['role'] == 'phsi_admin' || ($_SESSION['role'] == 'phsi_content_admin')) { ?>
+<?php } else if($_SESSION['role'] == 'phsi_admin' || ($_SESSION['role'] == 'phsi_content_admin') && $_SESSION['verified']== 1) { ?>
     <nav id="sidebarMenu" class="col-md-3 col-lg-3 col-xl-2 d-md-block background-color-green sidebar-phsi collapse">
         
-<?php } else if ($_SESSION['role'] == 'unesco_admin' || ($_SESSION['role'] == 'unesco_content_admin')) { ?>
+<?php } else if ($_SESSION['role'] == 'unesco_admin' || ($_SESSION['role'] == 'unesco_content_admin') && $_SESSION['verified']== 1) { ?>
     <nav id="sidebarMenu" class="col-md-3 col-lg-3 col-xl-2 d-md-block background-color-maroon sidebar-unesco collapse">
 <?php } ?>
 
@@ -185,7 +185,7 @@
     </div>
 </nav>
 
-<div id="logout-dialog" class="dialog d-none" title="Logout">
+<div id="logout-dialog" class="dialog" title="Logout">
     <p><span>Are you sure you want to logout?</span></p>
 </div>
 

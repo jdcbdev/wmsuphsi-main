@@ -46,40 +46,13 @@
 
                 //sanitize user inputs
                 $user->id = $_GET['id'];
-                //
-                //
-                /*$user->firstname = htmlentities($_POST['firstname']);
-                $user->middlename = htmlentities($_POST['middlename']);
-                $user->lastname = htmlentities($_POST['lastname']);
-                $user->suffix = htmlentities($_POST['suffix']);
-                $user->email = htmlentities($_POST['email']);
-                $user->contact_number = $_POST['contact_number'];   
-                $user->street_name = $_POST['street_name'];
-                $user->bldg_house_no = $_POST['bldg_house_no'];
-                $user->username = $_POST['username'];
-                $user->password = $_POST['password'];
 
-                if(isset($_POST['sex'])){
-                    $user->sex = $_POST['sex'];
-                }
-                if(isset($_POST['province'])){
-                    $user->province = $_POST['province'];
-                }
-                if(isset($_POST['city'])){
-                    $user->city = $_POST['city'];
-                }
-                if(isset($_POST['barangay'])){
-                    $user->barangay = $_POST['barangay'];
-                } */
                 if(isset($_POST['role'])){
                     $user->role = $_POST['role'];
                 }
                 if(isset($_POST['status'])){
                     $user->status = $_POST['status'];
                 }
-               /* if(isset($_POST['member_type'])){
-                    $user->member_type = $_POST['member_type'];
-                }*/
                 // edit now / update
                 if($user->editRoleAndStatus()){  
                     //redirect user to user page after saving
@@ -91,10 +64,9 @@
                 if ($user->fetch($_GET['id'])){
                     $data = $user->fetch($_GET['id']);
 
-                    //
-                    //
                     $_POST['role'] = $data['role'];
                     $_POST['status'] = $data['status'];
+                    
 
                 }
 
@@ -163,11 +135,8 @@
                     </div>
 
                     <div class="input-box">
-                    <span class="details">Sex</span>
-                    <select name="sex" id="sex" disabled>
-                        <option value="Male" <?php if(isset($_POST['sex']) && $_POST['sex'] == 'Male') { echo 'selected'; } ?> >Male</option>
-                        <option value="Female" <?php if(isset($_POST['sex']) && $_POST['sex'] == 'Female') { echo 'selected'; } ?>>Female</option>
-                    </select>
+                        <span class="details">Sex</span>
+                        <input type="text" name="sex" placeholder=""  value="<?php echo $article['sex'] ?>" disabled>
                     </div>
 
                     <div class="input-box">
@@ -176,28 +145,18 @@
                     </div>
 
                     <div class="input-box">
-                    <span class="details">Province</span>
-                    <select name="province" id="province" disabled>
-                        <option value="">Select Province</option>
-                        <option value="City of Isabela" <?php if ($article['province'] == 'City of Isabela') { echo 'selected'; } ?>>City of Isabela</option>
-                        <option value="Zamboanga del Norte" <?php if ($article['province'] == 'Zamboanga del Norte') { echo 'selected'; } ?>>Zamboanga del Norte</option>
-                        <option value="Zamboanga Sibugay" <?php if ($article['province'] == 'Zamboanga Sibugay') { echo 'selected'; } ?>>Zamboanga Sibugay</option>
-                        <option value="Zamboanga del Sur" <?php if ($article['province'] == 'Zamboanga del Sur') { echo 'selected'; } ?>>Zamboanga del Sur</option>
-                    </select>
+                        <span class="details">Province</span>
+                        <input type="text" name="province" placeholder=""  value="<?php echo $article['province'] ?>" disabled>
                     </div>
 
                     <div class="input-box">
-                    <span class="details">City/Municipality</span>
-                    <select name="city" id="city" disabled>
-                        <option value=""  <?php if ($article['city'] == '') { echo 'selected'; } ?>>Select City/Municipality</option>
-                    </select>
+                        <span class="details">City/Municipality</span>
+                        <input type="text" name="city" placeholder=""  value="<?php echo $article['city'] ?>" disabled>
                     </div>
 
                     <div class="input-box">
-                    <span class="details">Barangay</span>
-                    <select name="barangay" id="barangay" disabled value="<?php if(isset($article['barangay'])) { echo $article['barangay']; } ?>">
-                        <option value="">Select Barangay</option>
-                    </select>
+                        <span class="details">Barangay</span>
+                        <input type="text" name="barangay" placeholder=""  value="<?php echo $article['barangay'] ?>" disabled>
                     </div>
 
                     <div class="input-box">
@@ -211,35 +170,53 @@
                     </div>
                     </div>
                     
-                    <div class="sub-title">Member Types Application</div><br>
+                    <div class="sub-title">Member Type/s Application</div><br>
                     <div class="input-box">
 
                     <div class="user-details" style="display: contents;">
+
+                    <?php if (!empty($verify_one) || !empty($verify_two)) { ?>
                         <div class="image-container">
-                        <p>Student ID</p>
+                            <p>Student ID</p>
                             <img src="../uploads/<?php echo $verify_one; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_two; ?>" alt="" style="width: 25%; height: auto; ">
+                            <!--<input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve">-->
                         </div>
+                    <?php } ?>
 
-                    <div class="image-container">
-                    <p>Alumni ID</p>
+                    <?php if (!empty($verify_three) || !empty($verify_four)) { ?>
+                        <div class="image-container">
+                            <p>Alumni ID</p>
                             <img src="../uploads/<?php echo $verify_three; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_four; ?>" alt="" style="width: 25%; height: auto; ">
-                    </div>
-                    <div class="image-container">
-                    <p>Employee ID</p>
+                            <!--<input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve">-->
+                        </div>
+                    <?php } ?>
+
+                    <?php if (!empty($verify_five) || !empty($verify_six)) { ?>
+                        <div class="image-container">
+                            <p>Employee ID</p>
                             <img src="../uploads/<?php echo $verify_five; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_six; ?>" alt="" style="width: 25%; height: auto; ">
-                    </div>
+                            <!--<input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve">-->
+                        </div>
+                    <?php } ?>
 
-                    
-                    <div class="image-container">
-                    <p>Not-Affiliated (Outside WMSU) ID</p>
+                    <?php if (!empty($verify_seven) || !empty($verify_eight)) { ?>
+                        <div class="image-container">
+                            <p>Not-Affiliated (Outside WMSU) ID</p>
                             <img src="../uploads/<?php echo $verify_seven; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_eight; ?>" alt="" style="width: 25%; height: auto; ">
-                    </div>
+                            <!--<input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve">-->
+                        </div>
+                    <?php } ?>
 
                     </div>
+
                     
                     <div class="sub-title">User Privelages</div><br>
                     <div class="user-details">
@@ -286,6 +263,68 @@
         </div>
     </div>
 </div>
+
+<!--<div id="approve-dialog" class="dialog" title="Approve">
+    <p><span>Please confirm that you want to approve this application for [member type].</span></p>
+</div>
+
+<div id="decline-dialog" class="dialog" title="Decline">
+    <p><span>Please confirm that you want to decline this application for [member type]</span></p>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#approve-dialog").dialog({
+            resizable: false,
+            draggable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            autoOpen: false
+        });
+        $(".verify-btn").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#verif-id-btn").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "No" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#verif-id-btn").dialog("open");
+        });
+    });
+
+    $(document).ready(function() {
+        $("#decline-dialog").dialog({
+            resizable: false,
+            draggable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            autoOpen: false
+        });
+        $(".decline-btn").on('click', function(e) {
+            e.preventDefault();
+            var theHREF = $(this).attr("href");
+
+            $("#decline-id-btn").dialog('option', 'buttons', {
+                "Yes" : function() {
+                    window.location.href = theHREF;
+                },
+                "No" : function() {
+                    $(this).dialog("close");
+                }
+            });
+
+            $("#decline-id-btn").decline("open");
+        });
+    });
+</script>-->
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="../js/signup.js"></script>

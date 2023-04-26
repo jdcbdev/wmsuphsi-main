@@ -176,7 +176,7 @@
 
 
 <div class="input-group">
-    <input type="submit" id="submit" name="submit" value="Add Event" class="form-btn btn-primary">
+    <input type="submit" id="submit" name="submit" value="Save Event" class="form-btn btn-primary">
     <input type="reset" id="btn-reset" name="btn-reset" hidden>
 </div>
 </form>

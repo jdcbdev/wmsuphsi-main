@@ -152,8 +152,8 @@ function topFunction() {
    require_once 'carousel/carousel.php';
 ?>
 
-<?php    if(isset($_SESSION['logged-in'])) { ?>
-<!------------------------------------------- Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES Start -------------------------------------------------------------------------------------------->
+<!--<?php    if(isset($_SESSION['logged-in'])) { ?>
+----------------------------------------- Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES Start --------------------------------------------------------------------------------------------
 <section class="free_content">
    <div class="image">
       <img src="images/content-images/unesco-p2.jpg"alt="">
@@ -165,7 +165,7 @@ function topFunction() {
    </div>
 </section>
 
-<!-------------------------------------------  Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES End -------------------------------------------------------------------------------------------->
+-------------------------------------------  Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES End -------------------------------------------------------------------------------------------->
 
 
 <section class="home-courses">

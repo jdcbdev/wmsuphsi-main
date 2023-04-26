@@ -260,13 +260,6 @@
   });
 </script>
 
-
-
-
-
-
-
-
 <style>
     .form-label {
         display: block;

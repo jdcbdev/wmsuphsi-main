@@ -22,6 +22,7 @@ $mailer = new Swift_Mailer($transport);
 
 function sendSlotConfirmation($userEmail, $token, $firstname) 
 {
+
     global $mailer;
     $body = '<!DOCTYPE html>
     <html lang="en">
@@ -48,15 +49,15 @@ function sendSlotConfirmation($userEmail, $token, $firstname)
     <body>
       <div class="wrapper">
         <p>Dear '. $firstname .',</p>
-        <p>We are pleased to confirm that your slot for the [event/meeting/activity] on [date] has been reserved successfully. 
-        We are thrilled to have you as a participant in this [event/meeting/activity], and we are looking forward to your presence.
+        <p>We are pleased to confirm that your slot for the event has been reserved successfully. 
+        We are thrilled to have you as a participant in this event, and we are looking forward to your presence.
         To ensure your slot is secured, we kindly ask you to confirm your attendance by clicking on
         the button below within the next [time frame] to avoid cancellation of your slot.</p>
         
         <p>This will help us to make sure that we have the right number of participants for the event.
         Please note that if we do not hear back from you within the given time frame, 
         your slot may be given to someone else on the waiting list.
-        If you have any questions or concerns about the [event/meeting/activity], please do not hesitate to contact us. We are always happy to help.</p>
+        If you have any questions or concerns about the event, please do not hesitate to contact us. We are always happy to help.</p>
         
         <a href="https://wmsuphsi.online/slot_confirmation.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">CONFIRM MY SLOT</a>
 
@@ -71,7 +72,7 @@ function sendSlotConfirmation($userEmail, $token, $firstname)
     </html>';
 
     // Create a message
-    $message = (new Swift_Message('Confirming Your Slot for [Event/Meeting/Activity]'))
+    $message = (new Swift_Message('Confirming Your Slot!'))
         ->setFrom([SENDER_EMAIL => 'WMSU - Peace and Human Security Institute'])
         ->setTo($userEmail)
         ->setBody($body, 'text/html');
@@ -85,5 +86,6 @@ function sendSlotConfirmation($userEmail, $token, $firstname)
         return false;
     }
 }
+
 //<a href="http://localhost/wmsuphsi-main/slot_confirmation.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">CONFIRM MY SLOT</a>
 //<a href="https://wmsuphsi-main/slot_confirmation.php?token=' . $token . '" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">CONFIRM MY SLOT</a>

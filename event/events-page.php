@@ -183,7 +183,7 @@ if(isset($_POST['submit'])) {
                 
                 
                 
-                <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="justify-content: center;display: flex;"></div>
+                <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="justify-content: center;display: flex;" required></div>
 
                 <input type="submit" id="submit" name="submit" value="Submit">  
             </form>
@@ -230,22 +230,25 @@ if(isset($_POST['submit'])) {
     <p class="about-heading">About this event</p>
     <p><?php echo $article['event_about'] ?></p>
 </section>
-
 <section class="event-information">
     <div class="event-info-container">
         <i class="bi bi-clock"><span>When</span></i>
-        <p>Sept 28, 2022 11:00 AM - 5:00 PM</p>
-        <i class="bi bi-geo-alt"><span>Where</span></i>
-        <p><?php echo $article['event_location'] ?></p>
+        <p><?php echo 'Date: '.$article['event_start_date']?></p>
+        <p><?php echo 'Time: '.$article['event_start_time'].' - '.$article['event_end_time']?></p>
+        <?php if (!empty($article['event_location'])) : ?>
+            <i class="bi bi-geo-alt"><span>Where</span></i>
+            <p><?php echo $article['event_location'] ?></p>
+        <?php endif; ?>
         <i class="bi bi-eye"><span>Scope</span></i>
         <p><?php echo $article['event_scope'] ?></p>
         <i class="bi bi-people"><span>Slots</span></i>
         <p><?php echo $article['event_slots'] ?></p>
-        <i class="bi bi-laptop"><span>Platform</span></i>
-        <p><?php echo $article['event_platform'] ?></p>
+        <?php if (!empty($article['event_platform'])) : ?>
+            <i class="bi bi-laptop"><span>Platform</span></i>
+            <p><?php echo $article['event_platform'] ?></p>
+        <?php endif; ?>
     </div>
 </section>
-
 
 
 <section class="event-organizers">

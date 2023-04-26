@@ -91,9 +91,9 @@
                             <a class="nav-link">All<span class="counter" id="counter-all">0</span></a>
                         </li>-->
 
-                        <li class="nav-item" id="add-account">
+                        <!--<li class="nav-item" id="add-account">
                             <a class="nav-link" id="add-new">Add Guest</a>
-                        </li>
+                        </li>-->
                     </ul>
                     <div class="table-responsive py-3 table-container">
                         

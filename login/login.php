@@ -64,14 +64,17 @@
             $_SESSION['role'] = $output['role'];
             $_SESSION['token'] = $output['token'];
             $_SESSION['verified'] = $output['verified'];
-
+            $_SESSION['province'] = $output['province'];
+            $_SESSION['city'] = $output['city'];
+            $_SESSION['barangay'] = $output['barangay'];
             $_SESSION['firstname'] = $output['firstname'];
             $_SESSION['middlename'] = $output['middlename'];
             $_SESSION['lastname'] = $output['lastname'];
-            $_SESSION['steet_name'] = $output['street_name'];
+            $_SESSION['street_name'] = $output['street_name'];
             $_SESSION['bldg_house_no'] = $output['bldg_house_no'];
             $_SESSION['suffix'] = $output['suffix'];
-            
+            $_SESSION['username'] = $output['username'];
+            $_SESSION['password'] = $output['password'];           
             $_SESSION['user_id'] = $output['id'];
 
             //display the appropriate dashboard page for the following role:
@@ -110,7 +113,7 @@
             
             <input type="password" id="password" name="password" placeholder="Enter password" required tabindex="2">
 
-            <!--div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem; display: flex;justify-content: center;" required></div>-->
+            <div class="g-recaptcha" data-sitekey="6Ley7zslAAAAAEJKMa5RypSUqOkVHkS2cq5isadS" style="padding-top: 2rem; display: flex;justify-content: center;" required></div>
 
             <div class="flex" style="display: flex; padding: 10px 10px 10px 1px;">
                 <a href="#">Forgot password?</a>

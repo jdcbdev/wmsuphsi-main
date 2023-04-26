@@ -511,6 +511,14 @@ table#table-pending tr td{
     vertical-align: middle;
 }
 
+table#table-verified tr td{
+    vertical-align: middle;
+}
+
+
+
+
+
 table#table-faculty tr td{
     vertical-align: middle;
 }

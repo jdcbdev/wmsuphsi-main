@@ -36,7 +36,7 @@
                 <img src="../uploads/<?php echo $_SESSION['profile_picture']; ?>" alt="mdo" width="32" height="32" class="rounded-circle">
             </a>
             <ul class="dropdown-menu text-small dropdown-user">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="../admin/admin_profile.php">Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="../login/logout.php">Sign out</a></li>
             </ul>

@@ -247,6 +247,7 @@
             
             <!--EVENT BANNER UPLOAD BUTTON-->
             <div class="input-group">
+            <p style="font-size: 12px;color: red;font-style: italic;font-weight: lighter;">Max of 5mb. Accepted File Types: .jpg, .jpeg, .png</p>
                 <input type="file" name="event_banner" id="event_banner" accept="image/*" onchange="showPreview(event)" required>
             </div>  
 
@@ -371,38 +372,6 @@
     </div>
 </div>
 </section>
-
-<!--<script>
-  // Get the event date input element
-  const eventDateInput = document.getElementById('event_start_date');
-  // Get the registration due date input element
-  const regDueDateInput = document.getElementById('event_reg_duedate');
-  
-  // When the event date changes, update the minimum value of the registration due date input
-  eventDateInput.addEventListener('change', (event) => {
-    // Get the value of the event date input
-    const eventDate = new Date(event.target.value);
-    // Set the minimum value of the registration due date input to the event date
-    regDueDateInput.min = event.target.value;
-    // If the current value of the registration due date input is after the event date, reset it to the event date
-    if (new Date(regDueDateInput.value) > eventDate) {
-      regDueDateInput.value = event.target.value;
-    }
-  });
-  
-  // When the registration due date changes, validate that it is not after the event date
-  regDueDateInput.addEventListener('change', (event) => {
-    // Get the value of the event date input
-    const eventDate = new Date(eventDateInput.value);
-    // Get the value of the registration due date input
-    const regDueDate = new Date(event.target.value);
-    // If the registration due date is after the event date, show an error message and reset the input value
-    if (regDueDate > eventDate) {
-      alert('Registration due date cannot be after event date.');
-      event.target.value = eventDateInput.value;
-    }
-  });
-</script>-->
 
 <script>
 // Get the event date input element
