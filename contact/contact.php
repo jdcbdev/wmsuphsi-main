@@ -50,14 +50,14 @@
             </style>
             </div>
 
-      <form action="">
+      <!--<form action="">
          <h3>Send us a message</h3>
          <input type="text" placeholder="Name" class="box">
          <input type="email" placeholder="Email" class="box">
          <input type="number" placeholder="Phone" class="box">
          <textarea name="" class="box" placeholder="Message" id="" cols="30" rows="10"></textarea>
          <input type="submit" value="Send message" class="btn">
-      </form>
+      </form>-->
 
    </div>
 
