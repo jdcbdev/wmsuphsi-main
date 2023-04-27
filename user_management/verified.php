@@ -45,7 +45,7 @@
         <tr>
             <td>
                 <div class="action-button">
-                    <a title="Edit" href="" class="me-2 green"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a title="Edit" href="edit.php?id=<?php echo $value['id'] ?>" class="me-2 green"><i class="fa-solid fa-pen-to-square"></i></a>
                     <a title="Delete" href="delete.php?id=<?php echo $value['id'] ?>" class="green"><i class="fa-solid fa-trash-can"></i></a>
                 </div>
             </td>
