@@ -23,12 +23,12 @@
             <label for="event_organizer" class="form-label" style="font-weight: bold;">Organizer</label>
             <div class="input-group" style="gap: 1rem;">
                 <div>
-                    <input type="checkbox" name="edit_organizer" id="unesco" value="">
+                <input type="checkbox" name="event_organizer[]" id="phsi" value="WMSU-PHSI" <?php if ($value['event_organizer'] == 'WMSU-PHSI') echo 'checked'; ?>>
                     <label for="unesco">WMSU-PHSI</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="edit_organizer" id="phsi" value="">
-                    <label for="phsi">WMSU UNESCO Club</label>
+                <input type="checkbox" name="event_organizer[]" id="unesco" value="WMSU UNESCO Club" <?php if ($value['event_organizer'] == 'WMSU UNESCO Club') echo 'checked'; ?>>
+                    <label for="unesco">WMSU UNESCO Club</label>
                 </div>
             </div>
 
@@ -125,12 +125,6 @@
 
 
 
-
-
-
-
-
-
 <!--EVENT SLOTS (CAPACITY)-->
 <label for="event_slots" class="form-label">Slots</label>
 <div class="input-group">
@@ -142,27 +136,27 @@
             <label for="event_scope" class="form-label" style="font-weight: bold;">Scope</label>
             <div class="input-group" style="gap: 1rem;">
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="unesco" value="Unesco">
+                <input type="checkbox" name="event_scope[]" id="student" value="Unesco" <?php if ($value['event_scope'] == 'Unesco') echo 'checked'; ?>>
                     <label for="unesco">WMSU UNESCO Club</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="student" value="Student">
+                <input type="checkbox" name="event_scope[]" id="student" value="Student" <?php if ($value['event_scope'] == 'Student') echo 'checked'; ?>>
                     <label for="student">Student</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="employee" value="Employee">
+                <input type="checkbox" name="event_scope[]" id="employee" value="Employee" <?php if ($value['event_scope'] == 'Employee') echo 'checked'; ?>>
                     <label for="none">Employee</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="alumni" value="Alumni">
+                <input type="checkbox" name="event_scope[]" id="alumni" value="Alumni" <?php if ($value['event_scope'] == 'Alumni') echo 'checked'; ?>>
                     <label for="alumni">Alumni</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="non-affiliate" value="Non-affiliate">
+                <input type="checkbox" name="event_scope[]" id="alumni" value="Non-Affiliate" <?php if ($value['event_scope'] == 'Non-Affiliate') echo 'checked'; ?>>
                     <label for="non-affiliate">Non-affiliate</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="all" value="All">
+                <input type="checkbox" name="event_scope[]" id="alumni" value="All" <?php if ($value['event_scope'] == 'All') echo 'checked'; ?>>
                     <label for="all">All</label>
                 </div>
             </div>
