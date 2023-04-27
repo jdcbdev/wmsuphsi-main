@@ -26,18 +26,50 @@
             <?php
                 require_once '../includes/admin-sidebar.php';
             ?>
+
+            <?php
+                require_once '../classes/database.php';
+                $database = new Database();
+                $db=$database->connect();
+
+                $accPending = $db->query("SELECT COUNT(id) AS acc_pending FROM user_acc_data WHERE status = 'pending'");
+                $pending = [];
+                while($row = $accPending->fetchObject()){
+                    $pending[] = $row;
+                }
+
+                $accVerified = $db->query("SELECT COUNT(id) AS acc_verified FROM user_acc_data WHERE status = 'verified'");
+                $verified = [];
+                while($row = $accVerified->fetchObject()){
+                    $verified[] = $row;
+                }
+
+                $accAll = $db->query("SELECT COUNT(id) AS total_acc FROM user_acc_data");
+                $all = [];
+                while($row = $accAll->fetchObject()){
+                    $all[] = $row;
+                }
+
+            ?>
+
             <main class="col-md-9 ms-sm-auto col-lg-9 col-xl-10 p-md-4">
                 <div class="w-100">
                     <h5 class="col-12 fw-bold mb-3 mt-3 mt-md-0">Users Account Management</h5>
                     <ul class="nav nav-tabs application">
                         <li class="nav-item active" id="li-pending">
-                            <a class="nav-link">New/Pending<span class="counter" id="counter-pending">0</span></a>
+                        <?php foreach($pending as $pending){ ?>
+                            <a class="nav-link">New/Pending<span class="counter" id="counter-pending"><?php echo $pending->acc_pending; ?></span></a>
+                        <?php } ?>
                         </li>
                         <li class="nav-item" id="li-verified">
-                            <a class="nav-link">Verified <span class="counter" id="counter-verified">0</span></a>
+                        <?php foreach($verified as $verified){ ?>
+                            <a class="nav-link">Verified <span class="counter" id="counter-verified"><?php echo $verified->acc_verified; ?></span></a>
+                        <?php } ?>
                         </li>
                         <li class="nav-item" id="li-all">
-                            <a class="nav-link">All<span class="counter" id="counter-all">0</span></a>
+                        <?php foreach($all as $all){ ?>
+                            <a class="nav-link">All<span class="counter" id="counter-all"><?php echo $all->total_acc; ?></span></a>
+                            <?php } ?>
                         </li>
                     </ul>
                     <div class="table-responsive py-3 table-container">

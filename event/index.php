@@ -33,11 +33,11 @@
                     <ul class="nav nav-tabs application">
 
                         <li class="nav-item active" id="li-upcoming">
-                            <a class="nav-link">Upcoming Events<span class="counter" id="counter-all">3</span></a>
+                            <a class="nav-link">Upcoming Events<!--<span class="counter" id="counter-all">3</span>--></a>
                         </li>
 
                         <li class="nav-item" id="li-all">
-                            <a class="nav-link">All<span class="counter" id="counter-all">3</span></a>
+                            <a class="nav-link">All<!--<span class="counter" id="counter-all">3</span>--></a>
                         </li>
 
                         <li class="nav-item" id="add-account">
