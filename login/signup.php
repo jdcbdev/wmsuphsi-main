@@ -127,6 +127,7 @@ if(isset($_POST['submit'])) {
             </div>
                 <h2 id="heading">Sign Up Your User Account</h2>
                 <p>Fill all form field to go to next step</p>
+                <p style="font-size: 12px;">ALREADY HAVE AN ACCOUNT?<a href="login.php" style="color: #107869;"> SIGN IN</a></p>
 
                 <form id="msform" action="signup.php" method="post" enctype="multipart/form-data">
                     <!-- progressbar -->
