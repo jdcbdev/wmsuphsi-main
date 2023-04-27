@@ -38,14 +38,14 @@
             </li>
             <?php } ?>
 
-            <?php if($_SESSION['role'] == 'super_admin' || $_SESSION['role'] == 'unesco_admin' || $_SESSION['role'] == 'unesco_content_admin'){ ?>
+           <!-- <?php if($_SESSION['role'] == 'super_admin' || $_SESSION['role'] == 'unesco_admin' || $_SESSION['role'] == 'unesco_content_admin'){ ?>
             <li class="nav-item">
                 <a href="../admin/unesco_events.php" class="nav-link <?php echo $unesco_events; ?>" title="UNESCO Events">
                     <i class='bx bx-send'></i>
                     <span class="links-name">UNESCO Events</span>
                 </a>
             </li>
-            <?php } ?>
+            <?php } ?>-->
 
            <!-- <?php if($_SESSION['role'] == 'super_admin' || $_SESSION['role'] == 'phsi_admin' || $_SESSION['role'] == 'phsi_content_admin'){ ?>
             <li class="nav-item">

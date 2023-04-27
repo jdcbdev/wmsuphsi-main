@@ -21,7 +21,8 @@
 
     $organizations = "";
 
-
+    $callfordonation = "";
+    $callforvolunteer = "";
 
     $user_management = "";
 

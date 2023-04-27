@@ -152,8 +152,8 @@ function topFunction() {
    require_once 'carousel/carousel.php';
 ?>
 
-<!--<?php    if(isset($_SESSION['logged-in'])) { ?>
------------------------------------------ Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES Start --------------------------------------------------------------------------------------------
+<?php    if(isset($_SESSION['logged-in'])) { ?>
+<!------------------------------------------- Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES Start --------------------------------------------------------------------------------------------
 <section class="free_content">
    <div class="image">
       <img src="images/content-images/unesco-p2.jpg"alt="">
@@ -163,12 +163,12 @@ function topFunction() {
       <p>As a member of WMSU UNESCO Club, make sure to stay informed about upcoming events and activities by hitting the button below. Don't miss out on the chance to be part of meaningful initiatives and engage with like-minded individuals.</p>
       <a href="#" class="btn">I am a Peace Mediator</a>
    </div>
-</section>
+</section>-->
 
--------------------------------------------  Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES End -------------------------------------------------------------------------------------------->
+<!-----------------------------------------  Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES End -------------------------------------------------------------------------------------------->
 
 
-<!--<section class="home-courses">
+<section class="home-courses">
 
    <h1 class="heading" style="font-size: 5rem;color: #41453e;"> CALL FOR ACTIONS</h1>
 
@@ -207,7 +207,7 @@ function topFunction() {
 
 </section>
 
-<?php } ?>-->
+<?php } ?>
 
 
 <!--------------------------------------------- Announcements Section Start ----------------------------------------------------------------------------->

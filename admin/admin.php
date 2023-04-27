@@ -188,7 +188,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: true
+            maintainAspectRatio: true   
         }
     });
 
