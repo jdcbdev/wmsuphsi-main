@@ -116,7 +116,7 @@ function topFunction() {
       <!--If user is not yet logged in, notification bell, user icon and logout will not show-->
       <?php  if(isset($_SESSION['logged-in'])) { 
       ?>
-      <div class="uil uil-bell"><a href=""></a></div>
+      <!--<div class="uil uil-bell"><a href=""></a></div>-->
 
       <a href="user/user-profile.php"><img src="uploads/<?php echo $_SESSION['profile_picture']; ?>" alt=""></a>
       <?php

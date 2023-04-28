@@ -168,47 +168,37 @@
     </div>
 
     <script>
-    $(document).ready(function() {
-        var table = $('#table-dashboard-student').DataTable({
-            responsive: true,
-            fixedHeader: true,
-            "dom": 'rt'
-        });
-        
-        // Applications by Status
-        
-        var statusChart = new Chart(document.getElementById('status-chart-1'), {
-        type: 'doughnut',
-        data: {
-            labels: ['WMSU ALUMNI', 'WMSU EMPLOYEE', 'WMSU STUDENT', 'OUTSIDE WMSU']  ,
-            datasets: [{
-                data: [20, 30, 100, 25],
-                backgroundColor: ['#ac3c60', '#82b4bb', '#255e79', '#ffa500'],
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true   
-        }
+  $(document).ready(function() {
+    var table = $('#table-dashboard-student').DataTable({
+      responsive: true,
+      fixedHeader: true,
+      "dom": 'rt'
     });
 
-    var statusChart = new Chart(document.getElementById('myChart1'), {
-        type: 'pie',
-        data: {
-            labels: ['WMSU ALUMNI', 'WMSU EMPLOYEE', 'WMSU STUDENT', 'OUTSIDE WMSU'],
-            datasets: [{
-                data: [20, 30, 100, 25],
-                backgroundColor: ['#ac3c60', '#82b4bb', '#255e79', '#ffa500' ],
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true
-        }
+    // Applications by Status
+    var statusChart = new Chart(document.getElementById('status-chart-1'), {
+      type: 'doughnut',
+      data: {
+        labels: ['WMSU ALUMNI', 'WMSU EMPLOYEE', 'WMSU STUDENT', 'OUTSIDE WMSU'],
+        datasets: [{
+          data: [20, 30, 100, 25],
+          backgroundColor: ['#ac3c60', '#82b4bb', '#255e79', '#ffa500'],
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true
+      }
     });
+
+    // Fetch data and update chart
+    $.getJSON('/api/verified-accounts', function(data) {
+      statusChart.data.datasets[0].data = data;
+      statusChart.update();
     });
-    
+  });
 </script>
+
 
 </body>
 </html>

@@ -180,6 +180,42 @@ Class Users{
         return $data;
     }
 
+    function typeStudent(){
+        $sql = "SELECT * FROM user_acc_data WHERE member_type = 'Student';";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function typeAlumni(){
+        $sql = "SELECT * FROM user_acc_data WHERE member_type = 'Alumni';";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function typeEmployee(){
+        $sql = "SELECT * FROM user_acc_data WHERE member_type = 'Employee';";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
+    function typeNone(){
+        $sql = "SELECT * FROM user_acc_data WHERE member_type = 'None';";
+        $query=$this->db->connect()->prepare($sql);
+        if($query->execute()){
+            $data = $query->fetchAll();
+        }
+        return $data;
+    }
+
     function pending(){
         $sql = "SELECT * FROM user_acc_data WHERE status = 'Pending';";
         $query=$this->db->connect()->prepare($sql);
