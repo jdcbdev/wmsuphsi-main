@@ -7,7 +7,7 @@
     <section class="container" style="">       
         <div>
             <p style="font-size: 2em;">We are thrilled to have you join us at the event! Thank you for registering. <br>
-            For future events, we suggest creating an accoun by clicking the image below to make registration a breeze. That way, you won't miss any exciting upcoming events! <br>
+            For future events, we suggest creating an account by clicking the image below to make registration a breeze. That way, you won't miss any exciting upcoming events! <br>
             See you soon.
             </p>
         </div>         
