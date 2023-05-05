@@ -7,7 +7,7 @@
 
     <section class="container" style="">       
         <div>
-            <p style="font-size: 2em;"><?php echo 'We are thrilled to have you join us at the event. Please check your email ['.$email.'] and download the QR Code we sent. See you soon!' ?></p>
+            <p style="font-size: 2em;"><?php echo 'We are thrilled to have you join us at the event. Please check your email [<span style = "font-weight: bold;">'.$email.'</span>] and download the QR Code we sent. See you soon!' ?></p>
         </div>         
         <div class="left-div" style="">
             <img  src="../images/content-images/qr.png" alt="" style="width: 50%; margin: auto; margin-bottom: 20px;">
