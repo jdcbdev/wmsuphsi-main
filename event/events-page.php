@@ -121,8 +121,6 @@ if(isset($_POST['submit'])) {
             <span class="close">&times;</span>
             <h2 style="margin: auto; font-size: 3rem;">You're almost there!</h2>
             <p style="font-size: 12px; justify-content: center; display: flex; margin: auto; width: 50;padding: 2rem; text-align: center;">To help us fight spam, please complete this verification step. </p>
-            
-            <!--<form action="events-page.php?id=<?php echo $id; ?>" class="modal-form" id="modal-form" method="post">-->
 
             <form action="events-page.php?id=<?php echo $id; ?>" class="modal-form" id="modal-form" method="post">
                
