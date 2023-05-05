@@ -15,7 +15,7 @@ if (isset($_GET['token'])) {
             $_SESSION['verified'] = true;
             $_SESSION['message'] = "Your email address has been verified successfully";
             $_SESSION['type'] = 'alert-success';
-            header('location: login/login.php');
+            header('location: login/welcome_login.php');
             exit(0);
         }
     } else {

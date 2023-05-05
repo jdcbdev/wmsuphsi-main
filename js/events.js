@@ -19,6 +19,8 @@ $(document).ready(function(e){
     //Add new
     $('#addform').on('submit', function(e){
         e.preventDefault();
+        // show the loading icon
+        $("#loading-icon").show();
         
         $.ajax({
             url: "../event/create-event.php",
@@ -33,10 +35,16 @@ $(document).ready(function(e){
                 $("#add-modal").css('display', 'none');
                 fetch();
                 alert(response);
+            },
+            complete: function(){
+                // hide the loading icon
+                $("#loading-icon").hide();
             }
         });
     });
 });
+
+
 
 //Fetch All Records
 function fetch(){
@@ -77,6 +85,7 @@ $(document).on('click', '#delete', function(e){
 $(document).on('click', '#edit', function(e){
     e.preventDefault();
     
+    
     var update_id = $(this).attr('value');
     
     $.ajax({
@@ -94,6 +103,9 @@ $(document).on('click', '#edit', function(e){
 //update
 $(document).on('submit', '#editform', function(e){
     e.preventDefault();
+    
+    // show the loading icon
+    $("#loading-icon").show();
         
     $.ajax({
         url: "../event/update-event.php",
@@ -103,10 +115,14 @@ $(document).on('submit', '#editform', function(e){
         cache: false,
         processData: false,
         success: function(response){
-            //$("#file-preview").attr('src', '');
+           // $("#file-preview").attr('src', '');
             $("#edit-modal").css('display', 'none');
             fetch();
             alert(response);
+        },
+        complete: function(){
+            // hide the loading icon
+            $("#loading-icon").hide();
         }
     });
 });

@@ -16,6 +16,7 @@
     <!-- always use echo to output PHP values -->
     <td>
         <div class="action-button">
+            <a title="View" href="../news/news-page.php?id=<?php echo $value['id']; ?>" class="me-2 green" id="view"><i class="fa-solid fa-eye"></i></a>
             <a title="Edit" href="#" class="me-2 green" id="edit" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
             <a title="Delete" href="#" class="green" id="delete" value="<?php echo $value['id']; ?>"><i class="fa-solid fa-trash-can"></i></a>
         </div>

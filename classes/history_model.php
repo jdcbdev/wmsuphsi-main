@@ -94,6 +94,7 @@
 
             if(isset($_POST['edit_title']) && isset($_POST['edit_description']) && isset($_POST['edit_id'])) {
                 if(!empty($_POST['edit_title']) && !empty($_POST['edit_description']) && !empty($_POST['edit_id'])) {
+                   
                     $history_title =  htmlentities($_POST['edit_title']);
 					$history_description =  htmlentities($_POST['edit_description']);
 					$id = $_POST['edit_id'];

@@ -1,4 +1,4 @@
-<div class="row g-2 mb-2 ">
+<div class="row g-2 mb-2">
    <div id="MyButtons" class="d-flex mb-md-2 mb-lg-0 col-12 col-md-auto"></div>
    <div class="form-group col-12 col-sm-auto flex-sm-grow-1 flex-lg-grow-0 ms-lg-auto">
        <select name="member_type" id="member_type" class="form-select me-md-2">

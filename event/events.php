@@ -25,12 +25,16 @@ foreach ($event->fetchAllRecords() as $value) {
             <img src="../uploads/<?php echo $value['event_banner']; ?>" alt="">
         </div>
         <div class="event-info">
-            <h6><?php echo $value['event_start_date'] ?> - <span><?php echo $value['event_organizer'] ?></span><?php echo ' - @'.''. $value['event_location'] ?></h6>
+            <h6><?php echo $value['event_start_date'] ?> <!--<span><?php echo $value['event_organizer'] ?></span>--><?php echo ' | '.''. $value['event_location'] ?></h6>
             <h2><?php echo $value['event_title'] ?></h2>
             <div class="event-content">
                 <p><?php echo $value['event_about'] ?></p>
             </div>
+            <?php if (isset($_SESSION['logged-in'])) { ?>
             <a href="events-page.php?id=<?php echo $value['id']; ?>" class="btn">View Details</a>
+            <?php } else { ?>
+            <a href="nonUserReg.php?id=<?php echo $value['id']; ?>" class="btn">View Details</a>
+            <?php } ?>
         </div>
     </div>
 </div>

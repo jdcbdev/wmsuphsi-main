@@ -30,7 +30,7 @@
         <tr>
             <!--<th scope="row">1</th>-->
             <td align="center">
-                <a href="" class="me-2 green"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="edit.php?id=<?php echo $value['id'] ?>" class="me-2 green"><i class="fa-solid fa-pen-to-square"></i></a>
                 <a href="delete.php?id=<?php echo $value['id'] ?>" class="green"><i class="fa-solid fa-trash-can"></i></a>
             </td>
             <td>

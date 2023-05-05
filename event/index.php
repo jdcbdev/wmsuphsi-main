@@ -10,8 +10,17 @@
         header('location: ../home.php');
     }
     //if the above code is false then html below will be displayed
-
     require_once '../tools/variables.php';
+    require_once '../vendor/autoload.php';
+    
+    $config = HTMLPurifier_Config::createDefault();
+    
+    $config->set('Cache.DefinitionImpl', null);
+    $config->set('HTML.AllowedElements', 'strong,em');
+    $config->set('HTML.AllowedAttributes', []);
+    
+    $purifier = new HTMLPurifier($config);   
+
     $page_title = 'Events | WMSU - Peace and Human Security Institute';
     $phsi_events = 'active';
 
@@ -45,8 +54,8 @@
                         </li>
                     </ul>
                     <div class="table-responsive py-3 table-container">
+
                     </div>
-                </div>
         </main>
     </div>
 </div>
@@ -85,9 +94,9 @@
 
                         $('input#keyword').on('input', function(e){
                             var status = $(this).val();
-                            dataTable.columns([1]).search(status).draw();
+                            dataTable.columns([2]).search(status).draw();
                         });
-                        $('select#member_type').on('change', function(e){
+                        $('select#event_organizer').on('change', function(e){
                             var status = $(this).val();
                             dataTable.columns([3]).search(status).draw();
                         });
@@ -129,9 +138,9 @@
 
                         $('input#keyword').on('input', function(e){
                             var status = $(this).val();
-                            dataTable.columns([1]).search(status).draw();
+                            dataTable.columns([2]).search(status).draw();
                         });
-                        $('select#member_type').on('change', function(e){
+                        $('select#event_organizer').on('change', function(e){
                             var status = $(this).val();
                             dataTable.columns([3]).search(status).draw();
                         });
@@ -156,60 +165,9 @@
             $('#li-all').on('click', function(){
                 load('all');
             });
-
-            $('#comments').on('change', function(){
-                if ($(this).is(":checked")) {
-                    $('div.comments').show();
-                    $('#pending-submit').text("Decline Application")
-                }else{
-                    $('div.comments').hide();
-                    $('#pending-submit').text("Accept Application")
-                }
-            });
-
-            $('#Confirmed').on('click', function(){
-                $('div.documents').show();
-            });
-
-            $('#Withdrawn').on('click', function(){
-                $('div.documents').hide();
-            });
-
-            $('#Waiting-Rejected').on('click', function(){
-                $('#waiting-submit').text("Reject Application")
-            });
-
-            $('#ranking-comments').on('change', function(){
-                if ($(this).is(":checked")) {
-                    $('div.ranking-comments').show();
-                }else{
-                    $('div.ranking-comments').hide();
-                }
-            });
-
-            $('#waiting-comments').on('change', function(){
-                if ($(this).is(":checked")) {
-                    $('div.waiting-comments').show();
-                }else{
-                    $('div.waiting-comments').hide();
-                }
-            });
-
-            $('#qualified-comments').on('change', function(){
-                if ($(this).is(":checked")) {
-                    $('div.qualified-comments').show();
-                }else{
-                    $('div.qualified-comments').hide();
-                }
-            });
-
-            $('div.photo-container').lightGallery({
-                thumbnail: false,
-                animateThumb: false,
-                showThumbByDefault: false
-            }); 
         });
     </script>
+
 
 <div id="edit-modal" class="modal"></div>
 
@@ -219,21 +177,8 @@
         <h3 class="admin-modal-title">Add New Event</h3>
         <hr>
         <form id="addform" class="form-class" method="post" enctype="multipart/form-data">
-
-            <!--EVENT ORGANIZER-->
-            <label for="event_organizer" class="form-label" style="font-weight: bold;">Organizer</label>
-            <div class="input-group" style="gap: 1rem;">
-                <div>
-                    <input type="checkbox" name="event_organizer[]" id="unesco" value="WMSU-PHSI">
-                    <label for="unesco">WMSU-PHSI</label>
-                </div>
-                <div>
-                    <input type="checkbox" name="event_organizer[]" id="phsi" value="WMSU UNESCO Club">
-                    <label for="phsi">WMSU UNESCO Club</label>
-                </div>
-            </div>
-
-            <!--EVENT TITLEL-->
+        
+            <!--EVENT TITLE-->
             <label for="event_title" class="form-label" style="font-weight: bold;">Event Name</label>
             <div class="input-group">
                 <input class="form-control" type="text" name="event_title" id="event_title" required>
@@ -254,7 +199,7 @@
             <!--EVENT ABOUT-->
             <label for="event_about" class="form-label" style="font-weight: bold;">About this Event</label>
             <div class="input-group">
-                <textarea class="form-control" type="text" name="event_about" id="event_about" rows="4" cols="50" required> </textarea>
+                <textarea style="height: 300px;width: 100%;" class="form-control" type="text" name="event_about" id="event_about" rows="4" cols="50" required> </textarea>
             </div>
 
             <label for="event_mode" style="font-weight: bold;">Event Mode</label>
@@ -263,20 +208,21 @@
                     <option value="">--Select Mode--</option>
                     <option value="On-site">On-site</option>
                     <option value="Virtual">Virtual</option>
+                    <option value="Hybrid">Hybrid (On-site & Virutal Setup)</option>
                 </select>
-            </div>
-
-            <div id="event_platform_input" style="display:none;">
-                <label for="event_platform" class="form-label" style="font-weight: bold;">Online Platform Link</label>
-                <div class="input-group">
-                    <input class="form-control" type="text" name="event_platform" id="event_platform">
-                </div>
             </div>
 
             <div id="event_location_input" style="display:none;">
                 <label for="event_location" class="form-label" style="font-weight: bold;">Location</label>
                 <div class="input-group">
                     <input class="form-control" type="text" name="event_location" id="event_location">
+                </div>
+            </div>
+
+            <div id="event_platform_input" style="display:none;">
+                <label for="event_platform" class="form-label" style="font-weight: bold;">Online Platform Link</label>
+                <div class="input-group">
+                    <input class="form-control" type="text" name="event_platform" id="event_platform">
                 </div>
             </div>
 
@@ -290,6 +236,9 @@
                     } else if (eventMode == "Virtual") {
                         document.getElementById("event_platform_input").style.display = "block";
                         document.getElementById("event_location_input").style.display = "none";
+                    } else if (eventMode == "Hybrid") {
+                        document.getElementById("event_platform_input").style.display = "block";
+                        document.getElementById("event_location_input").style.display = "block";
                     } else {
                         document.getElementById("event_platform_input").style.display = "none";
                         document.getElementById("event_location_input").style.display = "none";
@@ -339,7 +288,7 @@
                 </div>
                 <div>
                     <input type="checkbox" name="event_scope[]" id="employee" value="Employee">
-                    <label for="none">Employee</label>
+                    <label for="employee">Employee</label>
                 </div>
                 <div>
                     <input type="checkbox" name="event_scope[]" id="alumni" value="Alumni">
@@ -350,10 +299,24 @@
                     <label for="non-affiliate">Non-affiliate</label>
                 </div>
                 <div>
-                    <input type="checkbox" name="event_scope[]" id="all" value="All">
+                    <input type="checkbox" name="event_scope[]" id="all" value="All" onchange="handleAllCheck()">
                     <label for="all">All</label>
                 </div>
             </div>
+
+            <script>
+                function handleAllCheck() {
+                        const allCheckbox = document.getElementById("all");
+                        const otherCheckboxes = document.querySelectorAll('input[name="event_scope[]"]:not(#all)');
+
+                        if (allCheckbox.checked) {
+                            otherCheckboxes.forEach(checkbox => checkbox.checked = true);
+                        } else {
+                            otherCheckboxes.forEach(checkbox => checkbox.checked = false);
+                        }
+                }
+            </script>
+
       
 
             <!--EVENT REGISTRATION DUE-->
@@ -368,6 +331,45 @@
             </div>
 
         </form>
+
+        <div id="loading-icon" style="display:none;">
+            <img src="../images/content-images/loading.gif" alt="loading">
+            <span>Loading...</span>
+        </div>
+
+
+        <style>
+            #loading-icon {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999;
+                background-color: rgba(255, 255, 255, 0.5);
+                padding: 10px;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #loading-icon img {
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+            }
+
+            #loading-icon span {
+                font-size: 16px;
+                font-weight: bold;
+            }
+        </style>
+
+
+
+        
+ 
+
 
     </div>
 </div>
@@ -466,5 +468,3 @@ regDueDateInput.addEventListener('change', (event) => {
 </body>
 </html>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="../js/events.js"></script>

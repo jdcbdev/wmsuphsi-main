@@ -56,6 +56,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lg-video/1.2.2/lg-video.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/autoplay/lg-autoplay.min.js"></script>
 
+    <!--Rich-text formatting-->
+    <script src="https://cdn.tiny.cloud/1/0wux44nqahq53096g39102o1z4slhup9i4hc3lkj0i7oxj2s/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#event_about'
+      });
+    </script>
+
     <link rel="icon" type="image/png" href="../images/logos/phsi.png">
     <title><?php echo $page_title; ?></title>
 </head>

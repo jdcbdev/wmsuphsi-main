@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Apr 25, 2023 at 03:28 PM
--- Server version: 10.5.19-MariaDB-cll-lve
--- PHP Version: 7.2.34
+-- Host: 127.0.0.1
+-- Generation Time: May 04, 2023 at 09:39 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u654609850_phsi`
+-- Database: `phsi`
 --
 
 -- --------------------------------------------------------
@@ -33,7 +33,7 @@ CREATE TABLE `administration` (
   `filename` varchar(255) NOT NULL,
   `admin_organization` varchar(50) NOT NULL,
   `admin_position` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `administration`
@@ -55,7 +55,7 @@ CREATE TABLE `carousel` (
   `carousel_title` text NOT NULL,
   `filename` varchar(255) NOT NULL,
   `carousel_content` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `carousel`
@@ -89,14 +89,14 @@ CREATE TABLE `event` (
   `rsvp_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `event`
 --
 
 INSERT INTO `event` (`id`, `event_title`, `event_banner`, `event_about`, `event_mode`, `event_location`, `event_platform`, `event_slots`, `event_organizer`, `event_start_date`, `event_end_date`, `event_start_time`, `event_end_time`, `event_scope`, `event_reg_duedate`, `rsvp_id`, `created_at`, `updated_at`) VALUES
-(13, 'Event Peace is Making', 'illubin.png', ' Event Chuchu', 'On-site', 'asdasd11', '', 1, 'WMSU UNESCO Club', '2023-04-25', '2023-04-25', '10:30:00', '11:30:00', 'Unesco', '2023-04-25', 0, '2023-04-24 14:29:57', '2023-04-24 14:29:57');
+(1, 'PEACE-ta sa UNESCO: Pagkakaisa tungo sa Matibay na', 'unesco-peacte.jpg', 'Join us for &quot;PEACE-ta sa UNESCO: Pagkakaisa tungo sa Matibay na Samahan&quot;! This event aims to promote unity and solidarity towards building a strong and lasting community. Come and be part of a meaningful discussion on how we can achieve peace and cooperation, featuring inspiring speakers and engaging activities. Let&#039;s work together towards a brighter future!', 'On-site', 'WMSU Juanito Bruno Gymnasium', '', 100, '', '2023-05-19', '2023-05-19', '08:03:00', '16:00:00', 'Student', '2023-05-19', 0, '2023-05-04 07:38:43', '2023-05-04 07:38:43');
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,7 @@ CREATE TABLE `history` (
   `history_title` varchar(255) NOT NULL,
   `filename` varchar(255) NOT NULL,
   `history_description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `history`
@@ -129,7 +129,7 @@ CREATE TABLE `misvis` (
   `misvis_title` varchar(255) NOT NULL,
   `filename` varchar(255) NOT NULL,
   `misvis_description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `misvis`
@@ -153,17 +153,7 @@ CREATE TABLE `news` (
   `news_content` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `news`
---
-
-INSERT INTO `news` (`id`, `news_title`, `filename`, `image_description`, `news_content`, `created_at`, `updated_at`) VALUES
-(1, 'Harnessing our Peace Efforts: Towards Solidarity in Service', 'phsi-dialogue.jpg', '\"Mr. Hirotaka Sekiguchi recieving a certificate. He is the Senior Official of the National Federation of UNESCO Associations in JAPAN.\"', 'In line with the opening of the Mindanao Week of Peace 2022, on the 24th of November, the WMSU PHSI conducted a Peace Dialogue with the theme, \"Harnessing our Peace Efforts: Towards Solidarity in Service\". with the participation of Mr. Hirotaka Sekiguchi, the senior Official of the National Federation of UNESCO. The Peace Dialogue took place at the College of Teacher Education Social Hall, with the attendance of the WMSU-UNESCO Club members and Officers and different representatives from the College of Liberal Arts (CLA) , College of Education (CTE) , College of Islamic Studies ( CAIS) and College of Social Work and Community Development.\r\nLet us commemorate this week of Peace as a remembrance and celebration of unity and solidarity through peace.', '2023-04-20 00:38:44', '2023-04-20 00:38:44'),
-(2, 'In the Light of the Recent Flood in Zamboanga City', 'unesco-chr.jpg', '\"Peace Mediators on their new WMSU UNESCO Club shirt.\"', 'On 17th of February, the Commission on human rights have successfully conducted an orientation that revved up the members of WMSU Youth Peace Mediators UNESCO Club. \r\nThe event was spearheaded by Hon. Daniel S. Paculanang, Information Officer III and Hon. Ronaele L. Ventus, Training Specialist I, and was  under the supervision of PHSI Office, headed by Ms. Ludy Borja and Engr. Marlon Grande.  On top of that, the CHR committee donated one BROTHER Printer and  sponsored  sublimated t-shirts to the club. \r\nThe orientation was fruitful as the speakers and spectators shared their knowledge and insights  towards human rights — civil, political, economic, social, and cultural rightsand also tackled Gender and Development, which is  prevalent among the WMSU Youth Peace Mediator  members. This is congruent to the goal of the CHR which is to ensure the peace and security of each and every human being- moreso in a campus level.\r\nGracias CHR ! and together, we preserve and fight the rights of mankind!', '2023-04-20 00:38:44', '2023-04-20 00:38:44'),
-(3, 'Peace Edukasyon', 'peace-edukasyon.jpg', '\"If we want to reach real peace in this world, we should start educating children.\"', 'The WMSU Peace and Human Security Institute in collaboration with the WMSU Youth Peace Mediators -UNESCO Club together with our partners: EDUCO, Ateneo Center for Leadership and Governance,  Supreme Student Council Society of the Philippines, and Tactical Operations Wing Western Mindanao Philippine - Air Force,  held the PeacEdukasyon: Fun-aral for Children this 18th of February 2023 at Padayon Center Martha Drive, Sta. Catalina Zamboanga City. \r\nIn connection with our goal to establish strong communities of practice in child-friendly local governance and social accountability, the WMSU Youth Peace Mediators -UNESCO Club decided to implement this community project with the objectives centered to provide access to alternative learning environments, engaging the children in recreational activities, and promote cultural diversity awareness through Peacebuilding. \r\nThe beneficiary of the project was the 150 children who are bonafide residents of the Padayon center ranging from 7-13 years of age (Grades 1-6). The activities consist of 3 sessions: 1st session was centered on a seminar on Children rights, followed by a coloring session, and a thumb painting session. Additionally, we turned over grade school books and storybooks from our partners in Manila. The activities helped the children bond together through various educational games, helping them to foster awareness and solidarity among one another.\r\nThis event will not be possible without the help of our various partners and our esteemed and ever-supportive WMSU President, Ma. Carla A. Ochotorena for her unwavering support. We would also like to acknowledge the WMSU-PHSI Director, Asst. Prof. Ludivina Borja-Dekit, and our WMSU-UNESCO Club Adviser, Engr. Marlon Grande for their unending dedication and commitment to making this event a success.\r\nIndeed, learning comes best when experienced. With this regard, experiencing PeacEdukasyon equips these children with the best learning towards peace!', '2023-04-20 00:38:44', '2023-04-20 00:38:44'),
-(4, 'SADASDASDAS', 'peace-edukasyon.jpg', ' asd', ' asd', '2023-04-22 14:11:39', '2023-04-22 14:11:39');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -179,7 +169,7 @@ CREATE TABLE `phsi_action` (
   `details` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -202,19 +192,10 @@ CREATE TABLE `rsvp` (
   `street_name` varchar(50) DEFAULT NULL,
   `bldg_house_no` varchar(50) DEFAULT NULL,
   `organization` varchar(50) NOT NULL,
-  `member_type` varchar(50) NOT NULL,
+  `member_type` varchar(50) DEFAULT NULL,
   `token` varchar(255) NOT NULL,
   `join_status` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `rsvp`
---
-
-INSERT INTO `rsvp` (`id`, `event_id`, `firstname`, `middlename`, `lastname`, `suffix`, `email`, `contact_number`, `province`, `city`, `barangay`, `street_name`, `bldg_house_no`, `organization`, `member_type`, `token`, `join_status`) VALUES
-(26, 11, 'Bennett', 'Gelacio', 'Chan', '', 'xt202001186@wmsu.edu.ph', '09123456789', 'Zamboanga del Sur ', 'Zamboanga City ', 'Arena Blanco ', ' ', 'bennettgelacio ', '', 'Student ', 'e7d9752ee4493e93c3caf5f055d4ad0c1b2d83d54626f2585adbda663355d3d61d1086a28ce9ce2c6205bc693302e06dfdd3', 'confirm'),
-(27, 11, 'Bennett', 'Gelacio', 'Chan', '', 'xt202001186@wmsu.edu.ph', '09123456789', 'Zamboanga del Sur ', 'Zamboanga City ', 'Arena Blanco ', ' ', 'bennettgelacio ', '', 'Student ', '238be5a0a7aedaa74d5b437579a07ffad32dd9bee9207ff9ed9f6de22e5d31c12fd73e769ede90ee562558201f561dc2e263', 'rsvp'),
-(28, 13, 'JERICHO', 'BELLO', 'SAGDI', '', 'jerichosagdi0@gmail.com', '09653350327', 'Zamboanga del Sur ', 'Zamboanga City ', 'San Roque ', 'macrohon drive ', 'Block1 ', '', 'Student ', 'ed889005c3b7544d958725f5c0a34c682813e1e042d8fbbb61eec1f59ba369b04621ad3e0c163a0b9918c51abc31761d2227', 'confirm');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -230,7 +211,7 @@ CREATE TABLE `unesco_action` (
   `unesco_details` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -243,7 +224,7 @@ CREATE TABLE `unesco_administration` (
   `admin_name` varchar(50) NOT NULL,
   `filename` varchar(255) NOT NULL,
   `admin_position` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `unesco_administration`
@@ -281,7 +262,7 @@ CREATE TABLE `unesco_carousel` (
   `carousel_title` text NOT NULL,
   `filename` varchar(255) NOT NULL,
   `carousel_content` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `unesco_carousel`
@@ -301,7 +282,7 @@ CREATE TABLE `unesco_history` (
   `history_title` varchar(255) NOT NULL,
   `filename` varchar(255) NOT NULL,
   `history_description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `unesco_history`
@@ -321,7 +302,7 @@ CREATE TABLE `unesco_misvis` (
   `misvis_title` varchar(255) NOT NULL,
   `filename` varchar(255) NOT NULL,
   `misvis_description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `unesco_misvis`
@@ -345,7 +326,7 @@ CREATE TABLE `unesco_news` (
   `news_content` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `unesco_news`
@@ -395,22 +376,15 @@ CREATE TABLE `user_acc_data` (
   `member_type` set('Student','Employee','Alumni','None') NOT NULL,
   `verified` tinyint(1) NOT NULL DEFAULT 0,
   `token` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_acc_data`
 --
 
 INSERT INTO `user_acc_data` (`id`, `profile_picture`, `background_image`, `verify_one`, `verify_two`, `verify_three`, `verify_four`, `verify_five`, `verify_six`, `verify_seven`, `verify_eight`, `firstname`, `middlename`, `lastname`, `suffix`, `sex`, `email`, `contact_number`, `province`, `city`, `barangay`, `street_name`, `bldg_house_no`, `username`, `password`, `role`, `is_agree`, `status`, `organization`, `member_type`, `verified`, `token`) VALUES
-(1, 'dp8.jpg', 'phsi-carousel.jpg', NULL, NULL, 'rj1.jpg', 'rj2.jpg', 'rj1.jpg', 'rj2.jpg', NULL, NULL, 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjay.malagagmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', 'Callejon Drive', '', 'arjay', 'arjay', 'super_admin', 'Yes', 'Pending', '', 'Employee,Alumni', 1, NULL),
-(2, 'dp2.jpg', 'phsi-carousel.jpg', 'jer1.jpg', 'jer2.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 'Jericho', 'Bello', 'Sagdi', '', 'Male', 'jericho.sagdi@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'jericho', 'jericho', 'phsi_admin', 'Yes', 'Pending', '', 'Student', 1, NULL),
-(3, 'dp1.jpg', 'phsi-carousel.jpg', 'ben1.jpg', 'ben2.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 'Bennett', 'Gelacio', 'Chan', '', 'Male', 'gelacio.chan@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'ben', 'ben', 'unesco_admin', 'Yes', 'Pending', '', 'Student', 1, NULL),
-(4, 'dp3.jpg', 'phsi-carousel.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 'hadz1.jpg', 'hadz2.jpg', 'Hadzramar', 'Iblang', 'Jaafar', '', 'Male', 'hadzramar.iblang@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'hadz', 'hadz', 'user', 'Yes', 'Pending', '', 'None', 1, NULL),
-(5, 'dp4.jpg', 'phsi-carousel.jpg', NULL, NULL, NULL, NULL, 'kat1.jpg', 'kat2.jpg', NULL, NULL, 'Kaitlyn', 'Quimbo', 'Mira', '', 'Female', 'jamburatching@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'mira', 'mira', 'user', 'Yes', 'Pending', '', 'Employee', 1, NULL),
-(6, 'dp5.jpg', 'phsi-carousel.jpg', NULL, NULL, 'ange1.jpg', 'ange2.jpg', NULL, NULL, NULL, NULL, 'Angelica', '', 'Deoric', '', 'Female', 'deoric.angelica@gmail.com', '09770063602', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'Macrohon Drive', '', 'angelica', 'angelica', 'user', 'Yes', 'Verified', '', 'Alumni', 1, NULL),
-(21, 'user-icon.png', 'phsi-carousel.jpg', '334265869_1706833113103687_2934706169447979381_n.jpg', '332946225_584090170426084_2659343698159737169_n.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 'Bennett', 'Gelacio', 'Chan', '', 'Male', 'xt202001186@wmsu.edu.ph', '09123456789', 'Zamboanga del Sur', 'Zamboanga City', 'Arena Blanco', '', 'bennettgelacio', 'bennett_chan', 'Bennett02', 'user', 'No', 'Pending', 'None', 'Student', 1, '57cfe547a2cbb1bc2c0ccb6e29260f70c6008efd431c108c005593dc8cac63584b8830c0402d1c1728f7e702dac057d928e8'),
-(22, 'user-icon.png', 'phsi-carousel.jpg', 'brandon-beren-socrates-branded.jpg', 'brandon-beren-socrates-branded.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 'JERICHO', 'BELLO', 'SAGDI', '', 'Male', 'jerichosagdi0@gmail.com', '09653350327', 'Zamboanga del Sur', 'Zamboanga City', 'San Roque', 'macrohon drive', 'Block1', 'jericho', 'myPass1-', 'user', 'No', 'Pending', 'None', 'Student', 1, '8e4ac4206c716fa8a5a0b8483c7cbcc11789cc889fe0014ab1ea39ec7560f3d370e9f6f120851d3d2d14330fd74504d3f1a2'),
-(23, 'user-icon.png', 'phsi-carousel.jpg', 'photo_2022-12-26_11-48-30.jpg', 'photo_2022-12-26_11-48-33.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 'Kaitlyn June', 'Quimbo', 'Mira', '', 'Male', 'kaitlyn.mira20@gmail.com', '09651128614', 'Zamboanga del Sur', 'Zamboanga City', 'Pasonanca', 'Km6.', '', 'kaitlyn', 'Ka1tlynm1r4-', 'user', 'No', 'Pending', 'None', 'Student', 1, '51452fdb046c6a4894d2529056de46443c67d1653c2380d6bc8b4b319b1cc18c3a3489f1fb0a031b71fdd5ae971b4fd491de');
+(1, 'user-icon.png', 'phsi-carousel.jpg', 'rj1.jpg', 'rj2.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'arjaymalaga990@gmail.com', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', '', '', 'user', 'user', 'user', 'No', 'Pending', 'None', 'Student', 1, '50d4a5518951c9bb2e344b1feb697ff62f48b07366ff3bd7207be7d689d4e1602c3ada714ce4f763dadffbaa75c61c78fa7a'),
+(2, 'user-icon.png', 'phsi-carousel.jpg', 'rj1.jpg', 'rj2.jpg', NULL, NULL, NULL, NULL, NULL, NULL, 'Arjay', 'Lumibot', 'Malaga', '', 'Male', 'xt202001283@wmsu.edu.ph', '09770063601', 'Zamboanga del Sur', 'Zamboanga City', 'Guiwan', '', '', 'admin', 'admin', 'super_admin', 'No', 'Pending', 'None', 'Student', 1, '01da074f19711f8a831c54f8d454159ffda29f6ad0a24bced44307ec51fadf9df36a0b42e1364075909952229dd531fd95b7');
 
 --
 -- Indexes for dumped tables
@@ -514,91 +488,91 @@ ALTER TABLE `user_acc_data`
 -- AUTO_INCREMENT for table `administration`
 --
 ALTER TABLE `administration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `carousel`
 --
 ALTER TABLE `carousel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `misvis`
 --
 ALTER TABLE `misvis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `phsi_action`
 --
 ALTER TABLE `phsi_action`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `rsvp`
 --
 ALTER TABLE `rsvp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `unesco_action`
 --
 ALTER TABLE `unesco_action`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `unesco_administration`
 --
 ALTER TABLE `unesco_administration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `unesco_carousel`
 --
 ALTER TABLE `unesco_carousel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `unesco_history`
 --
 ALTER TABLE `unesco_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `unesco_misvis`
 --
 ALTER TABLE `unesco_misvis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `unesco_news`
 --
 ALTER TABLE `unesco_news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `user_acc_data`
 --
 ALTER TABLE `user_acc_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

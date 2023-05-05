@@ -168,7 +168,7 @@ function topFunction() {
 <!-----------------------------------------  Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES End -------------------------------------------------------------------------------------------->
 
 
-<section class="home-courses">
+<!--<section class="home-courses">
 
    <h1 class="heading" style="font-size: 5rem;color: #41453e;"> CALL FOR ACTIONS</h1>
 
@@ -207,7 +207,7 @@ function topFunction() {
 
 </section>
 
-<?php } ?>
+<?php } ?>-->
 
 
 <!--------------------------------------------- Announcements Section Start ----------------------------------------------------------------------------->

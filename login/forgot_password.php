@@ -24,7 +24,7 @@
                 <span class="logo-name">WMSU-PHSI</span>
             </div>
             
-            <p style="justify-content: center;display: flex;font-size: 14px;margin-top: 12px;">Forgot Your Password?</p>
+            <p style="justify-content: center;display: flex;font-size: 14px;margin-top: 12px;">Forgot Your Password? Enter your Email to receive</p>
             <input type="email" id="email" name="email" placeholder="Enter Email" required tabindex="1" style="margin-top: 10px;margin-bottom: 15px;">
             
             <?php   
@@ -36,7 +36,7 @@
             ?>
             
             <input class="button" type="submit" value="Reset Password" name="login" tabindex="3" style="margin: 0;">
-            <p style="text-align: center;  padding-top: 12px;">ALREADY HAVE AN ACCOUNT?<a href="login.php"> SIGN IN</a></p>
+            <!--<p style="text-align: center;  padding-top: 12px;">ALREADY HAVE AN ACCOUNT?<a href="login.php"> SIGN IN</a></p>-->
             
         </form>
     </div>

@@ -174,8 +174,8 @@ button.next-button:hover, button.next-button:focus{
 #logout-link{
     text-decoration: none;
     color: white;
-    /*position: absolute;
-    bottom: 0;*/
+    position: absolute;
+    bottom: 0;
     width: 100%;
 }
 

@@ -5,7 +5,7 @@
     require_once '../includes/header.php';
     require_once '../classes/user.class.php';
 
-    
+
 
 ?>
 <link rel="stylesheet" href="../css/user.css">
@@ -45,6 +45,8 @@
   $verify_seven = $_SESSION['verify_seven'];
   $verify_eight = $_SESSION['verify_eight'];
   $street_name = $_SESSION['street_name'];
+  $email = $_SESSION['email'];
+  $username = $_SESSION['username'];
 ?>
 
 <section class="user-profile">
@@ -57,63 +59,63 @@
                                     
                     <div class="input-box">
                         <span class="details">Firstname</span>
-                        <input type="text" name="firstname" placeholder=""  value="<?php echo $_SESSION['firstname']; ?>" disabled>
+                        <input type="text" name="firstname" placeholder=""  value="<?php echo $_SESSION['firstname']; ?>" readonly>
                     </div>
 
         
                     <div class="input-box">
                         <span class="details-opt">Middlename</span>
-                        <input type="text" name="middlename" placeholder="" value="<?php echo $_SESSION['middlename']; ?>" disabled>
+                        <input type="text" name="middlename" placeholder="" value="<?php echo $_SESSION['middlename']; ?>" readonly>
                     </div>
 
                     <div class="input-box">
                         <span class="details">Lastname</span>
-                        <input type="text" name="lastname"  placeholder=""  value="<?php echo $_SESSION['lastname']; ?>" disabled>
+                        <input type="text" name="lastname"  placeholder=""  value="<?php echo $_SESSION['lastname']; ?>" readonly>
                     </div>
 
                     <div class="input-box">
                         <span class="details-opt">Suffix</span>
-                        <input type="text" name="suffix" placeholder="" value="<?php echo $_SESSION['suffix']; ?>" disabled>
+                        <input type="text" name="suffix" placeholder="" value="<?php echo $_SESSION['suffix']; ?>" readonly>
                     </div>
 
                     <div class="input-box">
                         <span class="details">Email</span>
-                        <input type="email" name="email" placeholder=""  value="<?php echo $_SESSION['email']; ?>" disabled>
+                        <input type="email" name="email" placeholder=""  value="<?php echo $_SESSION['email']; ?>" readonly>
                     </div>
 
                     <div class="input-box">
                         <span class="details">Sex</span>
-                        <input type="text" name="sex" placeholder=""  value="<?php echo $_SESSION['sex']; ?>" disabled>
+                        <input type="text" name="sex" placeholder=""  value="<?php echo $_SESSION['sex']; ?>" readonly>
                     </div>
 
                     <div class="input-box">
                         <span class="details">Contact No.</span>
-                        <input type="text" name="contact_number" id="contact_number" placeholder="" required value="<?php echo $_SESSION['contact_number']; ?>" disabled>
+                        <input type="text" name="contact_number" id="contact_number" placeholder="" required value="<?php echo $_SESSION['contact_number']; ?>" readonly>
                     </div>
 
                     <div class="input-box">
                         <span class="details">Province</span>
-                        <input type="text" name="province" placeholder=""  value="<?php echo $_SESSION['province']; ?>" disabled>
+                        <input type="text" name="province" placeholder=""  value="<?php echo $_SESSION['province']; ?>" readonly>
                     </div>
 
                     <div class="input-box">
                         <span class="details">City/Municipality</span>
-                        <input type="text" name="city" placeholder=""  value="<?php echo $_SESSION['city']; ?>" disabled>
+                        <input type="text" name="city" placeholder=""  value="<?php echo $_SESSION['city']; ?>" readonly>
                     </div>
 
                     <div class="input-box">
                         <span class="details">Barangay</span>
-                        <input type="text" name="barangay" placeholder=""  value="<?php echo $_SESSION['barangay']; ?>" disabled>
+                        <input type="text" name="barangay" placeholder=""  value="<?php echo $_SESSION['barangay']; ?>" readonly>
                     </div>
 
                     <div class="input-box">
                         <span class="details-opt">Street Name</span>
-                        <input type="text" name="street_name" disabled placeholder="" value="<?php echo $street_name; ?>">
+                        <input type="text" name="street_name" readonly placeholder="" value="<?php echo $street_name; ?>">
                     </div>
 
                     <div class="input-box">
                         <span class="details-opt">Building/House No.</span>
-                        <input type="text" name="bldg_house_no" disabled placeholder="" value="<?php echo $_SESSION['bldg_house_no']; ?>">
+                        <input type="text" name="bldg_house_no" readonly placeholder="" value="<?php echo $_SESSION['bldg_house_no']; ?>">
                     </div>
                     </div>
 
@@ -122,12 +124,12 @@
 
                     <div class="input-box">
                         <span class="details">Username</span>
-                        <input type="text" name="username" id="username" placeholder="" required value="<?php echo $_SESSION['username']; ?>" disabled>
+                        <input type="text" name="username" id="username" placeholder="" required value="<?php echo $_SESSION['username']; ?>" readonly>
                     </div>
 
                     <div class="input-box">
                         <span class="details">Password</span>
-                        <input type="password" name="password" id="password" placeholder="" required value="<?php echo $_SESSION['password']; ?>" disabled>
+                        <input type="password" name="password" id="password" placeholder="" required value="<?php echo $_SESSION['password']; ?>" readonly>
                     </div>
                     </div>
                     

@@ -180,8 +180,8 @@
                             <p>Student ID</p>
                             <img src="../uploads/<?php echo $verify_one; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_two; ?>" alt="" style="width: 25%; height: auto; ">
-                            <!--<input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
-                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve">-->
+                            <input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
                         </div>
                     <?php } ?>
 
@@ -190,8 +190,8 @@
                             <p>Alumni ID</p>
                             <img src="../uploads/<?php echo $verify_three; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_four; ?>" alt="" style="width: 25%; height: auto; ">
-                            <!--<input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
-                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve">-->
+                            <input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
                         </div>
                     <?php } ?>
 
@@ -200,8 +200,8 @@
                             <p>Employee ID</p>
                             <img src="../uploads/<?php echo $verify_five; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_six; ?>" alt="" style="width: 25%; height: auto; ">
-                            <!--<input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
-                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve">-->
+                            <input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
                         </div>
                     <?php } ?>
 
@@ -210,8 +210,8 @@
                             <p>Not-Affiliated (Outside WMSU) ID</p>
                             <img src="../uploads/<?php echo $verify_seven; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_eight; ?>" alt="" style="width: 25%; height: auto; ">
-                            <!--<input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
-                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve">-->
+                            <input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
                         </div>
                     <?php } ?>
 
@@ -228,8 +228,6 @@
                         <option value="super_admin" <?php if(isset($_POST['role']) && $_POST['role'] == 'super_admin') { echo 'selected'; } ?>>Super Admin</option>
                         <option value="phsi_admin" <?php if(isset($_POST['role']) && $_POST['role'] == 'phsi_admin') { echo 'selected'; } ?>>PHSI Admin</option>
                         <option value="unesco_admin" <?php if(isset($_POST['role']) && $_POST['role'] == 'unesco_admin') { echo 'selected'; } ?>>UNESCO Admin</option>
-                        <option value="phsi_c_admin" <?php if(isset($_POST['role']) && $_POST['role'] == 'phsi_c_admin') { echo 'selected'; } ?>>PHSI Content Admin</option>
-                        <option value="unesco_c_admin" <?php if(isset($_POST['role']) && $_POST['role'] == 'unesco_c_admin') { echo 'selected'; } ?>>UNESCO Content Admin</option>
                     </select>
                     </div>
                     

@@ -1,11 +1,13 @@
 <?php   
-    //resume session here to fetch session values
-    session_start();
+
+//resume session here to fetch session values
     require_once '../classes/user.class.php';
     require_once '../tools/functions.php';
     $page_title = 'Sign Up | WMSU - Peace and Human Security Institute';
     require_once '../includes/signup-head.php';
     require_once '../controllers/sendEmails.php';
+    require_once '../includes/head.php'; 
+    require_once '../includes/header.php';
 
 
 if(isset($_POST['submit'])) {
@@ -548,5 +550,5 @@ if(isset($_POST['submit'])) {
 <script src="../js/signup.js"></script>
 <script src="../js/address.js"></script>
 
-
+<?php require_once '../includes/footer.php'; ?>
 

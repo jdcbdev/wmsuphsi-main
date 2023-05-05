@@ -71,7 +71,7 @@
 <div id="add-modal" class="admin-modal">
     <div class="admin-modal-content">
         <span class="close">&times;</span>
-        <h3 class="admin-modal-title">Add New Content</h3>
+        <h3 class="admin-modal-title">Add News</h3>
         <hr>
         <form id="addform" class="form-class" method="post" enctype="multipart/form-data">
             <label for="news_title" class="form-label">News Title</label>
@@ -99,7 +99,7 @@
             </div>
 
             <div class="input-group">
-                <input type="submit" id="submit" name="submit" value="Save Image" class="form-btn btn-primary">
+                <input type="submit" id="submit" name="submit" value="Upload News" class="form-btn btn-primary">
                 <input type="reset" id="btn-reset" name="btn-reset" hidden>
             </div>
         </form>

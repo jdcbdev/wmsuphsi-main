@@ -2,6 +2,7 @@
     //CONNTECT TO DATABASE
     require_once 'database.php';
     require_once '../tools/functions.php';
+    require_once '../controllers/sendNews.php';
     
     //CREATE CLASS NEWS
     Class News{
@@ -36,6 +37,12 @@
 
                         if($insert_stmt->execute()) {
                             echo 'Successfully saved.';
+                            // Select all emails from user_acc_data table
+                            $select_stmt = $this->db->connect()->prepare("SELECT email FROM user_acc_data");
+                            $select_stmt->execute();
+                            $emails = $select_stmt->fetchAll(PDO::FETCH_COLUMN);
+                            // Call sendNews function with emails parameter
+                            sendNews($emails, $news_title);
                         } else {
                             echo 'Failed saving.';
                         }
