@@ -134,7 +134,7 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <img src="..images/content-images/Welcome-bro.png" alt="">
+            <img src="../images/content-images/Welcome-bro.png" alt="">
             <p><span style="font-weight: bold;"> Peace and Human Security Institute</span> is thrilled to have you. 
             Please log in using your account credentials to access and join exciting events. 
             Thank you!</p>
