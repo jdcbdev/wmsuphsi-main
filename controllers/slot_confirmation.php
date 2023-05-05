@@ -57,7 +57,7 @@ class SlotConfirmation {
 
             if (isset($_SESSION['logged-in'])) {
                 sendEventTicket($userEmail, $token, $firstname, $middlename, $lastname, $suffix, $event_title, $event_banner, $event_location, $event_start_date, $event_start_time);
-                header('location: ../user/eventtimeline.php');
+                header('location: ../user/reg.php');
             } else {
                 sendEventTicket($userEmail, $token, $firstname, $middlename, $lastname, $suffix, $event_title, $event_banner, $event_location, $event_start_date, $event_start_time);
                 header('location: ../event/non.php');
