@@ -86,3 +86,4 @@ function sendSlotConfirmation($userEmail, $token, $firstname, $event_title, $eve
         return false;
     }
 }
+

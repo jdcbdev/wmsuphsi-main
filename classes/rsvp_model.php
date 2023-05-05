@@ -190,33 +190,6 @@ Class Rsvp{
             return false;
         }
     }
-
-    public function confirmSlot($token) {
-        // implementation of confirmSlot method
-        $sql = "INSERT INTO user_acc_data (token) VALUES (:token)";
-        $query = $this->db->connect()->prepare($sql);
-        $query->bindValue(':token', $token);
-        if ($query->execute()) {
-          return "added successfully";
-        } else {
-          return "error adding ";
-        }
-    }
-    
-    public function updateToken($token) {
-        // implementation of updateToken method
-        $token = $_GET['token'];
-        $query = "UPDATE user_acc_data SET verified=1 WHERE token=:token";
-        $stmt = $this->db->connect()->prepare($query);
-        $stmt->bindParam(':token', $token);
-    
-        if ($stmt->execute()) {
-            return true;
-        } else {
-            echo "Failed to update token!";
-            return false;
-        }
-    }
     
     public function sendConfirmationEmail($token, $event_title, $event_banner, $event_location, $event_start_date, $event_start_time) {
         // Modified query to get the email, first name, middle name, last name, and suffix associated with the token
