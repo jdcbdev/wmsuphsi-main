@@ -49,7 +49,7 @@ function sendEventUpdates($userEmail, $event_title, $event_about, $event_reg_due
         <p>Hello! We wanted to let you know that there has been an update to '.$event_title.'.</p>
         <p>Please click the button below to view the new detials of this Event
         . Thank you!</p>
-        <a href="http://localhost/wmsuphsi-main/event/events.php" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">View Event Changes</a>
+        <a href="https://wmsuphsi.online/event/events.php" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">View Event Changes</a>
     </body>
 
     </html>';

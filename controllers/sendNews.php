@@ -41,7 +41,7 @@ function sendNews($emails, $news_title)
     <body>
       <div class="wrapper">
         <p>We are excited to announce that we have added a new article to our news section. Stay up-to-date with the latest activities of WMSU - Peace and Human Security Institute by reading our latest news.</p>
-        <a href="http://localhost/wmsuphsi-main/news/news   .php" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">View News</a>
+        <a href="https://wmsuphsi.online/news/news   .php" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">View News</a>
     </body>
 
     </html>';

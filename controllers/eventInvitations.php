@@ -44,7 +44,7 @@ function sendEventInvitation($userEmail, $event_title, $event_banner, $event_abo
         <p>Join us for an exciting event on '.$event_start_date.'! We are thrilled to invite you to '.$event_title.'.</p>
         <p>'.$event_about.'</p>
         <p>But hurry! Registration ends on '.$event_reg_duedate.', so be sure to register ASAP by clicking the button below! Do not miss out on this incredible opportunity, we can not wait to see you there."</p>
-        <a href="http://localhost/wmsuphsi-main/event/events.php" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">Register!</a>
+        <a href="https://wmsuphsi.online/event/events.php" style="color: #107869; background: white; border: 1px solid #107869; border-radius: 2px; ">Register!</a>
     </body>
 
     </html>';
