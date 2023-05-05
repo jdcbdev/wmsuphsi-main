@@ -1,7 +1,6 @@
 <?php
     $page_title = 'Verify Email | WMSU - Peace and Human Security Institute';
     require_once '../includes/head.php'; 
-    require_once '../includes/header.php';
     require_once '../tools/variables.php';
 ?>
 
@@ -14,4 +13,4 @@
 </div>
 </section>
 
-<?php require_once '../includes/footer.php'; ?>
+
