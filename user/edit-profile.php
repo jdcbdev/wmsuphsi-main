@@ -33,16 +33,49 @@
         $user->barangay = $_POST['barangay'];
       }
           // Upload verification photos based on member type
+
         $user -> verify_one = $_FILES['verify_one']['name'];
         $user -> tempname_one = $_FILES['verify_one']['tmp_name'];
         $user -> folder_one = "../uploads/" . $user -> verify_one;
+
         $user -> verify_two = $_FILES['verify_two']['name'];
         $user -> tempname_two = $_FILES['verify_two']['tmp_name'];
         $user -> folder_two = "../uploads/" . $user -> verify_two;
 
+        $user -> verify_three = $_FILES['verify_three']['name'];
+        $user -> tempname_three = $_FILES['verify_three']['tmp_name'];
+        $user -> folder_three = "../uploads/" . $user -> verify_three;
+
+        $user -> verify_four = $_FILES['verify_four']['name'];
+        $user -> tempname_four = $_FILES['verify_four']['tmp_name'];
+        $user -> folder_four = "../uploads/" . $user -> verify_four;
+
+        $user -> verify_five = $_FILES['verify_five']['name'];
+        $user -> tempname_five = $_FILES['verify_five']['tmp_name'];
+        $user -> folder_five = "../uploads/" . $user -> verify_five;
+
+        $user -> verify_six = $_FILES['verify_six']['name'];
+        $user -> tempname_six = $_FILES['verify_six']['tmp_name'];
+        $user -> folder_six = "../uploads/" . $user -> verify_six;
+
+        $user -> verify_seven = $_FILES['verify_seven']['name'];
+        $user -> tempname_seven = $_FILES['verify_seven']['tmp_name'];
+        $user -> folder_seven = "../uploads/" . $user -> verify_seven;
+
+        $user -> verify_eight = $_FILES['verify_eight']['name'];
+        $user -> tempname_eight = $_FILES['verify_eight']['tmp_name'];
+        $user -> folder_eight = "../uploads/" . $user -> verify_eight;
+
+
         if (
           (empty($user -> verify_one) || move_uploaded_file($user -> tempname_one, $user -> folder_one))
           && (empty($user -> verify_two) || move_uploaded_file($user -> tempname_two, $user -> folder_two))
+          && (empty($user -> verify_three) || move_uploaded_file($user -> tempname_three, $user -> folder_three))
+          && (empty($user -> verify_four) || move_uploaded_file($user -> tempname_four, $user -> folder_four))
+          && (empty($user -> verify_five) || move_uploaded_file($user -> tempname_five, $user -> folder_five))
+          && (empty($user -> verify_six) || move_uploaded_file($user -> tempname_six, $user -> folder_six))
+          && (empty($user -> verify_seven) || move_uploaded_file($user -> tempname_seven, $user -> folder_seven))
+          && (empty($user -> verify_eight) || move_uploaded_file($user -> tempname_eight, $user -> folder_eight))
         ) 
 
       
@@ -233,37 +266,52 @@
                       </div>
                     </div>
                     </div>
-
                     <div class="id-upload Student">
-
-
-
-
-
 
                     <div class="image-container">
                     <p>Alumni ID</p>
                     <div style="display: flex;">
-                      <img src="../uploads/<?php if(isset($_POST['verify_three'])) { echo $_POST['verify_three']; } ?>" name="verify_three" alt="" style="width: 20%; height: auto; margin-right: 20px;">
-                      <img src="../uploads/<?php if(isset($_POST['verify_four'])) { echo $_POST['verify_four']; } ?>" name="verify_four" alt="" style="width: 20%; height: auto; ">
+                    <input type="file" name="verify_three" id="verify_three" accept="image/*"  onchange="showDisplayThree(event)">
+                    <input type="file" name="verify_four" id="verify_four" accept="image/*"  onchange="showDisplayFour(event)">
+                      <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
+                        <img id="preview-three">
+                      </div>
+                      <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
+                        <img id="preview-four">
+                      </div>
                     </div>
                     </div>
+                    <div class="id-upload Alumni">
 
                     <div class="image-container">
                     <p>Employee ID</p>
                     <div style="display: flex;">
-                      <img src="../uploads/<?php if(isset($_POST['verify_five'])) { echo $_POST['verify_five']; } ?>" name="verify_five" alt="" style="width: 20%; height: auto; margin-right: 20px;">
-                      <img src="../uploads/<?php if(isset($_POST['verify_six'])) { echo $_POST['verify_six']; } ?>" name="verify_six" alt="" style="width: 20%; height: auto; ">
+                    <input type="file" name="verify_five" id="verify_five" accept="image/*"  onchange="showDisplayFive(event)">
+                    <input type="file" name="verify_six" id="verify_six" accept="image/*"  onchange="showDisplaySix(event)">
+                      <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
+                        <img id="preview-five">
+                      </div>
+                      <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
+                        <img id="preview-six">
+                      </div>
                     </div>
                     </div>
+                    <div class="id-upload Employee">
 
                     <div class="image-container">
                     <p>Not-Affiliated (Outside WMSU) ID</p>
                     <div style="display: flex;">
-                      <img src="../uploads/<?php if(isset($_POST['verify_seven'])) { echo $_POST['verify_seven']; } ?>" name="verify_seven" alt="" style="width: 20%; height: auto; margin-right: 20px;">
-                      <img src="../uploads/<?php if(isset($_POST['verify_eight'])) { echo $_POST['verify_eight']; } ?>" name="verify_eight" alt="" style="width: 20%; height: auto; ">
+                    <input type="file" name="verify_seven" id="verify_seven" accept="image/*"  onchange="showDisplaySeven(event)">
+                    <input type="file" name="verify_eight" id="verify_eight" accept="image/*"  onchange="showDisplayEight(event)">
+                      <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
+                        <img id="preview-seven">
+                      </div>
+                      <div class="preview" style="width: 30%; margin: auto; box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);">
+                        <img id="preview-eight">
+                      </div>
                     </div>
                     </div>
+                    <div class="id-upload None">
 
                     
                     <!--SIGN UP BUTTON-->

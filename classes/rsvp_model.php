@@ -47,24 +47,6 @@ Class Rsvp{
         return $data;
     }
 
-    /*function fetchAttendee() {
-        $sql = "SELECT rsvp.*, 
-                       event.event_title, event.event_banner, event.event_about, event.event_mode, 
-                       event.event_location, event.event_platform, event.event_slots, event.event_organizer, 
-                       event.event_start_date, event.event_end_date, event.event_start_time, event.event_end_time, event.event_scope, event.event_reg_duedate 
-                FROM rsvp 
-                INNER JOIN event ON rsvp.event_id = event.id 
-                WHERE rsvp.event_id = :event_id;";
-        $query = $this->db->connect()->prepare($sql);   
-            
-        $query->bindParam(':event_id', $this->event_id);
-        
-        if($query->execute()){
-            $data = $query->fetchAll();
-        }
-        return $data;
-    }*/
-
     function getRsvp() {
         if (!$this->event_id) {
             return []; // return an empty array if the event_id is not set

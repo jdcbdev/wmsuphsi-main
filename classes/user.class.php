@@ -39,6 +39,10 @@ Class Users{
     public $result;
     public $verified;
     public $join_status = 'rsvp';
+    public $verify_Stud = 0;
+    public $verify_Alm = 0;
+    public $verify_Emp = 0;
+    public $verify_Non = 0;
 
     protected $db;
 
@@ -162,6 +166,8 @@ Class Users{
             return false;
         }
     }
+
+
     
     function fetchUser(){
         $sql = "SELECT * FROM user_acc_data;";
@@ -274,6 +280,20 @@ Class Users{
             return true;
         }
         else{
+            return false;
+        }
+    }
+
+    function verify_Stud() {
+        //$stats = $_GET['id'];
+        $query = "UPDATE user_acc_data SET verify_Stud=1 WHERE id=:id";
+        $stmt = $this->db->connect()->prepare($query);
+        $stmt->bindParam(':id', $id);
+    
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            echo "Failed to update!";
             return false;
         }
     }

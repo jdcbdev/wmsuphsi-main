@@ -375,6 +375,10 @@ CREATE TABLE `user_acc_data` (
   `organization` varchar(50) NOT NULL,
   `member_type` set('Student','Employee','Alumni','None') NOT NULL,
   `verified` tinyint(1) NOT NULL DEFAULT 0,
+  `verify_Stud` int(11) NOT NULL,
+  `verify_Alm` int(11) NOT NULL,
+  `verify_Emp` int(11) NOT NULL,
+  `verify_Non` int(11) NOT NULL,
   `token` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

@@ -95,6 +95,8 @@
                 $verify_seven = $article['verify_seven'];
                 $verify_eight = $article['verify_eight'];
             ?>
+
+
             <link rel="stylesheet" href="../css/user.css">
             <form action="edit.php?id=<?php echo $_GET['id']?>" method="post" enctype="multipart/form-data">
 
@@ -180,8 +182,8 @@
                             <p>Student ID</p>
                             <img src="../uploads/<?php echo $verify_one; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_two; ?>" alt="" style="width: 25%; height: auto; ">
-                            <input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
-                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
+                            <input type="submit" name="decline-Stud" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify-Stud" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
                         </div>
                     <?php } ?>
 
@@ -190,8 +192,8 @@
                             <p>Alumni ID</p>
                             <img src="../uploads/<?php echo $verify_three; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_four; ?>" alt="" style="width: 25%; height: auto; ">
-                            <input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
-                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
+                            <input type="submit" name="decline-Alm" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify-Alm" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
                         </div>
                     <?php } ?>
 
@@ -200,8 +202,8 @@
                             <p>Employee ID</p>
                             <img src="../uploads/<?php echo $verify_five; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_six; ?>" alt="" style="width: 25%; height: auto; ">
-                            <input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
-                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
+                            <input type="submit" name="decline-Emp" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify-Emp" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
                         </div>
                     <?php } ?>
 
@@ -210,8 +212,8 @@
                             <p>Not-Affiliated (Outside WMSU) ID</p>
                             <img src="../uploads/<?php echo $verify_seven; ?>" alt="" style="width: 25%; height: auto; margin-right: 20px;">
                             <img src="../uploads/<?php echo $verify_eight; ?>" alt="" style="width: 25%; height: auto; ">
-                            <input type="submit" name="decline" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
-                            <input type="submit" name="verify" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
+                            <input type="submit" name="decline-Non" class="decline-btn" id="deline-id-btn" value="Decline" style="margin-left: 12%;">
+                            <input type="submit" name="verify-Non" class="verify-btn" id="verify-id-btn"value="Approve" style="margin-left: 20px;">
                         </div>
                     <?php } ?>
 
