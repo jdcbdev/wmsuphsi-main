@@ -276,7 +276,7 @@
 						if($update_stmt->execute()) {
 							echo 'Record updated successfully.';
                                  // Select all emails from user_acc_data table
-                                $select_stmt = $this->db->connect()->prepare("SELECT email FROM user_acc_data");
+                                $select_stmt = $this->db->connect()->prepare("SELECT email FROM rsvp");
                                 $select_stmt->execute();
                                 $emails = $select_stmt->fetchAll(PDO::FETCH_COLUMN);    
                                 // Call sendEventUpdates function with emails parameter
