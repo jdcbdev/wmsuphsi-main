@@ -912,6 +912,13 @@ margin: auto;
   padding: 1rem 0;
 }
 
+.free_content .content li {
+  font-size: 1.4rem;
+  color: #777;
+  margin-left: 2rem;
+}
+
+
 
 .free_content .content .icons-container {
   margin-top: 1rem;
@@ -1058,6 +1065,7 @@ margin: auto;
   padding: 2rem;
   text-align: center;
   border: 0.1rem solid #0eb582;
+  background-color: white;
 }
 
 .announcements .box-container .box .content h3 {

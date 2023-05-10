@@ -16,10 +16,11 @@
 <!-- Header Section Start -->
 <header class="header">
    <!-- Logo -->
-   <!--<img src="phsi.png" alt="">-->
-   <a href="../home.php" class="logo">PHSI</a>
+   <div>
+      <img class="banner_logo" src="../bannerlogo.png" alt="" style="width: 100%; border: none;border-radius: 0; margin: auto;">
+   </div>
    <!-- Navbar -->
-   <nav class="navbar">
+   <nav class="navbar" style="margin-left: auto;">
       <div id="close-navbar" class="fas fa-times"></div>
       <a href="../home.php">Home</a>
       <div class="dropdown">

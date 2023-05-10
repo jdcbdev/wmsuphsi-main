@@ -319,38 +319,6 @@ if(isset($_POST['submit'])) {
 
 <section class="event-organizers">
 
-   <h1 class="heading">Speakers</h1>
-
-   <div class="box-container container">
-
-
-      <div class="box">
-         <img src="../images/student-profile/user-icon.png" alt="">
-         <div class="admin-info">
-         <h3>Speaker Name 1</h3>
-         <p>Agenda</p>
-         </div>
-      </div>
-
-      <div class="box">
-         <img src="../images/student-profile/user-icon.png" alt="">
-         <h3>Speaker Name 2</h3>
-         <p>Agenda</p>
-      </div>
-
-      <div class="box">
-         <img src="../images/student-profile/user-icon.png" alt="">
-         <h3>Speaker Name 3</h3>
-         <p>Agenda</p>
-      </div>
-   </div>
-</section>
-
-
-
-
-<section class="event-organizers">
-
    <h1 class="heading">Organizers</h1>
 
 

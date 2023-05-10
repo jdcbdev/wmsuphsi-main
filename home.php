@@ -86,9 +86,11 @@ function topFunction() {
 <!-- Header Section Start -->
 <header class="header">
    <!-- Logo -->
-   <a href="home.php" class="logo">PHSI</a>
+   <div>
+      <img class="banner_logo" src="bannerlogo.png" alt="" style="width: 100%; border: none;border-radius: 0; margin: auto;">
+   </div>
    <!-- Navbar -->
-   <nav class="navbar">
+   <nav class="navbar" style="margin-left: auto;">
       <div id="close-navbar" class="fas fa-times"></div>
       <a href="home.php">Home</a>
       <div class="dropdown">
@@ -134,7 +136,7 @@ function topFunction() {
 
       <?php  if(!isset($_SESSION['logged-in'])) {   
       ?>
-      <div id="account-btn"><a href="login/login.php">Login</a></div>
+      <div><a href="login/login.php">Login</a></div>
       <?php
       }
       ?>
@@ -152,20 +154,20 @@ function topFunction() {
    require_once 'carousel/carousel.php';
 ?>
 
-<?php    if(isset($_SESSION['logged-in'])) { ?>
-<!------------------------------------------- Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES Start --------------------------------------------------------------------------------------------
+
+
 <section class="free_content">
    <div class="image">
-      <img src="images/content-images/unesco-p2.jpg"alt="">
+      <img src="images/content-images/phsi-p1.jpg"alt="">
    </div>
    <div class="content">
-      <h3 class="about-title">WMSU UNESCO Club Member?</h3>
-      <p>As a member of WMSU UNESCO Club, make sure to stay informed about upcoming events and activities by hitting the button below. Don't miss out on the chance to be part of meaningful initiatives and engage with like-minded individuals.</p>
-      <a href="#" class="btn">I am a Peace Mediator</a>
-   </div>
-</section>-->
+      <h3 class="about-title">About Us</h3>
+      <p>Western Mindanao State University (WMSU) created the Center for Peace and Development (CPD) in January 2000, to generate well-rounded and productive people for the region, ensuring the good welfare of the society grounded on democratic and peaceful initiative.</p>
 
-<!-----------------------------------------  Free Content: CALL FOR DONATIONS/VOLUNTEERS/FEATURED ARTICLES End -------------------------------------------------------------------------------------------->
+      <p>Today, under Dr. Ma. Carla A. Ochotorena, the office takes the lead in engaging WMSU in the government-led peace efforts to be the main protagonist in peace education and research on the resolution of local conflicts.</p>
+   </div>
+</section>
+
 
 
 <!--<section class="home-courses">
@@ -205,13 +207,13 @@ function topFunction() {
 
    </div>
 
-</section>
+</section>-->
 
-<?php } ?>-->
+
 
 
 <!--------------------------------------------- Announcements Section Start ----------------------------------------------------------------------------->
-<section class="announcements">
+<section class="announcements" style="background-image: url('images/carousel-images/phsi-carousel.jpg');">
    <h1 class="heading">News and Features </h1>
    <div class="box-container">
       <div class="box">
@@ -276,7 +278,7 @@ function topFunction() {
 
 
 <!----------------------------------------------- Review Section Start --------------------------------------------------------------------------------->
-<section class="reviews">
+<!--<section class="reviews">
    <h1 class="heading">Our reviews</h1>
 
    <div class="swiper reviews-slider">
@@ -312,7 +314,7 @@ function topFunction() {
       </div>
    </div>
    <div class="swiper-pagination"></div>
-</section>
+</section>-->
 
 <section class="contact">
 
@@ -342,6 +344,8 @@ function topFunction() {
 
    </div>
 
+
+
    <div class="row">
    <div class="mapouter">
     <div class="gmap_canvas">
@@ -353,14 +357,14 @@ function topFunction() {
             </style>
             </div>
 
-      <!--<form action="">
+      <form action="home.php" method="post">
          <h3>Send us a message</h3>
-         <input type="text" placeholder="Name" class="box">
-         <input type="email" placeholder="Email" class="box">
-         <input type="number" placeholder="Phone" class="box">
-         <textarea name="" class="box" placeholder="Message" id="" cols="30" rows="10"></textarea>
+         <input type="text" placeholder="Name" class="box" required>
+         <input type="email" placeholder="Email" class="box" required>
+         <input type="text" placeholder="Subject" class="box" required>
+         <textarea name="message" class="box" placeholder="Message" id="" cols="30" rows="10" required></textarea>
          <input type="submit" value="Send message" class="btn">
-      </form>-->
+      </form>
 
    </div>   
 

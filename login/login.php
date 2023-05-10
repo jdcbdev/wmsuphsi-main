@@ -116,6 +116,7 @@
             <div class="flex" style="display: flex; padding: 10px 10px 10px 1px;">
                 <a href="forgot_password.php">Forgot password?</a>
             </div>
+            
             <?php   
                 //Display the error message if there is any.
                 if(isset($error)){
