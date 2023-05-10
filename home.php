@@ -213,7 +213,7 @@ function topFunction() {
 
 
 <!--------------------------------------------- Announcements Section Start ----------------------------------------------------------------------------->
-<section class="announcements" style="background-image: url('images/carousel-images/phsi-carousel.jpg');">
+<section class="announcements" style="background: #f9f9f9;">
    <h1 class="heading">News and Features </h1>
    <div class="box-container">
       <div class="box">
