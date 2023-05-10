@@ -18,7 +18,7 @@ var swiper = new Swiper(".home-slider", {
     delay: 4000,
     disableOnInteraction: true,
   },
-  effect: "fade", 
+  effect: "slide", 
   loop:true,
   grabCursor:false
   ,
