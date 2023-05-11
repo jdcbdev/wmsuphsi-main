@@ -101,9 +101,7 @@
     <div class="login-container">
         <form class="login-form" action="login.php" method="post" onsubmit="return checkRecaptcha()">
             <div class="logo-details">
-            <img src="../images/logos/phsi.png"  alt="PHSI-LOGO">
-                <!--<i class='bx bx-meteor'></i>-->
-                <span class="logo-name">WMSU-PHSI</span>
+            <img src="../bannerlogo.png"  alt="PHSI-LOGO">
             </div>
             
 

@@ -370,7 +370,7 @@ display: block;
   margin: auto;
   border-radius: 6px;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  background: rgba(255,255,255,0.35);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(9px);
   font-size: 12px;
 }
@@ -394,11 +394,13 @@ display: block;
 }
 
 .login-form .logo-details img {
-    display: flex;
-    height: 120px;
-    width: 130px;
-    margin-left: 20px;
-    margin-top: 20px;
+  display: flex;
+  height: auto;
+  width: 85%;
+  margin-left: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  
 }
 
 .login-form .logo-details .logo-name{
