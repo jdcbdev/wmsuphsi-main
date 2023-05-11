@@ -103,15 +103,16 @@ function topFunction() {
          </div>
       </div> 
       <a href="news/news.php">News & Features</a>
-      <!--<div class="dropdown">
-         <button class="dropbtn">Organizations</button>
-         <div class="dropdown-content">
-            <a href="organizations/unesco.php">WMSU UNESCO Club</a>
-            <a href="organizations/biorisk.php">Biorisk Management and Security</a>
-         </div>
-      </div> -->
-      <!--<a href="organizations/unesco.php">WMSU UNESCO Club</a> -->
       <a href="event/events.php">Upcoming Events</a>  
+
+      <?php  if(!isset($_SESSION['logged-in'])) {   
+      ?>
+      <a href="login/login.php" style="margin-right: auto; color: #107869;">Login</a>
+      <?php
+      }
+      ?>
+
+
    </nav>
 
    <div class="icons">
@@ -134,12 +135,7 @@ function topFunction() {
       }
       ?>
 
-      <?php  if(!isset($_SESSION['logged-in'])) {   
-      ?>
-      <div><a href="login/login.php">Login</a></div>
-      <?php
-      }
-      ?>
+
       <!--<div id="menu-btn">Menu</div>-->
       <div id="menu-btn">
          <a><i class="uil uil-bars" style="font-size: 30px;"></i></a>
@@ -216,43 +212,31 @@ function topFunction() {
 <section class="announcements" style="background: #f9f9f9;">
    <h1 class="heading">News and Features </h1>
    <div class="box-container">
-      <div class="box">
-         <div class="image">
-            <img src="images/content-images/unesco-canton.jpg" alt="">
-            <h3>Jan 16, 2023</h3>
-         </div>
-         <div class="content">
-            <h3>In the Light of the Recent Flood in Zamboanga City</h3>
-            <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="#" class="btn">Read more</a>
-         </div>
-      </div>
 
-      <div class="box">
+      <?php 
+      require_once 'news/news_model.php';
+      $news = new News();
+      // Fetch the most recent 3 records from the database
+      $news_list = $news->fetchRecentRecords(3);
+      // Loop through each news article in the list
+      foreach ($news_list as $key => $value) {
+         // Display each news article in a box
+         // Float the first news article to the right, and the rest to the left
+         $float_direction = $key == 0 ? "right" : "left";
+      ?> 
+      <div class="box" style="float: <?php echo $float_direction; ?>;">
          <div class="image">
-            <img src="images/content-images/phsi-dialogue.jpg"  alt="">
-            <h3>Nov 26, 2022</h3>
+            <img src="uploads/<?php echo $value['filename']; ?>" alt="<?php echo $value['news_title']; ?>">
+            <h3><?php echo $value['created_at']; ?></h3>
          </div>
          <div class="content">
-            <h3>Harnessing our Peace Efforts: Towards Solidarity in Service</h3>
-            <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="news/news-page.php" class="btn">Read more</a>
+            <h3><?php echo $value['news_title']; ?></h3>
+            <a href="news/news-page.php?id=<?php echo $value['id']; ?>" class="btn">Read more</a>
          </div>
       </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/content-images/unesco-youthleader.png"  alt="">
-            <h3>Nov 12, 2022</h3>
-         </div>
-         <div class="content">
-         <h3>2022 UNESCO Club Outstanding Youth Leader (College Level)!</h3>
-            <!--<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, odit!</p>-->
-            <a href="#" class="btn">Read more</a>
-         </div>
-      </div>
+      <?php } ?>
+   </div>
 </section>
-
 <!---------------------------------------------- Announcements Section Start ----------------------------------------------------------------------------------->
 
 <!---------------------------------------------- Organizations Section Start  ------------------------------------------------------------------------------------------->
